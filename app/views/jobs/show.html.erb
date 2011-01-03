@@ -1,14 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <%= @job.location %>
 </p>
 <h1><%= @job.title %></h1>
+<hr size="1">
 
 <p>
   <%= simple_format(@job.content) %>
+
+  <div id="markdown_formatted"></div>
 </p>
 
-
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<% if can? :update, @job %>
+<%= link_to 'Editar', edit_job_path(@job) %> |
+<% end %>
+<% if can? :destroy, @job %>
+  <%= link_to 'Excluir', @job, :confirm => 'Are you sure?', :method => :delete %> |
+<% end %>
+<%= link_to 'Voltar', jobs_path %>

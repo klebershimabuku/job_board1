@@ -7,8 +7,10 @@ body {
 }
 
 header {
-  padding-top: 20px;
+  padding: 10px 0px 5px 0px;
+  background-color: #fff;
 }
+#header { width: 960px; margin: 0 auto;}
 
 header img {
   padding: 1em;
@@ -109,19 +111,28 @@ nav ul li a:hover {
 
 #navigator {
     background: #fff;
+    margin-top: 10px;
     margin-bottom: -17px;
 }
-#navigator ul li {
+#navigator ul li.first {
+    margin-top: -7px;
     list-style: none;
     display: inline-block;
-    padding: 0.2em 0;
-    padding-right: 20px;
+    padding: 0.2em 0em;
+    font-size: 30px;
+}
+#navigator ul li {
+    margin-top: -7px;
+    list-style: none;
+    display: inline-block;
+    padding: 0.2em 0.4em;
     font-size: 30px;
 }
 #navigator a:hover {
+    margin-top: -7px;
     background-color: #06c;
     color: #fff;
-    padding: 0.2em;
+    padding: 0.2em 0em;
     text-decoration: none;
 }
 
@@ -137,3 +148,4 @@ footer {
 footer nav {
   float: none;
 }
+

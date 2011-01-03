@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 gem 'mysql2'
 gem 'devise'
+gem 'cancan'
 
 group :development do
   gem 'rspec-rails', '2.3.0'
