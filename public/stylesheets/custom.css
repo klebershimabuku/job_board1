@@ -118,6 +118,12 @@ nav ul li a:hover {
     padding-right: 20px;
     font-size: 30px;
 }
+#navigator a:hover {
+    background-color: #06c;
+    color: #fff;
+    padding: 0.2em;
+    text-decoration: none;
+}
 
 /* Footer */
 

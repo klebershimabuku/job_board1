@@ -5,7 +5,7 @@
       <% if current_user.nil? %>
       <li><%= link_to "Entrar", new_user_session_path %> ou <%= link_to "Cadastre-se", new_user_registration_path %></li>
           <% else %>
-      Logado como <%= current_user.email %>. Não é você? <%= link_to "Sair", destroy_user_session_path %>
+      Logado como <b><%= current_user.email %></b>. Não é você? <%= link_to "Sair", destroy_user_session_path %>
       <% end %>
     </ul>
   </nav>

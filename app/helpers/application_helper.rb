@@ -12,4 +12,10 @@ module ApplicationHelper
   def logo
     link_to image_tag("logo.png", :alt => "ShigotoDOKO", :class => "round"), root_path
   end
+
+  def timeago(time, options = {})
+    options[:class] ||= "timeago"
+    content_tag(:abbr, time.to_s, options.merge(:title => time.getutc.iso8601)) if time
+  end
+
 end
