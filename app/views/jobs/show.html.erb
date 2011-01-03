@@ -1,22 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @job.title %>
-</p>
-
-<p>
-  <b>Location:</b>
   <%= @job.location %>
 </p>
+<h1><%= @job.title %></h1>
 
 <p>
-  <b>Content:</b>
-  <%= @job.content %>
+  <%= simple_format(@job.content) %>
 </p>
 
 <p>
-  <b>User:</b>
+  <b>Enviado por:</b>
   <%= @job.user_id %>
 </p>
 

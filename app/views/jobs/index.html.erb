@@ -1,25 +1,15 @@
-<h1>Listing jobs</h1>
+<h1>Exibindo <%= pluralize(@jobs.count, 'anúncio') %></h1>
 
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Location</th>
-    <th>Content</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @jobs.each do |job| %>
   <tr>
-    <td><%= job.title %></td>
-    <td><%= job.location %></td>
-    <td><%= job.content %></td>
-    <td><%= job.user_id %></td>
-    <td><%= link_to 'Show', job %></td>
-    <td><%= link_to 'Edit', edit_job_path(job) %></td>
-    <td><%= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to job.title, job %></td>
+    <td colspan="2"><%= job.location %></td>
+  </tr>
+  <tr>
+    <td>Empresa contratante</td>
+    <td colspan="2"><%= job.created_at %></td>
   </tr>
 <% end %>
 </table>

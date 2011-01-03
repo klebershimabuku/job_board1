@@ -20,6 +20,7 @@ section {
   font-size: 120%;
   padding: 20px;
   background: #fff;
+
 }
 
 section h1 {
@@ -77,6 +78,7 @@ nav ul li a:visited {
 nav ul li a:hover {
   text-decoration: underline;
 }
+
 /* Round corners */
 
 .round {
@@ -84,6 +86,41 @@ nav ul li a:hover {
   -webkit-border-radius: 10px;
   border-radius:         10px;
 }
+
+.round-top {
+    -moz-border-radius-topright:    10px;
+    -webkit-border-top-right-radius: 10px;
+    border-top-right-radius:         10px;
+    -moz-border-radius-topleft:    10px;
+    -webkit-border-top-left-radius: 10px;
+    border-top-left-radius:         10px;
+}
+.round-bottom {
+    -moz-border-radius-bottomright:    10px;
+    -webkit-border-bottom-right-radius: 10px;
+    border-bottom-right-radius:         10px;
+    -moz-border-radius-bottomleft:    10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius:         10px;
+}
+
+
+/* Site navigator */
+
+#navigator {
+    background: #fff;
+    margin-bottom: -17px;
+}
+#navigator ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 0.2em 0;
+    padding-right: 20px;
+    font-size: 30px;
+}
+
+/* Footer */
+
 footer {
   text-align: center;
   margin-top: 10px;
