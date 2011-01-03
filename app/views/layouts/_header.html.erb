@@ -2,9 +2,14 @@
   <%= logo %>
   <nav class="round">
     <ul>
-      <li><%= link_to "Home", home_path %></li>
-      <li><%= link_to "Ajuda", help_path %></li>
-      <li><%= link_to "Entrar", new_user_session_path %></li>
+      <li>
+      <% if user_signed_in? %>
+          Signed in as <%= current_user.email %>. Não é você?
+          <%= link_to "Sair",  destroy_user_session_path %>
+      <% else %>
+          <%= link_to "Cadastre-se", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
+      <% end %>
+      </li>
     </ul>
   </nav>
 </header>
