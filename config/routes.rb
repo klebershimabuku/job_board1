@@ -1,5 +1,8 @@
 JobBoard::Application.routes.draw do
 
+
+  get "user/show"
+
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
@@ -8,6 +11,7 @@ JobBoard::Application.routes.draw do
   resources :jobs
 
   devise_for :users, :path_names=> { :sign_up => 'register', :sign_in => 'login'}
+  resources :users, :controller => 'user'
 
   root :to => "pages#home"
 end

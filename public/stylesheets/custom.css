@@ -114,26 +114,29 @@ nav ul li a:hover {
     margin-top: 10px;
     margin-bottom: -17px;
 }
-#navigator ul li.first {
-    margin-top: -7px;
+#navigator ul li.first a {
+    margin-top: 10px;
+    margin-left: -0.2em;
     list-style: none;
     display: inline-block;
-    padding: 0.2em 0em;
-    font-size: 30px;
+    padding: 0.2em;
+    font-weight: bold;
 }
 #navigator ul li {
-    margin-top: -7px;
+    font-size: 30px;
     list-style: none;
     display: inline-block;
-    padding: 0.2em 0.4em;
-    font-size: 30px;
+    padding: 0.2em;
 }
 #navigator a:hover {
-    margin-top: -7px;
     background-color: #06c;
     color: #fff;
-    padding: 0.2em 0em;
+    padding: 0.2em;
     text-decoration: none;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+    
 }
 
 /* Footer */
@@ -149,3 +152,39 @@ footer nav {
   float: none;
 }
 
+#welcome_message {
+    margin:0 auto;
+    text-align: center;
+}
+
+.align_to_center { text-align: center; }
+
+#business_done {
+    text-align: center;
+}
+
+#partners {
+    margin-top: 30px;
+    text-align: center;
+}
+#partners h1 {
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+}
+#partners ul {
+    list-style: none;
+    margin-left: 30px;
+}
+#partners ul li {
+    display: inline-block;
+    font-size: 30px;
+    padding-right: 30px;
+}
+
+#banner_footer {
+    margin-top: 50px;
+    text-align: center;
+    background-image: url("/images/ads/ads.gif");
+    background-position: 150px -2px;
+    background-repeat: no-repeat;
+}
