@@ -7,8 +7,10 @@ body {
 }
 
 header {
-  padding-top: 20px;
+  padding: 10px 0px 5px 0px;
+  background-color: #fff;
 }
+#header { width: 960px; margin: 0 auto;}
 
 header img {
   padding: 1em;
@@ -20,6 +22,7 @@ section {
   font-size: 120%;
   padding: 20px;
   background: #fff;
+
 }
 
 section h1 {
@@ -77,6 +80,7 @@ nav ul li a:visited {
 nav ul li a:hover {
   text-decoration: underline;
 }
+
 /* Round corners */
 
 .round {
@@ -84,6 +88,59 @@ nav ul li a:hover {
   -webkit-border-radius: 10px;
   border-radius:         10px;
 }
+
+.round-top {
+    -moz-border-radius-topright:    10px;
+    -webkit-border-top-right-radius: 10px;
+    border-top-right-radius:         10px;
+    -moz-border-radius-topleft:    10px;
+    -webkit-border-top-left-radius: 10px;
+    border-top-left-radius:         10px;
+}
+.round-bottom {
+    -moz-border-radius-bottomright:    10px;
+    -webkit-border-bottom-right-radius: 10px;
+    border-bottom-right-radius:         10px;
+    -moz-border-radius-bottomleft:    10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius:         10px;
+}
+
+
+/* Site navigator */
+
+#navigator {
+    background: #fff;
+    margin-top: 10px;
+    margin-bottom: -17px;
+}
+#navigator ul li.first a {
+    margin-top: 10px;
+    margin-left: -0.2em;
+    list-style: none;
+    display: inline-block;
+    padding: 0.2em;
+    font-weight: bold;
+}
+#navigator ul li {
+    font-size: 30px;
+    list-style: none;
+    display: inline-block;
+    padding: 0.2em;
+}
+#navigator a:hover {
+    background-color: #06c;
+    color: #fff;
+    padding: 0.2em;
+    text-decoration: none;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+    
+}
+
+/* Footer */
+
 footer {
   text-align: center;
   margin-top: 10px;
@@ -93,4 +150,41 @@ footer {
 
 footer nav {
   float: none;
+}
+
+#welcome_message {
+    margin:0 auto;
+    text-align: center;
+}
+
+.align_to_center { text-align: center; }
+
+#business_done {
+    text-align: center;
+}
+
+#partners {
+    margin-top: 30px;
+    text-align: center;
+}
+#partners h1 {
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+}
+#partners ul {
+    list-style: none;
+    margin-left: 30px;
+}
+#partners ul li {
+    display: inline-block;
+    font-size: 30px;
+    padding-right: 30px;
+}
+
+#banner_footer {
+    margin-top: 50px;
+    text-align: center;
+    background-image: url("/images/ads/ads.gif");
+    background-position: 150px -2px;
+    background-repeat: no-repeat;
 }

@@ -1,15 +1,14 @@
 <header>
+  <div id="header">
   <%= logo %>
   <nav class="round">
     <ul>
-      <li>
-      <% if user_signed_in? %>
-          Signed in as <%= current_user.email %>. Não é você?
-          <%= link_to "Sair",  destroy_user_session_path %>
-      <% else %>
-          <%= link_to "Cadastre-se", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
+      <% if current_user.nil? %>
+      <li><%= link_to "Entrar", new_user_session_path %> ou <%= link_to "Cadastre-se", new_user_registration_path %></li>
+          <% else %>
+      Logado como <b><%= current_user.email %></b>. Não é você? <%= link_to "Sair", destroy_user_session_path %>
       <% end %>
-      </li>
     </ul>
   </nav>
+  </div>
 </header>

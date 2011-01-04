@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "please-change-me@config-initializers-devise.com"
+  config.mailer_sender = "no-reply@shigotodoko.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -43,7 +43,8 @@ Devise.setup do |config|
   # from others authentication tools as :clearance_sha1, :authlogic_sha512 (then
   # you should set stretches above to 20 for default behavior) and :restful_authentication_sha1
   # (then you should set stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
-  config.encryptor = :bcrypt
+  # config.encryptor = :bcrypt (default)
+  config.encryptor = :restful_authentication_sha1
 
   # Setup a pepper to generate the encrypted password.
   config.pepper = "8ab92ca0074ad0b69ea0596a54acb093d4fdb73aa90533578b03956333e62ec9943a44a701717c9fcf3cec2ace375c323171e394cf0906090056342a6a615bbf"
