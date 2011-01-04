@@ -1,9 +1,13 @@
-<h3>Exibindo <%= pluralize(@jobs.count, 'anúncio') %></h3>
+<h1>Jobs in revision (<%= @pending.count %>)</h1>
+<hr size="1">
 
 <div id="main_jobs">
 
     <table class="positions">
-    <% @jobs.each do |job| %>
+      <% if @pending.blank? %>
+          <tr><td>Congratulations! You've no posts to approve for now!</td></tr>
+          <% end %>
+    <% @pending.each do |job| %>
     <tr>
         <td>
             <div class="post">
@@ -23,24 +27,7 @@
     </table>
 
 
-    <div id="jobs_sidebar">
-        <div>
-            <div id="ad_sample" style="padding-top: 100px; width: 300px; height: 150px;">
-              <h1>Sample Ad (300x250)</h1>
-            </div>
-        </div>
-    </div>
 
 </div>
 
 <div class="clear"></div>
-
-<br />
-<% if can? :new, Job %>
-<p><%= link_to 'Criar novo anúncio', new_job_path, :class => 'button' %></p>
-<% end %>
-
-<hr size="1"/>
-<% if current_user.announcer? %>
-    <p><%= t(:you_have) + " " + pluralize(@pending.count, t(:announcer)) %> aguardando revisão.</p>
-<% end %>

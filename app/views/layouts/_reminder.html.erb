@@ -1,0 +1,9 @@
+<div id="reminder">
+  <div class="container">
+
+<% if current_user.admin? %>
+    <p><%= link_to(t(:you_have) + " " + pluralize(@pending.count, t(:announcer)) , jobs_revision_path) %> aguardando revisão.</p>
+<% end %>
+
+  </div>
+</div>

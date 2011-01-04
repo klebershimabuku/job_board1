@@ -1,3 +1,11 @@
+<% if can? :update, Job %>
+    <% if @job.available? %>
+        <div style="float: right; font-weight: bold; color: green;">It's published already, but you still can <%= link_to 'put them off for a while..', unpublish_job_path(@job) , :class => 'btn red'%></div>
+    <% else %>
+        <div style="float: right; font-weight: bold;"><%= link_to 'Publish and make it available now!', publish_job_path(@job) , :class => 'btn green'%></div>
+     <% end %>
+<% end %>
+
 <p>
   <%= @job.location %>
 </p>

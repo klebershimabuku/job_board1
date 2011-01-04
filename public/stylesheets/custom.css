@@ -22,9 +22,13 @@ section {
   font-size: 120%;
   padding: 20px;
   background: #fff;
-
 }
 
+#reminder {
+    margin: 0 auto;
+    background-color: #fff;
+}
+#reminder .container { width: 960px; }
 section h1 {
   font-size: 200%;
 }
@@ -203,13 +207,19 @@ footer nav {
                 margin-left: -20px;
                 float: left
             }
-                table.positions tr td div.post ul.title_and_company li.title {
+                table.positions tr td div.post ul.title_and_company li.title a {
                     font-weight: bold;
+                    font-size: 16px;
+                }
+                table.positions tr td div.post ul.title_and_company li.title a:hover {
+                    text-decoration: underline;
                 }
             table.positions tr td div.post ul.location_and_created_date {
                 float: right;
                 text-align: right;
                 margin-right: -5px;
+                font-size: 12px;
+                color: #666;
             }
                 table.positions tr td div.post ul.location_and_created_date li.created_date {
                     color: #999;
@@ -264,6 +274,38 @@ a.button {
   background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#fff));
   filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#cccccc, endColorStr=#ffffff)
 }
+
+/* CSS3 BUTTON */
+
+.btn {
+	display: inline-block;
+	background: url(/images/btn.bg.png) repeat-x 0px 0px;
+	padding:5px 10px 6px 10px;
+	font-weight:bold;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+	border:1px solid rgba(0,0,0,0.4);
+	-moz-border-radius: 5px;
+	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+}
+
+.btn:hover {
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	cursor:pointer;
+}
+
+/* COLOR VARIATIONS */
+
+.blue		{background-color: #CCCCCC; color: #141414;}
+.blue:hover	{background-color: #00c0ff; color: #ffffff;}
+
+.green		{background-color: #CCCCCC; color: #141414;}
+.green:hover{background-color: #8aff00; color: #ffffff;}
+
+.red		{background-color: #CCCCCC; color: #141414;}
+.red:hover	{background-color: #ff004e; color: #ffffff;}
+
 
 #ad_sample {
     background-color: #eee;

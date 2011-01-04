@@ -1,10 +1,34 @@
 class JobsController < ApplicationController
 
   load_and_authorize_resource
+  before_filter :reminder, :except => [:index]
   
   def index
-    @jobs = Job.recents
+    @jobs = Job.recents_available
+    @user = current_user
+    if @user.admin?
+      @pending = Job.all_pending_jobs
+    elsif @user.announcer?
+      @pending = Job.user_pending_jobs(current_user)
+    end
   end
+
+  def revision
+    @pending = Job.all_pending_jobs    
+  end
+
+  def publish
+    Job.find(params[:id]).toggle!(:available)
+    flash[:notice] = "Job was successfull published."
+    redirect_to jobs_revision_path
+  end
+
+  def unpublish
+    Job.find(params[:id]).toggle!(:available)
+    flash[:notice] = "Job was successfull unpublished."
+    redirect_to jobs_revision_path    
+  end
+
 
   def show
   end
@@ -37,4 +61,13 @@ class JobsController < ApplicationController
     @job.destroy
     redirect_to(jobs_url)
   end
+
+  private
+
+  def reminder
+    if current_user.admin?
+      @pending = Job.all_pending_jobs
+    end
+  end
 end
+

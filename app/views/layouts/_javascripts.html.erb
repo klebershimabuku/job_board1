@@ -1,6 +1,21 @@
 <%= javascript_include_tag :defaults %>
-<%= javascript_include_tag 'timeago' %>
-
+<% if params[:controller] == "jobs" %>
+<%= javascript_include_tag('jquery.wymeditor.min.js') %>
+<%= javascript_include_tag('jquery.js') %>
 <script type="text/javascript">
-  $("abbr.timeago").timeago();
-</script>
+/* Here we replace each element with class 'wymeditor'
+ * (typically textareas) by a WYMeditor instance.
+ *
+ * We could use the 'html' option, to initialize the editor's content.
+ * If this option isn't set, the content is retrieved from
+ * the element being replaced.
+ */
+
+jQuery(function() {
+    jQuery('.wymeditor').wymeditor();
+});
+    </script>
+<% end %>
+
+
+<script language="javascript" src="http://www.websiteribbon.com/ribbon/138496/"></script><noscript><div class="websiteribbon"><a title="diagonal advertising banner design" href="http://www.websiteribbon.com/" target="_blank"><img class="websiteribbon" src="http://www.websiteribbon.com/banner.gif" alt="Diagonal Advertising Banner Design" ></a></div></noscript>
