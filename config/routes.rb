@@ -11,7 +11,9 @@ JobBoard::Application.routes.draw do
   resources :jobs
 
   devise_for :users, :path_names=> { :sign_up => 'register', :sign_in => 'login'}
-  resources :users, :controller => 'user'
+  resources :users do
+    get :change_level, :on => :member
+  end
 
   root :to => "pages#home"
 end

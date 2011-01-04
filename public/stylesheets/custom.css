@@ -116,14 +116,14 @@ nav ul li a:hover {
 }
 #navigator ul li.first a {
     margin-top: 10px;
-    margin-left: -0.2em;
+    margin-left: -0.4em;
     list-style: none;
     display: inline-block;
     padding: 0.2em;
     font-weight: bold;
 }
 #navigator ul li {
-    font-size: 30px;
+    font-size: 25px;
     list-style: none;
     display: inline-block;
     padding: 0.2em;
@@ -150,6 +150,7 @@ footer {
 
 footer nav {
   float: none;
+  background-color: #c2c2c8;
 }
 
 #welcome_message {
@@ -164,7 +165,7 @@ footer nav {
 }
 
 #partners {
-    margin-top: 30px;
+    margin-top: 150px;
     text-align: center;
 }
 #partners h1 {
@@ -181,10 +182,96 @@ footer nav {
     padding-right: 30px;
 }
 
-#banner_footer {
-    margin-top: 50px;
+#main_jobs {
+    margin: 10 10px 10px 0px;
+}
+#main_jobs table.positions {
+    float: left;
+    width: 600px;
+    margin-left: -5px;
+}
+        table.positions tr td {
+            background-color: #fff;
+        }
+            table.positions tr td div.post {
+                padding-top: 5px;
+            }
+            table.positions tr td div.post ul {
+                list-style: none;
+            }
+            table.positions tr td div.post ul.title_and_company {
+                margin-left: -20px;
+                float: left
+            }
+                table.positions tr td div.post ul.title_and_company li.title {
+                    font-weight: bold;
+                }
+            table.positions tr td div.post ul.location_and_created_date {
+                float: right;
+                text-align: right;
+                margin-right: -5px;
+            }
+                table.positions tr td div.post ul.location_and_created_date li.created_date {
+                    color: #999;
+                }
+
+
+#main_jobs div#jobs_sidebar {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+a.button {
+    text-decoration: none;
+    color: #000;
+}
+.button {
+  font:normal 13px arial,helvetica,sans-serif;
+  color:#000;
+  border:1px solid #ccc;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  background-color:#f6f6f6;
+  background-image:linear-gradient(top, #fff, #efefef);
+  background-image:-moz-linear-gradient(top, #fff, #efefef);
+  background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#efefef));
+  filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff, endColorStr=#efefef);
+  height:1.9231em;
+  padding:0.3em 0.5em;
+  cursor:pointer;
+  white-space:nowrap;
+  overflow:visible; /* fixes width in IE7 */
+  outline:0 none /* removes focus outline in IE */}
+.button::-moz-focus-inner {border:none} /* removes focus outline in FF */
+.button:hover, button:focus {
+  border-color:#999;
+  background-color:#f0f1f3;
+  background-image:linear-gradient(top, #fff, #ebebeb);
+  background-image:-moz-linear-gradient(top, #fff, #ebebeb);
+  background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ebebeb));
+  filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ffffff, endColorStr=#ebebeb);
+  box-shadow:0 0 3px rgba(0,0,0,0.4);
+  -moz-box-shadow:0 0 3px rgba(0,0,0,0.4);
+  -webkit-box-shadow:0 0 3px rgba(0,0,0,0.4)}
+.button:active {
+  background-color:#ddd;
+  background-image:linear-gradient(top, #ccc, #fff);
+  background-image:-moz-linear-gradient(top, #ccc, #fff);
+  background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#fff));
+  filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#cccccc, endColorStr=#ffffff)
+}
+
+#ad_sample {
+    background-color: #eee;
+    border: 1px solid #ddd;
+}
+#ad_sample h1 {
+    vertical-align: middle;
     text-align: center;
-    background-image: url("/images/ads/ads.gif");
-    background-position: 150px -2px;
-    background-repeat: no-repeat;
+    font-size: 25px;
+    color: #333;
 }

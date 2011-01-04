@@ -1,0 +1,26 @@
+<h1>Listing Users</h1>
+
+<table>
+
+  <tr>
+    <td></td>
+    <td>email</td>
+    <td>level</td>
+    <td>created date</td>
+    <td>action</td>
+  </tr>
+
+  <% @users.each do |user| %>
+
+  <tr>
+    <td style="background-color: #fff"><%= announcer(user) %></td>
+    <td><%= user.email %></td>
+    <td><%= kind_of_user(user) %></td>
+    <td><%= user.created_at %></td>
+    <td><%= link_to(verify_and_display_correct_changes_on_link(user), change_level_user_path(user), :class => 'button') %></td>
+  </tr>
+
+  <% end %>
+
+
+</table>
