@@ -19,13 +19,13 @@
 </p>
 
 <p>
+  <%= link_to 'Voltar', jobs_path %>
 <% if can? :update, @job %>
-<%= link_to 'Editar', edit_job_path(@job) %> |
+ou <%= link_to 'Editar', edit_job_path(@job), :class => 'button' %>
 <% end %>
 <% if can? :destroy, @job %>
-  <%= link_to 'Excluir', @job, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to 'Excluir', @job, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %> 
 <% end %>
-<%= link_to 'Voltar', jobs_path %>
 </p>
 
 <p>

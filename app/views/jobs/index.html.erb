@@ -41,6 +41,6 @@
 <% end %>
 
 <hr size="1"/>
-<% if current_user.announcer? %>
-    <p><%= t(:you_have) + " " + pluralize(@pending.count, t(:announcer)) %> aguardando revisão.</p>
+<% if current_user && current_user.announcer? %>
+    <p>* <%= t(:you_have) + " " + pluralize(@pending.count, t(:announcer)) %> aguardando revisão.</p>
 <% end %>

@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #c2c2c8;
+   background: #c2c2c8;
 }
 
 header {
@@ -29,6 +29,9 @@ section {
     background-color: #fff;
 }
 #reminder .container { width: 960px; }
+#reminder .container p {
+    margin-left: 20px; 
+}
 section h1 {
   font-size: 200%;
 }
@@ -154,7 +157,7 @@ footer {
 
 footer nav {
   float: none;
-  background-color: #c2c2c8;
+  background-color: #fff;
 }
 
 #welcome_message {
@@ -169,7 +172,7 @@ footer nav {
 }
 
 #partners {
-    margin-top: 150px;
+    margin-top: 100px;
     text-align: center;
 }
 #partners h1 {

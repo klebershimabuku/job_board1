@@ -1,14 +1,14 @@
 class JobsController < ApplicationController
 
   load_and_authorize_resource
-  before_filter :reminder, :except => [:index]
+
   
   def index
     @jobs = Job.recents_available
     @user = current_user
-    if @user.admin?
+    if @user && @user.admin?
       @pending = Job.all_pending_jobs
-    elsif @user.announcer?
+    elsif @user && @user.announcer?
       @pending = Job.user_pending_jobs(current_user)
     end
   end
@@ -62,12 +62,5 @@ class JobsController < ApplicationController
     redirect_to(jobs_url)
   end
 
-  private
-
-  def reminder
-    if current_user.admin?
-      @pending = Job.all_pending_jobs
-    end
-  end
 end
 
