@@ -1,6 +1,6 @@
 class Job < ActiveRecord::Base
 
-  validates :title,   :length => { :maximum => 120 }
+  validates :title,   :length => { :maximum => 50 }
   validates :content, :length => { :maximum => 1000 }
 
   URL_REGEX = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/

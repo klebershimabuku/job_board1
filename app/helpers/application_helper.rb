@@ -42,4 +42,13 @@ module ApplicationHelper
       "Promote to announcer!"
     end
   end
+
+  def my_simple_format(value)
+    if value.nil?
+      '-'
+    else
+      value.gsub(/\n/, "<br />").html_safe
+    end
+
+  end  
 end

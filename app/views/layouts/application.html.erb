@@ -11,9 +11,10 @@
   
     <%= render 'layouts/header' %>
     <%= render 'layouts/reminder' %>
+    
     <div class="container">
       <%= render 'layouts/navigation' %>
-      <section class="round-bottom">
+      <section class="round-bottom layout-shadow">
         <% flash.each do |name, msg| %>
             <%= content_tag :p, msg, :class => "#{name}"  %>
         <% end %>

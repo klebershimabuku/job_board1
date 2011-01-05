@@ -4,6 +4,7 @@
     <% else %>
         <div style="float: right; font-weight: bold;"><%= link_to 'Publish and make it available now!', publish_job_path(@job) , :class => 'btn green'%></div>
      <% end %>
+     <div class="clear"></div>
 <% end %>
 
 <div class="show_jobs_location_and_title">
@@ -25,7 +26,7 @@
     </div>
     <div class="how_to_apply round">
         <p class="title">Como se candidatar:</p>
-        <p class="body"><%= @job.how_to_apply unless @job.how_to_apply.nil? %></p>
+        <p class="body"><%= my_simple_format(@job.how_to_apply) unless @job.how_to_apply.nil? %></p>
     </div>
   </div>
 

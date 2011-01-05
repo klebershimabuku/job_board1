@@ -12,19 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br />
+    <%= f.label :location, "Localidade" %> (ex: Kanagawa-ken, Yokohama-shi)<br />
     <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title, "Título" %> (máx: 50 caracteres)<br />
+    <%= f.text_field :title , { :size => 40, :maxlength => 50 } %>
   </div>
 
   <div class="two_column">
 
     <div class="left-column">
         <div class="field">
-            <%= f.label :content %><br />
+            <%= f.label :content, "Descrição" %><br />
             <%= f.text_area :content , :cols => 80, :rows => 20 %>
         </div>
         <div class="actions">
@@ -35,16 +36,16 @@
 
     <div class="right-column">
       <div class="field">
-          <%= f.label :company_name %><br />
+          <%= f.label :company_name, "Empresa" %><br />
           <%= f.text_field :company_name %>
       </div>
       <div class="field">
-          <%= f.label :company_website %><br />
+          <%= f.label :company_website, "Website" %><br />(ex: http://www.empresa.com)<br />
           <%= f.text_field :company_website %>
       </div>
       <div class="field">
-          <%= f.label :how_to_apply %><br />
-          <%= f.text_area :how_to_apply, :cols => 40, :rows => 10 %>
+          <%= f.label :how_to_apply, "Como entrar em contato:" %><br />
+          <%= f.text_area :how_to_apply, :cols => 35, :rows => 10 %>
       </div>
     </div>
 
