@@ -1,4 +1,4 @@
-<% if can? :update, Job %>
+<% if can? :publish, Job %>
     <% if @job.available? %>
         <div style="float: right; font-weight: bold; color: green;">It's published already, but you still can <%= link_to 'put them off for a while..', unpublish_job_path(@job) , :class => 'btn red'%></div>
     <% else %>
@@ -6,17 +6,32 @@
      <% end %>
 <% end %>
 
-<p>
-  <%= @job.location %>
-</p>
-<h1><%= @job.title %></h1>
-<hr size="1">
+<div class="show_jobs_location_and_title">
+  <p class="location"><%= @job.location %></p>
+  <p class="title"><%= @job.title %></p>
+</div>
 
-<p>
-  <%= simple_format(@job.content) %>
+<div class="two-columns">
 
-  <div id="markdown_formatted"></div>
-</p>
+  <div class="left-column" style="width: 70%; margin-top: -50px;">
+    <p class="show_jobs_job_content">
+      <%= simple_format(@job.content) %>
+    </p>       
+  </div>
+  <div class="company_info">
+    <div class="company_name_and_website round">
+      <p class="company_name"><%= @job.company_name unless @job.company_name.nil? %></p>
+      <p class="company_website"><%= link_to @job.company_website, @job.company_website, :target => '_blank' unless @job.company_website.nil? %></p>
+    </div>
+    <div class="how_to_apply round">
+        <p class="title">Como se candidatar:</p>
+        <p class="body"><%= @job.how_to_apply unless @job.how_to_apply.nil? %></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="clear"></div>
 
 <p>
   <%= link_to 'Voltar', jobs_path %>

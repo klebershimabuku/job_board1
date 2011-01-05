@@ -51,6 +51,9 @@ class JobsController < ApplicationController
 
   def update
     if @job.update_attributes(params[:job])
+      if current_user.announcer?
+        @job.update_attribute(:available, :value => false)
+      end
       redirect_to(@job, :notice => 'Job was successfully updated.')
     else
       render :action => "edit"

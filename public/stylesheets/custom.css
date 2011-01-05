@@ -3,7 +3,8 @@
 }
 
 body {
-   background: #c2c2c8;
+   /* background: #c2c2c8; */
+    background-image: url('/images/pattern_037.gif')
 }
 
 header {
@@ -304,7 +305,7 @@ a.button {
 .blue:hover	{background-color: #00c0ff; color: #ffffff;}
 
 .green		{background-color: #CCCCCC; color: #141414;}
-.green:hover{background-color: #8aff00; color: #ffffff;}
+.green:hover{background-color: #2C6799; color: #ffffff;}
 
 .red		{background-color: #CCCCCC; color: #141414;}
 .red:hover	{background-color: #ff004e; color: #ffffff;}
@@ -320,3 +321,64 @@ a.button {
     font-size: 25px;
     color: #333;
 }
+
+.left-column { float: left; }
+.right-column { float: right; }
+
+.show_jobs_location_and_title p.location {
+
+}
+.show_jobs_location_and_title p.title {
+    margin-top: -30px;
+    font-weight: bold;
+    font-size: 24px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    color: #006699;
+}
+.show_jobs_job_content {
+    font-size: 12px;
+    margin-top: 30px;
+}
+.company_info {
+    width: 25%;
+    float: right;
+    margin-top: -20px;
+} 
+.company_info .company_name_and_website {
+    background-color: #FFFEEF;
+    border: 1px solid #CCC;
+    padding: 5px;
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+}
+    .company_info p.company_name {
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
+    }
+    .company_info p.company_website {
+        margin-top: -15px;
+        margin-bottom: -3px;
+    }
+
+.company_info .how_to_apply {
+    margin-top: 10px;
+    background-color: #FFFEEF;
+    border: 1px solid #CCC;
+    padding: 5px 0px 0px 5px;
+    -moz-box-shadow: 0 0 5px #CCC;
+    -webkit-box-shadow: 0 0 5px #CCC;
+    box-shadow: 0 0 5px #CCC;
+}
+    .company_info .how_to_apply p.title {
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
+    }
+    .company_info .how_to_apply p.body {
+        margin-top: -15px;
+        margin-bottom: 2px;
+        margin-right: 3px;
+        margin-left: 3px;
+        font-size: 12px;
+    }

@@ -19,12 +19,35 @@
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content , :cols => 80, :rows => 20 %>
+
+  <div class="two_column">
+
+    <div class="left-column">
+        <div class="field">
+            <%= f.label :content %><br />
+            <%= f.text_area :content , :cols => 80, :rows => 20 %>
+        </div>
+        <div class="actions">
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.submit %>
+        </div>
+    </div>
+
+    <div class="right-column">
+      <div class="field">
+          <%= f.label :company_name %><br />
+          <%= f.text_field :company_name %>
+      </div>
+      <div class="field">
+          <%= f.label :company_website %><br />
+          <%= f.text_field :company_website %>
+      </div>
+      <div class="field">
+          <%= f.label :how_to_apply %><br />
+          <%= f.text_area :how_to_apply, :cols => 40, :rows => 10 %>
+      </div>
+    </div>
+
   </div>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <div class="actions">
-    <%= f.submit :class => 'wymupdate' %>
-  </div>
+  <div class="clear"></div>
 <% end %>
