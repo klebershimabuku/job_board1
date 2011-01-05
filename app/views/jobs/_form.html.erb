@@ -1,4 +1,5 @@
-<%= form_for(@job) do |f| %>
+<hr size="1">
+<%= simple_form_for(@job) do |f| %>
   <% if @job.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
@@ -12,42 +13,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :location, "Localidade" %> (ex: Kanagawa-ken, Yokohama-shi)<br />
-    <%= f.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title, "Título" %> (máx: 50 caracteres)<br />
-    <%= f.text_field :title , { :size => 40, :maxlength => 50 } %>
+    <%= f.input :location, :label => "Localidade", :input_html => { :size => 30 } , :hint => "ex: Kanagawa-ken, Yokohama-shi" %>
+    <%= f.input :title , :label => "Título", :input_html => { :size => 39, :maxlength => 50 } %>
   </div>
 
   <div class="two_column">
 
+    <div class="right-column">
+      <div class="field">
+          <%= f.input :company_name, :label => "Empresa", :input_html => { :size => 21 }  %>
+          <%= f.input :company_website, :label => "Website", :input_html => { :size => 21 }  %>
+          <%= f.input :how_to_apply, :label => "Como entrar em contato", :as => 'text', :input_html => { :cols => 23, :rows => 10 } , :hint => "Informe telefones para contato." %>
+      </div>
+    </div>
+
     <div class="left-column">
         <div class="field">
-            <%= f.label :content, "Descrição" %><br />
-            <%= f.text_area :content , :cols => 80, :rows => 20 %>
+            <%= f.input :content , :label => "Descrição" , :as => 'text', :input_html => { :cols => 55, :rows => 20 }, :hint => "Forneça o maior número possível de informações referentes ao anúncio." %>
         </div>
         <div class="actions">
             <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.submit %>
+            <%= f.submit "Enviar", :class => 'button' %>
         </div>
     </div>
 
-    <div class="right-column">
-      <div class="field">
-          <%= f.label :company_name, "Empresa" %><br />
-          <%= f.text_field :company_name %>
-      </div>
-      <div class="field">
-          <%= f.label :company_website, "Website" %><br />(ex: http://www.empresa.com)<br />
-          <%= f.text_field :company_website %>
-      </div>
-      <div class="field">
-          <%= f.label :how_to_apply, "Como entrar em contato:" %><br />
-          <%= f.text_area :how_to_apply, :cols => 35, :rows => 10 %>
-      </div>
-    </div>
 
   </div>
   <div class="clear"></div>

@@ -1,14 +1,14 @@
 <h2><%= t(:sign_in)%></h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <p><%= f.input :email , :input_html => { :size => 25 } %></p>
 
-  <p><%= f.label :password, t(:password) %><br />
-  <%= f.password_field :password %></p>
+  <p><%= f.input :password , :input_html => { :size => 20 } %></p>
+
 
   <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+    <label>Lembrar minha senha</label>
+    <p><%= f.check_box :remember_me %></p>
   <% end -%>
 
   <p><%= f.submit "Entrar" %></p>
