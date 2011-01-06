@@ -193,48 +193,35 @@ footer nav {
 #main_jobs {
     margin: 10 10px 10px 0px;
 }
-#main_jobs table.positions {
+#main_jobs div.positions {
     float: left;
-    width: 560px;
-    margin-left: -5px;
+    width: 600px;
+    margin-top: 22px;
 }
-    table.positions tr {
-    }
-        table.positions tr td {
-            background-color: #fff;
-        }
-            table.positions tr td div.post {
-                padding-top: 5px;
-            }
-            table.positions tr td div.post ul {
-                list-style: none;
-            }
-            table.positions tr td div.post ul.title_and_company {
-                margin-left: -20px;
-                float: left
-            }
-                table.positions tr td div.post ul.title_and_company li.title a {
-                    font-weight: bold;
-                    font-size: 16px;
-                }
-                table.positions tr td div.post ul.title_and_company li.company_name {
-                    font-size: 12px;
-                    color: #666;
-                }
-                table.positions tr td div.post ul.title_and_company li.title a:hover {
-                    text-decoration: underline;
-                }
-            table.positions tr td div.post ul.location_and_created_date {
-                float: right;
-                text-align: right;
-                margin-right: -5px;
-                font-size: 12px;
-                color: #666;
-            }
-                table.positions tr td div.post ul.location_and_created_date li.created_date {
-                    color: #999;
-                }
-
+div.positions table {
+  margin-top: -22px;
+  margin-left: -5px;
+  border-bottom: 1px solid #ccc;
+}
+  div.positions table tr td div.title a {
+    font-weight: bold;
+  }
+  div.positions table tr td div.title a:hover {
+    text-decoration: underline;
+  }
+  div.positions table tr td div.company_name {
+    font-size: 13px;
+    color: #666;
+  }
+  
+  div.positions table tr td.location_date {
+    text-align: right;
+    font-size: 13px;
+  }
+  div.positions table tr td.location_date .date {
+    color: #999;
+  }
+  
 
 #main_jobs div#jobs_sidebar {
     float: right;
