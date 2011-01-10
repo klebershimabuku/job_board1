@@ -1,0 +1,7 @@
+<% if can? :publish, Job %>
+    <% if @job.available? %>
+        <%= iconify('offline.gif', 'Unpublish it!', unpublish_job_path(@job) ) %><%= separator %>
+    <% else %>
+        <%= iconify('online.gif', 'Publish and make it available now!', publish_job_path(@job) ) %><%= separator %>
+     <% end %>
+<% end %>

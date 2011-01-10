@@ -7,30 +7,58 @@ class JobsController < ApplicationController
     @jobs = Job.recents_available
     @user = current_user
     if @user && @user.admin?
-      @pending = Job.all_pending_jobs
+      @pending = Job.all_pending
     elsif @user && @user.announcer?
-      @pending = Job.user_pending_jobs(current_user)
+      @pending = Job.user_pending(current_user)
     end
   end
 
   def revision
-    @pending = Job.all_pending_jobs    
+    @jobs = Job.all_pending    
+  end
+  
+  def locked
+    @jobs = Job.all_locked
   end
 
   def publish
     Job.find(params[:id]).toggle!(:available)
-    flash[:notice] = "Job was successfull published."
+    flash[:notice] = "Job was successful published."
     redirect_to jobs_revision_path
   end
 
   def unpublish
     Job.find(params[:id]).toggle!(:available)
-    flash[:notice] = "Job was successfull unpublished."
+    flash[:notice] = "Job was successful unpublished."
     redirect_to jobs_revision_path    
   end
+  
+  def lock
+    Job.find(params[:id]).toggle!(:locked)
+    flash[:notice] = "Job was successful locked."
+    redirect_to job_path
+  end
 
+  def unlock
+    Job.find(params[:id]).toggle!(:locked)
+    flash[:notice] = "Job was successful unlocked."
+    redirect_to jobs_path
+  end
 
   def show
+    @jobs = Job.find(params[:id])
+    if current_user && current_user.admin? 
+    elsif current_user && current_user.announcer?
+      if @jobs.locked?
+        flash[:error] = "Job unavailable."
+        redirect_to root_path
+      end
+    else
+      if !@jobs.available or @jobs.locked?
+        flash[:error] = "Job unavailable."
+        redirect_to root_path
+      end
+    end
   end
 
   def new

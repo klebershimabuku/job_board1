@@ -1,26 +1,10 @@
-<h1>Jobs in revision (<%= @pending.count %>)</h1>
+<h1>Jobs in revision (<%= @jobs.count %>)</h1>
 <hr size="1">
 
 <div id="main_jobs">
 
     <div class="positions">
-      <% if @pending.blank? %>
-          <tr><td>Congratulations! You've no posts to approve for now!</td></tr>
-          <% end %>
-    <% @pending.each do |job| %>
-    <table class="post">
-    <tr>
-      <td>
-        <div class="title"><%= link_to job.title, job %></div>
-        <div class="company_name"><%= job.company_name %></div>
-      </td>
-      <td class="location_date">
-        <div class="location"><%= job.location %></div>
-        <div class="date"><%= time_ago_in_words t(job.created_at) %></div>
-      </td>
-    </tr>
-    </table>
-    <% end %>
+      <%= render 'positions_table' , :collection => @jobs %>
     </div>
 
 

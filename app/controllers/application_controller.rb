@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
 
   def reminder
     if current_user && current_user.admin?
-      @pending = Job.all_pending_jobs
+      @pending = Job.all_pending
+      @locked = Job.all_locked
     end
   end
 

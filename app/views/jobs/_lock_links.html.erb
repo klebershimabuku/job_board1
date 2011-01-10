@@ -1,0 +1,13 @@
+  <% if @job.locked? %>
+    <% if current_user && current_user.admin? %>
+      <%= iconify('locked.png', "This job is locked. Click to unlock.", unlock_job_path(@job) ) %><%= separator %>
+    <% else %>
+      <%= iconify('locked.png', "This job is locked.")  %>
+    <% end %>
+  <% else %>
+    <% if current_user && current_user.admin? %>
+      <%= iconify('unlocked.png', "This job is unlocked. Click to lock it.", lock_job_path(@job) ) %><%= separator %>
+    <% else %>
+      <!-- do nothing -->
+    <% end %>
+  <% end %>

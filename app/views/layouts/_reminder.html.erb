@@ -3,9 +3,15 @@
 
 <% if current_user && current_user.admin? %>
         <% if @pending.size == 0 %>
-            <p>Nenhum anúncio para revisáo.</p>
+            <p>Nenhum anúncio para revisáo.
         <% else %>
-            <p><%= link_to(t(:you_have) + " " + pluralize(@pending.count, t(:announcer)) , jobs_revision_path) %> aguardando revisão.</p>
+            <p><%= link_to(t(:you_have) + " " + pluralize(@pending.count, t(:announcer)) , jobs_revision_path) %> aguardando revisão.
+        <% end %>
+        
+        <% if @locked.size == 0 %>
+          . Nenhum anúncio bloqueado.</p>
+        <% else %>
+          <%= link_to(pluralize(@locked.count, "anúncio"),jobs_locked_path) %> bloqueado(s).
         <% end %>
 <% end %>
 

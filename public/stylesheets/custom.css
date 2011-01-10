@@ -303,6 +303,8 @@ a.button {
 .red		{background-color: #CCCCCC; color: #141414;}
 .red:hover	{background-color: #ff004e; color: #ffffff;}
 
+.yellow    {background-color: #ffff66; color: #000;}
+.yellow:hover  {background-color: #ffcc00; color: #fff;}
 
 #ad_sample {
     background-color: #eee;
@@ -430,3 +432,7 @@ a.button {
   font-style: italic;
 }
 
+#admin_header_panel {
+  padding: 10px;
+  margin-bottom: 10px;
+}

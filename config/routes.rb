@@ -8,9 +8,12 @@ JobBoard::Application.routes.draw do
   match '/home',    :to => 'pages#home'
 
   match '/jobs/revision', :to => 'jobs#revision'
+  match '/jobs/locked', :to => 'jobs#locked'
   resources :jobs do
     get :publish, :on => :member
     get :unpublish, :on => :member
+    get :lock, :on => :member
+    get :unlock, :on => :member
   end
 
   devise_for :users, :path_names=> { :sign_up => 'register', :sign_in => 'login'}

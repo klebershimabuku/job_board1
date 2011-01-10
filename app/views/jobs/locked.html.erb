@@ -1,0 +1,17 @@
+<h1>Jobs locked (<%= @jobs.count %>)</h1>
+<hr size="1">
+
+<div id="main_jobs">
+
+    <div class="positions">
+      <% if @jobs.blank? %>
+          <tr><td>Congratulations! You've no posts to approve for now!</td></tr>
+          <% end %>
+          <%= render 'positions_table' , :collection => @jobs %>
+    </div>
+
+
+
+</div>
+
+<div class="clear"></div>
