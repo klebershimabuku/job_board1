@@ -1,22 +1,12 @@
 <h3>Exibindo <%= pluralize(@jobs.count, 'anúncio') %></h3>
 
 <div id="main_jobs">
+<% if can? :new, Job %>
+<p><%= link_to 'Criar novo anúncio', new_job_path, :class => 'button' %></p>
+<% end %>
 
     <div class="positions">
-    <% @jobs.each do |job| %>
-    <table class="post">
-    <tr>
-      <td>
-        <div class="title"><%= link_to job.title, job %></div>
-        <div class="company_name"><%= job.company_name %></div>
-      </td>
-      <td class="location_date">
-        <div class="location"><%= job.location %></div>
-        <div class="date"><%= time_ago_in_words t(job.created_at) %></div>
-      </td>
-    </tr>
-    </table>
-    <% end %>
+      <%= render 'positions_table' , :collection => @jobs %>
     </div>
 
 
@@ -33,11 +23,12 @@
 <div class="clear"></div>
 
 <br />
-<% if can? :new, Job %>
-<p><%= link_to 'Criar novo anúncio', new_job_path, :class => 'button' %></p>
-<% end %>
 
 <hr size="1"/>
 <% if current_user && current_user.announcer? %>
-    <p>* <%= t(:you_have) + " " + pluralize(@pending.count, t(:announcer)) %> aguardando revisão.</p>
+  <% if @pending.blank? %>
+    <p class="small">Nenhum anúncio em revisão.</p>
+  <% else %>
+    <p class="small">* <%= link_to t(:you_have) + " " + pluralize(@pending.count, t(:announcer)) , jobs_revision_path %> aguardando revisão antes de ser publicado.</p>
+  <% end %>
 <% end %>

@@ -8,7 +8,7 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.announcer?
-      can [:read, :create, :new], Job
+      can [:read, :create, :new, :revision], Job
       can :update, Job do |job|
         job.try(:user) == user 
       end

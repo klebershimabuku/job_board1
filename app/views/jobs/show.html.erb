@@ -1,10 +1,19 @@
-<% if can? :publish, Job %>
-    <% if @job.available? %>
-        <div style="float: right; font-weight: bold; color: green;">It's published already, but you still can <%= link_to 'put them off for a while..', unpublish_job_path(@job) , :class => 'btn red'%></div>
-    <% else %>
-        <div style="float: right; font-weight: bold;"><%= link_to 'Publish and make it available now!', publish_job_path(@job) , :class => 'btn green'%></div>
-     <% end %>
-     <div class="clear"></div>
+<% if current_user && current_user.admin? %>
+<div id="admin_header_panel" class="round">
+  <div style="float: left; font-size: small">
+    <p>
+      Owner: <%= @job.user.email %><br />
+      Criado há <%= time_ago_in_words( @job.created_at ) %><br />
+      Atualizado há <%= time_ago_in_words( @job.updated_at ) %>
+    </p>
+  </div>
+  <div style="float: right">
+    <%= render 'lock_links' %>
+    <%= render 'publish_links' %>
+  </div>
+</div>
+<div class="clear"></div>
+<hr size="1">
 <% end %>
 
 <div class="show_jobs_location_and_title">
@@ -35,8 +44,8 @@
 <div class="clear"></div>
 
 <p>
-  <%= link_to 'Voltar', jobs_path %>
-<% if can? :update, @job %>
+  <%= link_to '← Voltar', jobs_path %>
+<% if can? :update, @job  %>
 ou <%= link_to 'Editar', edit_job_path(@job), :class => 'button' %>
 <% end %>
 <% if can? :destroy, @job %>
@@ -44,6 +53,4 @@ ou <%= link_to 'Editar', edit_job_path(@job), :class => 'button' %>
 <% end %>
 </p>
 
-<p>
-    <div id="banner_footer"><%= image_tag('ads/banner468x60.jpg') %></div>
-</p>
+<p><div id="banner_footer"><%= image_tag('ads/banner468x60.jpg') %></div></p>

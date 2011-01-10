@@ -22,7 +22,7 @@ module ApplicationHelper
     if user.admin?
       content_tag(:span, "Administrator", :style => "color: green;")
     elsif user.announcer?
-      content_tag(:span, "Announcer", :style => "color: blue;");
+      content_tag(:span, "Announcer", :style => "color: blue;")
     else
       "Guest"
     end
@@ -50,5 +50,15 @@ module ApplicationHelper
       value.gsub(/\n/, "<br />").html_safe
     end
 
-  end  
+  end
+  
+  def iconify(image_url, title, url_to)
+    link_to image_tag(image_url, :title => title), url_to   
+  end
+  
+  def separator
+    image_tag('separator.gif')
+  end
+  
+    
 end
