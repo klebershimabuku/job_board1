@@ -3,28 +3,25 @@
 
 <div id="main_jobs">
 
-    <table class="positions">
+    <div class="positions">
       <% if @pending.blank? %>
           <tr><td>Congratulations! You've no posts to approve for now!</td></tr>
           <% end %>
     <% @pending.each do |job| %>
+    <table class="post">
     <tr>
-        <td>
-            <div class="post">
-                <ul class="title_and_company">
-                    <li class="title"><%= link_to job.title, job %></li>
-                    <li><%= 'empresa contratante' %></li>
-                </ul>
-                <ul class="location_and_created_date">
-                    <li><%= job.location %></li>
-                    <li class="created_date"><%= time_ago_in_words t(job.created_at) %></li>
-                </ul>
-            </div>
-        <hr size="1">
-        </td>
+      <td>
+        <div class="title"><%= link_to job.title, job %></div>
+        <div class="company_name"><%= job.company_name %></div>
+      </td>
+      <td class="location_date">
+        <div class="location"><%= job.location %></div>
+        <div class="date"><%= time_ago_in_words t(job.created_at) %></div>
+      </td>
     </tr>
-    <% end %>
     </table>
+    <% end %>
+    </div>
 
 
 
