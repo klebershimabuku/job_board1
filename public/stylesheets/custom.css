@@ -227,10 +227,6 @@ div.positions table {
     float: right;
 }
 
-.clear {
-    clear: both;
-}
-
 a.button {
     text-decoration: none;
     color: #000;
@@ -435,4 +431,29 @@ a.button {
 #admin_header_panel {
   padding: 10px;
   margin-bottom: 10px;
+}
+div #sign_in_links { float: right; margin-right: 30px;}
+div #sign_in {
+  width: 550px;
+  text-align: center;
+  background-color: #f6f6f6;
+  padding: 5px;
+  float: left;
+  -moz-box-shadow: 1px 0px 1px 1px #666;
+  -webkit-box-shadow: 0 0 8px #666;
+  box-shadow: 0 0 8px #666; 
+}
+div #sign_in table tr td.header {
+  background-color: #ddd;
+}
+div #sign_in table tr td {
+  background-color: #f6f6f6;
+}
+div #sign_in table tr td label {
+  text-align: right;
+  width: 180px;
+}
+div #sign_in table tr td input {
+  text-align: left;
+  margin-left: -60px;
 }

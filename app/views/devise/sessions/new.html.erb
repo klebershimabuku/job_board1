@@ -1,17 +1,57 @@
 <h2><%= t(:sign_in)%></h2>
+<hr size="1">
 
+
+<div id="sign_in" class="round">
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <p><%= f.input :email , :input_html => { :size => 25 } %></p>
-
-  <p><%= f.input :password , :input_html => { :size => 20 } %></p>
-
-
+  <table>
+  <tr>
+    <td colspan="2" class="header">Não tem uma conta? <%= link_to "Cadastre-se", new_user_registration_path %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :email %></td>
+    <td><%= f.text_field :email , :input_html => { :size => 25 } %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :password %></td>
+    <td><%= f.password_field :password , :input_html => { :size => 20 } %></td>
+  </tr>
+    
   <% if devise_mapping.rememberable? -%>
-    <label>Lembrar minha senha</label>
-    <p><%= f.check_box :remember_me %></p>
+  <tr>
+    <td><%= f.label :remember_me, "Lembrar minha senha" %></td>
+    <td><%= f.check_box :remember_me %></td>
+  </tr>
   <% end -%>
-
-  <p><%= f.submit "Entrar" %></p>
+      
+  <tr>
+    <td colspan="2"><hr size="1"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><%= f.submit "Entrar" %></td>
+  </tr>  
+  </table>
 <% end %>
+</div>
 
-<%= render :partial => "devise/shared/links" %>
+<div id="sign_in_links">
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+
+  <p>Não tem uma conta? <br /><%= link_to "Cadastre-se agora!", new_registration_path(resource_name) %></p>
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <p>Esqueceu sua senha? <br /><%= link_to "Recupere aqui", new_password_path(resource_name) %></p>
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <p>Não recebeu as instruções de confirmação? <br /><%= link_to "Clique aqui", new_confirmation_path(resource_name) %></p>
+<% end -%>
+
+
+  
+</div>
+
+<div class="clear"></div>
