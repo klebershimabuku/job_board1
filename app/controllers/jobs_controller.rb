@@ -4,21 +4,21 @@ class JobsController < ApplicationController
 
   
   def index
-    @jobs = Job.recents_available
+    @jobs = Job.recents_available.paginate :page => params[:page], :per_page => 5
     @user = current_user
     if @user && @user.admin?
-      @pending = Job.all_pending
+      @pending = Job.all_pending.paginate :page => params[:page], :per_page => 5
     elsif @user && @user.announcer?
-      @pending = Job.user_pending(current_user)
+      @pending = Job.user_pending(current_user).paginate :page => params[:page], :per_page => 5
     end
   end
 
   def revision
-    @jobs = Job.all_pending    
+    @jobs = Job.all_pending.paginate :page => params[:page], :per_page => 5    
   end
   
   def locked
-    @jobs = Job.all_locked
+    @jobs = Job.all_locked.paginate :page => params[:page], :per_page => 5
   end
 
   def publish

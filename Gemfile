@@ -4,7 +4,8 @@ gem 'rails', '3.0.3'
 gem 'mysql2'
 gem 'devise'
 gem 'cancan'
-gem "simple_form"
+gem 'simple_form'
+gem 'will_paginate'
 
 group :development do
   gem 'rspec-rails', '2.3.0'
