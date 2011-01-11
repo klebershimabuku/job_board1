@@ -1,24 +1,24 @@
 class JobsController < ApplicationController
 
   load_and_authorize_resource
-
+  PER_PAGE = 50
   
   def index
-    @jobs = Job.recents_available.paginate :page => params[:page], :per_page => 5
+    @jobs = Job.recents_available.paginate :page => params[:page], :per_page => PER_PAGE
     @user = current_user
     if @user && @user.admin?
-      @pending = Job.all_pending.paginate :page => params[:page], :per_page => 5
+      @pending = Job.all_pending
     elsif @user && @user.announcer?
-      @pending = Job.user_pending(current_user).paginate :page => params[:page], :per_page => 5
+      @pending = Job.user_pending(current_user)
     end
   end
 
   def revision
-    @jobs = Job.all_pending.paginate :page => params[:page], :per_page => 5    
+    @jobs = Job.all_pending.paginate :page => params[:page], :per_page => PER_PAGE
   end
   
   def locked
-    @jobs = Job.all_locked.paginate :page => params[:page], :per_page => 5
+    @jobs = Job.all_locked.paginate :page => params[:page], :per_page => PER_PAGE
   end
 
   def publish

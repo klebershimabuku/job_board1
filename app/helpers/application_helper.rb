@@ -66,9 +66,9 @@ module ApplicationHelper
       
     html = if collection.total_pages < 2
               case collection.size
-                when 0; "No #{entry_name.pluralize} found"
-                when 1; "Displaying <b>1</b> #{entry_name}"
-              else; "Displaying <b>all #{collection.size}</b> #{entry_name.pluralize}"
+                when 0; "Nenhum #{entry_name.pluralize} encontrado"
+                when 1; "Exibindo <b>1</b> #{entry_name}"
+              else; "Exibindo <b>todos #{collection.size}</b> #{entry_name.pluralize}"
               end
           else
             %{Exibindo #{entry_name.pluralize} <b>%d&nbsp;-&nbsp;%d</b> de <b>%d</b> no total} % [
