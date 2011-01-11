@@ -171,8 +171,6 @@ pt-BR:
         even: "deve ser par"
         record_invalid: "A validação falhou: %{errors}"
 
-
-
   # Layout
   sign_in: "Entrar"
   logged_in_as: "Logado como"
@@ -184,3 +182,6 @@ pt-BR:
   follow_us_on_twitter: "Siga-nos no Twitter!"
   announcer: "anúncio"
   you_have: "Você tem"
+
+
+

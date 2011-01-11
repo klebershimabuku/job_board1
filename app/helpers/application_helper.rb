@@ -60,5 +60,4 @@ module ApplicationHelper
     image_tag('separator.gif')
   end
   
-    
 end

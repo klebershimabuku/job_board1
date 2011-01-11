@@ -1,4 +1,3 @@
-<h3>Exibindo <%= pluralize(@jobs.count, 'anúncio') %></h3>
 
 <div id="main_jobs">
 <% if can? :new, Job %>
@@ -7,6 +6,7 @@
 
     <div class="positions">
       <%= render 'positions_table' , :collection => @jobs %>
+      
     </div>
 
 
