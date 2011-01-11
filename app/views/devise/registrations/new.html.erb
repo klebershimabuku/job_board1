@@ -1,18 +1,31 @@
 <h2>Cadastro</h2>
+<hr size="1">
 
+<%= devise_error_messages! %>
+
+<div id="sign_up" class="round">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
-
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
-
-  <p><%= f.submit "Cadastrar" %></p>
+<table>
+  <tr>
+    <td colspan="2" class="header">Já é cadastrado? <%= link_to "Entre aqui", new_user_registration_path %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :email %></td>
+    <td><%= f.text_field :email %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :password , "Senha" %></td>
+    <td><%= f.password_field :password %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :password_confirmation, "Confirme sua senha" %></td>
+    <td><%= f.password_field :password_confirmation %></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><%= f.submit "Cadastrar", :class => 'btn blue' %></td>
+  </tr>
+</table>
 <% end %>
-
-<%= render :partial => "devise/shared/links" %>
+</div>
+<div class="clear"></div>

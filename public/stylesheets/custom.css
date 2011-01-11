@@ -291,10 +291,10 @@ a.button {
 /* COLOR VARIATIONS */
 
 .blue		{background-color: #CCCCCC; color: #141414;}
-.blue:hover	{background-color: #00c0ff; color: #ffffff;}
+.blue:hover	{background-color: #003366; color: #ffffff;}
 
-.green		{background-color: #CCCCCC; color: #141414;}
-.green:hover{background-color: #2C6799; color: #ffffff;}
+.green		{background-color: #336600; color: #141414;}
+.green:hover{background-color: #2C6700; color: #ffffff;}
 
 .red		{background-color: #CCCCCC; color: #141414;}
 .red:hover	{background-color: #ff004e; color: #ffffff;}
@@ -433,7 +433,7 @@ a.button {
   margin-bottom: 10px;
 }
 div #sign_in_links { float: right; margin-right: 30px;}
-div #sign_in {
+div #sign_in, div #sign_up {
   width: 550px;
   text-align: center;
   background-color: #f6f6f6;
@@ -443,17 +443,19 @@ div #sign_in {
   -webkit-box-shadow: 0 0 8px #666;
   box-shadow: 0 0 8px #666; 
 }
-div #sign_in table tr td.header {
+div #sign_in table tr td.header, div #sign_up table tr td.header {
   background-color: #ddd;
 }
-div #sign_in table tr td {
+div #sign_in table tr td, div #sign_up table tr td {
   background-color: #f6f6f6;
 }
-div #sign_in table tr td label {
+div #sign_in table tr td label, div #sign_up table tr td label {
   text-align: right;
   width: 180px;
 }
-div #sign_in table tr td input {
+div #sign_in table tr td input, div #sign_up table tr td input {
   text-align: left;
   margin-left: -60px;
 }
+
+input[type=text], input[type=password], input.text, input.title, textarea, select {-webkit-border-radius:5px;} 
