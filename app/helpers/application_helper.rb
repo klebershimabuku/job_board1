@@ -60,4 +60,25 @@ module ApplicationHelper
     image_tag('separator.gif')
   end
   
+  def page_entries_info(collection, options = {})
+    entry_name = options[:entry_name] ||
+      (collection.empty?? 'entry' : collection.first.class.name.underscore.sub('_', ' '))
+      
+    html = if collection.total_pages < 2
+              case collection.size
+                when 0; "No #{entry_name.pluralize} found"
+                when 1; "Displaying <b>1</b> #{entry_name}"
+              else; "Displaying <b>all #{collection.size}</b> #{entry_name.pluralize}"
+              end
+          else
+            %{Exibindo #{entry_name.pluralize} <b>%d&nbsp;-&nbsp;%d</b> de <b>%d</b> no total} % [
+            collection.offset + 1,
+            collection.offset + collection.length,
+            collection.total_entries
+            ]
+          end
+    html = html.html_safe if html.respond_to? :html_safe
+    html
+  end
+
 end

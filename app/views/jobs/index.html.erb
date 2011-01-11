@@ -1,7 +1,11 @@
+<h3><%= page_entries_info @jobs, :entry_name => '' %></h3>
+<hr size="1">
+
 
 <div id="main_jobs">
 <% if can? :new, Job %>
 <p><%= link_to 'Criar novo anúncio', new_job_path, :class => 'button' %></p>
+<hr size="1">
 <% end %>
 
     <div class="positions">
