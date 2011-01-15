@@ -22,5 +22,6 @@ class Job < ActiveRecord::Base
   }
   scope :all_pending, where(:available => 0)
   scope :all_locked,  where(:locked => true)
+  scope :feed,        where(:available => 1, :locked => false, :order => 'created_at DESC')
   
 end
