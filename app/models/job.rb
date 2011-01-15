@@ -1,6 +1,8 @@
 class Job < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
+  
+  attr_accessible :available, :locked
 
   validates :title,     :presence => true,    :length => { :maximum => 50 }
   validates :location,  :presence => true

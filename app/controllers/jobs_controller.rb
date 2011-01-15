@@ -22,13 +22,13 @@ class JobsController < ApplicationController
   end
 
   def publish
-    Job.find(params[:id]).toggle!(:available)
+    Job.find(params[:id]).update_attributes(:available => true, :locked => false)
     flash[:notice] = "Job was successful published."
     redirect_to jobs_revision_path
   end
 
   def unpublish
-    Job.find(params[:id]).toggle!(:available)
+    Job.find(params[:id]).update_attribute(:available, false)
     flash[:notice] = "Job was successful unpublished."
     redirect_to jobs_revision_path    
   end
