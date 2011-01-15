@@ -6,6 +6,7 @@ gem 'devise'
 gem 'cancan'
 gem 'simple_form'
 gem 'will_paginate'
+gem 'rufus-scheduler'
 
 group :development do
   gem 'rspec-rails', '2.3.0'
