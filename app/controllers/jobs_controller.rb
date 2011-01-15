@@ -93,5 +93,14 @@ class JobsController < ApplicationController
     redirect_to(jobs_url)
   end
 
+  private
+    def feed
+      redirect_to 'http://feeds.feedburner.com/Shigotodoko', :status=>307 and return unless request.env['HTTP_USER_AGENT'].match(/feedburner|feedvalidator/i)
+      @jobs = Job.feed
+      respond_to do |format|
+        format.atom
+      end
+    end
+  
 end
 
