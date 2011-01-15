@@ -1,8 +1,22 @@
 <% @jobs.each do |job| %>
 <table class="post">
     <tr>
+      <% if current_user && current_user.announcer? %>
+        <% if job.locked? %>
+        <td>
+          <%= image_tag('locked.png') %>
+          <% show_link = false %>
+        </td>
+        <% end %>
+      <% end %>
       <td>
-        <div class="title"><%= link_to job.title, job %></div>
+        <div class="title">
+          <% if show_link || current_user && current_user.admin? %>
+            <%= link_to job.title, job %>
+          <% else %>
+            <%= job.title %>
+          <% end %>
+        </div>
         <div class="company_name"><%= job.company_name %></div>
       </td>
       <td class="location_date">
