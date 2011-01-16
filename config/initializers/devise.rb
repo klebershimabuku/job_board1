@@ -37,7 +37,8 @@ Devise.setup do |config|
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 10. If
   # using other encryptors, it sets how many times you want the password re-encrypted.
-  config.stretches = 10
+  #config.stretches = 10 #default
+  config.stretches = 1
 
   # Define which will be the encryption algorithm. Devise also supports encryptors
   # from others authentication tools as :clearance_sha1, :authlogic_sha512 (then
@@ -47,7 +48,8 @@ Devise.setup do |config|
   config.encryptor = :restful_authentication_sha1
 
   # Setup a pepper to generate the encrypted password.
-  config.pepper = "8ab92ca0074ad0b69ea0596a54acb093d4fdb73aa90533578b03956333e62ec9943a44a701717c9fcf3cec2ace375c323171e394cf0906090056342a6a615bbf"
+  #config.pepper = "8ab92ca0074ad0b69ea0596a54acb093d4fdb73aa90533578b03956333e62ec9943a44a701717c9fcf3cec2ace375c323171e394cf0906090056342a6a615bbf"
+  config.pepper = nil
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
