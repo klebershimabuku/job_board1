@@ -10,7 +10,19 @@
 
     <div class="positions">
       <%= render 'positions_table' , :collection => @jobs %>
-      
+      <% @dekablog_jobs.each do |job| %>
+      <table class="post">
+      <tr>
+        <td>
+          <div class="title"><%= link_to job.title[0..50], :controller => 'pages', :action => 'dekapower', :id => job  %></div>
+          <div class="company_name">Parceiro: Dekablog</div>
+      </td>
+      <td class="location_date">
+        <div class="date"><%= time_ago_in_words t(job.published) %></div>
+      </td>
+    </tr>
+    </table>
+    <% end %>
     </div>
 
 

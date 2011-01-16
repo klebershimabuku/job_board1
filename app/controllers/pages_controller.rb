@@ -14,5 +14,12 @@ class PagesController < ApplicationController
   def help
     @title = "Ajuda"
   end
+  
+  def dekapower
+    @dekapower_job = Dekapower.find(params[:id])
+    clicks = @dekapower_job.clicks
+    @dekapower_job.update_attribute("clicks", clicks+1)
+    redirect_to @dekapower_job.url
+  end
 
 end

@@ -6,6 +6,7 @@ JobBoard::Application.routes.draw do
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
   match '/home',    :to => 'pages#home'
+  match '/partner/dekapower', :to => 'pages#dekapower'
 
   match '/jobs/revision', :to => 'jobs#revision'
   match '/jobs/locked', :to => 'jobs#locked'
