@@ -8,13 +8,13 @@ body {
 }
 
 header {
-  padding: 10px 0px 5px 0px;
+  padding: 10px 0px 0px 0px;
   background-color: #fff;
 }
 #header { width: 960px; margin: 0 auto;}
 
 header img {
-  padding: 1em;
+  padding: 0.3em;
   background: #fff;
 }
 
@@ -375,7 +375,7 @@ a.button {
     }
     
 .layout-shadow {
-    -moz-box-shadow: 0 -2px 8px #666;
+    -moz-box-shadow: 2px 2px 8px #666;
     -webkit-box-shadow: 0 0 8px #666;
     box-shadow: 0 0 8px #666; 
 }

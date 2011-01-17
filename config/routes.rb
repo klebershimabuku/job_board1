@@ -1,6 +1,7 @@
 JobBoard::Application.routes.draw do
 
-
+  match '/oauth/authorize', :controller => 'oauth', :action => 'start', :as => :oauth_authorize
+  match '/oauth/callback', :controller => 'oauth', :action => 'callback', :as => :oauth_callback
 
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'

@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 source 'http://gems.github.com'
+source 'http://gemcutter.org'
 
 gem 'rails', '3.0.3'
 gem 'mysql2'
@@ -9,6 +10,9 @@ gem 'simple_form'
 gem 'will_paginate'
 gem 'rufus-scheduler'
 gem 'pauldix-feedzirra'
+gem 'twitter_oauth'
+gem 'twitter'
+gem 'url_shortener'
 
 group :development do
   gem 'rspec-rails', '2.3.0'

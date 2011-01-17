@@ -23,13 +23,21 @@ class JobsController < ApplicationController
   end
 
   def publish
-    Job.find(params[:id]).update_attributes(:available => true, :locked => false)
+    @job = Job.find(params[:id])
+    @job.update_attributes(:available => true, :locked => false)
+    url = job_url(@job)
+    @job.tweet(url)
     flash[:notice] = "Job was successful published."
     redirect_to jobs_revision_path
+  rescue Twitter::Forbidden
+    flash[:error] = "Ops! something went wrong. You probably have already tweeted it."
+    redirect_to jobs_revision_path
+    
   end
 
   def unpublish
-    Job.find(params[:id]).update_attribute(:available, false)
+    @job = Job.find(params[:id])
+    @job.update_attribute(:available, false)
     flash[:notice] = "Job was successful unpublished."
     redirect_to jobs_revision_path    
   end
