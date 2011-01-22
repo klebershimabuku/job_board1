@@ -29,11 +29,19 @@ section {
 
 #reminder {
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #333;
+    margin-bottom: -22px;
 }
-#reminder .container { width: 960px; }
-#reminder .container p {
-    margin-left: 20px; 
+#reminder { width: 960px; }
+#reminder p {
+    margin-left: 20px;
+    padding-top: -20px;
+    font-size: 14px; 
+    color: #fff;
+    text-shadow: 1px 1px 1px #999;
+}
+#reminder p a {
+  color: #0099CC;
 }
 section h1 {
   font-size: 200%;
