@@ -1,6 +1,8 @@
 #container {
   width: 960px;
   margin:0 auto;
+  position: relative;
+  z-index: 90;
 }
 
 body {
@@ -151,10 +153,43 @@ footer nav#footer ul li {
   padding: 10px;
 }
 
-#welcome_message {
-    margin:0 auto;
+.welcome_message {
+    width: 950px;
     text-align: center;
+    background-color: #069;
+    padding: 20px;
+    height: 80px;
+    margin-top: -18px;
+    position: relative;
+    left: -35px;
 }
+.welcome_message .triangle-l {
+ border-color: transparent #036 transparent transparent;
+ border-style:solid;
+ border-width:15px;
+ height:0px;
+ width:0px;
+ left: -35px;
+ top: -3px;
+ position: relative;
+ z-index: -1;
+}
+
+.welcome_message .triangle-r {
+ border-color: transparent transparent transparent #036;
+ border-style:solid;
+ border-width:15px;
+ height:0px;
+ width:0px;
+ left: 955px;
+ top: -32px;
+ position: relative;
+ z-index: -1;
+}
+
+
+.welcome_message h1 { color: #fff; text-shadow: 1px 1px 1px #333; }
+.welcome_message h3 { color: #fff; text-shadow: 1px 1px 1px #333; }
 
 .align_to_center { text-align: center; }
 
