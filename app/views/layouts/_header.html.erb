@@ -1,14 +1,12 @@
-<header>
-  <div id="header">
-  <%= logo %>
-  <nav class="round">
+<header class="round-top">
+  <div id="access_link">
     <ul>
       <% if current_user.nil? %>
-      <li><%= link_to(t(:sign_in), new_user_session_path) %><%= t(:or) %><%= link_to t(:sign_up), new_user_registration_path %></li>
+      <li><%= link_to(t(:sign_in), new_user_session_path) %>&nbsp;<%= t(:or) %>&nbsp;<%= link_to t(:sign_up), new_user_registration_path %></li>
           <% else %>
       <li><%= t :logged_in_as %>&nbsp;<b><%= current_user.email %></b> <%= link_to "Sair", destroy_user_session_path %></li>
       <% end %>
     </ul>
-  </nav>
   </div>
+  <%= logo %>
 </header>

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
     <title><%= title %></title>
     <%= csrf_meta_tag %>
+    <meta charset="utf-8" />
     <%= render 'layouts/stylesheets' %>
     <%= render 'layouts/javascripts' %>
     <%= auto_discovery_link_tag(:atom, 'http://feeds2.feedburner.com/Shigotodoko', :title => "ShigotoDoko feed") %>
@@ -10,12 +11,18 @@
 
   <body>
   
-    <%= render 'layouts/header' %>
-    <%= render 'layouts/reminder' %>
     
-    <div class="container">
+    <div id="container" class="layout-shadow">
+      <% # logo & sign-up & sign-in links %>
+      <%= render 'layouts/header' %>
+      
+      <% # notifications for admin only %>
+      <%= render 'layouts/reminder' %>
+      
+      <% # site navbar %>
       <%= render 'layouts/navigation' %>
-      <section class="layout-shadow">
+
+      <section>
         <% flash.each do |name, msg| %>
             <%= content_tag :p, msg, :class => "#{name}"  %>
         <% end %>
