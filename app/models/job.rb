@@ -12,8 +12,21 @@ class Job < ActiveRecord::Base
   validates :location,  :presence => true
   validates :content,   :presence => true, :length => { :maximum => 1000 }
 
-  URL_REGEX = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-  validates :company_website, :format => URL_REGEX
+  URL_REGEX = /^(https?|ftp):\/\/(?#                                      protocol
+              )(([a-z0-9$_\.\+!\*\'\(\),;\?&=-]|%[0-9a-f]{2})+(?#         username
+              )(:([a-z0-9$_\.\+!\*\'\(\),;\?&=-]|%[0-9a-f]{2})+)?(?#      password
+              )@)?(?#                                                     auth requires @
+              )((([a-z0-9][a-z0-9-]*[a-z0-9]\.)*(?#                       domain segments AND
+              )[a-z][a-z0-9-]*[a-z0-9](?#                                 top level domain  OR
+              )|((\d|[1-9]\d|1\d{2}|2[0-4][0-9]|25[0-5])\.){3}(?#
+                  )(\d|[1-9]\d|1\d{2}|2[0-4][0-9]|25[0-5])(?#             IP address
+              ))(:\d+)?(?#                                                port
+              ))(((\/+([a-z0-9$_\.\+!\*\'\(\),;:@&=-]|%[0-9a-f]{2})*)*(?# path
+              )(\?([a-z0-9$_\.\+!\*\'\(\),;:@&=-]|%[0-9a-f]{2})*)(?#      query string
+              )?)?)?(?#                                                   path and query string optional
+              )(#([a-z0-9$_\.\+!\*\'\(\),;:@&=-]|%[0-9a-f]{2})*)?(?#      fragment
+              )$/i
+  validates :company_website, :format => URL_REGEX, :if => :company_website
   validates :company_name, :presence => true
 
   validates :how_to_apply, :presence => true, :length => { :maximum => 160 }
