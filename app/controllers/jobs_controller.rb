@@ -55,15 +55,17 @@ class JobsController < ApplicationController
   end
 
   def show
-    @jobs = Job.find(params[:id])
+    @job = Job.find(params[:id])
+    visits = @job.visits + 1
+    @job.update_attribute('visits', visits)
     if current_user && current_user.admin? 
     elsif current_user && current_user.announcer?
-      if @jobs.locked?
+      if @job.locked?
         flash[:error] = "Job unavailable."
         redirect_to root_path
       end
     else
-      if !@jobs.available or @jobs.locked?
+      if !@job.available or @job.locked?
         flash[:error] = "Job unavailable."
         redirect_to root_path
       end

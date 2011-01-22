@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110116151217) do
+ActiveRecord::Schema.define(:version => 20110122141340) do
 
   create_table "dekapowers", :force => true do |t|
     t.string   "title"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110116151217) do
     t.string   "company_website"
     t.string   "how_to_apply"
     t.boolean  "locked",          :default => false
+    t.integer  "visits",          :default => 0
   end
 
   create_table "users", :force => true do |t|
