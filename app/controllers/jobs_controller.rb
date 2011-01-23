@@ -1,6 +1,23 @@
 class JobsController < ApplicationController
 
   load_and_authorize_resource
+  
+  uses_tiny_mce :only => [:new, :create, :edit, :update], :options => {
+                                                                        :theme_advanced_toolbar_location => :top,
+                                                                        :theme => 'advanced',
+                                                                        :cleanup_on_startup => true,
+                                                                        :theme_advanced_blockformats => "p,div,h1,h2,h3,h4,h5,h6,blockquote,dt,dd,code,samp",
+                                                                        :theme_advanced_buttons1 => "bold,italic,separator,undo,redo,separator,bullist,numlist,link,table,charmap",
+                                                                        :theme_advanced_buttons2 => "",
+                                                                        :theme_advanced_toolbar_align => "left",
+                                                                        :content_css => "custom_tinymce.css",
+                                                                        :convert_newlines_to_brs => true,
+                                                                        :force_br_newlines => true,
+                                                                        :force_p_newlines => false,
+                                                                        :forced_root_block => '' # Needed for 3.x
+                                                                      }
+
+
   PER_PAGE = 50
   
   def index

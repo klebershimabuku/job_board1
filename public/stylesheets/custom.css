@@ -245,7 +245,7 @@ div.positions table {
 }
   div.positions table tr td div.title a {
     font-weight: normal;
-    font-size: 15px;
+    font-size: 16px;
     color: #069;
   }
   div.positions section#partner_dekapower table tr td div.title a {
@@ -379,12 +379,13 @@ a.button {
     color: #006699;
 }
 .show_jobs_job_content {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 30px;
+    width: 100%;
+    margin-top: -20px;
 }
 .company_info {
-    width: 25%;
-    float: right;
+    width: 30%;
     margin-top: -20px;
     margin-right: 5px;
     margin-left: 5px;
@@ -437,7 +438,6 @@ a.button {
     -webkit-box-shadow: 0 0 8px #666;
     box-shadow: 0 0 8px #666; 
 }
-
 /* Simple form */
 .simple_form label {
   float: left;

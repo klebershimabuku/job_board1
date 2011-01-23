@@ -24,12 +24,12 @@
 
 <div class="two-columns">
 
-  <div class="left-column" style="width: 70%; margin-top: -50px;">
-    <p class="show_jobs_job_content">
+  <div class="left-column">
+    <div class="show_jobs_job_content">
       <%= simple_format(@job.content) %>
-    </p>       
+    </div>       
   </div>
-  <div class="company_info">
+  <div class="right-column company_info">
     <div class="company_name_and_website round">
       <p class="company_name"><%= @job.company_name unless @job.company_name.nil? %></p>
       <p class="company_website"><%= link_to @job.company_website, @job.company_website, :target => '_blank' unless @job.company_website.nil? %></p>
