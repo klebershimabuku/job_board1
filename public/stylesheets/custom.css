@@ -433,6 +433,11 @@ a.button {
         font-size: 13px;
     }
     
+.social_network .facebook {
+  margin: 100px 10px 100px 10px;
+  padding-bottom: 50px;
+}
+    
 .layout-shadow {
     -moz-box-shadow: 0 0 15px #666;
     -webkit-box-shadow: 0 0 8px #666;

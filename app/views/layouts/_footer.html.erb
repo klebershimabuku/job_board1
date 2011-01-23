@@ -6,7 +6,9 @@
       <li><a href="http://blog.shigotodoko.com/" target="_blank">Blog</a></li>
       <li><%= link_to "Contato", contact_path %></li>
       <li><%= link_to "Ajuda", help_path %></li>
-      <li><%= link_to "Twitter", 'http://twitter.com/shigotodoko', :target => '_blank' , :title => t(:follow_us_on_twitter)%></li>
+      <li><%= link_to(image_tag('rss10x10.png'),'http://feeds.feedburner.com/Shigotodoko', :target => '_blank', :title => 'Assine nosso Feed!') %>&nbsp;<%= link_to('RSS Feeds','http://feeds.feedburner.com/Shigotodoko', :target => '_blank', :title => 'Assine nosso Feed!') %></li>
+      <li><%= link_to(image_tag('twitter10x10.png'), 'http://twitter.com/shigotodoko', :target => '_blank' , :title => t(:follow_us_on_twitter) ) %>&nbsp;<%= link_to('Twitter', 'http://twitter.com/shigotodoko', :target => '_blank', :title => t(:follow_us_on_twitter)) %></li>
+      <li><%= link_to(image_tag('facebook10x10.png'), 'http://www.facebook.com/pages/ShigotoDOKO/180568255306449', :target => '_blank', :title => 'Curta nossa fanpage no Facebook!') %>&nbsp;<%= link_to('Facebook','http://www.facebook.com/pages/ShigotoDOKO/180568255306449', :target => '_blank', :title => 'Curta nossa fanpage no Facebook!') %></li>
     </ul>
   </nav>
 </footer>
