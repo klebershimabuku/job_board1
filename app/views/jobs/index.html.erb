@@ -10,12 +10,17 @@
 
     <div class="positions">
       <%= render 'positions_table' , :collection => @jobs %>
+      <section id="partner_dekapower">
+        <header>
+          <h1>Parceiro: Dekapower</h1>
+          <p>Os anúncios abaixo não fazem parte do ShigotoDOKO e serão direcionados ao site do respectivo parceiro.</p>
+        </header>
       <% @dekablog_jobs.each do |job| %>
       <table class="post">
       <tr>
         <td>
-          <div class="title"><%= link_to job.title[0..50], :controller => 'pages', :action => 'dekapower', :id => job  %></div>
-          <div class="company_name">Parceiro: Dekablog</div>
+          <div class="title"><%= link_to job.title[0..50], { :controller => 'pages', :action => 'dekapower', :id => job }, :target => '_blank' %></div>
+          <div class="company_name">Parceiro: Dekapower</div>
       </td>
       <td class="location_date">
         <div class="date"><%= time_ago_in_words t(job.published) %></div>
@@ -23,6 +28,7 @@
     </tr>
     </table>
     <% end %>
+    </section>
     </div>
 
 
@@ -31,6 +37,10 @@
             <div id="ad_sample" style="padding-top: 100px; width: 300px; height: 150px;">
               <h1>Sample Ad (300x250)</h1>
             </div>
+        </div>
+        <br />
+        <div id="facebook">
+          <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like-box href="http://www.facebook.com/pages/ShigotoDOKO/180568255306449" width="300" show_faces="true" stream="true" header="true"></fb:like-box>
         </div>
     </div>
 

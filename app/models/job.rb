@@ -26,7 +26,7 @@ class Job < ActiveRecord::Base
               )?)?)?(?#                                                   path and query string optional
               )(#([a-z0-9$_\.\+!\*\'\(\),;:@&=-]|%[0-9a-f]{2})*)?(?#      fragment
               )$/i
-  validates :company_website, :format => URL_REGEX, :if => :company_website
+  validates :company_website, :format => URL_REGEX, :if => :company_website?
   validates :company_name, :presence => true
 
   validates :how_to_apply, :presence => true, :length => { :maximum => 160 }

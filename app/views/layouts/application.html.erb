@@ -10,6 +10,12 @@
   </head>
 
   <body>
+
+      <% content_for(:flash_messages) do %>
+        <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, :class => "#{name}"  %><br />
+        <% end %>
+      <% end %>
   
     
     <div id="container" class="layout-shadow">
@@ -18,14 +24,14 @@
       
       <% # notifications for admin only %>
       <%= render 'layouts/reminder' %>
+
       
       <% # site navbar %>
       <%= render 'layouts/navigation' %>
+      <%= yield(:flash_messages) %>
+
 
       <section>
-        <% flash.each do |name, msg| %>
-            <%= content_tag :p, msg, :class => "#{name}"  %>
-        <% end %>
         <%= yield %>
       </section>
       <%= render 'layouts/footer' %>

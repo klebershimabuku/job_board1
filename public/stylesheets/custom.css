@@ -6,7 +6,6 @@
 }
 
 body {
-   /* background: #c2c2c8; */
    margin-top: 10px;
    background-image: url('/images/pattern_037.gif');
 }
@@ -100,6 +99,10 @@ a:visited {
   -moz-border-radius-topleft:    5px;
   -webkit-border-top-left-radius: 5px;
   border-top-left-radius:         5px;
+}
+#navigator nav#navbar ul li a:hover {
+  background-color: #036;
+  color: #fff;
 }
 .navbar_fullbar {
   background-color: #069;
@@ -223,27 +226,46 @@ footer nav#footer ul li {
     width: 600px;
     margin-top: 22px;
 }
+div.positions section#partner_dekapower {
+  margin-top: -22px;
+  margin-left: -5px;
+}
+div.positions section#partner_dekapower h1 {
+  font-size: 13px;
+  background-color: #ccc;
+  color: #333;
+  text-shadow: 0px 1px 1px white;
+  padding: 8px;
+  margin-bottom: 20px;
+} 
 div.positions table {
   margin-top: -22px;
   margin-left: -5px;
   border-bottom: 1px solid #ccc;
 }
   div.positions table tr td div.title a {
-    font-weight: bold;
+    font-weight: normal;
+    font-size: 15px;
+    color: #069;
   }
-  div.positions table tr td div.title a:hover {
+  div.positions section#partner_dekapower table tr td div.title a {
+    font-weight: normal;
+    font-size: 13px;
+    color: #069;
+  }
+  div.positions table tr td div.title a:hover, div.positions section#partner_dekapower table tr td div.title a:hover {
     text-decoration: underline;
   }
-  div.positions table tr td div.company_name {
+  div.positions table tr td div.company_name, div.positions section#partner_dekapower table tr td div.company_name {
     font-size: 13px;
     color: #666;
   }
   
-  div.positions table tr td.location_date {
+  div.positions table tr td.location_date, div.positions section#partner_dekapower table tr td.location_date {
     text-align: right;
     font-size: 13px;
   }
-  div.positions table tr td.location_date .date {
+  div.positions table tr td.location_date .date, div.positions section#partner_dekapower table tr td.location_date .date {
     color: #999;
   }
   
@@ -340,7 +362,11 @@ a.button {
 
 .left-column { float: left; }
 .right-column { float: right; }
-
+.flash_messages {
+  width: 100%;
+  text-align: center;
+  margin: -10px;
+}
 .show_jobs_location_and_title p.location {
 
 }
