@@ -386,6 +386,8 @@ a.button {
     width: 25%;
     float: right;
     margin-top: -20px;
+    margin-right: 5px;
+    margin-left: 5px;
 } 
 .company_info .company_name_and_website {
     background-color: #FFFEEF;
@@ -398,10 +400,15 @@ a.button {
     .company_info p.company_name {
         font-weight: bold;
         border-bottom: 1px solid #ccc;
+        margin-right: 3px;
+        margin-left: 3px;
     }
     .company_info p.company_website {
+        font-size: 11px;
         margin-top: -15px;
         margin-bottom: -3px;
+        margin-right: 3px;
+        margin-left: 3px;
     }
 
 .company_info .how_to_apply {
