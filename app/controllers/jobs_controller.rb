@@ -22,7 +22,6 @@ class JobsController < ApplicationController
   
   def index
     @jobs = Job.recents_available.paginate :page => params[:page], :per_page => PER_PAGE
-    @dekablog_jobs = Dekapower.recents
     @user = current_user
     if @user && @user.admin?
       @pending = Job.all_pending

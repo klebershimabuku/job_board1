@@ -10,25 +10,6 @@
 
     <div class="positions">
       <%= render 'positions_table' , :collection => @jobs %>
-      <section id="partner_dekapower">
-        <header>
-          <h1>Parceiro: Dekapower</h1>
-          <p>Os anúncios abaixo não fazem parte do ShigotoDOKO e serão direcionados ao site do respectivo parceiro.</p>
-        </header>
-      <% @dekablog_jobs.each do |job| %>
-      <table class="post">
-      <tr>
-        <td>
-          <div class="title"><%= link_to job.title[0..50], { :controller => 'pages', :action => 'dekapower', :id => job }, :target => '_blank' %></div>
-          <div class="company_name">Parceiro: Dekapower</div>
-      </td>
-      <td class="location_date">
-        <div class="date"><%= time_ago_in_words t(job.published) %></div>
-      </td>
-    </tr>
-    </table>
-    <% end %>
-    </section>
     </div>
 
 
