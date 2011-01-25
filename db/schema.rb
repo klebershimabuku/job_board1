@@ -10,18 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110122141340) do
-
-  create_table "dekapowers", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "url"
-    t.datetime "published"
-    t.datetime "updated"
-    t.integer  "clicks"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110125125205) do
 
   create_table "jobs", :force => true do |t|
     t.string   "title"
