@@ -30,7 +30,7 @@ section {
 
 #reminder {
     margin: 0 auto;
-    background-color: #333;
+    background-color: #fff;
     margin-bottom: -22px;
 }
 #reminder { width: 960px; }
@@ -38,11 +38,11 @@ section {
     margin-left: 20px;
     padding-top: -20px;
     font-size: 14px; 
-    color: #fff;
-    text-shadow: 1px 1px 1px #999;
+    color: #000;
+    text-shadow: 1px 1px 1px white;
 }
 #reminder p a {
-  color: #0099CC;
+  color: blue;
 }
 section h1 {
   font-size: 200%;
