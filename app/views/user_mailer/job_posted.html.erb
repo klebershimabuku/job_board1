@@ -1,0 +1,7 @@
+<%= @user.email %> from <strong><%= @job.company_name %></strong> has posted a new job offer and are waiting for your approval.
+
+
+Job description:
+<hr size='1'>
+
+<%= simple_format(@job.content) %>

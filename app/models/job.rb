@@ -3,6 +3,8 @@ class Job < ActiveRecord::Base
   require 'rubygems'
   require 'url_shortener'
   
+  attr_accessor :notify
+  
   cattr_reader :per_page
   @@per_page = 10
   
@@ -41,7 +43,7 @@ class Job < ActiveRecord::Base
   scope :all_locked,  where(:locked => true)
   scope :feed,        where(:available => 1, :locked => false, :order => 'created_at DESC')
   
-  def tweet(url)
+  def self.tweet(url)
     Twitter.configure do |config|
       config.consumer_key = APP_CONFIG['twitter_consumer_key']
       config.consumer_secret = APP_CONFIG['twitter_consumer_secret']
@@ -52,6 +54,11 @@ class Job < ActiveRecord::Base
     client = UrlShortener::Client.new authorize
     shorten_url = client.shorten(url).urls
     Twitter.update("#{title} - #{shorten_url}")
+  end
+  
+  def publish(url)
+    update_attributes(:available => true, :locked => false)
+    tweet(url)
   end
   
 end

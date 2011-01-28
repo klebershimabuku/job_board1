@@ -2,16 +2,16 @@ pt-BR:
   errors:
     messages:
       not_found: "não encontrado"
-      already_confirmed: "was already confirmed"
+      already_confirmed: "já foi confirmado"
       not_locked: "was not locked"
 
   devise:
     failure:
       unauthenticated: 'You need to sign in or sign up before continuing.'
       unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
+      locked: 'Sua conta está bloqueada.'
       invalid: 'Endereço de e-mail ou password inválido.'
-      invalid_token: 'Invalid authentication token.'
+      invalid_token: 'Token de autenticação inválido.'
       timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'Your account was not activated yet.'
     sessions:
@@ -32,8 +32,8 @@ pt-BR:
       unlocked: 'Your account was successfully unlocked. You are now signed in.'
     mailer:
       confirmation_instructions:
-        subject: 'Confirmation instructions'
+        subject: 'Instruções para confirmação'
       reset_password_instructions:
-        subject: 'Reset password instructions'
+        subject: 'Instruções para resetar a sua senha'
       unlock_instructions:
-        subject: 'Unlock Instructions'
+        subject: 'Instruções para desbloqueio'

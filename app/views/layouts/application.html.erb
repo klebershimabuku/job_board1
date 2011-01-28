@@ -11,7 +11,7 @@
 
   <body>
 
-      <% content_for(:flash_messages) do %>
+      <%= content_for(:flash_messages) do %>
         <% flash.each do |name, msg| %>
             <%= content_tag :div, msg, :class => "#{name}"  %><br />
         <% end %>

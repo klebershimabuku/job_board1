@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 
   load_and_authorize_resource
-  
+   
   uses_tiny_mce :only => [:new, :create, :edit, :update], :options => {
                                                                         :theme_advanced_toolbar_location => :top,
                                                                         :theme => 'advanced',
@@ -10,7 +10,6 @@ class JobsController < ApplicationController
                                                                         :theme_advanced_buttons1 => "bold,italic,separator,undo,redo,separator,bullist,numlist,link,table,charmap",
                                                                         :theme_advanced_buttons2 => "",
                                                                         :theme_advanced_toolbar_align => "left",
-                                                                        :content_css => "custom_tinymce.css",
                                                                         :convert_newlines_to_brs => true,
                                                                         :force_br_newlines => true,
                                                                         :force_p_newlines => false,
@@ -39,16 +38,14 @@ class JobsController < ApplicationController
   end
 
   def publish
-    @job = Job.find(params[:id])
-    @job.update_attributes(:available => true, :locked => false)
     url = job_url(@job)
-    @job.tweet(url)
+    @job = Job.find(params[:id])
+    @job.publish(url)
     flash[:notice] = "Job was successful published."
     redirect_to jobs_revision_path
   rescue Twitter::Forbidden
     flash[:error] = "Ops! something went wrong. You probably have already tweeted it."
     redirect_to jobs_revision_path
-    
   end
 
   def unpublish
@@ -98,6 +95,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(params[:job])
     if @job.save
+      UserMailer.job_posted_announcer_notification(@job).deliver
       redirect_to(@job, :notice => 'Job was successfully created.')
     else
       render :action => "new"
@@ -109,6 +107,7 @@ class JobsController < ApplicationController
       if current_user.announcer?
         @job.update_attribute(:available, :value => false)
       end
+      UserMailer.job_updated(@job).deliver
       redirect_to(@job, :notice => 'Job was successfully updated.')
     else
       render :action => "edit"

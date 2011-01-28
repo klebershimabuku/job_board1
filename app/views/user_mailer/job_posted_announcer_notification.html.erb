@@ -1,0 +1,19 @@
+Olá <strong><%= @user.email %></strong>,
+
+
+<p>Obrigado por enviar um novo anúncio.</p>
+
+<p>Estaremos analisando o conteúdo e se estiver de acordo com os termos, será publicado dentro das próximas horas.</p>
+
+
+
+Anúncio enviado:
+<hr size='1'>
+<h1><%= @job.title %></h1>
+<%= simple_format(@job.content) %>
+<hr size='1'>
+
+<br /><br /><br />
+
+<p>Atenciosamente,</p>
+<p>Equipe ShigotoDOKO.</p>
