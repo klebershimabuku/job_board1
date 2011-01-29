@@ -22,24 +22,4 @@ describe Job do
     job.should_not be_valid
   end
   
-  it "should require a content" do
-    job = Job.new(@attr.merge(:content => ''))
-    job.should_not be_valid
-  end
-  
-  it "should require a location" do
-    job = Job.new(@attr.merge(:location => ''))
-    job.should_not be_valid
-  end
-  
-  it "should require a company_name" do
-    job = Job.new(@attr.merge(:company_name => ''))
-    job.should_not be_valid
-  end
-  
-  it "should require a how to apply" do
-    job = Job.new(@attr.merge(:how_to_apply => ''))
-    job.should_not be_valid
-  end
-
 end
