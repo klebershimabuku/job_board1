@@ -1,12 +1,15 @@
 require 'spec_helper'
 
 describe PagesController do
+  include Devise::TestHelpers
   render_views
 
   before(:each) do
     #define the @base_title content
     @base_title = "ShigotoDOKO"
   end
+
+
   
   describe "GET 'home'" do
     it "should be successful" do
