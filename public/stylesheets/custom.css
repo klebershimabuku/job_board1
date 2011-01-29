@@ -48,6 +48,34 @@ section h1 {
   font-size: 200%;
 }
 
+/* Shortcuts */
+#shortcuts {
+  width: 190px;
+  height: 70px;
+  padding-left: 15px;
+  background-color: #eee;
+  float: right;
+  position: absolute;
+  left: 735px;
+  top: 40px;
+}
+#shortcuts img {
+  position: relative;
+  top: 5px;
+  left: 10px;
+}
+#shortcuts p {
+  display: inline;
+  padding-right: 3px;
+}
+#shortcuts p span {
+  position:relative;
+  top: 17px;
+  left: -30px;
+  text-shadow: 1px 1px 1px #fff;
+  font-size: 12px;
+}
+
 /* Links */
 
 a {
