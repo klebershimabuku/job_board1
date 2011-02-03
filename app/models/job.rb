@@ -3,8 +3,6 @@ class Job < ActiveRecord::Base
   require 'rubygems'
   require 'url_shortener'
   
-  attr_accessor :notify
-  
   cattr_reader :per_page
   @@per_page = 10
   
@@ -35,30 +33,59 @@ class Job < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :recents_available, where(:available => 1, :locked => false).order("created_at DESC")
+  scope :recents_available, where(:available => true, :locked => false).order("created_at DESC")
   scope :user_pending, lambda { |user|
     where("jobs.available = 0 AND jobs.user_id = ?", user.id)
   }
   scope :all_pending, where(:available => 0)
   scope :all_locked,  where(:locked => true)
   scope :feed,        where(:available => 1, :locked => false, :order => 'created_at DESC')
-  
-  def self.tweet(url)
+    
+  attr_accessible :title, :content, :location, :company_name, :company_website, :how_to_apply, :available, :locked
+ 
+  def tweet(url)
     Twitter.configure do |config|
       config.consumer_key = APP_CONFIG['twitter_consumer_key']
       config.consumer_secret = APP_CONFIG['twitter_consumer_secret']
       config.oauth_token = APP_CONFIG['twitter_access_token']
       config.oauth_token_secret = APP_CONFIG['twitter_secret_token']
     end    
+    shorted_url = shorten_url(url)
+    Twitter.update("#{title} - #{shorted_url}")
+  end
+
+  def shorten_url(url)
     authorize = UrlShortener::Authorize.new APP_CONFIG['bit_ly_id'], APP_CONFIG['bit_ly_api_key']
     client = UrlShortener::Client.new authorize
     shorten_url = client.shorten(url).urls
-    Twitter.update("#{title} - #{shorten_url}")
   end
   
-  def publish(url)
-    update_attributes(:available => true, :locked => false)
-    tweet(url)
+  def publish
+    update_attribute(:available, true) if !locked?
+  end
+
+  def unpublish
+    update_attribute(:available, false)
+  end
+
+  def lock
+    update_attributes(:locked => true, :available => false)
+  end
+
+  def unlock
+    update_attributes(:locked => false, :available => false)
   end
   
+  def increase_pagehit
+    class << self
+      def record_timestamps; false; end
+    end
+
+    self.increment! :visits
+
+    class << self
+      remove_method :record_timestamps
+    end
+  end
+
 end
