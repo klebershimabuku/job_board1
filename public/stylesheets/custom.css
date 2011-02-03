@@ -388,35 +388,41 @@ a.button {
     color: #333;
 }
 
+.two_columns { 
+  background-color: #333;
+}
 .left-column { float: left; }
-.right-column { float: right; }
+.right-column { float: right;}
+
 .flash_messages {
   width: 100%;
   text-align: center;
   margin: -10px;
 }
 .show_jobs_location_and_title p.location {
-
+  font-size: 20px;
 }
 .show_jobs_location_and_title p.title {
     margin-top: -30px;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 32px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #ddd;
     color: #006699;
 }
 .show_jobs_job_content {
-    font-size: 14px;
-    margin-top: 30px;
+    font-size: 16px;
     width: 100%;
     margin-top: -20px;
 }
+
+#ad {
+background-color: #333;
+}
 .company_info {
-    width: 30%;
-    margin-top: -20px;
+    width: 35%;
     margin-right: 5px;
     margin-left: 5px;
+    margin-top: -15px;
 } 
 .company_info .company_name_and_website {
     background-color: #FFFEEF;
@@ -432,7 +438,7 @@ a.button {
         margin-right: 3px;
         margin-left: 3px;
     }
-    .company_info p.company_website {
+    .company_info .company_name_and_website p.company_website {
         font-size: 11px;
         margin-top: -15px;
         margin-bottom: -3px;
@@ -462,8 +468,7 @@ a.button {
     }
     
 .social_network .facebook {
-  margin: 100px 10px 100px 10px;
-  padding-bottom: 50px;
+  margin-top: -55px;
 }
     
 .layout-shadow {
@@ -549,4 +554,10 @@ div #sign_in table tr td input, div #sign_up table tr td input {
   margin-left: -60px;
 }
 
-input[type=text], input[type=password], input.text, input.title, textarea, select {-webkit-border-radius:5px;} 
+input[type=text], input[type=password], input.text, input.title, textarea, select {-webkit-border-radius:5px;}
+
+.debug {
+  background-color: #ccc;
+  padding: 10px;
+  text-shadow: 1px 1px 1px #fff;
+} 

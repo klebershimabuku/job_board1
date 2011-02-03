@@ -18,46 +18,45 @@
 <% end %>
 
 <div class="show_jobs_location_and_title">
-      <p class="location"><%= @job.location %></p>
-      <p class="title"><%= @job.title %></p>
-</div>
+  <p class="location"><%= @job.location %></p>
+  <p class="title"><%= @job.title %></p>
 
-
-<div class="two-columns">
-
-  <div class="left-column">
-    <div class="show_jobs_job_content">
-      <%= simple_format(@job.content) %>
-    </div>       
-  </div>
-  <div class="right-column company_info">
-    <div class="company_name_and_website round">
-      <p class="company_name"><%= @job.company_name unless @job.company_name.nil? %></p>
-      <p class="company_website"><%= link_to @job.company_website, @job.company_website, :target => '_blank' unless @job.company_website.nil? %></p>
-    </div>
-    <div class="how_to_apply round">
-        <p class="title">Como se candidatar:</p>
-        <p class="body"><%= my_simple_format(@job.how_to_apply) unless @job.how_to_apply.nil? %></p>
+  <div class="social_network">
+    <div class='facebook left-column'>
+      <p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="shigotodoko" data-related="klebershimabuku">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <fb:like show_faces="true" width="450" action="recommend" font="arial"></fb:like><script src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script></p>
     </div>
   </div>
 
 </div>
-<div class="clear"></div>
 
-
-<div class="social_network">
-  <div class='facebook left-column'>
-    <p><fb:like show_faces="true" width="450" font="arial"></fb:like><script src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script></p>
-    <p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="shigotodoko" data-related="klebershimabuku">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
+<div id='ad'>
+  <div class='left-column' style='width: 60%;'>
+      <%= content_tag(:div, simple_format(@job.content), :class => 'show_jobs_job_content' ) %>
   </div>
+
+  <aside class='right-column company_info'>
+    <div class='company_name_and_website round'>
+      <p class='company_name'><%= @job.company_name %></p>
+      <p class='company_website'><%= link_to @job.company_website, @job.company_website, :target => 'blank' unless @job.company_website.nil? %></p>
+    </div>
+    <div class='how_to_apply round'>
+      <p class='title'>Como se candidatar</p>
+      <p class='body'><%= simple_format @job.how_to_apply %></p>
+    </div>
+
+  </aside>
 </div>
+
+
+
 
 <div class="clear"></div>
 
 
 
 <p>
-  <%= link_to '← Voltar', jobs_path %>
+  <%= link_to '← Voltar para empregos', jobs_path %>
 <% if can? :update, @job  %>
 ou <%= link_to 'Editar', edit_job_path(@job), :class => 'button' %>
 <% end %>

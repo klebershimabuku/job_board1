@@ -39,8 +39,7 @@ class JobsController < ApplicationController
 
   def publish
     url = job_url(@job)
-    @job = Job.find(params[:id])
-    @job.publish(url)
+    @job = Job.find(params[:id]).tweet(url).publish
     flash[:notice] = "Job was successful published."
     redirect_to jobs_revision_path
   rescue Twitter::Forbidden
@@ -49,28 +48,28 @@ class JobsController < ApplicationController
   end
 
   def unpublish
-    @job = Job.find(params[:id])
-    @job.update_attribute(:available, false)
+    @job = Job.find(params[:id]).unpublish
     flash[:notice] = "Job was successful unpublished."
     redirect_to jobs_revision_path    
   end
   
   def lock
-    Job.find(params[:id]).toggle!(:locked)
+    Job.find(params[:id]).lock
     flash[:notice] = "Job was successful locked."
     redirect_to job_path
   end
 
   def unlock
-    Job.find(params[:id]).toggle!(:locked)
+    Job.find(params[:id]).unlock
     flash[:notice] = "Job was successful unlocked."
     redirect_to jobs_path
   end
 
   def show
     @job = Job.find(params[:id])
-    visits = @job.visits + 1
-    @job.update_attribute('visits', visits)
+    @job.increase_pagehit
+    #visits = @job.visits + 1
+    #@job.update_attribute('visits', visits)
     if current_user && current_user.admin? 
     elsif current_user && current_user.announcer?
       if @job.locked?

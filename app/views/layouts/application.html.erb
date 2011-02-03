@@ -39,6 +39,10 @@
         <%= yield %>
       </section>
       <%= render 'layouts/footer' %>
+      
     </div>
   </body>
 </html>
+
+      <%= content_tag(:div, debug(params), :class => 'debug') if Rails.env.development? %>
+

@@ -3,33 +3,33 @@ pt-BR:
     messages:
       not_found: "não encontrado"
       already_confirmed: "já foi confirmado"
-      not_locked: "was not locked"
+      not_locked: "não foi bloqueado"
 
   devise:
     failure:
-      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: 'You have to confirm your account before continuing.'
+      unauthenticated: 'Você precisa fazer login ou se cadastrar antes de continuar.'
+      unconfirmed: 'Você tem que confirmar a sua conta antes de continuar.'
       locked: 'Sua conta está bloqueada.'
       invalid: 'Endereço de e-mail ou password inválido.'
       invalid_token: 'Token de autenticação inválido.'
-      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
+      timeout: 'Sua sessão expirou, por favor logue-se novamente para continuar.'
+      inactive: 'Sua conta ainda não foi ativada.'
     sessions:
-      signed_in: 'Login efetuado com sucesso.'
-      signed_out: 'Logout efetuado com sucesso.'
+      signed_in: 'Você entrou com sucesso.'
+      signed_out: 'Você saiu com sucesso.'
     passwords:
-      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
-      updated: 'Your password was changed successfully. You are now signed in.'
+      send_instructions: 'Você receberá um email com instruções sobre como redefinir sua senha em alguns minutos.'
+      updated: 'Sua senha foi alterada com sucesso.'
     confirmations:
-      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
-      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+      send_instructions: 'Você receberá um email em alguns minutos com as instruções sobre como confirmar sua conta.'
+      confirmed: 'Sua conta foi confirmada com sucesso. Você já pode continuar navegando.'
     registrations:
-      signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
-      updated: 'You updated your account successfully.'
-      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      signed_up: 'Você se inscreveu com êxito. Se habilitado, a confirmação foi enviada para seu e-mail.'
+      updated: 'Você atualizou a sua conta com sucesso.'
+      destroyed: 'Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
     unlocks:
-      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
-      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+      send_instructions: 'Você receberá um email em alguns minutos com as instruções sobre como desbloquear a sua conta.'
+      unlocked: 'Sua conta foi desbloqueada com sucesso. Você já pode continuar navegando.'
     mailer:
       confirmation_instructions:
         subject: 'Instruções para confirmação'

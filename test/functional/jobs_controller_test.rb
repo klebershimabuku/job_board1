@@ -2,7 +2,7 @@ require 'test_helper'
 
 class JobsControllerTest < ActionController::TestCase
   setup do
-    @job = jobs(:one)
+    @job = job(:one)
   end
 
   test "should get index" do

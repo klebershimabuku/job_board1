@@ -42,6 +42,10 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    factory_girl (1.3.2)
+    factory_girl_rails (1.0)
+      factory_girl (~> 1.3)
+      rails (>= 3.0.0.beta4)
     faraday (0.5.4)
       addressable (~> 2.2.2)
       multipart-post (~> 1.1.0)
@@ -111,6 +115,8 @@ GEM
       rspec (~> 2.3.0)
     rufus-scheduler (2.0.8)
       tzinfo (>= 0.3.23)
+    shoulda (2.11.3)
+    shoulda-matchers (1.0.0.beta1)
     simple_form (1.3.0)
       rails (~> 3.0.0)
     simple_oauth (0.1.3)
@@ -147,12 +153,15 @@ PLATFORMS
 DEPENDENCIES
   cancan
   devise
+  factory_girl_rails (= 1.0)
   mysql2
   pauldix-feedzirra
   rails (= 3.0.3)
   rspec (= 2.3.0)
   rspec-rails (= 2.3.0)
   rufus-scheduler
+  shoulda
+  shoulda-matchers
   simple_form
   tiny_mce
   twitter
