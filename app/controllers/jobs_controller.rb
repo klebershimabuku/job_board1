@@ -39,7 +39,9 @@ class JobsController < ApplicationController
 
   def publish
     url = job_url(@job)
-    @job = Job.find(params[:id]).tweet(url).publish
+    @job = Job.find(params[:id])
+    @job.publish
+    @job.share(url)
     flash[:notice] = "Job was successful published."
     redirect_to jobs_revision_path
   rescue Twitter::Forbidden

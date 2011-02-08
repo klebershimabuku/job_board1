@@ -15,7 +15,7 @@ describe Job do
   
   it { should ensure_length_of(:title).is_at_most(50) }
 
-  it { should ensure_length_of(:content).is_at_most(1000) }
+  it { should ensure_length_of(:content).is_at_most(2000) }
 
   it { should ensure_length_of(:how_to_apply).is_at_most(160) }
   

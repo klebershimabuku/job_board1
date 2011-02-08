@@ -2,7 +2,7 @@ class Job < ActiveRecord::Base
   require 'twitter'
   require 'rubygems'
   require 'url_shortener'
-  
+    
   cattr_reader :per_page
   @@per_page = 10
   
@@ -10,7 +10,7 @@ class Job < ActiveRecord::Base
 
   validates :title,     :presence => true,    :length => { :maximum => 50 }
   validates :location,  :presence => true
-  validates :content,   :presence => true, :length => { :maximum => 1000 }
+  validates :content,   :presence => true, :length => { :maximum => 2000 }
 
   URL_REGEX = /^(https?|ftp):\/\/(?#                                      protocol
               )(([a-z0-9$_\.\+!\*\'\(\),;\?&=-]|%[0-9a-f]{2})+(?#         username
@@ -41,7 +41,7 @@ class Job < ActiveRecord::Base
   scope :all_locked,  where(:locked => true)
   scope :feed,        where(:available => 1, :locked => false, :order => 'created_at DESC')
     
-  attr_accessible :title, :content, :location, :company_name, :company_website, :how_to_apply, :available, :locked
+  attr_accessible :title, :content, :location, :company_name, :company_website, :how_to_apply, :available, :locked, :user_id
  
   def tweet(url)
     Twitter.configure do |config|
@@ -52,6 +52,21 @@ class Job < ActiveRecord::Base
     end    
     shorted_url = shorten_url(url)
     Twitter.update("#{title} - #{shorted_url}")
+  end
+
+  def facebook_it(url)
+    pages = FbGraph::User.me(APP_CONFIG['facebook_access_token']).accounts.first
+    shorten_url = shorten_url(url)
+    pages.feed!(
+        :message => "#{title}",
+        :link => shorten_url,
+        :description => "#{content[0..280]}"
+    )
+  end
+
+  def share(url)
+    tweet(url)
+    facebook_it(url)
   end
 
   def shorten_url(url)

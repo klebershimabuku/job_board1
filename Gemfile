@@ -14,6 +14,7 @@ gem 'twitter_oauth'
 gem 'twitter'
 gem 'url_shortener'
 gem 'tiny_mce'
+gem 'fb_graph'
 
 group :development do
   gem 'rspec-rails', '2.3.0'
