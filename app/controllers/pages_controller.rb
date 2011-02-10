@@ -1,3 +1,4 @@
+# coding: utf-8
 class PagesController < ApplicationController
   def home
     @title = "Home"
@@ -15,11 +16,22 @@ class PagesController < ApplicationController
     @title = "Ajuda"
   end
   
-  def dekapower
-    @dekapower_job = Dekapower.find(params[:id])
-    clicks = @dekapower_job.clicks
-    @dekapower_job.update_attribute("clicks", clicks+1)
-    redirect_to @dekapower_job.url
-  end
-
+  def how_to_start_ad; end
+  
+  def business_request
+		if request.post?
+      @user = params[:business]
+      @assunto = 'Business Upgrade Request'
+			
+			if params[:business]['company_name'].blank? || params[:business]['user_phone'].blank? || params[:business]['user_name'].blank? || params[:business]['user_position'].blank?
+			  flash[:error] = "Preencha os campos corretamente."
+			  redirect_to business_request_path
+			else
+				User.request_business(@user)
+				flash[:notice] = "Solicitação enviada com sucesso!" # notify successful send
+				redirect_to home_path # or wherever you wanna go
+			end
+		end
+	end
+	
 end

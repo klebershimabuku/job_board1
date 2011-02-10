@@ -1,0 +1,141 @@
+<div id="business_upgrade">
+	<div class="header">
+		<h1>Making Business</h1>
+		<h2>Solicite o upgrade para o plano Business e tenha acesso ao conteúdo corporativo desenvolvido especialmente para Empresas.</p>
+	</div>
+
+	<h3>A quem se destina?</h3>
+	<p>O Acesso ao conteúdo corporativo é voltado para Empresas e ou indivíduos cujas funções se focam para os setores de Recrutamento e Publicidade.</p>
+
+	<h3>Recrutamento</h3>
+	<p>Disponibilizamos o acesso completo ao Diretório de Currículums, nele constam informações essenciais para se convocar uma entrevista com o candidato.</p>
+
+	<h3>Publicidade</h3>
+	<p>Gerenciamento completo de anúncios de trabalho.</p>
+
+	<h3>Preços</h3>
+	<p>
+		
+		<table>
+			<tr>
+				<td>&nbsp;</td>
+				<td>Small Pack</td>
+				<td>Medium Pack</td>
+				<td>Ultra Pack</td>
+			</tr>
+
+			<tr>
+				<td>Quantidade de anúncios disponíveis por pack</td>
+				<td>3</td>
+				<td>5</td>
+				<td>10</td>				
+			</tr>
+			<tr>
+				<td>Tempo de circulação por anúncio</td>
+				<td>7 dias</td>
+				<td>15 dias</td>
+				<td>30 dias</td>
+			</tr>
+			<tr>
+				<td>Número máximo de visualizações</td>
+				<td>100</td>
+				<td>300</td>
+				<td>Ilimitado</td>
+			</tr>
+			<tr>
+				<td>Validade do pack</td>
+				<td>30 dias</td>
+				<td>30 dias</td>
+				<td>30 dias</td>
+			</tr>
+			<tr>
+				<td>Abrangência / Divulgação / Marketing</td>
+				<td>Apenas no site</td>
+				<td>Apenas no site</td>
+				<td>Site, Feeds, Redes sociais</td>
+			</tr>
+			<tr>
+				<td>Permite alteração de conteúdo</td>
+				<td>Sim</td>
+				<td>Sim</td>
+				<td>Sim</td>
+			</tr>
+			<tr>
+				<td>Anúncio adicional unitário</td>
+				<td>800円</td>
+				<td>800円</td>
+				<td>500円</td>
+			</tr>
+			<tr>
+				<td>Anúncios em destaque</td>
+				<td>-</td>
+				<td>-</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>Custo do pack mensal</td>
+				<td class='bold'>1500円</td>
+				<td class='bold'>3000円</td>
+				<td class='bold'>5000円</td>
+			</tr>
+			<tr>
+				<td>Custo do pack trimestral</td>
+				<td>de <span class='price_down'>4500円</span> por<br /><span class='new_price'>4275円 (5% OFF)</span></td>
+				<td>de <span class='price_down'>9000円</span> por<br /><span class='new_price'>8550円 (5% OFF)</span></td>
+				<td>de <span class='price_down'>15000円</span> por<br /><span class='new_price'>14250円 (5% OFF)</span></td>
+			</tr>
+			<tr>
+				<td>Custo do pack semestral</td>
+				<td>de <span class='price_down'>9000円</span> por<br /><span class='new_price'>8280円 (8% OFF)</span></td>
+				<td>de <span class='price_down'>18000円</span> por<br /><span class='new_price'>16560円 (8% OFF)</span></td>
+				<td>de <span class='price_down'>30000円</span> por<br /><span class='new_price'>27600円 (8% OFF)</span></td>
+			</tr>
+			<tr>
+				<td>Custo do pack anual</td>
+				<td>de <span class='price_down'>18000円</span> por<br /><span class='new_price bold'>15840円 (12% OFF)</span></td>
+				<td>de <span class='price_down'>36000円</span> por<br /><span class='new_price bold'>31680円 (12% OFF)</span></td>
+				<td>de <span class='price_down'>60000円</span> por<br /><span class='new_price bold'>52800円 (12% OFF)</span></td>
+			</tr>
+			
+			
+		</table>
+		<cite class='color_red'>* Os Packs são intransferíveis e não cumulativos.</cite>
+		
+		
+	</p>
+		
+	<hr size="1" />
+	<p>Para continuar, preencha corretamente o formulário abaixo:</p>
+	<cite class='color_red'>Atenção: obrigatório preenchimento de todos os campos.</cite>
+	<% form_tag business_request_path do %>
+		<table border="0" cellpadding="2" cellspacing="10">
+		<tr>
+			<td><label for="company_name">Nome da empresa solicitante</label></td>
+			<td><%= text_field_tag 'business[company_name]' , '' , :size => 50 %></td>
+		</tr>
+		<tr>
+			<td><label for="user_name">Usuário requerinte</label></td>
+			<td><%= text_field_tag 'business[user_email]', current_user.email, :size => 50, :disabled => true %></td>
+		</tr>
+		<tr>
+			<td><label for="user_name">Nome do requerinte</label></td>
+			<td><%= text_field_tag 'business[user_name]' , '', :size => 25 %></td>
+		</tr>
+		<tr>
+			<td><label for="user_position">Cargo que ocupa na empresa</label></td>
+			<td><%= text_field_tag 'business[user_position]' , '', :size => 25 %></td>
+		</tr>
+		<tr>
+			<td><label for="user_phone">Telefone para contato do requerinte</label></td>
+			<td><%= text_field_tag 'business[user_phone]' , '', :size => 25 %>
+							<label for="user_phone_company">Operadora</label>
+			<%= select "business[user_phone_company]", "name" , { "NTT" => "NTT", "AU" => "AU", "DoCoMo" => "DoCoMo", "SoftBank" => "SoftBank", "Outra" => "Outra"}  %>
+
+			</td>
+		</tr>
+		</table>
+		<%= hidden_field_tag 'business[user_email]', current_user.email %>
+		<%= hidden_field_tag 'business[user_id]', current_user.id %>
+		<div class='center'><%= submit_tag 'Enviar solicitação', :class => 'btn blue' %></div>
+	<% end %>
+</div>

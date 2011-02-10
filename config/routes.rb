@@ -7,7 +7,8 @@ JobBoard::Application.routes.draw do
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
   match '/home',    :to => 'pages#home'
-  match '/partner/dekapower', :to => 'pages#dekapower'
+  match 'help/how-to-start-ad', :to => 'pages#how_to_start_ad', :as => 'how_to_start_ad'
+  match '/business-request', :to => 'pages#business_request', :as => 'business_request'
 
   match '/jobs/revision', :to => 'jobs#revision'
   match '/jobs/locked', :to => 'jobs#locked'

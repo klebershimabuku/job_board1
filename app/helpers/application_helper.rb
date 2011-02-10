@@ -47,7 +47,8 @@ module ApplicationHelper
     if value.nil?
       '-'
     else
-      value.gsub(/\n/, "<br />").html_safe
+      #value.gsub(/\n/, "<br /><br />").html_safe
+      value.gsub(/<br><br>/, "<br />").html_safe
     end
 
   end

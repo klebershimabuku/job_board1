@@ -96,7 +96,9 @@ class Job < ActiveRecord::Base
       def record_timestamps; false; end
     end
 
-    self.increment! :visits
+		if available?
+    	self.increment! :visits
+   end
 
     class << self
       remove_method :record_timestamps

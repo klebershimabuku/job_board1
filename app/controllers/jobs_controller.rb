@@ -7,7 +7,7 @@ class JobsController < ApplicationController
                                                                         :theme => 'advanced',
                                                                         :cleanup_on_startup => true,
                                                                         :theme_advanced_blockformats => "p,div,h1,h2,h3,h4,h5,h6,blockquote,dt,dd,code,samp",
-                                                                        :theme_advanced_buttons1 => "bold,italic,separator,undo,redo,separator,bullist,numlist,link,table,charmap",
+                                                                        :theme_advanced_buttons1 => "bold,italic,separator,undo,redo,separator,link,table,charmap",
                                                                         :theme_advanced_buttons2 => "",
                                                                         :theme_advanced_toolbar_align => "left",
                                                                         :convert_newlines_to_brs => true,
@@ -21,12 +21,6 @@ class JobsController < ApplicationController
   
   def index
     @jobs = Job.recents_available.paginate :page => params[:page], :per_page => PER_PAGE
-    @user = current_user
-    if @user && @user.admin?
-      @pending = Job.all_pending
-    elsif @user && @user.announcer?
-      @pending = Job.user_pending(current_user)
-    end
   end
 
   def revision

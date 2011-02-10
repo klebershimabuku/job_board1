@@ -1,6 +1,6 @@
 <% if can? :new, Job %>
 <div id='shortcuts' class='round'>
-  <p><%= link_to image_tag('new_job40x40.png', :size => '40x40'), new_job_path, :title => 'Criar novo anúncio' %><span>Novo</span></p>
-  <p><%= link_to image_tag('star40x40.png'), jobs_revision_path, :title => 'Meus anúncios em revisão' %><span>Revisão (<%= @pending.count %>)</span></p> 
+  <p><%= link_to image_tag('new_job40x40.png', :size => '15x15'), new_job_path, :title => 'Criar novo anúncio' %><span>Novo</span></p>
+  <p><%= link_to image_tag('star40x40.png', :size => '15x15'), jobs_revision_path, :title => 'Meus anúncios em revisão' %><span>Revisão (<%= @pending.count %>)</span></p> 
 </div>
 <% end %>

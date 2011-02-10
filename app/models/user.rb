@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :users
+  
+  def self.request_business(user)
+		UserMailer.notify_admin_for_business_request(user).deliver # for admin
+		UserMailer.notify_user_for_business_request(user).deliver # for user that are requesting upgrade for business
+		find(user[:user_id]).update_attribute(:business_requested, true)
+		find(user[:user_id]).update_attribute(:business_requested_at, Time.now)  	
+  end
 end

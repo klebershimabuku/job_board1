@@ -18,4 +18,13 @@ class UserMailer < ActionMailer::Base
     mail(:subject => "#{user.email} has sign-up.")
   end
   
+  def notify_admin_for_business_request(user)
+  	@user = user
+  	mail(:subject => "Business Upgrade requested")  	
+  end
+  
+  def notify_user_for_business_request(user)
+  	@user = user
+  	mail(:subject => "Business Upgrade requested", :to => @user['user_email'])
+  end
 end

@@ -9,14 +9,27 @@
     <%= auto_discovery_link_tag(:atom, 'http://feeds2.feedburner.com/Shigotodoko', :title => "ShigotoDoko feed") %>
   </head>
 
+	<script type='text/javascript'>
+	$(document).ready(function() {
+	   $('#flash').delay(500).fadeIn('slow', function() {
+	      $(this).delay(4000).fadeOut();
+	   });
+	});
+	</script>
   <body>
 
-      <%= content_for(:flash_messages) do %>
-        <% flash.each do |name, msg| %>
-            <%= content_tag :div, msg, :class => "#{name}"  %><br />
-        <% end %>
-      <% end %>
   
+			<% unless flash[:notice].blank? %>
+			<div id="flash">
+			<%= flash[:notice]%>
+			</div>   
+			<% end %>
+
+			<% unless flash[:error].blank? %>
+			<div id="flash">
+			<%= flash[:error]%>
+			</div>
+			<% end %>
     
     <div id="container" class="layout-shadow">
       <% # logo & sign-up & sign-in links %>
@@ -44,5 +57,5 @@
   </body>
 </html>
 
-      <%= content_tag(:div, debug(params), :class => 'debug') if Rails.env.development? %>
+<% content_tag(:div, debug(params), :class => 'debug') if Rails.env.development? %>
 

@@ -50,8 +50,8 @@ section h1 {
 
 /* Shortcuts */
 #shortcuts {
-  width: 190px;
-  height: 70px;
+  width: 135px;
+  height: 40px;
   padding-left: 15px;
   background-color: #eee;
   float: right;
@@ -71,7 +71,7 @@ section h1 {
 #shortcuts p span {
   position:relative;
   top: 17px;
-  left: -30px;
+  left: -15px;
   text-shadow: 1px 1px 1px #fff;
   font-size: 12px;
 }
@@ -234,7 +234,6 @@ footer nav#footer ul li {
 }
 #partners h1 {
     font-size: 20px;
-    border-bottom: 1px solid #ccc;
 }
 #partners ul {
     list-style: none;
@@ -399,6 +398,10 @@ a.button {
   text-align: center;
   margin: -10px;
 }
+
+#show_job {
+	margin-bottom: -200px;
+}
 .show_jobs_location_and_title p.location {
   font-size: 20px;
 }
@@ -560,4 +563,64 @@ input[type=text], input[type=password], input.text, input.title, textarea, selec
   background-color: #ccc;
   padding: 10px;
   text-shadow: 1px 1px 1px #fff;
-} 
+}
+
+/*****
+ * 
+ * HOW TO START AD
+ * 
+*****/
+#how_to_start_ad h1 { font-size: 32px; }
+#how_to_start_ad h2 { font-size: 24px; background-color: #069; color: #fff; padding: 5px; text-shadow: 1px 1px 1px #000; }
+#how_to_start_ad h3 { font-size: 32px; background-color: green; color: #fff; padding: 5px;}
+#how_to_start_ad p { font-size: 18px; }
+
+/*****
+ * 
+ * BUSINESS UPGRADE
+ * 
+ * ****/
+ #business_upgrade .header { 
+ 	background-color: #069; 
+ 	padding: 15px; 
+ 	width: 95%;   
+ 	box-shadow:5px 5px 3px rgba(0,0,0,0.4);
+  -moz-box-shadow: 5px 5px 5px #888;
+  -webkit-box-shadow:0 0 3px rgba(0,0,0,0.4);
+  margin-bottom: 20px;
+}
+#business_upgrade .header h1 { font-size: 32px; color: #fff; text-shadow: 1px 1px #999; }
+#business_upgrade .header h2 { font-size: 18px; color: #fff; text-shadow: 1px #000; }
+#business_upgrade h3 { font-size: 24px; border-bottom: 1px solid #ccc;}
+#business_upgrade p { font-size: 18px; }
+.color_red { color: red; }
+.bold { font-weight: bold; }
+.center { margin:0 auto; text-align: center; }
+.price_down {
+	text-decoration:line-through;
+	color: red;
+}
+.new_price {
+	color: green;
+}
+
+
+
+
+
+
+#flash { 
+	display:none;
+	background-color:#FFFEEF; 
+	color:#333; 
+	margin-top:-10px; 
+	margin-bottom: 5px; 
+	text-align: center; 
+	padding-top: 6px; 
+	padding-bottom: 6px; 
+	font-size: 1.2em; 
+	font-weight: bold;
+	width: 100%;
+	position: fixed;
+	z-index: 999; 
+}

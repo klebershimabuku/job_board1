@@ -1,0 +1,42 @@
+<div id="how_to_start_ad">
+	
+	<h1>Como anunciar - Passo a passo</h1>
+	
+	<h2>Passo 1:</h2>
+	
+		<% if current_user %>
+		<p>Você já está cadastrado. <%= image_tag('tick.gif', :size => '25x25')%></p>
+		<% else %>
+		<p><%= link_to "Cadastre-se aqui gratuitamente", new_user_registration_path %> e confirme seu endereço de e-mail.</p>
+		<% end %>
+	
+	<h2>Passo 2:</h2>
+	
+	  <% if current_user && current_user.business_requested?%>
+	  <p>Você já solicitou a alteração para conta Empresarial. <%= image_tag('tick.gif', :size => '25x25')%></p>
+	  <% else %>
+	  	<% if current_user && !current_user.business_requested? %>
+				<p><%= link_to "Solicite alteração para conta Empresarial.", business_request_path %> <br /><em>(Preencha corretamente com seu nome e telefone para entrarmos em contato.)</em></p>
+			<% else %>
+				<p>Após efetuar o login, solicite a alteração para conta Business.</p>
+			<% end %>
+		<% end %>
+	
+	<h2>Passo 3:</h2>
+	
+		<% if current_user && current_user.announcer? %>
+		<p>Contato por telefone já foi realizado e liberado acesso ao Gerenciador de anúncios. <%= image_tag('tick.gif', :size => '25x25')%></p>
+		<% else %>
+		<p>Entraremos em contato por telefone e caso esteja tudo de acordo, será habilitado acesso ao Gerenciador de Anúncios.</p>
+		<% end %>
+	
+	<h2>Passo 4:</h2>
+	
+		<p>Adquira um pack de anúncios para começar suas campanhas.</p>
+	
+	
+	<h3>Pronto!</h3>
+	
+	<p>Em caso de dúvidas, entre em contato conosco: anuncios@shigotodoko.com</p>
+
+</div>
