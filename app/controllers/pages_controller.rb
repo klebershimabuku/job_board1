@@ -19,6 +19,11 @@ class PagesController < ApplicationController
   def how_to_start_ad; end
   
   def business_request
+  	if current_user.nil?
+  		flash[:error] = "Você precisa estar logado para acessar esta página."
+  		redirect_to root_path	
+  	end
+  	
 		if request.post?
       @user = params[:business]
       @assunto = 'Business Upgrade Request'
