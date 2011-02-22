@@ -9,6 +9,7 @@ JobBoard::Application.routes.draw do
   match '/home',    :to => 'pages#home'
   match 'help/how-to-start-ad', :to => 'pages#how_to_start_ad', :as => 'how_to_start_ad'
   match '/business-request', :to => 'pages#business_request', :as => 'business_request'
+  match '/dashboard', :to => 'users#dashboard', :as => 'dashboard'
 
   match '/jobs/revision', :to => 'jobs#revision'
   match '/jobs/locked', :to => 'jobs#locked'
@@ -17,11 +18,13 @@ JobBoard::Application.routes.draw do
     get :unpublish, :on => :member
     get :lock, :on => :member
     get :unlock, :on => :member
+    get :expired, :on => :member
   end
 
   devise_for :users, :path_names=> { :sign_up => 'register', :sign_in => 'login'}
   resources :users do
     get :change_level, :on => :member
+    get :dashboard, :on => :member
   end
 
   root :to => "pages#home"

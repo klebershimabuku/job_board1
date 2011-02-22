@@ -1,0 +1,47 @@
+<h1>Dashboard</h1>
+<hr>
+<% if current_user.announcer? %>
+
+	<table class='dashboard'>
+		<tr>
+			<th>Plano ativo</th>
+			<th>Validade</th>
+			<th>Anúncios online</th>
+			<th>Anúncios em revisão</th>
+			<th>Anúncios expirados</th>
+			<th>Total de anúncios enviados</th>
+		</tr>
+		<tr>
+			<td><%= @active_pack.active_pack.capitalize %></td>
+			<td><%= @active_pack.valid_start_at.strftime('%b %M %Y') %> até <%= @active_pack.valid_end_at.strftime('%b %M %Y') %></td>
+			<td><%= @announcer_total_jobs.published.count %></td>
+			<td><%= @announcer_total_jobs.revision.count %></td>
+			<td><%= @announcer_total_jobs.expired.count %></td>
+			<td><%= @announcer_total_jobs.count %></td>
+		</tr>
+	</table>
+
+	<hr>
+
+	<table class='dashboard'>
+	<tr>
+		<th><%= image_tag('post-icon.png') %> Anúncio</th>
+		<th class='center'><%= image_tag('calendar.png') %> Data de publicação</th>
+		<th class='center'><%= image_tag('3d_bar_chart.png') %> Visualizações</th>
+		<th class='center'><%= image_tag('daily_chart.png') %> Média diária</th>
+		<th class='center'><%= image_tag('status_icon24x24.png')%> Status</th>
+	</tr>
+	<% @announcer_total_jobs.each do |job| %>
+		<tr>
+			<td><%= link_to truncate(job.title), job_path(job) %></td>
+			<td class='center'><%= time_ago_in_words(job.published_at)%></td>
+			<td class='center'><%= job.visits %></td>
+			<td class='center'><%= job.visits_average('day') %></td>
+			<td class='center'><%= status_of(job) %></td>
+		</tr>
+	<% end %>
+	</table>
+
+<% else %>
+	<p class='error'>You are not an announcer.</p>
+<% end %>

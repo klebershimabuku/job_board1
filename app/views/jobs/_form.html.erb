@@ -30,9 +30,14 @@
     <div class="left-column">
         <div class="field">
             <%= f.input :content , :label => "Descrição" , :as => 'text', :input_html => { :cols => 50, :rows => 20, :class => 'mceEditor' }, :hint => "Forneça o maior número possível de informações referentes ao anúncio." %>
+	        	<%= f.input :highlight, :label => "Destacar anúncio", :as => 'radio', :hint => "Faça deste anúncio um destaque." %>
         </div>
+        
+        	
+        
         <div class="actions">
-            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :user_id, :value => @job.new_record? ? current_user.id : @job.user_id %>
+            <%= f.hidden_field :account_id, :value => @account %>
             <%= f.submit "Enviar", :class => 'button' %>
         </div>
     </div>
@@ -41,3 +46,5 @@
   </div>
   <div class="clear"></div>
 <% end %>
+
+<%= debug(@account)%>

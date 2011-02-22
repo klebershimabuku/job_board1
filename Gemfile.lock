@@ -61,6 +61,9 @@ GEM
     httparty (0.6.1)
       crack (= 0.1.8)
     i18n (0.5.0)
+    jquery-rails (0.2.7)
+      rails (~> 3.0)
+      thor (~> 0.14.4)
     json (1.4.6)
     mail (2.2.15)
       activesupport (>= 2.3.6)
@@ -165,6 +168,7 @@ DEPENDENCIES
   devise
   factory_girl_rails (= 1.0)
   fb_graph
+  jquery-rails
   mysql2
   pauldix-feedzirra
   rails (= 3.0.4)

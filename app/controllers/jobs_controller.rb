@@ -1,3 +1,4 @@
+# coding: utf-8
 class JobsController < ApplicationController
 
   load_and_authorize_resource
@@ -16,7 +17,7 @@ class JobsController < ApplicationController
                                                                         :forced_root_block => '' # Needed for 3.x
                                                                       }
 
-
+	
   PER_PAGE = 50
   
   def index
@@ -64,16 +65,18 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @job.increase_pagehit
-    #visits = @job.visits + 1
-    #@job.update_attribute('visits', visits)
     if current_user && current_user.admin? 
     elsif current_user && current_user.announcer?
-      if @job.locked?
-        flash[:error] = "Job unavailable."
-        redirect_to root_path
+      if @job.expired? 
+        render :action => 'expired'
+      elsif @job.locked? && !@job.expired?
+      	flash[:error] = "Anúncio não disponível."
+      	redirect_to jobs_path
       end
     else
-      if !@job.available or @job.locked?
+    	if @job.expired?
+    		render :action => 'expired'
+    	elsif !@job.available or @job.locked?
         flash[:error] = "Job unavailable."
         redirect_to root_path
       end
@@ -82,9 +85,14 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @account = Account.find_by_user_id(current_user).id 
+    # get the total of highlight jobs posted by this pack and see if it can still make a new highlight job
+    @highlight = Job.allow_highlight?(@account)
+
   end
 
   def edit
+ 		@account = Job.find(params[:id]).account_id
   end
 
   def create
@@ -114,14 +122,15 @@ class JobsController < ApplicationController
     redirect_to(jobs_url)
   end
 
-  private
-    def feed
-      redirect_to 'http://feeds.feedburner.com/Shigotodoko', :status=>307 and return unless request.env['HTTP_USER_AGENT'].match(/feedburner|feedvalidator/i)
-      @jobs = Job.feed
-      respond_to do |format|
-        format.atom
-      end
+  def feed
+    redirect_to 'http://feeds.feedburner.com/Shigotodoko', :status=>307 and return unless request.env['HTTP_USER_AGENT'].match(/feedburner|feedvalidator/i)
+    @jobs = Job.feed
+    respond_to do |format|
+      format.atom
     end
+  end
+  
+  def expired;   end
   
 end
 

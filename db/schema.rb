@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110209070140) do
+ActiveRecord::Schema.define(:version => 20110221140034) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "active_pack"
+    t.datetime "valid_start_at"
+    t.datetime "valid_end_at"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -31,12 +40,19 @@ ActiveRecord::Schema.define(:version => 20110209070140) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "available",       :default => false
+    t.boolean  "available",         :default => false
     t.string   "company_name"
     t.string   "company_website"
     t.string   "how_to_apply"
-    t.boolean  "locked",          :default => false
-    t.integer  "visits",          :default => 0
+    t.boolean  "locked",            :default => false
+    t.integer  "visits",            :default => 0
+    t.integer  "account_id"
+    t.datetime "published_at"
+    t.datetime "campaign_start_at"
+    t.datetime "campaign_end_at"
+    t.boolean  "expired",           :default => false
+    t.datetime "expired_at"
+    t.boolean  "highlight"
   end
 
   create_table "users", :force => true do |t|

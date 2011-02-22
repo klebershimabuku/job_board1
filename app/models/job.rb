@@ -35,13 +35,13 @@ class Job < ActiveRecord::Base
 
   scope :recents_available, where(:available => true, :locked => false).order("created_at DESC")
   scope :user_pending, lambda { |user|
-    where("jobs.available = 0 AND jobs.user_id = ?", user.id)
+    where("jobs.available = 0 AND jobs.expired = 0 AND jobs.user_id = ?", user.id)
   }
-  scope :all_pending, where(:available => 0)
+  scope :all_pending, where(:available => 0, :locked => false)
   scope :all_locked,  where(:locked => true)
   scope :feed,        where(:available => 1, :locked => false, :order => 'created_at DESC')
-    
-  attr_accessible :title, :content, :location, :company_name, :company_website, :how_to_apply, :available, :locked, :user_id
+   
+  attr_accessible :title, :content, :location, :company_name, :company_website, :how_to_apply, :available, :locked, :user_id, :account_id, :published_at, :campaign_start_at, :campaign_end_at, :expired, :expired_at, :highlight
  
   def tweet(url)
     Twitter.configure do |config|
@@ -65,8 +65,8 @@ class Job < ActiveRecord::Base
   end
 
   def share(url)
-    tweet(url)
-    facebook_it(url)
+    #tweet(url)
+    #facebook_it(url)
   end
 
   def shorten_url(url)
@@ -76,15 +76,39 @@ class Job < ActiveRecord::Base
   end
   
   def publish
-    update_attribute(:available, true) if !locked?
+  	class << self
+  		def record_timestamps; false; end
+  	end
+    update_attributes(:available => true, :published_at => Time.now) if !locked?
+    
+    ####
+    # 
+    # set campaign_start_at and campaign_end_at properly 
+    #
+    ####
+    pack = active_pack
+    if pack == 'free'
+			update_attributes(:campaign_start_at => Time.now, :campaign_end_at => Time.now + 30.days)
+		elsif pack == 'special' || pack == 'admin'
+			update_attributes(:campaign_start_at => Time.now, :campaign_end_at => Time.now + 45.days)
+		end    
+  	class << self
+  		remove_method :record_timestamps
+  	end
+    
   end
-
+  
+  def active_pack
+    Account.find(account_id).active_pack
+  end
+  
   def unpublish
     update_attribute(:available, false)
   end
 
   def lock
     update_attributes(:locked => true, :available => false)
+    logger.debug "#{self.title} has been locked."
   end
 
   def unlock
@@ -92,17 +116,87 @@ class Job < ActiveRecord::Base
   end
   
   def increase_pagehit
-    class << self
-      def record_timestamps; false; end
-    end
-
+  	class << self
+  		def record_timestamps; false; end
+  	end
 		if available?
     	self.increment! :visits
-   end
-
-    class << self
-      remove_method :record_timestamps
+      self.check_max_pagehits
+  	end
+  	class << self
+  		remove_method :record_timestamps
+  	end
+  end
+  
+  def check_max_pagehits
+    logger.debug 'checking max page hits..'
+    pack = active_pack
+    logger.debug 'checking pack.. ' + pack
+    case pack
+    when 'free'
+      max_pagehits = 500
+      if visits > max_pagehits
+      	lock
+      	expire!
+      end
+    when 'special'
+      max_pagehits = 100000
+      if visits > max_pagehits
+      	lock 
+      	expire!
+      end
     end
   end
 
+  def expire!
+    update_attributes(:expired => true, :expired_at => Time.now)
+  end
+  
+  
+  def self.allowed?(account_id, limit)
+		posts = where(:account_id => account_id)
+		if posts.count < limit
+			true
+		else
+			false
+		end
+  end
+
+  def self.announcer_total_jobs(user_id)
+    where(:user_id => user_id).order('id desc')
+  end
+
+  def self.published
+    where(:available => true, :locked => false)
+  end
+
+  def self.revision
+    where(:available => false, :locked => false)
+  end
+
+  def self.expired
+    where(:expired => true)
+  end
+  
+  def self.total_account_highlight(account_id)
+  	where(:account_id => account_id).count
+  end
+  
+  def self.allow_highlight?(account)
+  	account_type = Account.find(account).active_pack
+  	logger.debug "#{account_type}"
+  	allowed = APP_CONFIG['accounts']["#{account_type}"]['highlight_jobs']
+  	if total_account_highlight(account) > allowed
+  		true
+  	else
+  		false
+  	end
+  end
+
+	def visits_average(option={})
+		if option == 'day'
+			days_passed = Date.today - published_at.to_date
+			(visits / days_passed.to_f).to_i
+		end
+	end
 end

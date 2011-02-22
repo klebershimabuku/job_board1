@@ -57,5 +57,7 @@
   </body>
 </html>
 
-<% content_tag(:div, debug(params), :class => 'debug') if Rails.env.development? %>
+<% if Rails.env.development? %>
+<% content_tag(:div, debug(params), :class => 'debug')  %>
+<% end %>
 

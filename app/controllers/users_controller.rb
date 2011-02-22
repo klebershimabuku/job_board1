@@ -10,4 +10,10 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
+  def dashboard
+  	@active_pack = Account.find_by_user_id(current_user)
+  	@announcer_total_jobs = Job.announcer_total_jobs(current_user)
+  end
+
+
 end

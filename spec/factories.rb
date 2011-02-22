@@ -33,4 +33,12 @@ Factory.define :job do |job|
   job.company_website       "http://www.test.com"
   job.how_to_apply          "Enviar email para contato@test.com"
   job.user_id               "1"
+  job.account_id            "1"
+end
+
+Factory.define :account do |account|
+  account.active_pack       "standard"
+  account.valid_start_at    Time.now
+  account.valid_end_at      Time.now + 1.year
+  account.user_id           "1"
 end

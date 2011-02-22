@@ -6,7 +6,7 @@
 }
 
 body {
-   margin-top: 10px;
+   margin-top: 5px;
    background-image: url('/images/pattern_037.gif');
 }
 
@@ -175,7 +175,6 @@ footer {
 }
 
 footer nav#footer {
-  float: none;
   background-color: #fff;
 }
 footer nav#footer ul li {
@@ -475,9 +474,9 @@ background-color: #333;
 }
     
 .layout-shadow {
-    -moz-box-shadow: 0 0 15px #666;
-    -webkit-box-shadow: 0 0 8px #666;
-    box-shadow: 0 0 8px #666; 
+  -moz-box-shadow: 0 0 15px #666;
+  -webkit-box-shadow: 0 0 15px #666;
+  box-shadow: 0 0 15px #666;
 }
 /* Simple form */
 .simple_form label {
@@ -604,8 +603,33 @@ input[type=text], input[type=password], input.text, input.title, textarea, selec
 	color: green;
 }
 
+.job_status {
+	padding: 2px;
+	width: 100px;
+	text-align: center;
+	margin:0 auto;
+	font-size: 12px;
+	text-transform:lowercase;
+	font-weight: bold;
+}
 
+.job_status_online {
+	background-color:#C6D880;
+	color: #2C6700;
+}
+.job_status_revision {
+	background-color:#FFBD69;
+	color: #333333;
+}
+.job_status_expired {
+	background-color:#8A1F11;
+	color: #FFFFFF;
+}
 
+table.dashboard tr th {
+	background-color: #069;
+	color: #FFF;
+}
 
 
 
@@ -624,3 +648,29 @@ input[type=text], input[type=password], input.text, input.title, textarea, selec
 	position: fixed;
 	z-index: 999; 
 }
+
+/*
+ *  EXPIRED PAGE
+ * 
+ */
+#expired_page {
+	margin:0 auto;
+	text-align: center;
+}
+#expired_page h1 {
+	padding: 50px;
+	color:#8A1F11;
+}
+
+/* 
+ *  DASHBOARD PRESENTS
+ * 
+ */
+#dashboard-presents {
+	margin-top: 50px;
+}
+#dashboard-presents ul li {
+list-style: none;
+}
+ */
+ 

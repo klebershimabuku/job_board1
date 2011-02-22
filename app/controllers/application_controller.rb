@@ -31,5 +31,4 @@ class ApplicationController < ActionController::Base
       @pending = Job.user_pending(current_user)
     end  	
   end
-
 end
