@@ -386,6 +386,9 @@ a.button {
 .blue		{background-color: #CCCCCC; color: #141414;}
 .blue:hover	{background-color: #003366; color: #ffffff;}
 
+.darkblue { background-color: #CCC; color: #FFF; 	padding:10px 20px 10px 20px; }
+.darkblue:hover { background-color: #036; color: #FFF; }
+
 .green		{background-color: #336600; color: #141414;}
 .green:hover{background-color: #2C6700; color: #ffffff;}
 
@@ -688,8 +691,9 @@ table.dashboard tr th {
  */
 #dashboard-presents {
 	margin-top: 50px;
-	background-image:url('/images/feature_bg.jpg');
-	background-repeat: no-repeat;
+	background:url('/images/feature_bg.jpg') no-repeat 0px 190px;
+	position: relative;
+	z-index: 999;
 }
 #dashboard-presents ul li {
 	list-style: none;

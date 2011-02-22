@@ -16,6 +16,8 @@ gem 'url_shortener'
 gem 'tiny_mce'
 gem 'fb_graph'
 gem 'jquery-rails'
+gem 'compass'
+gem 'fancy-buttons'
 
 group :development do
   gem 'rspec-rails', '2.3.0'
