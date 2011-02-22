@@ -274,26 +274,46 @@ div.positions table {
     font-size: 16px;
     color: #069;
   }
-  div.positions section#partner_dekapower table tr td div.title a {
-    font-weight: normal;
-    font-size: 13px;
-    color: #069;
-  }
-  div.positions table tr td div.title a:hover, div.positions section#partner_dekapower table tr td div.title a:hover {
+  div.positions table tr td div.title a:hover {
     text-decoration: underline;
   }
-  div.positions table tr td div.company_name, div.positions section#partner_dekapower table tr td div.company_name {
+  div.positions table tr td div.company_name {
     font-size: 13px;
     color: #666;
   }
   
-  div.positions table tr td.location_date, div.positions section#partner_dekapower table tr td.location_date {
+  div.positions table tr td.location_date {
     text-align: right;
     font-size: 13px;
   }
-  div.positions table tr td.location_date .date, div.positions section#partner_dekapower table tr td.location_date .date {
+  div.positions table tr td.location_date .date {
     color: #999;
   }
+  
+  /*
+   * 
+   *  HIGHLIGHT AD JOBS
+   * 
+   */
+   div.positions table tr.highlight_even {
+   	background-color: #C13100;
+    -moz-box-shadow: 0 0 3px #CCC;
+    -webkit-box-shadow: 0 0 3px #CCC;
+    box-shadow: 0 0 3px #CCC;
+    color: #FFF;   	
+   }
+   div.positions table tr.highlight_even td div.title a { color: #FFF; }
+   div.positions table tr.highlight_even td div.company_name { color: #CCC; }
+   
+   div.positions table tr.highlight_odd {
+   	background-color: #000066;
+    -moz-box-shadow: 0 0 3px #CCC;
+    -webkit-box-shadow: 0 0 3px #CCC;
+    box-shadow: 0 0 3px #CCC;   	
+   }
+   div.positions table tr.highlight_odd td div.title a { color: #FFF; }
+   div.positions table tr.highlight_odd td div.company_name { color: #CCC; }
+   div.positions table tr.highlight_odd td.location_date div.location { color: #CCC; }
   
 
 #main_jobs div#jobs_sidebar {
@@ -668,9 +688,11 @@ table.dashboard tr th {
  */
 #dashboard-presents {
 	margin-top: 50px;
+	background-image:url('/images/feature_bg.jpg');
+	background-repeat: no-repeat;
 }
 #dashboard-presents ul li {
-list-style: none;
+	list-style: none;
 }
  */
  

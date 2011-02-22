@@ -1,21 +1,4 @@
-<% if current_user && current_user.admin? %>
-<div id="admin_header_panel" class="round">
-  <div style="float: left; font-size: small">
-    <p>
-      Owner: <%= @job.user.email %><br />
-      Criado há <%= time_ago_in_words( @job.created_at ) %><br />
-      Atualizado há <%= time_ago_in_words( @job.updated_at ) %><br />
-      Visitas: <%= @job.visits %>
-    </p>
-  </div>
-  <div style="float: right">
-    <%= render 'lock_links' %>
-    <%= render 'publish_links' %>
-  </div>
-</div>
-<div class="clear"></div>
-<hr size="1">
-<% end %>
+<%= render 'header_admin_panel', :collection => @job %>
 
 <div class="show_jobs_location_and_title">
   <p class="location"><%= @job.location %></p>

@@ -1,8 +1,27 @@
 <% show_link = true %>
 
 <% @jobs.each do |job| %>
+
+<%
+
+ # check if the currently month is odd or even
+ n = Time.now.strftime('%m').to_i
+ even = (n%2 == 0) ? true : false
+ if even
+ 	@highlight_class = 'highlight_even'
+ else
+ 	@highlight_class = 'highlight_odd'
+ end
+
+ 	if job.highlight 
+		@highlight_class += ' highlight_ad'
+	else
+		@highlight_class = ''
+	end 
+%>
+
 <table class="post">
-    <tr>
+    <tr class='<%= @highlight_class %>'>
       <% if current_user && current_user.announcer? %>
         <% if job.locked? %>
         <td>
