@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def change_level
-    @user = User.find(params[:id]).update_attribute(:announcer, true)
+    @user = User.find(params[:id])
+    @user.change_level
     flash[:notice] = "User level changed!"
     redirect_to users_path
   end
@@ -13,6 +14,11 @@ class UsersController < ApplicationController
   def dashboard
   	@active_pack = Account.find_by_user_id(current_user)
   	@announcer_total_jobs = Job.announcer_total_jobs(current_user)
+  end
+  
+  def show
+  	@user = User.find(params[:id])
+  	@account = Account.find_by_user_id(params[:id])
   end
 
 

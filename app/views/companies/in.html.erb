@@ -1,0 +1,69 @@
+<% title "Empresas em #{params[:id].capitalize}" %>
+
+<div id='in_page'>
+
+	<div id='header'>
+		<div class='left-column' style="width: 20%; ">
+			<h1>Empresas em <div class='box_company_name'><%= params[:id].capitalize %></div></h1>
+			<% if can? :new, Company %>	
+			<p><%= link_to 'Cadastrar empresa', new_company_path, :class => 'button' %></p>
+			<% end %>
+		</div>
+		<div class='right-column'>
+			<div class='ad_728x90'>
+				<script type="text/javascript"><!--
+				google_ad_client = "ca-pub-8162200517166382";
+				/* Banner Rodapé, 728x90 (todas paginas) */
+				google_ad_slot = "2292158941";
+				google_ad_width = 728;
+				google_ad_height = 90;
+				//-->
+				</script>
+				<div class='center'><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+			</div>
+		</div>
+		<div class='clear'></div>
+	</div>
+			
+
+	<hr />
+
+	<h3>Exibindo página <%= @companies.current_page %> de <%= @companies.total_pages %> para <%= @companies.total_entries %> resultados.</h3>  
+
+	
+	<% if @companies.blank? %>
+		<h5>Desculpe, não temos registro de nenhuma empreiteira nesta província.</h5>
+	<% end %>
+	
+	
+	<ul>
+	<% i = 0 %>
+	
+	<%
+	# define quantity to wrap 
+	qty = @companies.size
+	if qty < 10
+		wrap = 3
+	elsif qty > 10 && qty < 30
+		wrap = 7
+	elsif qty > 30 && qty < 60
+		wrap = 15
+	elsif qty > 60 && qty < 110
+		wrap = 25
+	end
+	%>
+	
+	<% @companies.each do |company| %>
+		<li><%= link_to company.name, company_path(company) %></li>
+		<% if i > wrap %>
+			</ul><ul>
+			<% i = 0 %>
+		<% end %>
+		<% i += 1%>
+	<% end %>
+	</ul>
+	
+	<div class='clear'></div>
+	
+	<%= will_paginate @companies %>
+</div>

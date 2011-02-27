@@ -1,0 +1,52 @@
+
+<h1>Perfil de <i><u><%= @user.email %></u></i></h1>
+<hr />
+
+<table id='user_profile'>
+	<tr>
+		<th>E-mail</th>
+		<th>Sign-in count</th>
+		<th>Visto pela última vez</th>
+		<th>Data de cadastro</th>
+		<th>Última atualização do cadastro</th>
+		<th>Business requested</th>
+		<th>Data do Business request</th>
+	</tr>
+	<tr>
+		<td><%= @user.email %></td>
+		<td><%= @user.sign_in_count %></td>
+		<td>há <%= time_ago_in_words @user.last_sign_in_at %></td>
+		<td>há <%= time_ago_in_words @user.created_at %></td>>
+		<td>há <%= time_ago_in_words @user.updated_at %></td>
+		<td><%= @user.business_requested %></td>
+		<td><%= @user.business_requested_at %></td>
+	</tr>
+</table>
+
+<h2>Account</h2>
+<hr />
+
+<% if @account %>
+
+<table id='user_profile_account'>
+	<tr>
+		<th>Active Pack</th>
+		<th>Validade</th>
+		<th>Data de criação</th>
+		<th>Última atualização</th>
+	</tr>
+	<tr>
+		<td><%= @account.active_pack if @account.active_pack %></td>
+		<td><%= @account.valid_start_at.strftime('%b %m %Y') %> ~ <%= @account.valid_end_at.strftime('%b %m %Y') %></td>
+		<td><%= "#{@account.created_at.strftime('%b %m %Y')} às #{@account.created_at.strftime('%Hhs%Mmin:%Ss')}" %></td>
+		<td><%= "#{@account.updated_at.strftime('%b %m %Y')} às #{@account.updated_at.strftime('%Hhs%Mmin:%Ss')}" %></td>
+	</tr>
+</table>
+
+<% else %>
+	<h4>Não existe uma conta definida para este usuário.</h4>
+	<div class='center'><%= link_to 'Criar conta gratuita para este usuário', free_account_path(@user.id), :class => 'btn blue' %>&nbsp;<%= link_to 'Criar conta special para este usuário', special_account_path(@user.id), :class => 'btn red' %></div>
+<% end %>
+
+
+

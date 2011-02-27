@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :announcer
 
   has_many :users
   
@@ -15,4 +15,13 @@ class User < ActiveRecord::Base
 		find(user[:user_id]).update_attribute(:business_requested, true)
 		find(user[:user_id]).update_attribute(:business_requested_at, Time.now)  	
   end
+  
+  def change_level 	
+  	if announcer?
+  		update_attribute(:announcer, false)
+  	else
+  		update_attribute(:announcer, true)
+  	end
+  end
+  
 end

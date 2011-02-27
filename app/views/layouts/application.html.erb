@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title><%= title %></title>
+	  <title><%= yield(:title) || "A sua referência de empregos no Japão" %>&nbsp;| ShigotoDOKO</title>
+	  <meta name="description" content="<%= yield(:description) || "Vagas de Empregos no Japao, Empreiteiras, Currículums, Artigos e mais.. " %>"/>
+	  <meta name="keywords" content="<%= yield(:keywords) || "empregos no japao, empreiteiras, curriculum, desemprego" %>"/>
     <%= csrf_meta_tag %>
     <meta charset="utf-8" />
     <%= render 'layouts/stylesheets' %>
