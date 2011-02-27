@@ -43,6 +43,11 @@ class Job < ActiveRecord::Base
    
   attr_accessible :title, :content, :location, :company_name, :company_website, :how_to_apply, :available, :locked, :user_id, :account_id, :published_at, :campaign_start_at, :campaign_end_at, :expired, :expired_at, :highlight
  
+ 	def to_param
+    #"#{id}-#{title.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
+    "#{id}-#{title.downcase.parameterize}"
+	end
+	
   def tweet(url)
     Twitter.configure do |config|
       config.consumer_key = APP_CONFIG['twitter_consumer_key']

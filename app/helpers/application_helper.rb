@@ -1,12 +1,15 @@
 module ApplicationHelper
 
-  def title
-    base_title = "ShigotoDOKO"
-    if@title.nil?
-      base_title
-    else
-      "#{base_title} | #{@title}"
-    end
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
+
+  def description(page_description)
+    content_for(:description) { page_description }
+  end
+
+  def keywords(page_keywords)
+    content_for(:keywords) { page_keywords }
   end
 
   def logo
@@ -32,14 +35,18 @@ module ApplicationHelper
     if user.announcer?
       alt_text = "It's an announcer"
       image_tag('announcer_ico.gif', :alt => alt_text, :title => alt_text)
+    elsif user.admin?
+    	content_tag(:strong, "That's you!")
     end
   end
 
   def verify_and_display_correct_changes_on_link(user)
     if user.announcer?
-      "Remove announcer status"
+      link_to("Remove from announcer!", change_level_user_path(user), :class => 'button')
+    elsif user.admin?
+    	"You are already a <strong>superuser</strong>".html_safe
     else
-      "Promote to announcer!"
+      link_to("Promote to announcer!", change_level_user_path(user), :class => 'button')
     end
   end
 

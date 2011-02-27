@@ -1,0 +1,49 @@
+<hr size="1">
+<%= simple_form_for(@company) do |f| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @company.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.input :name, :label => "Nome da empresa", :input_html => { :size => 30 }  %>
+    <%= f.text_area :details, :input_html => { :size => '40x10' } %>
+    <%= f.input :homepage, :label => "Website", :input_html => { :size => 21 }  %>
+    <%= f.input :twitter, :label => "Twitter", :input_html => { :size => 21 }  %>
+    <%= f.input :facebook, :label => "Facebook", :input_html => { :size => 21 }  %>
+    <%= f.input :email, :label => "E-mail principal", :input_html => { :size => 21 }  %>
+  </div>
+
+  <div class="clear" style="margin-bottom: 50px;">
+  	<ul class='province-list'>
+  		<% i = 0 %>
+		  <% @provinces.each do |s|  %>
+		      <li><%= check_box_tag("company[province_ids][]", s.id, @company.provinces.include?(s))%><%= s.name %></li>
+		      
+		      <% if i > 15 %> 
+		      	</ul><ul class='province-list'>
+		      	<% i = 0 %>
+		      <% end %>
+		      
+		      <% i += 1 %>
+		  <% end %>
+  	</ul>
+  	<div class='clear'></div>
+  </div>
+        
+  <div class="actions">
+      <%= f.submit "Enviar", :class => 'button' %>
+  </div>
+
+
+<% end %>
+
+
+<%= debug(@account)%>

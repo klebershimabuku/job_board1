@@ -27,5 +27,16 @@ JobBoard::Application.routes.draw do
     get :dashboard, :on => :member
   end
 
+	resources :companies do
+		get :in, :on => :member, :path => 'list'
+	end
+	
+	resources :provinces
+	resources :accounts do
+		get :free, :on => :member
+		get :special, :on => :member
+	end
+		
+	
   root :to => "pages#home"
 end

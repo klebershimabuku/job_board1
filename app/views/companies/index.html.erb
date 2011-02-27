@@ -1,0 +1,51 @@
+<%= title "Empreiteiras no Japão "%>
+<%= description "Empreiteiras presentes em todas as regiões do Japão, organizadas por província."%>
+<%= keywords "empreiteiras, empreiteiras no japao" %>
+
+<div id='provinces_page'>
+
+	<div id='header'>
+		<div class='left-column' style="width: 20%;">
+			<h1>Empreiteiras</h1>
+			<h4>Empresas organizadas por província</h4>
+			<% if can? :new, Company %>	
+			<p><%= link_to 'Cadastrar empresa', new_company_path, :class => 'button' %></p>
+			<% end %>
+		</div>
+		<div class='right-column'>
+			<div class='ad_728x90'>
+				<script type="text/javascript"><!--
+				google_ad_client = "ca-pub-8162200517166382";
+				/* Banner Rodapé, 728x90 (todas paginas) */
+				google_ad_slot = "2292158941";
+				google_ad_width = 728;
+				google_ad_height = 90;
+				//-->
+				</script>
+				<div class='center'><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+			</div>
+		</div>
+		<div class='clear'></div>
+	</div>
+			
+	
+
+
+
+		
+	<ul>
+		<% i = 0 %>
+		<% @provinces.each do |province| %>
+		<li><%= link_to province.name.capitalize, in_company_path(province.name.downcase!) %></li>
+		
+				<% if i == 14 %>
+					<% i = 0 %>
+					</ul><ul>
+				<% end %>
+				
+				<% i+= 1%>
+		<% end %>
+	</ul>
+	
+	<div class='clear'></div>
+</div>
