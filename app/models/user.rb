@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :users
   
+  
   def self.request_business(user)
 		UserMailer.notify_admin_for_business_request(user).deliver # for admin
 		UserMailer.notify_user_for_business_request(user).deliver # for user that are requesting upgrade for business

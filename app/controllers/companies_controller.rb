@@ -36,6 +36,7 @@ class CompaniesController < ApplicationController
 	
 	def show
 		@company = Company.find(params[:id])
+		@comments = @company.comments.where('approved = ? OR ip = ?', true, request.remote_ip).all 
 		@company.increase_pagehit	
 	rescue ActiveRecord::RecordNotFound 
 		redirect_to(companies_path, :notice => 'Página não encontrada.')

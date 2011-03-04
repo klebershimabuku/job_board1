@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
-	has_and_belongs_to_many :provinces
+  acts_as_commentable
+  has_and_belongs_to_many :provinces
 	
 	def to_param
     "#{id}-#{name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')

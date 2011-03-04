@@ -1,7 +1,7 @@
-<h1>Dashboard</h1>
-<hr>
 <% if current_user.announcer? %>
 
+<h1>Dashboard</h1>
+<hr>
 	<table class='dashboard'>
 		<tr>
 			<th>Plano ativo</th>
@@ -43,5 +43,7 @@
 	</table>
 
 <% else %>
-	<p class='error'>You are not an announcer.</p>
+
+	<%= render 'admin/dashboard' %>
+	
 <% end %>

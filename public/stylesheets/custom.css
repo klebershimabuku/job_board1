@@ -774,10 +774,33 @@ table.dashboard tr th {
 	position: relative;
 	left: 0px;
 	top: -22px;
-    -moz-box-shadow: 5px 10px 3px #CCC;
-    -webkit-box-shadow: 0 0 3px #CCC;
-    box-shadow: 0 0 3px #CCC;
+  -moz-box-shadow: 5px 10px 3px #CCC;
+  -webkit-box-shadow: 0 0 3px #CCC;
+  box-shadow: 0 0 3px #CCC;
 }
+#show_company p.obs { 
+	font-size: 12px;
+}
+#show_company #comments_form {
+	padding: 15px;
+  -moz-box-shadow: 1px 3px 0px #CCC;
+  -webkit-box-shadow: 0 0 3px #CCC;
+  box-shadow: 0 0 3px #CCC;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+#show_company #comments_form form table tr td {
+	background-color: #FFF;
+}
+
+#show_company #comment-notice .flash-notice {
+	margin-bottom: 20px;
+	background-color: #069;
+	color: #FFFFFF;
+	padding: 5px;
+	text-align: center;
+}
+
 
 /*
  *  PROVINCE LIST - CHECKBOX
@@ -802,4 +825,60 @@ ul.province-list {
  	text-align: center;
  	margin:0 auto;
  	margin-bottom: 10px;
+}
+
+/*
+ * COMMENTS PAGE
+ *
+ */
+#show_company #comments_count {
+	color: #333;
+	padding: 5px;
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+#show_company ul {
+	list-style: none;
+	padding: 10px;
+}
+#show_company ul li.comment {
+	font-size: 16px;
+}
+#show_company ul li cite {
+	font-size: 12px;
+}
+#show_company ul li.when {
+	font-size: 13px;
+}
+#show_company ul li.comment span.waiting_approval {
+	font-size: 12px;
+	font-style: italic;
+}
+
+.color-even {
+	background-color: #CCCCC1;
+}
+.color-odd {
+	background-color: #EFEFE3;
+}
+
+/*
+ * ADMIN DASHBOARD
+ * 
+ */
+#admin_dashboard aside#nav { 
+	float: left;
+}
+
+#admin_dashboard #nav ul {
+	list-style: none;
+	border: 1px solid #CCC;
+	padding: 5px;
+}
+
+#admin_dashboard #nav ul li {
+	border-bottom: 1px solid #CCCCC1;
+}
+#admin_dashboard #nav ul li:last-child {
+	border-bottom: none;
 }

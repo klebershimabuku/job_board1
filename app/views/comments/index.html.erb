@@ -1,0 +1,23 @@
+<% title "Comentários para #{@commentable.name}" %>
+<% description "Comentários enviados por usuários sobre a empresa #{@commentable.name}"%>
+<% keywords "#{@commentable.name}, comentários"%>
+
+<div id='comments_page'>
+	<p><%= link_to "← Retornar para página anterior: #{@commentable.name}", company_path(@commentable)%></p>
+	<h1><%= @commentable.name %>&nbsp;<span class='comments_counter round'><%= pluralize(@comments.count,'comentário') %></span></h1>
+	<hr />
+	<% position = 1 %>
+	<% @comments.each do |comment| %>
+		<ul class='comment round'>
+			<li><%= position %> - <cite><strong><%= author_for(comment.title)%></strong> disse..</cite>
+			<% if can? :destroy, Comment %>
+				<%= link_to image_tag('delete.png') + 'Remover comentário', company_comment_path(@commentable,comment), :confirm => "Are you sure?" , :method => :delete, :class => 'button' %>
+			<% end %>
+
+			</li>		
+			<li class='comment'><%= comment.comment%></li>
+			<li class='when'>há <%= time_ago_in_words comment.created_at %></li>
+		</ul>
+	<% position += 1%>
+	<% end %>
+</div>

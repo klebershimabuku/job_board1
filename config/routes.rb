@@ -29,6 +29,7 @@ JobBoard::Application.routes.draw do
 
 	resources :companies do
 		get :in, :on => :member, :path => 'list'
+		resources :comments
 	end
 	
 	resources :provinces
@@ -36,6 +37,7 @@ JobBoard::Application.routes.draw do
 		get :free, :on => :member
 		get :special, :on => :member
 	end
+	
 		
 	
   root :to => "pages#home"
