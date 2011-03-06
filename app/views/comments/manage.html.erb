@@ -1,0 +1,30 @@
+<% title 'Comments Manager' %>
+
+<h1>Comments Manage</h1>
+<hr />
+<% if @comments.blank? %>
+	<p>Não existem comentários para serem aprovados.</p>
+<% else %>
+
+	<p>Existem <%= pluralize(@comments.count, 'comentário') %> aguardando aprovação.</p>
+	
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Comentário</th>
+			<th>Empresa</th>
+			<th>Actions</th>
+		</tr>
+	<% @comments.each do |c| %>
+	
+		<tr>
+			<td><%= c.id %></td>
+			<td><%= c.comment %></td>
+			<td><%= link_to(company_name_for(c.commentable_id), company_path(c.commentable_id) ) %></td>
+			<td><%= link_to 'Aprovar', approve_comment_path(c) %> | <%= link_to 'Negar', company_comment_path(c.commentable_id, c), :confirm => "Are you sure to deny this comment? (it will be permantly deleted!)", :method => :delete %></td>
+		</tr>
+	
+	
+	<% end %>
+	</table>
+<% end %>

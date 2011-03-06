@@ -10,7 +10,8 @@ JobBoard::Application.routes.draw do
   match 'help/how-to-start-ad', :to => 'pages#how_to_start_ad', :as => 'how_to_start_ad'
   match '/business-request', :to => 'pages#business_request', :as => 'business_request'
   match '/dashboard', :to => 'users#dashboard', :as => 'dashboard'
-
+	match '/dashboard/comments/manage', :to => 'comments#manage', :as => 'comments_manage'
+	
   match '/jobs/revision', :to => 'jobs#revision'
   match '/jobs/locked', :to => 'jobs#locked'
   resources :jobs do
@@ -27,6 +28,11 @@ JobBoard::Application.routes.draw do
     get :dashboard, :on => :member
   end
 
+	resources :comments do
+		get :approve, :on => :member
+	end
+	
+	
 	resources :companies do
 		get :in, :on => :member, :path => 'list'
 		resources :comments
@@ -38,7 +44,6 @@ JobBoard::Application.routes.draw do
 		get :special, :on => :member
 	end
 	
-		
 	
   root :to => "pages#home"
 end

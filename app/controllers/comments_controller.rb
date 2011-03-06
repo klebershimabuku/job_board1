@@ -21,8 +21,8 @@ class CommentsController < ApplicationController
     @comment.destroy
     @total = Comment.find_all_by_commentable_id(@comment.commentable_id).count
     flash[:notice] = "Comentário removido com sucesso."
-    #redirect_to company_comments_path(@company)
-    respond_with @comment
+    redirect_to comments_manage_path
+    
   end
 
   def index
@@ -31,6 +31,17 @@ class CommentsController < ApplicationController
   end
 
 	def show
+	end
+	
+	def manage
+		@comments = Comment.where(:approved => false).all	
+	end
+	
+	def approve
+		@comment = Comment.find(params[:id])
+		@comment.approve!
+		flash[:notice] = "Comentário aprovado com sucesso."
+		redirect_to comments_manage_path
 	end
 	
 end

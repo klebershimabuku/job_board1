@@ -9,4 +9,8 @@ module CommentsHelper
 		end
 	end
 	
+	def company_name_for(id)
+		Company.find(id).name
+	end
+	
 end

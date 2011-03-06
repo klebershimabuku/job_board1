@@ -5,9 +5,6 @@
       <li><%= link_to 'Empregos', jobs_path %></li>
       <li><%= link_to 'Empreiteiras', companies_path %></li>
       <li><%= link_to '+ Info', '#' %></li>
-      <% if can? :index, User %>
-        <li><%= link_to 'Usuários', users_path %></li>
-      <% end %>
     </ul>
   </nav>
 </div>

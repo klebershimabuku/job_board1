@@ -15,4 +15,9 @@ class Comment < ActiveRecord::Base
   
   validates_presence_of :title
   validates_presence_of :comment
+  
+  def approve!
+  	update_attribute(:approved,true)
+  end 
+  
 end

@@ -867,7 +867,6 @@ ul.province-list {
  * 
  */
 #admin_dashboard aside#nav { 
-	float: left;
 }
 
 #admin_dashboard #nav ul {
@@ -877,8 +876,12 @@ ul.province-list {
 }
 
 #admin_dashboard #nav ul li {
-	border-bottom: 1px solid #CCCCC1;
+	border-right: 1px solid #CCCCC1;
+	text-align: center;
+	padding: 5px;
+	display: inline;
 }
+
 #admin_dashboard #nav ul li:last-child {
 	border-bottom: none;
 }

@@ -1,12 +1,14 @@
+<% title 'Admin Dashboard' %>
+
 <div id="admin_dashboard">
 	<h1>Admin Dashboard</h1>
 	<hr />
 	<aside id='nav'>
-		<ul>
-			<li>Empregos</li>
-			<li>Empresas</li>
-			<li>Usuários</li>
-			<li>Comentários</li>
+		<ul class='round'>
+			<li><%= link_to 'Empregos', '#' %></li>
+			<li><%= link_to 'Empresas', '#' %></li>
+			<li><%= link_to 'Usuários', users_path %></li>
+			<li><%= link_to 'Comentários', comments_manage_path %></li>
 		</ul>
 	</aside>
 	<div class='clear'></div>
