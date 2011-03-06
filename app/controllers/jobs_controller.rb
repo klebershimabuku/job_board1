@@ -84,11 +84,39 @@ class JobsController < ApplicationController
   end
 
   def new
-    @job = Job.new
-    @account = Account.find_by_user_id(current_user).id 
-    # get the total of highlight jobs posted by this pack and see if it can still make a new highlight job
-    @highlight = Job.allow_highlight?(@account)
+    # check if the announcer has any pack plan assigned
+    @account = Account.find_by_user_id(current_user)
+    
+    # ensure that the announcer has acquired any job pack
+    #if !@account.active_pack.nil? || !@account.active_pack.blank?
+    if @account.nil? || @account.blank?
+			flash[:error] = "Entre em contato com o Administrador para definir um plano de anúncios."
+			redirect_to(root_path)
+		else
+			account_types = %w(free special admin)
+			
+			#if @account.active_pack == 'free' || @account.active_pack == 'special' || @account.active_pack == 'admin'
+			if account_types.include?(@account.active_pack)
+					
+				posts_limit = 999
+				
+				new_posts_allowed = Job.allowed?(@account, posts_limit)
+				
+				if new_posts_allowed
+			    @job = Job.new
+			    @account_id = @account.id 
+			    # get the total of highlight jobs posted by this pack and see if it can still make a new highlight job
+			    @highlight = Job.allow_highlight?(@account_id)
+			  else
+			  	flash[:error] = "Você não possui permissão para criar novos anúncios."
+			  	redirect_to(root_path)
+			  	
+				end
+				
+			end
 
+		end
+				
   end
 
   def edit

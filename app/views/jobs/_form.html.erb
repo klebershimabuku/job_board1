@@ -30,7 +30,7 @@
     <div class="left-column">
         <div class="field">
             <%= f.input :content , :label => "Descrição" , :as => 'text', :input_html => { :cols => 50, :rows => 20, :class => 'mceEditor' }, :hint => "Forneça o maior número possível de informações referentes ao anúncio." %>
-	        	<%= f.input :highlight, :label => "Destacar anúncio", :as => 'radio', :hint => "Faça deste anúncio um destaque." %>
+	        	<%= f.input :highlight, :label => "Destacar anúncio", :as => 'radio', :hint => "Faça deste anúncio um destaque." if @highlight %>
         </div>
         
         	
@@ -46,5 +46,3 @@
   </div>
   <div class="clear"></div>
 <% end %>
-
-<%= debug(@account)%>

@@ -192,9 +192,9 @@ class Job < ActiveRecord::Base
   	logger.debug "#{account_type}"
   	allowed = APP_CONFIG['accounts']["#{account_type}"]['highlight_jobs']
   	if total_account_highlight(account) > allowed
-  		true
-  	else
   		false
+  	else
+  		true
   	end
   end
 
