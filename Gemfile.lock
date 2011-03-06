@@ -3,6 +3,7 @@ GEM
   remote: http://gems.github.com/
   remote: http://gemcutter.org/
   specs:
+    RedCloth (4.2.7)
     abstract (1.0.0)
     actionmailer (3.0.4)
       actionpack (= 3.0.4)
@@ -165,6 +166,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
   acts_as_commentable
   cancan
   devise

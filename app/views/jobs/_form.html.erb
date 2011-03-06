@@ -39,6 +39,7 @@
             <%= f.hidden_field :user_id, :value => @job.new_record? ? current_user.id : @job.user_id %>
             <%= f.hidden_field :account_id, :value => @account %>
             <%= f.submit "Enviar", :class => 'button' %>
+            <%= f.submit "Pré-visualizar", :name => "preview_button" , :class => 'button' if @job.new_record? %>
         </div>
     </div>
 

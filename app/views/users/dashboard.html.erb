@@ -36,7 +36,7 @@
 	<% @announcer_total_jobs.each do |job| %>
 		<tr>
 			<td><%= link_to truncate(job.title), job_path(job) %></td>
-			<td class='center'><%= time_ago_in_words(job.published_at)%></td>
+			<td class='center'><%= time_ago_in_words(job.published_at) rescue "Não publicado ainda." %></td>
 			<td class='center'><%= job.visits %></td>
 			<td class='center'><%= job.visits_average('day') %></td>
 			<td class='center'><%= status_of(job) %></td>

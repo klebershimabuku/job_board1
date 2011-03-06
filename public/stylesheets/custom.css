@@ -424,20 +424,29 @@ a.button {
 #show_job {
 	margin-bottom: 50px;
 }
-.show_jobs_location_and_title p.location {
+.show_jobs_location_and_title header div.location {
   font-size: 20px;
 }
-.show_jobs_location_and_title p.title {
-    margin-top: -30px;
+.show_jobs_location_and_title header div.title {
     font-weight: bold;
     font-size: 32px;
-    padding-bottom: 15px;
     color: #006699;
+}
+.show_jobs_location_and_title header {
+	padding-top: -200px;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 30px;
 }
 .show_jobs_job_content {
     font-size: 16px;
     width: 100%;
     margin-top: -20px;
+}
+h1.preview {
+	background-color: #CCC;
+	color: #000;
+	padding: 10px;
+	text-shadow: 1px 1px 1px #FFF;
 }
 
 #ad {
@@ -459,9 +468,9 @@ background-color: #333;
 }
     .company_info p.company_name {
         font-weight: bold;
-        border-bottom: 1px solid #ccc;
         margin-right: 3px;
         margin-left: 3px;
+        border-bottom: 1px solid #ccc;
     }
     .company_info .company_name_and_website p.company_website {
         font-size: 11px;
@@ -485,15 +494,14 @@ background-color: #333;
         border-bottom: 1px solid #ccc;
     }
     .company_info .how_to_apply p.body {
-        margin-top: -15px;
-        margin-bottom: 2px;
         margin-right: 3px;
         margin-left: 3px;
         font-size: 13px;
     }
     
 .social_network .facebook {
-  margin-top: -55px;
+  margin-top: 35px;
+  position: relative;
 }
     
 .layout-shadow {
@@ -713,8 +721,9 @@ table.dashboard tr th {
  	background-color: #FFF;
  	padding: 10px;
  	margin-left: -10px; 
+ 	border-right: 1px dotted #ccc;
  }
- 
+  
  #provinces_page ul li { list-style: none; }
  
 /*
@@ -746,6 +755,12 @@ table.dashboard tr th {
 #show_company #header, #show_company #details {
 	margin-left: -20px;
 }
+#show_company #details {
+	margin-top: 20px;
+	padding: 10px;
+	background-color: #F2F2F2;
+	border:1px dotted #333;
+}
 #show_company #header h1 {
 	color: #069;
 	font-size: 32px;
@@ -753,10 +768,7 @@ table.dashboard tr th {
 #show_company #header h3 {
 	font-size: 16px;
 } 
-#show_company .social_network {
-	position: relative;
-	margin-top: 70px;
-}
+
 #show_company p {
 	font-size: 16px;
 }

@@ -17,6 +17,7 @@ gem 'tiny_mce'
 gem 'fb_graph'
 gem 'jquery-rails'
 gem 'acts_as_commentable'
+gem 'RedCloth'
 
 
 group :development do

@@ -4,66 +4,12 @@
 
 <%= render 'header_admin_panel', :collection => @job %>
 
-<div class="show_jobs_location_and_title">
-
-			<div class='ad_728x90'>
-				<script type="text/javascript"><!--
-				google_ad_client = "ca-pub-8162200517166382";
-				/* Banner Rodapé, 728x90 (todas paginas) */
-				google_ad_slot = "2292158941";
-				google_ad_width = 728;
-				google_ad_height = 90;
-				//-->
-				</script>
-				<div class='center'><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
-			</div>
-
-	<header>
-			
-			<i>Publicado há <%= time_ago_in_words(@job.published_at) %>.</i>
-  		<p class="location"><%= @job.location %></p>
-	  	<p class="title"><%= @job.title %></p>
-
-  </header>
-
-  <div class="social_network">
-    <div class='facebook left-column'>
-      <p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="shigotodoko" data-related="klebershimabuku">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-      <fb:like show_faces="true" width="450" action="recommend" font="arial"></fb:like><script src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script></p>
-    </div>
-  </div>
-
-</div>
-
-<div id='show_job'>
-  <div class='left-column' style='width: 60%;'>
-      <%= content_tag(:div, my_simple_format(@job.content), :class => 'show_jobs_job_content' ) %>
-  </div>
-
-  <aside class='right-column company_info'>
-    <div class='company_name_and_website round'>
-      <p class='company_name'><%= @job.company_name %></p>
-      <p class='company_website'><%= link_to @job.company_website, @job.company_website, :target => 'blank' unless @job.company_website.nil? %></p>
-    </div>
-    <div class='how_to_apply round'>
-      <p class='title'>Como se candidatar</p>
-      <p class='body'><%= simple_format @job.how_to_apply %></p>
-    </div>
-
-  </aside>
-	<div class="clear"></div>
-</div>
-
-
-
-
-
-
+<%= render 'show_and_preview', :collection => @job %>
 
 <p>
   <%= link_to '← Voltar para empregos', jobs_path %>
 <% if can? :update, Job  %>
-ou <%= link_to 'Editar', edit_job_path(@job), :class => 'button' %>
+ou <%= link_to 'Editar anúncio', edit_job_path(@job), :class => 'button' %>
 <% end %>
 <% if can? :destroy, Job %>
   <%= link_to 'Excluir', @job, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %> 

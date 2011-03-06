@@ -3,8 +3,24 @@
 <%= keywords "#{@company.name}, endereço #{@company.name}, telefone #{@company.name}, site #{@company.name}, twitter #{@company.name}, facebook #{@company.name}"%> 
 
 <div id='show_company'>
+
 	<%= link_to '← Voltar para empreiteiras', companies_path %>
 	<hr />
+	
+			<div class='ad_728x90'>
+				<script type="text/javascript"><!--
+				google_ad_client = "ca-pub-8162200517166382";
+				/* Banner Rodapé, 728x90 (todas paginas) */
+				google_ad_slot = "2292158941";
+				google_ad_width = 728;
+				google_ad_height = 90;
+				//-->
+				</script>
+				<div class='center'><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+			</div>
+	<hr />
+
+	
 	
 	<section id='contents' class='left-column'>
 		<%= render 'show_header' , :collection => @company %>	

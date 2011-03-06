@@ -1,5 +1,9 @@
 <h1>Novo anúncio</h1>
 
+<% if params[:preview_button] %>
+	<%= render "show_and_preview", :collection => @job %>
+<% end %>
+
 <%= render 'form' %>
 
 <%= link_to 'Back', jobs_path %>

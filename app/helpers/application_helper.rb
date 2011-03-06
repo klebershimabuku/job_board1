@@ -88,5 +88,12 @@ module ApplicationHelper
     html = html.html_safe if html.respond_to? :html_safe
     html
   end
+  
+  def my_textilize(text)
+  	raw RedCloth.new(text).to_html
+  	#parser = HTMLToTextileParser.new
+  	#parser.feed(text)
+  	#parser.textile
+  end
 
 end

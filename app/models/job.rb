@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Job < ActiveRecord::Base
   require 'twitter'
   require 'rubygems'
@@ -199,9 +200,13 @@ class Job < ActiveRecord::Base
   end
 
 	def visits_average(option={})
-		if option == 'day'
+		if self.published_at.blank?
+			"Média não disponível."
+		
+		elsif option == 'day'
 			days_passed = Date.today - published_at.to_date
 			(visits / days_passed.to_f).to_i
 		end
 	end
+	
 end

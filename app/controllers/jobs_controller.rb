@@ -125,7 +125,9 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(params[:job])
-    if @job.save
+    if params[:preview_button] || !@job.save
+    	render :action => "new"
+    elsif @job.save
       UserMailer.job_posted_announcer_notification(@job).deliver
       redirect_to(@job, :notice => 'Job was successfully created.')
     else
@@ -134,7 +136,10 @@ class JobsController < ApplicationController
   end
 
   def update
-    if @job.update_attributes(params[:job])
+  	if params[:preview_button] || !@job.update_attributes(params[:job])
+  		@job = params[:job]
+  		render :action => "edit"  	
+    elsif @job.update_attributes(params[:job])
       if current_user.announcer?
         @job.update_attribute(:available, :value => false)
       end
