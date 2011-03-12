@@ -6,7 +6,7 @@
 }
 
 body {
-   margin-top: 5px;
+   margin-top: 10px;
    background-image: url('/images/pattern_037.gif');
 }
 
@@ -715,13 +715,14 @@ table.dashboard tr th {
  #provinces_page {
  }
  
- #provinces_page ul, #in_page ul { 
+ #provinces_page ul, #in_page ul, #hello_work_agencies_page ul { 
  	width: 185px;
  	float: left;
  	background-color: #FFF;
  	padding: 10px;
  	margin-left: -10px; 
  	border-right: 1px dotted #ccc;
+ 	list-style: none;
  }
   
  #provinces_page ul li { list-style: none; }
@@ -896,4 +897,32 @@ ul.province-list {
 
 #admin_dashboard #nav ul li:last-child {
 	border-bottom: none;
+}
+
+/*
+ * HELLO WORK AGENCY - INDIVIDUAL PAGE
+ * 
+ */
+#hello_work_agency div.divisory {
+	margin-bottom: 10px;
+}
+#hello_work_agency table tr th span.normal {
+	font-weight: normal;
+}
+#hello_work_agency table tr.header {
+	background-color: #205791;
+	color: #FFF;
+}
+
+
+/*
+ *  INFO PAGE
+ * 
+ */
+#info_page h1 {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+#info_page #links ul {
+	list-style-type: square;
 }

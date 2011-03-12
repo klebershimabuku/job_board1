@@ -16,6 +16,10 @@ class PagesController < ApplicationController
     @title = "Ajuda"
   end
   
+  def info
+  	
+  end
+  
   def how_to_start_ad; end
   
   def business_request

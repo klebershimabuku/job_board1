@@ -1,0 +1,46 @@
+<% title "Hello Work #{@province.name} "%>
+<% description "Informações sobre os escritórios (endereço, telefone e horários de atendimento) da Hello Work na província de #{@province.name}"%>
+<% keywords "hello work, #{@province.name}, hello work #{@province.name}"%>
+<div id="hello_work_agency">
+	
+	<header>
+		<div class='left-column' style="width: 20%;">
+			<h1><%= @province.name %></h1>
+			<div class='divisory'>Agências Hello Work</div>
+		</div>
+		<div class='right-column'>
+			<div class='ad_728x90'>
+				<script type="text/javascript"><!--
+				google_ad_client = "ca-pub-8162200517166382";
+				/* Banner Rodapé, 728x90 (todas paginas) */
+				google_ad_slot = "2292158941";
+				google_ad_width = 728;
+				google_ad_height = 90;
+				//-->
+				</script>
+				<div class='center'><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+			</div>
+		</div>
+		<div class='clear'></div>
+	</header>
+		
+	<table>
+		<tr class='header'>
+			<th>Cidade</th>
+			<th>Atendimento <span class='normal'>(dia, horário, suporte/idioma)</span></th>
+			<th>Endereço</th>
+			<th>Telefone</th>
+		</tr>
+	<% @agencies.each do |agency| %>
+		<tr>
+			<td><%= agency.city %></td>
+			<td><%= agency.reception %></td>
+			<td><%= display_if_present(agency.address) %></td>
+			<td><%= display_if_present(agency.phone) %></td>
+		</tr>
+	<% end %>
+	</table>
+
+</div>
+
+<%= link_to 'Voltar', agencies_path %>

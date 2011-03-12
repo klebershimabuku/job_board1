@@ -6,7 +6,9 @@ JobBoard::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
+  match '/pages/info', :to => 'pages#info'
   match '/home',    :to => 'pages#home'
+ 
   match 'help/how-to-start-ad', :to => 'pages#how_to_start_ad', :as => 'how_to_start_ad'
   match '/business-request', :to => 'pages#business_request', :as => 'business_request'
   match '/dashboard', :to => 'users#dashboard', :as => 'dashboard'
@@ -14,7 +16,8 @@ JobBoard::Application.routes.draw do
 	
   match '/jobs/revision', :to => 'jobs#revision'
   match '/jobs/locked', :to => 'jobs#locked'
-  resources :jobs do
+  
+  resources :jobs, :path => 'vagas' do
     get :publish, :on => :member
     get :unpublish, :on => :member
     get :lock, :on => :member
@@ -28,12 +31,12 @@ JobBoard::Application.routes.draw do
     get :dashboard, :on => :member
   end
 
-	resources :comments do
+	resources :comments, :path => 'comentarios' do
 		get :approve, :on => :member
 	end
 	
 	
-	resources :companies do
+	resources :companies, :path => 'empresas' do
 		get :in, :on => :member, :path => 'list'
 		resources :comments
 	end
@@ -43,7 +46,9 @@ JobBoard::Application.routes.draw do
 		get :free, :on => :member
 		get :special, :on => :member
 	end
-	
+
+	match 'agencias-hello-work/info', :to => 'agencies#info', :as => 'info_agencies'	
+	resources :agencies, :path => 'agencias-hello-work'
 	
   root :to => "pages#home"
 end

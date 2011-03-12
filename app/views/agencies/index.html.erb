@@ -1,0 +1,49 @@
+<% title "Agências Hello Work" %>
+<% description "Informações gerais sobre localização e telefones para contato das agencias dos escritórios da Hello Work Japão" %>
+<% keywords 'hello work' %>
+
+<div id="hello_work_agencies_page">
+	
+	<header>
+		<div class='left-column' style="width: 20%;">
+			<h1>Agências Hello Work</h1>
+			<h4 class='box_company_name'>Organizadas por província</h4>
+			<% if can? :new, Agency %>	
+			<p><%= link_to 'Cadastrar escritório', new_agency_path, :class => 'button' %></p>
+			<% end %>
+		</div>
+		<div class='right-column'>
+			<div class='ad_728x90'>
+				<script type="text/javascript"><!--
+				google_ad_client = "ca-pub-8162200517166382";
+				/* Banner Rodapé, 728x90 (todas paginas) */
+				google_ad_slot = "2292158941";
+				google_ad_width = 728;
+				google_ad_height = 90;
+				//-->
+				</script>
+				<div class='center'><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+			</div>
+		</div>
+		<div class='clear'></div>
+	</header>
+	
+	<h3><%= link_to 'O que é a Hello Work?', info_agencies_path %></h3>
+	<p>Agência Pública de Emprego, em japonês Koukyou Shokugyo Antei-sho (公共職業安定所), mais popularmente conhecido como Hello Work, oferece serviços de consultas sobre questões de trabalho e de apresentação de emprego para os cidadãos japoneses e estrangeiros. <%= link_to '(mais..)' , info_agencies_path %></p>
+
+	<ul>
+		<% i = 0 %>
+		<% @provinces.each do |province| %>
+		<li><%= link_to province.name.capitalize, agency_path(province) %></li>
+		
+				<% if i == 14 %>
+					<% i = 0 %>
+					</ul><ul>
+				<% end %>
+				
+				<% i+= 1%>
+		<% end %>
+	</ul>
+	<div class='clear'></div>
+
+</div>
