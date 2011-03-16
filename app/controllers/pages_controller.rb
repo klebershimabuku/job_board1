@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   end
   
   def info
-  	
+  	@prefectures = Prefecture.all(:include => :province)
   end
   
   def how_to_start_ad; end
@@ -42,5 +42,7 @@ class PagesController < ApplicationController
 			end
 		end
 	end
+	
+	def busca; end
 	
 end

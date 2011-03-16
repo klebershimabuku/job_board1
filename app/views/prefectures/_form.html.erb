@@ -1,0 +1,12 @@
+<%= simple_form_for(@prefecture) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+		<%= f.label :province_id, "Província"%><%= f.collection_select :province_id, @provinces, :id, :name, :selected => session[:province_id] %>
+    <%= f.input :website %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

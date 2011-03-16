@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110306155057) do
+ActiveRecord::Schema.define(:version => 20110312084225) do
 
   create_table "accounts", :force => true do |t|
     t.string   "active_pack"
@@ -86,6 +86,13 @@ ActiveRecord::Schema.define(:version => 20110306155057) do
     t.boolean  "expired",           :default => false
     t.datetime "expired_at"
     t.boolean  "highlight"
+  end
+
+  create_table "prefectures", :force => true do |t|
+    t.integer  "province_id"
+    t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "provinces", :force => true do |t|

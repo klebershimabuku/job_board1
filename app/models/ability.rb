@@ -19,6 +19,9 @@ class Ability
       can :read, [Job]
       cannot [:manage, :approve], Comment
     end
+    
+    # all users (guests, announcers, etc.)
+    can [:read, :info], [Agency]
   end
     
 end

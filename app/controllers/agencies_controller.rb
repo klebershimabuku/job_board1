@@ -1,4 +1,5 @@
 class AgenciesController < ApplicationController
+  load_and_authorize_resource
   # GET /agencies
   # GET /agencies.xml
   def index

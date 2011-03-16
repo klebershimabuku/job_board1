@@ -1,24 +1,44 @@
-<% title "Outras informações"%>
+<% title "Informações Adicionais"%>
 <% description "Informações sobre os Consulados Gerais do Brasil no Japão e Consulados Gerais do Japão no Brasil." %>
 <% keywords "consulado geral do brasil em nagoya, consulado geral do brasil em tokyo, consulado geral do japao em sao paulo" %>
 
 <div id="info_page">
 	
+	
 	<div id="links">
 		<h1>Consulados e Embaixadas</h1>
-		<h3>Consulados</h3>
-		<ul>
-			<li><%= link_to 'Consulado Geral do Brasil em Nagoya', 'http://www.consuladonagoya.org', :target => '_blank' %></li>
-			<li><%= link_to 'Consulado Geral do Brasil em Tokyo', 'http://www.consbrasil.org', :target => '_blank' %></li>
-			<li><%= link_to 'Consulado Geral do Brasil em Hamamatsu', 'http://www.consbrashamamatsu.jp', :target => '_blank' %></li>
-			<li><%= link_to 'Consulado Geral do Japão em São Paulo', 'http://www.sp.br.emb-japan.go.jp/pt', :target => '_blank' %></li>
-		</ul>
-		
-		<h3>Embaixadas</h3>
-		<ul>
-			<li><%= link_to 'Embaixada do Brasil no Japão', 'http://www.brasemb.or.jp/', :target => '_blank' %></li>
-			<li><%= link_to 'Embaixada do Japão no Brasil', 'http://www.br.emb-japan.go.jp/', :target => '_blank' %></li>
-		</ul>
+		<div id='consulados_embaixadas'>
+			<div id='consulados' class='left-column' style='width: 40%;'>
+				<h3>Consulados</h3>
+				<ul>
+					<li><%= link_to 'Consulado Geral do Brasil em Nagoya', 'http://www.consuladonagoya.org', :target => '_blank' %></li>
+					<li><%= link_to 'Consulado Geral do Brasil em Tokyo', 'http://www.consbrasil.org', :target => '_blank' %></li>
+					<li><%= link_to 'Consulado Geral do Brasil em Hamamatsu', 'http://www.consbrashamamatsu.jp', :target => '_blank' %></li>
+					<li><%= link_to 'Consulado Geral do Japão em São Paulo', 'http://www.sp.br.emb-japan.go.jp/pt', :target => '_blank' %></li>
+				</ul>
+			</div>
+			
+			<div id='embaixadas' class='left-column' style="border-left: 1px dashed #ccc; padding-left: 50px;">
+				<h3>Embaixadas</h3>
+				<ul>
+					<li><%= link_to 'Embaixada do Brasil no Japão', 'http://www.brasemb.or.jp/', :target => '_blank' %></li>
+					<li><%= link_to 'Embaixada do Japão no Brasil', 'http://www.br.emb-japan.go.jp/', :target => '_blank' %></li>
+				</ul>
+			</div>
+			<div class='clear'></div>
+		</div>
+
+	<div id='utils'>
+		<%
+		links = 1 + rand(2)
+		%>
+			<% if links == 1 %>
+			<span><%= link_to 'Procurando por códigos postais e endereços do Japão em alfabeto romano? É batata!', 'http://batata.jp/codigo-postal', :target => '_blank' %></span>
+			<% else %>
+			<span><%= link_to 'Procurando por feriados nacionais do Japão em português? É batata!', 'http://batata.jp/calendario', :target => '_blank' %></span>
+			<% end %>
+			<span class='powered'>Powered by Batata.jp</span>
+	</div>
 		
 		<h1>Assistência e apoio aos brasileiros residentes no exterior</h1>
 		<ul>
@@ -32,9 +52,30 @@
 		<ul>
 			<li><%= link_to 'Ministério das Relações Exteriores - Ministry of Foreign Affairs of Japan (MOFA)', 'http://www.mofa.go.jp/', :target => '_blank' %></li> 
 			<li><%= link_to 'Departamento de Imigração - Português', 'http://www.immi-moj.go.jp/portuguese/index.html', :target => '_blank' %></li> 
-			<li><%= link_to 'NHK World - Português', 'http://www.nhk.or.jp/nhkworld/portuguese/top/index.html', :target => '_blank' %></li> 
+			<li><%= link_to 'NHK World - Português', 'http://www.nhk.or.jp/nhkworld/portuguese/top/index.html', :target => '_blank' %></li>
 		</ul>
-		<p><cite>Fonte e serviços de caixa-postal e calendário fornecidos por <%= link_to 'batata.jp', 'http://batata.jp', :target => '_blank' %></cite></p>
+		<h3>Províncias</h3>
+		<ul class='left-column' style="width: 35%;">
+			<% i = 0 %>
+			<% @prefectures.each do |prefecture| %>
+			<li><%= link_to "Governo da Província de #{prefecture.province.name}", prefecture.website, :target => '_blank' %></li>
+				<% if i == 9 %>
+				</ul><ul class='left-column' style="border-left:1px dashed #ccc; padding-left: 100px;">
+				<% end %>
+			<% i += 1 %>			
+			<% end %> 
+		</ul>
+		<div class='clear'></div>
+		<p><cite>Fonte: <%= link_to 'batata.jp', 'http://batata.jp', :target => '_blank' %><br />
+		Código-postal e calendário são serviços oferecidos por <%= link_to 'batata.jp', 'http://batata.jp', :target => '_blank' %></cite></p>
+		
+		<h1>Documentação</h1>
+		<h3>Saiba o que é necessário para..</h3>
+		<ul>
+			<li><%= link_to 'Visto Elegibilidade', 'http://blog.shigotodoko.com/?p=186', :target => '_blank' %></li>
+			<li><%= link_to 'Re-entry', 'http://blog.shigotodoko.com/?p=184', :target => '_blank' %></li>
+			<li><%= link_to 'Renovação de Passaporte', 'http://blog.shigotodoko.com/?p=182', :target => '_blank' %></li>
+		</ul>
 	</div>
 		
 </div>

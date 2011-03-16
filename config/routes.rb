@@ -1,5 +1,7 @@
 JobBoard::Application.routes.draw do
 
+  resources :prefectures
+
   match '/oauth/authorize', :controller => 'oauth', :action => 'start', :as => :oauth_authorize
   match '/oauth/callback', :controller => 'oauth', :action => 'callback', :as => :oauth_callback
 
@@ -8,6 +10,7 @@ JobBoard::Application.routes.draw do
   match '/help',    :to => 'pages#help'
   match '/pages/info', :to => 'pages#info'
   match '/home',    :to => 'pages#home'
+  match '/busca', :to => 'pages#busca'
  
   match 'help/how-to-start-ad', :to => 'pages#how_to_start_ad', :as => 'how_to_start_ad'
   match '/business-request', :to => 'pages#business_request', :as => 'business_request'
