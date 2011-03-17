@@ -2,7 +2,7 @@
 <% description "Anúncios de empregos no Japão para latino-americanos residentes no país ou não residentes que possuem interesse em trabalhar no Japão. "%>
 <% keywords "empregos no japao, empregos no japao #{Time.now.strftime('%Y')}, anuncios no japao, empregos"%>
 
-<h3>Exibindo página <%= @jobs.current_page %> de <%= @jobs.total_pages %> para <%= @jobs.total_entries %> resultados.</h3>  
+<p>Exibindo página <%= @jobs.current_page %> de <%= @jobs.total_pages %> para <%= @jobs.total_entries %> resultados.</p>  
 <hr size="1">
 
 
@@ -15,6 +15,15 @@
 
     <div id="jobs_sidebar">
         <div>
+        	<div id='post_a_new_job_button'>
+        		<%
+        		new_job_link_campaign = current_user ? new_job_path : how_to_start_ad_path
+        		
+        		%>
+        		
+        		<p><%= link_to 'ENVIAR UM ANÚNCIO DE EMPREGO »', new_job_link_campaign, :class => 'round', :id => 'link' %></p>
+        		<p id='free_campaign'>Grátis por 30 dias! (tempo limitado)</p>
+        	</div>
             <div id="ad_sample" style="width: 300px; height: 250px;">
               <script type="text/javascript"><!--
 							google_ad_client = "ca-pub-8162200517166382";

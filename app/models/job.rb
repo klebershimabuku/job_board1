@@ -45,7 +45,6 @@ class Job < ActiveRecord::Base
   attr_accessible :title, :content, :location, :company_name, :company_website, :how_to_apply, :available, :locked, :user_id, :account_id, :published_at, :campaign_start_at, :campaign_end_at, :expired, :expired_at, :highlight
  
  	def to_param
-    #"#{id}-#{title.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
     "#{id}-#{title.downcase.parameterize}"
 	end
 	
@@ -92,7 +91,7 @@ class Job < ActiveRecord::Base
     # set campaign_start_at and campaign_end_at properly 
     #
     ####
-    pack = active_pack
+    pack = Account.find_by_user_id(user_id).active_pack
     if pack == 'free'
 			update_attributes(:campaign_start_at => Time.now, :campaign_end_at => Time.now + 30.days)
 		elsif pack == 'special' || pack == 'admin'
@@ -105,7 +104,7 @@ class Job < ActiveRecord::Base
   end
   
   def active_pack
-    Account.find(account_id).active_pack
+    Account.find_by_user_id(user_id).active_pack
   end
   
   def unpublish

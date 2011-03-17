@@ -1,3 +1,5 @@
+<% title "A sua referência de empregos no Japão"%>
+
 <div class="welcome_message">
     <h1><%= t(:welcome_message_1)%></h1>
     <h3><%= t(:welcome_message_2)%></h3>
@@ -7,17 +9,33 @@
 
 <div id='dashboard-presents'>
 
-	<div class='left-column' style='width:52%;'>
-		<h1>Gerenciar nunca foi tão fácil!</h1>
-		<h4>Com o novo Dashboard você poderá criar rapidamente novas campanhas e gerenciá-las a partir de um único local.</h4>
-		<p class='center'><%= link_to 'Comece agora!' , new_user_registration_path, :class => 'btn darkblue'%></p>
-	</div>
-	<div class='right-column'>
-		<p><%= image_tag('new_dashboard.png')%></p>
-	</div>
-	<div class='clear'></div>
+		<h1>Gerenciar nunca foi tão fácil..</h1>
+		<p>Com o novo Dashboard você poderá criar rapidamente novas campanhas e gerenciá-las a partir de um único local.</p>
+		<p>Aproveite para conhecer tudo que o maior site de empregos no Japão tem para oferecer e não fique para trás!</p>
 
-</div>
+	<br />
+	
+	<div id='dashboard-presents-body'>
+		<div class='left-column' style='width:52%;'>
+			<p><%= image_tag('new_dashboard.png')%></p><br />
+			<p>Centenas de empresas já trabalham em parceria conosco.</p>
+			<p>E você? Vai ficar de fora dessa?</p>
+		</div>
+		<div class='right-column'>
+			<h3>Veja algumas vantagens:</h3>
+			<table>
+				<tr><td>Controle total sobre seus anúncios.</td><td><%= image_tag('tick24x24.png')%></td></tr>
+				<tr><td>Rapidez na publicação.</td><td><%= image_tag('tick24x24.png')%></td></tr>
+				<tr><td>Divulgação simultânea nas maiores redes sociais.</td><td><%= image_tag('tick24x24.png')%></td></tr>
+				<tr><td>Publicação e divulgação via feeds.</td><td><%= image_tag('tick24x24.png')%></td></tr>
+				<tr><td>Apenas empresas sérias e pré-selecionadas.</td><td><%= image_tag('tick24x24.png')%></td></tr>
+				<tr><td>Acesso total à centenas de currículums cadastrados.</td><td><%= image_tag('tick24x24.png')%></td></tr>
+				<tr><td>Baixíssimo custo.</td><td><%= image_tag('tick24x24.png')%></td></tr>
+			</table>
+			<div id="dashboard_presents_button"><p class='center'><%= link_to 'Comece agora!' , new_user_registration_path, :class => 'round', :id => 'link' %></p></div>
+		</div>
+	<div class='clear'></div>
+	</div>
 
 
 

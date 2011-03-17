@@ -1,0 +1,27 @@
+<% unless params[:controller] == 'pages' && params[:action] == 'home' %>
+<!-- Google Search Bar -->
+<div id="google_search_bar">
+	<form action="http://www.shigotodoko.com/busca" id="cse-search-box"> 
+    <input type="hidden" name="cx" value="partner-pub-8162200517166382:d997ka6gtbw" /> 
+    <input type="hidden" name="cof" value="FORID:10" /> 
+    <input type="hidden" name="ie" value="UTF-8" /> 
+    <input type="text" id="q-for-google-text" value="O quê você está procurando?" onclick="this.value=''" onfocus="if(this.value=='O quê você está procurando?')this.value='';" onblur="if(this.value=='')this.value='O quê você está procurando?';" name="q" size="50"/> 
+    <input type="submit" name="sa" value="Pesquisar" class="btn_custom_search"/> 
+	</form> 
+	<% if @adsense %>
+	   <script type='text/javascript'><!--
+	    google_ad_client = 'pub-8162200517166382';
+	    /* barra de links, abaixo buscador topo */
+	    google_ad_slot = '3757776481';
+	    google_ad_width = 468;
+	    google_ad_height = 15;
+	    //-->
+	    </script>
+	
+	    <div style='background-color: #F2F2F2;margin:0 auto;width: 468px;'>
+	      <script type='text/javascript' src='http://pagead2.googlesyndication.com/pagead/show_ads.js'></script>
+	    </div>
+	<% end %>
+
+</div>
+<% end %>

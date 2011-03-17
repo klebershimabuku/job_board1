@@ -53,6 +53,8 @@
       <section>
         <%= yield %>
       </section>
+      <% @adsense = false %>
+      <%= render 'layouts/google_search_bar', :locals => { :adsense => @adsense } %>
       <%= render 'layouts/footer' %>
       
     </div>
