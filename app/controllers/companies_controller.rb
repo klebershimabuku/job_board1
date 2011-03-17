@@ -49,7 +49,7 @@ class CompaniesController < ApplicationController
 	end
 
   def in
-    @companies = Province.find_by_name(params[:id]).companies.paginate(:page => params[:page], :per_page => 100, :order => 'name')
+    @companies = Province.find_by_name(params[:id]).companies.page params[:page]
   end	
 	
 end

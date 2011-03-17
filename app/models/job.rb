@@ -5,7 +5,7 @@ class Job < ActiveRecord::Base
   require 'url_shortener'
     
   cattr_reader :per_page
-  @@per_page = 10
+  paginates_per 50
   
   #attr_accessible :available, :locked, :title, :location, :content, :company_name, :company_website
 

@@ -67,6 +67,8 @@ GEM
       rails (~> 3.0)
       thor (~> 0.14.4)
     json (1.4.6)
+    kaminari (0.10.4)
+      rails (>= 3.0.0)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -160,7 +162,6 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
-    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
@@ -173,6 +174,7 @@ DEPENDENCIES
   factory_girl_rails (= 1.0)
   fb_graph
   jquery-rails
+  kaminari
   mysql2
   pauldix-feedzirra
   rails (= 3.0.4)
@@ -187,4 +189,3 @@ DEPENDENCIES
   twitter_oauth
   url_shortener
   webrat (= 0.7.1)
-  will_paginate

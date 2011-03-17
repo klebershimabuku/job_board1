@@ -188,6 +188,10 @@ pt-BR:
   follow_us_on_twitter: "Siga-nos no Twitter!"
   announcer: "anúncio"
   you_have: "Você tem"
-
-
-
+  
+  # kaminari
+  views:
+    pagination:
+      next: "Próximo"
+      previous: "Anterior"
+      truncate: "..."

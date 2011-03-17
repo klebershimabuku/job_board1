@@ -18,18 +18,16 @@ class JobsController < ApplicationController
                                                                       }
 
 	
-  PER_PAGE = 50
-  
   def index
-    @jobs = Job.recents_available.paginate :page => params[:page], :per_page => PER_PAGE
+    @jobs = Job.recents_available.page params[:page]
   end
 
   def revision
-    @jobs = Job.all_pending.paginate :page => params[:page], :per_page => PER_PAGE
+    @jobs = Job.all_pending.page params[:page]
   end
   
   def locked
-    @jobs = Job.all_locked.paginate :page => params[:page], :per_page => PER_PAGE
+    @jobs = Job.all_locked.page params[:page]
   end
 
   def publish

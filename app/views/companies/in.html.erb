@@ -28,8 +28,6 @@
 
 	<hr />
 
-	<h3>Exibindo página <%= @companies.current_page %> de <%= @companies.total_pages %> para <%= @companies.total_entries %> resultados.</h3>  
-
 	
 	<% if @companies.blank? %>
 		<h5>Desculpe, não temos registro de nenhuma empreiteira nesta província.</h5>
@@ -65,5 +63,5 @@
 	
 	<div class='clear'></div>
 	
-	<%= will_paginate @companies %>
+	<%= paginate @companies %>
 </div>

@@ -7,7 +7,7 @@ gem 'mysql2'
 gem 'devise'
 gem 'cancan'
 gem 'simple_form'
-gem 'will_paginate'
+#gem 'will_paginate'
 gem 'rufus-scheduler'
 gem 'pauldix-feedzirra'
 gem 'twitter_oauth'
@@ -18,6 +18,7 @@ gem 'fb_graph'
 gem 'jquery-rails'
 gem 'acts_as_commentable'
 gem 'RedCloth'
+gem 'kaminari'
 
 
 group :development do
