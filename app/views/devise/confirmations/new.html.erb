@@ -1,12 +1,9 @@
-<h2>Resend confirmation instructions</h2>
+<div class='center'>
+<h2>Re-enviar instruções de confirmação</h2>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
-
-  <p><%= f.submit "Resend confirmation instructions" %></p>
+  <p>E-mail: <%= f.text_field :email %><%= f.submit "Re-enviar instruções de confirmação", :class => 'button' %></p>
 <% end %>
-
-<%= render :partial => "devise/shared/links" %>
+</div>

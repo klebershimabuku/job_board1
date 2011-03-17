@@ -1,42 +1,24 @@
-<h1>Sobre nós</h1>
-<hr size="1">
-<p>Somos hoje um dos maiores sites de empregos do Japão, e temos como objetivo manter os brasileiros que hoje vivem no arquipélogo, atualizados com as mais recentes oportunidades de serviço, abrangendo todas as províncias do Japão, assim como todas as áreas possíveis.</p>
+<% title "Sobre" %>
+<% description "Conheça um pouco mais da história do ShigotoDOKO "%>
 
-<br />
-<h1>Empresas</h3>
-<hr size="1">
-<p>Trazemos também informações sobre as Empresas que atuam na contratação de mão-de-obra no mercado japonês.</p>
-<p>Informações importantes e triviais como a localização e telefone(s) para contato das mesmas, estão presentes em suas respectivas páginas.</p>
-
-<br />
-<h1>Ser Beta</h3>
-<hr size="1">
-<p>Somos e seremos sempre <strong>Beta</strong> pelo simples fato de estarmos sempre evoluindo, sempre procurando melhorar e inovar. Por isso, <strong>Beta</strong>.. </p>
-<p><strong>Beta</strong> significa que nunca será suficiente e jamais estará 100% pronto.</p>
-
-<br />
-<h1>Custo</h3>
-<hr size="1">
-<p>Todo o conteúdo disponível no ShigotoDOKO é <i><strong>gratuito.</strong></i></p>
-
-<br />
-<h1>Tecnologia</h3>
-<hr size="1">
-<p>Desenvolvido em <%= link_to 'Ruby on Rails', 'http://rubyonrails.org', :target => '_blank' %> por atender às necessidades sempre de forma ágil e possuir código limpo e legível, permitindo um rápido desenvolvimento e manutenção de todo o sistema.</p>
-
-<br />
-<h1>Anúncios</h3>
-<hr size="1">
-<p>Os anúncios publicados são enviados por representantes direto das Empresas ou Empreiteiras através de nosso sistema especialmente desenvolvido para este fim, possibilitando que os anúncios sofram modificações em tempo real.</p>
-
-<br />
-<h1>Histórico</h3>
-<hr size="1">
+<h1>Sobre</h1>
+<p><strong>ShigotoDOKO</strong> nome que buscamos ir de encontro com a "procura por trabalho". São duas palavras rapidamente aprendidas pelos dekasseguis.</p>
+<p>Iniciou-se um trabalho de desenvolvimento nos meados de 2008, pouco antes do auge da crise econômica mundial desencadeada neste mesmo ano.</p>
+<p>O <strong>objetivo</strong> deste projeto sempre foi desde o início tornar fácil a maneira de procurar por um trabalho no Japão. Apresentamos de maneira organizada
+	 <%= link_to 'diversas oportunidades de trabalho', jobs_path %> dentre uma enorme variedade de áreas.</p>
+<p>Para as <strong>empresas</strong> mais comumente conhecidas e chamadas por <i><%= link_to 'empreiteiras', companies_path %></i> damos a oportunidade de estar apresentando aos nossos visitantes
+	e usuários, suas melhores e <%= link_to 'mais recentes ofertas de empregos', jobs_path %> no Japão.</p>
+<p>Aos nossos <strong>usuários</strong> (visitantes que se <%= link_to 'cadastraram no site', new_user_registration_path %>) criamos a possibilidade de deixar registrado em nossa
+	memória, um <strong>Currículum</strong>* que estará facilmente acessível pelas diversas empresas que buscam contratar para preencher determinadas posições.</p>
+<p>Todo este trabalho exige muita dedicação e despende muito de nosso tempo, porém, o fazemos com carinho, boa vontade e <strong>não cobramos absolutamente nada</strong> por isso.</p>
+<p>Talvez agora você esteja se perguntando - O que ganhamos então? - Ganhamos a <strong>satisfação</strong> de poder ajudar pessoas e empresas a se encontrarem e assim termos uma pequena
+	mas importante partipação na economia do Japão.</p>
+<p>Aproveitamos para deixar registrado aqui, algumas datas que consideramos importantes.</p>
 
 <table style="width: 50%;">
 <tr>
   <td>29 de Setembro de 2008</td>
-  <td>Lançamento oficial.</td>
+  <td>Lançamento oficial do ShigotoDOKO.</td>
 </tr>
 <tr>
   <td>06 de Fevereiro de 2009</td>
@@ -48,6 +30,12 @@
 </tr>
 </table>
 
+<p><cite>* Até o presente momento os Currículms ainda não foram reintegrados ao nosso novo sistema.</cite></p>
+
+<hr />
+<h4>Quem está por trás do ShigotoDOKO?</h4>
+<p><strong>Kleber Shimabuku</strong> (28), brasileiro, formado em técnico da computação em São Vicente - SP (Brazil), apaixonado pela arte de programar e residente no Japão pela segunda vez há quase 4 anos.</p>
+<p>Gostaria de se juntar à mim e ajudar neste projeto grandioso? <%= link_to 'Entre em contato', contact_path %> e veremos o que pode ser feito.</p>
 <br /><br />
 <p>
   Powered by:<br />
@@ -55,5 +43,5 @@
 </p>
 <p>
   Ruby & Ruby Logo: © 2006, Yukihiro Matsumoto<br />
-  "Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. 
+  "Rails", "Ruby on Rails", e o Rails logo são marcas registradas de David Heinemeier Hansson. 
 </p>

@@ -149,9 +149,9 @@ a:visited {
  }
  #google_search_bar #cse-search-box #q-for-google-text {
  	padding: 5px;
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+  border-radius:         5px;
  }
  .btn_custom_search {
  	background-color: #50718f;
@@ -174,6 +174,12 @@ a:visited {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;
+}
+
+.round5 {
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+  border-radius:         5px;
 }
 
 .round-top {
@@ -762,7 +768,7 @@ table.dashboard tr th {
  */
 #dashboard-presents {
 	margin-top: 50px;
-	background:url('/images/feature_bg.jpg') no-repeat 0px 155px;
+	background:url('/images/feature_bg.jpg') no-repeat -200px 395px;
 	position: relative;
 	z-index: 999;
 }
@@ -797,7 +803,7 @@ table.dashboard tr th {
 	padding: 15px;
 	display: block;
 	font-weight: bolder;
-	border:1px solid #53ab41;
+	border:1px solid #336600;
 	font-size: 20px;
 }
 
@@ -819,6 +825,7 @@ table.dashboard tr th {
  }
   
  #provinces_page ul li { list-style: none; }
+ #provinces_page ul li a, #in_page ul li a, #hello_work_agencies_page ul li a { color: #369; }
  
 /*
  * IN PAGE
