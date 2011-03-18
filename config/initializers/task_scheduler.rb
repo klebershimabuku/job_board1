@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'rufus/scheduler'
-require 'feedzirra'
 
 scheduler = Rufus::Scheduler.start_new
 
