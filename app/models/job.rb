@@ -70,8 +70,8 @@ class Job < ActiveRecord::Base
   end
 
   def share(url)
-    #tweet(url)
-    #facebook_it(url)
+    tweet(url)
+    facebook_it(url)
   end
 
   def shorten_url(url)
