@@ -2,7 +2,7 @@
 class JobsController < ApplicationController
 
   load_and_authorize_resource
-   
+     
   uses_tiny_mce :only => [:new, :create, :edit, :update], :options => {
                                                                         :theme_advanced_toolbar_location => :top,
                                                                         :theme => 'advanced',
@@ -162,6 +162,6 @@ class JobsController < ApplicationController
   end
   
   def expired;   end
-  
+    
 end
 

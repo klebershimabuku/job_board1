@@ -164,7 +164,7 @@ a:visited {
  }
  .btn_custom_search:hover {
  	background-color: #369;
- 	cursor:hand;
+ 	cursor:pointer;
  }
 
 
@@ -368,7 +368,7 @@ background-image: -moz-linear-gradient(
     rgb(20,143,16) 29%,
     rgb(83,171,65) 73%
 );
-	cursor: default;
+	cursor: pointer;
 	color: #FFF;
 	margin:0 auto;
 	padding: 15px;
@@ -797,7 +797,7 @@ table.dashboard tr th {
 	    rgb(20,143,16) 29%,
 	    rgb(83,171,65) 73%
 	);
-	cursor: default;
+	cursor: pointer;
 	color: #FFF;
 	margin:0 auto;
 	padding: 15px;
