@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :announcer
 
   has_many :users
-  paginates_per 50
+  paginates_per 100
   
   
   def self.request_business(user)

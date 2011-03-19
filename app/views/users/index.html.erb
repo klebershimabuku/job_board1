@@ -1,10 +1,11 @@
 <h1>Listing Users</h1>
 
-<%= paginate @users %>
+<div class='center'><p><%= paginate @users, :outer_window => 10 %></p></div>
 <table>
 
   <tr>
     <td></td>
+    <td>#</td>
     <td>email</td>
     <td>level</td>
     <td>created date</td>
@@ -15,6 +16,7 @@
 
   <tr>
     <td style="background-color: #fff"><%= announcer(user) %></td>
+    <td><%= user.id %></td>
     <td><%= link_to user.email, user_path(user) %></td>
     <td><%= kind_of_user(user) %></td>
     <td><%= user.created_at %></td>
@@ -26,4 +28,4 @@
 
 </table>
 
-<%= paginate @users %>
+<div class='clear'><%= paginate @users, :outer_window => 10 %></div>

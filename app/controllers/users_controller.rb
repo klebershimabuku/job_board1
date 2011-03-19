@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.change_level
     flash[:notice] = "User level changed!"
-    redirect_to users_path
+    redirect_to user_path(@user)
   end
   
   def dashboard
