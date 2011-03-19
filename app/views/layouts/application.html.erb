@@ -9,15 +9,16 @@
     <%= render 'layouts/stylesheets' %>
     <%= render 'layouts/javascripts' %>
     <%= auto_discovery_link_tag(:atom, 'http://feeds2.feedburner.com/Shigotodoko', :title => "ShigotoDoko feed") %>
-  </head>
+		<script type='text/javascript'>
+		$(document).ready(function() {
+		   $('#flash').delay(500).fadeIn('slow', function() {
+		      $(this).delay(4000).fadeOut();
+		   });
+		});
+		</script>  
+	</head>
 
-	<script type='text/javascript'>
-	$(document).ready(function() {
-	   $('#flash').delay(500).fadeIn('slow', function() {
-	      $(this).delay(4000).fadeOut();
-	   });
-	});
-	</script>
+
   <body>
 
   
