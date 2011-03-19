@@ -1,5 +1,5 @@
 config/*.yml
-config/setup_mail.rb
+config/initializers/setup_mail.rb
 config/deploy.rb
 Capfile
 .bundle
