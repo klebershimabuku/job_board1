@@ -1053,3 +1053,21 @@ ul.province-list {
 #info_page #utils a {
 	color: #FFF;
 }
+
+/* 
+ * LISTING USERS PAGE
+ * 
+ */
+ #listing_users_page table tr th, #listing_users_page table tr th a {
+ 	background-color: #336699;
+ 	color: #FFF;
+ }
+
+/*
+ * SHOW USER PAGE
+ * 
+ */
+#user_profile table tr th {
+	background-color: #336699;
+	color: #FFF;
+}

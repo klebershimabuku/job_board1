@@ -1,15 +1,22 @@
+<div id='listing_users_page'>
 <h1>Listing Users</h1>
 
-<div class='center'><p><%= paginate @users, :outer_window => 10 %></p></div>
+  <%= form_for @search do |f| %>
+    <%= f.label :email_contains, "E-mail" %>
+    <%= f.text_field :email_contains %> <%= f.submit "Procurar" %>
+  <% end %>
+  
+<div class='center' style="background-color: #DFEFF0"><p><%= paginate @users, :outer_window => 10 %></p></div>
 <table>
 
   <tr>
-    <td></td>
-    <td>#</td>
-    <td>email</td>
-    <td>level</td>
-    <td>created date</td>
-    <td>action</td>
+    <th></th>
+    <th>#</th>
+    <th><%= sort_link @search, :email %></th>
+    <th>level</th>
+    <th><%= sort_link @search, :created_at %></th>
+    <th><%= sort_link @search, :last_sign_in_at %></th>
+    <th>action</th>
   </tr>
 
   <% @users.each do |user| %>
@@ -19,7 +26,8 @@
     <td><%= user.id %></td>
     <td><%= link_to user.email, user_path(user) %></td>
     <td><%= kind_of_user(user) %></td>
-    <td><%= user.created_at %></td>
+    <td><%= created = user.created_at.blank? ? user.created_at : time_ago_in_words(user.created_at) %></td>
+    <td><%= last_sign_in_at = user.last_sign_in_at.blank? ? user.last_sign_in_at : time_ago_in_words(user.last_sign_in_at) %></td>
     <td><%= verify_and_display_correct_changes_on_link(user) %></td>
   </tr>
 
@@ -27,5 +35,5 @@
 
 
 </table>
-
-<div class='clear'><%= paginate @users, :outer_window => 10 %></div>
+<div class='center' style="background-color: #DFEFF0"><p><%= paginate @users, :outer_window => 10 %></p></div>
+</div>

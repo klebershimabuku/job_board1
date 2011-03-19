@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'acts_as_commentable'
 gem 'RedCloth'
 gem 'kaminari'
+gem 'meta_search'
 
 
 group :development do

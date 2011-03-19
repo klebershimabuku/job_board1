@@ -2,7 +2,8 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
   def index
-    @users = User.page params[:page]
+    @search = User.search params[:search]
+    @users = @search.page params[:page]   
   end
 
   def change_level
