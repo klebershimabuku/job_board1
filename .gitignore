@@ -1,4 +1,7 @@
 config/*.yml
+config/setup_mail.rb
+config/deploy.rb
+Capfile
 .bundle
 db/*.sqlite3*
 log/*.log
