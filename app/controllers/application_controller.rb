@@ -33,10 +33,4 @@ class ApplicationController < ActionController::Base
     end  	
   end
 
-  private
-  	
-  	def etag(collection)
-  		collection.inject(0) { |etag, item| etag += item.updated_at.to_i}
-  	end
-  
 end

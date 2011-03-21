@@ -3,11 +3,6 @@ class CompaniesController < ApplicationController
 	
 	def index
 		@provinces = Province.find(:all)
-		if stale?(:etag => etag(@provinces), :public => true)
-			respond_to do |format|
-				format.html
-			end
-		end
 	end
 	
 	def edit
@@ -42,9 +37,7 @@ class CompaniesController < ApplicationController
 	def show
 		@company = Company.find(params[:id])
 		@company.increase_pagehit	
-		if stale?(:etag => @company.updated_at.to_i, :public => true)
-			@comments = @company.comments.where('approved = ? OR ip = ?', true, request.remote_ip).all
-		end 
+		@comments = @company.comments.where('approved = ? OR ip = ?', true, request.remote_ip).all
 	rescue ActiveRecord::RecordNotFound 
 		redirect_to(companies_path, :notice => 'Página não encontrada.')
 	end
@@ -57,11 +50,6 @@ class CompaniesController < ApplicationController
 
   def in
     @companies = Province.find_by_name(params[:id]).companies.page params[:page]
-    if stale?(:etag => etag(@companies), :public => true)
-    	respond_to do |format|
-    		format.html
-    	end
-    end
   end	
   
 	

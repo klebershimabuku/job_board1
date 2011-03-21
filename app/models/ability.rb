@@ -22,6 +22,7 @@ class Ability
     
     # all users (guests, announcers, etc.)
     can [:read, :info], [Agency]
+    can [:feed, :batatafeeds], [Job]
   end
     
 end
