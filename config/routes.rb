@@ -12,8 +12,8 @@ JobBoard::Application.routes.draw do
   match '/home',    :to => 'pages#home'
   match '/busca', :to => 'pages#busca'
   
-  match '/batatafeeds', :to => 'jobs#batatafeeds'  
-  match '/feed', :to => 'jobs#feed'  
+  match '/batatafeeds', :to => 'jobs#batatafeeds', :format => :atom  
+  match '/feed', :to => 'jobs#feed', :format => :atom  
  
   match 'help/how-to-start-ad', :to => 'pages#how_to_start_ad', :as => 'how_to_start_ad'
   match '/business-request', :to => 'pages#business_request', :as => 'business_request'

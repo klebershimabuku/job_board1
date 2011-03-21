@@ -2,6 +2,7 @@
 class JobsController < ApplicationController
 
   load_and_authorize_resource
+  
      
   uses_tiny_mce :only => [:new, :create, :edit, :update], :options => {
                                                                         :theme_advanced_toolbar_location => :top,
@@ -162,14 +163,14 @@ class JobsController < ApplicationController
     redirect_to 'http://feeds.feedburner.com/Shigotodoko', :status=>307 and return unless request.env['HTTP_USER_AGENT'].match(/feedburner|feedvalidator/i)
     @jobs = Job.feed
     respond_to do |format|
-      format.atom
+      format.atom { render :layout => false }
     end
   end
 
   def batatafeeds
     @jobs = Job.batata_feeds
     respond_to do |format|
-      format.atom
+      format.atom { render :layout => false }
     end
   end  
   
