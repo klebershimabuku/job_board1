@@ -4,12 +4,6 @@ class AgenciesController < ApplicationController
   # GET /agencies.xml
   def index
     @provinces = Province.all
-		if stale?(:etag => etag(@provinces), :public => true)
-	    respond_to do |format|
-	      format.html # index.html.erb
-	      format.xml  { render :xml => @agencies }
-	    end			
-		end
   end
 
   # GET /agencies/1
