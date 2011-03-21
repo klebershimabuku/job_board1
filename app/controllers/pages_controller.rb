@@ -1,19 +1,17 @@
 # coding: utf-8
 class PagesController < ApplicationController
+	caches_page :home, :contact, :about, :help
+
   def home
-    @title = "Home"
   end
 
   def contact
-    @title = "Contato"
   end
 
   def about
-    @title = "Sobre"
   end
 
   def help
-    @title = "Ajuda"
   end
   
   def info

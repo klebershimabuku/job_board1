@@ -32,4 +32,11 @@ class ApplicationController < ActionController::Base
       @pending = Job.user_pending(current_user)
     end  	
   end
+
+  private
+  	
+  	def etag(collection)
+  		collection.inject(0) { |etag, item| etag += item.updated_at.to_i}
+  	end
+  
 end
