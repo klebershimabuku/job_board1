@@ -165,6 +165,13 @@ class JobsController < ApplicationController
       format.atom
     end
   end
+
+  def batatafeeds
+    @jobs = Job.batata_feeds
+    respond_to do |format|
+      format.atom
+    end
+  end  
   
   def expired;   end
     

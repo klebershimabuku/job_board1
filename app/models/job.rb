@@ -41,6 +41,7 @@ class Job < ActiveRecord::Base
   scope :all_pending, where(:available => 0, :locked => false)
   scope :all_locked,  where(:locked => true)
   scope :feed,        where(:available => 1, :locked => false, :order => 'created_at DESC')
+  scope :batata_feeds,where(:available => 1, :locked => false, :order => "created_at DESC", :limit => 10)
    
   attr_accessible :title, :content, :location, :company_name, :company_website, :how_to_apply, :available, :locked, :user_id, :account_id, :published_at, :campaign_start_at, :campaign_end_at, :expired, :expired_at, :highlight
  
