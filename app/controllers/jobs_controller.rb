@@ -21,11 +21,6 @@ class JobsController < ApplicationController
 	
   def index
     @jobs = Job.recents_available.page params[:page]
-    if stale?(:etag => etag(@jobs), :public => true)
-    	respond_to do |format|
-    		format.html
-    	end
-    end
   end
 
   def revision

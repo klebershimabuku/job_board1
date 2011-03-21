@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <%= render 'layouts/stylesheets' %>
     <%= render 'layouts/javascripts' %>
-    <%= auto_discovery_link_tag(:atom, 'http://feeds2.feedburner.com/Shigotodoko', :title => "ShigotoDoko feed") %>
+    <%= auto_discovery_link_tag(:atom, "/feed.atom") %>
 		<script type='text/javascript'>
 		$(document).ready(function() {
 		   $('#flash').delay(500).fadeIn('slow', function() {
