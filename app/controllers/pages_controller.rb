@@ -1,7 +1,5 @@
 # coding: utf-8
 class PagesController < ApplicationController
-	caches_page :home, :contact, :about, :help
-
   def home
   end
 
