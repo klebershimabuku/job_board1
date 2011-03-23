@@ -1,20 +1,23 @@
 <div id='listing_users_page'>
-<h1>Listing Users</h1>
+
+	<div class='center' style="background-color: #DFEFF0;">
+	<h1>Listing Users</h1>
 
   <%= form_for @search do |f| %>
     <%= f.label :email_contains, "E-mail" %>
-    <%= f.text_field :email_contains %> <%= f.submit "Procurar" %>
+    <%= f.text_field :email_contains %><br /><%= f.submit "Procurar", :class => "btn center" %>
   <% end %>
   
-<div class='center' style="background-color: #DFEFF0"><p><%= paginate @users, :outer_window => 10 %></p></div>
+	<p><%= paginate @users, :outer_window => 10 %></p></div>
 <table>
 
   <tr>
     <th></th>
-    <th>#</th>
+    <th><%= sort_link @search, :id %></th>
     <th><%= sort_link @search, :email %></th>
     <th>level</th>
     <th><%= sort_link @search, :created_at %></th>
+    <th><%= sort_link @search, :confirmed_at %></th>
     <th><%= sort_link @search, :last_sign_in_at %></th>
     <th>action</th>
   </tr>
@@ -27,6 +30,7 @@
     <td><%= link_to user.email, user_path(user) %></td>
     <td><%= kind_of_user(user) %></td>
     <td><%= created = user.created_at.blank? ? user.created_at : time_ago_in_words(user.created_at) %></td>
+    <td><%= confirmed = user.confirmed_at.blank? ? user.confirmed_at : time_ago_in_words(user.confirmed_at)%></td>
     <td><%= last_sign_in_at = user.last_sign_in_at.blank? ? user.last_sign_in_at : time_ago_in_words(user.last_sign_in_at) %></td>
     <td><%= verify_and_display_correct_changes_on_link(user) %></td>
   </tr>

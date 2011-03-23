@@ -36,6 +36,7 @@ class CommentsController < ApplicationController
 	end
 	
 	def manage
+		render :layout => "admin"
 		@comments = Comment.where(:approved => false).all	
 	end
 	

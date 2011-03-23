@@ -42,11 +42,11 @@ module ApplicationHelper
 
   def verify_and_display_correct_changes_on_link(user)
     if user.announcer?
-      link_to("Remove from announcer!", change_level_user_path(user), :class => 'button')
+      link_to("Remove from announcer!", change_level_user_path(user), :class => 'btn')
     elsif user.admin?
     	"You are already a <strong>superuser</strong>".html_safe
     else
-      link_to("Promote to announcer!", change_level_user_path(user), :class => 'button')
+      link_to("Promote to announcer!", change_level_user_path(user), :class => 'btn')
     end
   end
 

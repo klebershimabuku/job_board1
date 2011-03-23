@@ -1,0 +1,53 @@
+<%= simple_form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> impossibilitaram este anúncio de ser salvo:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  	<table>
+			<tr>
+				<td><%= f.label :email, "E-mail "%></td>
+				<td><%= f.input :email, :label => false,  :input_html => { :size => 30 }  %></td>
+			</tr>
+	    <tr>
+	    	<td><%= f.label :sign_in_count, "Nro. de logins efetuados "%>
+	    	<td><%= f.input :sign_in_count, :label => false, :input_html => { :size => 10 }%></td>
+	    </tr>
+	    <tr>
+	    	<td><%= f.label :created_at, "Data de cadastro "%>
+	    	<td><%= @user.created_at.strftime('%d/%m/%Y às %H:%M:%S') %></td>
+	    </tr>
+	    <tr>
+	    	<td><%= f.label :last_sign_in_at, "Último login "%>
+	    	<td><%= @user.last_sign_in_at.strftime('%d/%m/%Y às %H:%M:%S') rescue "N/D"%></td>
+	    </tr>
+	    <tr>
+	    	<td><%= f.label :confirmation_sent_at, "Data de envio da confirmação "%>
+	    	<td><%= @user.confirmation_sent_at.strftime('%d/%m/%Y às %H:%M:%S') rescue "N/D"%></td>
+	    </tr>
+	    <% unless @user.confirmed_at.blank?%>
+	    <tr>
+	    	<td><%= f.label :confirmed_at, "Data de confirmação" %></td>
+	    	<td><%= @user.confirmed_at.strftime('%d/%m/%Y às %H:%M:%S') %></td>
+	    </tr>
+	    <% end %>
+	    <% unless @user.announcer.nil?%>
+	    <tr>
+	    	<td><%= f.label :announcer, "Anunciante "%></td>
+	    	<td><%= f.input :announcer, :label => false %></td>
+	    </tr>
+	    <% end %>
+  	</table>
+    
+    <%= f.submit "Enviar" , :class => 'btn'%>
+  </div>
+
+<% end %>

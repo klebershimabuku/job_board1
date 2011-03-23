@@ -1,0 +1,7 @@
+<% debug(@user)%>
+<div id="edit_user_page">
+	<p><%= link_to '← Voltar para perfil', user_path(@user)%></p>
+	<%= render 'form' %>
+	<p class='right'><%= link_to 'Excluir conta', user_path(@user), :method => :delete, :confirm => "Tem certeza que deseja excluir o usuário #{@user.email}?"%></p>
+	<div class='clear'></div>
+</div>

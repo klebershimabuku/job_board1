@@ -1,7 +1,7 @@
 <div id='user_profile'>
-<h1>Perfil de <strong><span style='color: #369;'><%= @user.email %></span></strong></h1>
-
-<table>
+<h2>Perfil de <strong><span style='color: #369;'><%= link_to @user.email, edit_user_path(@user) %></span></strong></h2>
+<p><%= link_to '← Voltar para listagem', users_path %></p>
+<table id='main'>
 	<tr>
 		<th>E-mail</th>
 		<th>Sign-in count</th>
@@ -14,7 +14,7 @@
 	<tr>
 		<td><%= @user.email %></td>
 		<td><%= @user.sign_in_count %></td>
-		<td>há <%= time_ago_in_words @user.last_sign_in_at %></td>
+		<td><%= "há " . time_ago_in_words @user.last_sign_in_at rescue "N/D"%></td>
 		<td>há <%= time_ago_in_words @user.created_at %></td>>
 		<td>há <%= time_ago_in_words @user.updated_at %></td>
 		<td><%= @user.business_requested %></td>
@@ -44,7 +44,7 @@
 
 <% else %>
 	<h4>Não existe uma conta definida para este usuário.</h4>
-	<div class='center'><%= link_to 'Criar conta gratuita para este usuário', free_account_path(@user.id), :class => 'btn blue' %>&nbsp;<%= link_to 'Criar conta special para este usuário', special_account_path(@user.id), :class => 'btn red' %></div>
+	<div class='center'><%= link_to 'Criar conta FREE para este usuário', free_account_path(@user.id), :class => 'btn yellow' %>&nbsp;<%= link_to 'Criar conta SPECIAL para este usuário', special_account_path(@user.id), :class => 'btn red' %></div>
 <% end %>
 
 

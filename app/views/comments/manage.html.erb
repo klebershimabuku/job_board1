@@ -2,10 +2,11 @@
 
 <% title 'Comments Manager' %>
 
-<h1>Comments Manage</h1>
+<div id="comments_page">
+<h1>Comments Manager</h1>
 <hr />
 <% if @comments.blank? %>
-	<p>Não existem comentários para serem aprovados.</p>
+	<p>* Não existem comentários para serem aprovados.</p>
 <% else %>
 
 	<p>Existem <%= pluralize(@comments.count, 'comentário') %> aguardando aprovação.</p>
@@ -31,5 +32,5 @@
 	</table>
 <% end %>
 
-
+</div>
 <% end %>

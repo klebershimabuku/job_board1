@@ -1,9 +1,31 @@
 #encoding: utf-8
 class UsersController < ApplicationController
   load_and_authorize_resource
+  layout "admin"
+  
   def index
     @search = User.search params[:search]
     @users = @search.page params[:page]   
+  end
+  
+  def edit
+  	@user = User.find(params[:id])
+  end
+  
+  def update
+  	if @user.update_attributes(params[:user])
+  		flash[:alert] = "Dados alterados com sucesso"
+  		redirect_to users_path
+  	else
+  		flash[:error] = "Não foi possivel salvar as modificações."  	
+  		render 'edit'
+  	end
+  end
+  
+  def destroy
+  	@user = User.find(params[:id])
+  	@user.destroy
+ 		redirect_to(users_path, :notice => "Usuário excluído com sucesso.") 		
   end
 
   def change_level
