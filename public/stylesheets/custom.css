@@ -825,7 +825,7 @@ table.dashboard tr th {
  }
   
  #provinces_page ul li { list-style: none; }
- #provinces_page ul li a, #in_page ul li a, #hello_work_agencies_page ul li a { color: #369; }
+ #provinces_page ul li a, #in_page ul li a, #hello_work_agencies_page ul li a, #info_page #links ul li a, #footer ul li a { color: #369; }
  
 /*
  * IN PAGE

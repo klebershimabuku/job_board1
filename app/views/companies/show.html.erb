@@ -10,8 +10,8 @@
 			<div class='ad_728x90'>
 				<script type="text/javascript"><!--
 				google_ad_client = "ca-pub-8162200517166382";
-				/* Banner Rodapé, 728x90 (todas paginas) */
-				google_ad_slot = "2292158941";
+				/* 728x90, individual company page */
+				google_ad_slot = "8014838898";
 				google_ad_width = 728;
 				google_ad_height = 90;
 				//-->
@@ -27,6 +27,13 @@
 		<%= render 'show_details', :collection => @company %>
 	</section>
 	
+	
+	<div class='clear'></div>
+
+
+	<p class='last_update_date'>Atualizado pela última vez há <%= time_ago_in_words(@company.updated_at) %></p>
+	<p><cite>* Talvez as informações acima estejam desatualizadas. Se você souber de algum dado atualizado, por favor entre em contato conosco que teremos satisfação em atualizá-los para você. (<%= link_to 'Contato', contact_path %>)</cite></p>
+	<hr />
 	<aside id='ad_160x90_txt' class='right-column'>
 		
 		<script type="text/javascript"><!--
@@ -42,12 +49,6 @@
 
 	</aside>	
 	
-	<div class='clear'></div>
-
-
-	<p class='last_update_date'>Atualizado pela última vez há <%= time_ago_in_words(@company.updated_at) %></p>
-	<p><cite>* Talvez as informações acima estejam desatualizadas. Se você souber de algum dado atualizado, por favor entre em contato conosco que teremos satisfação em atualizá-los para você. (<%= link_to 'Contato', contact_path %>)</cite></p>
-	<hr />
 	
 	<div id="comments_count"><%= pluralize(@comments.count, "Comentário") %></div>
 	
