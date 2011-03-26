@@ -37,7 +37,7 @@ Factory.define :job do |job|
 end
 
 Factory.define :account do |account|
-  account.active_pack       "standard"
+  account.active_pack       "free"
   account.valid_start_at    Time.now
   account.valid_end_at      Time.now + 1.year
   account.user_id           "1"

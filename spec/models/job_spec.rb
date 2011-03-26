@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'spec_helper'
 
 describe Job do
@@ -121,7 +122,12 @@ describe Job do
 
   end
 
-  describe "#publish" do
+  describe "publish process" do
+  	
+  	before(:each) do
+  		@user = Factory(:account, :active_pack => 'free')
+  	end
+  	
     it "should publish a job" do
       @job = Factory(:job, :available => false, :locked => false)
       lambda { @job.publish }.should change(@job, :available).from(false).to(true)
@@ -133,7 +139,7 @@ describe Job do
     end
   end
 
-  describe "#unpublish" do
+  describe "unpublish process" do
     it "should unpublish a job" do
       @job = Factory(:job, :available => true)
       lambda { @job.unpublish }.should change(@job, :available).from(true).to(false)
@@ -154,11 +160,114 @@ describe Job do
     end
   end
 
-  describe "#increase_pagehit" do
-    it "should increment the visits counter by 1" do
-      @job = Factory(:job)
-      lambda { @job.increase_pagehit }.should change(@job, :visits).by(1)
-    end
+  it "should increment the visits counter by 1 if the job is already available" do
+	  @job = Factory(:job, :available => true)
+  	lambda { @job.increase_pagehit }.should change(@job, :visits).by(1)
   end
+  
+  it "should not change the updated date after the increment pagehit process" do
+  	@job = Factory(:job, :available => true)
+  	@previous_date = @job.updated_at
+  	@job.increase_pagehit
+  	@job.updated_at.should == @previous_date
+  end
+  
+  it "should expire a job immediately and save the date" do
+  	@job = Factory(:job, :expired => false, :expired_at => nil)
+  	@job.expire!
+  	@job.expired_at = Time.now
+  	@job.expired_at.should_not be_nil
+  	@job.expired.should be_true
+  end
+	
+	it "should allow user to create new jobs until reach the limit" do
+		jobs_posted = 1
+		limit = 3
+		if jobs_posted < limit
+			Job.allowed?(1,3).should be_true
+		end
+	end
+	
+	it "should deny user to create new jobs when reach the limit" do
+		jobs_posted = 3
+		limit = 3
+		if jobs_posted < limit
+			Job.allowed(1,3).should be_false
+		end
+	end
 
+	it "should return all published jobs that are not locked" do
+		@job = Factory(:job, :available => true, :locked => false)
+		Job.published.first.should == @job
+	end
+	
+	it "should return all jobs in revision estate" do
+		@job = Factory(:job, :available => false, :locked => false)
+		Job.revision.first.should == @job
+	end
+	
+	it "should return all expired jobs" do
+		@job = Factory(:job, :expired => true)
+		Job.expired.first.should == @job
+	end
+	
+	describe Job, "Checking max pagehits" do
+		it "should expire and lock jobs for free active_pack when it reaches the 500 of limit pagehit" do
+			@job = Factory(:job, :visits => 501)
+			@account = Factory(:account, :active_pack => 'free')
+			@job.check_max_pagehits
+			@job.locked.should be_true
+			@job.expired.should be_true		
+		end
+	
+		it "should expire and lock jobs for special active_pack when it reaches the 100.000 of limit pagehit" do
+			@job = Factory(:job, :visits => 100001)
+			@account = Factory(:account, :active_pack => 'special')
+			@job.check_max_pagehits
+			@job.locked.should be_true
+			@job.expired.should be_true		
+		end
+	end
+	
+	it "should return all jobs created by an announcer and the display order should be descendant" do
+		@job1 = Factory(:job, :id => 1)
+		@job2 = Factory(:job, :id => 2)
+		Job.announcer_total_jobs(1).should == [@job2, @job1]
+	end
+	
+	it "should allow announcer to create highlight posts" do
+		@account = Factory(:account, :id => 1, :active_pack => 'free')
+		@highlighted_jobs = 1
+		@allowed = 3
+		if @highlighted_jobs < @allowed
+			Job.allow_highlight?(1).should be_true
+		end
+	end
+	
+	it "should deny announcer to create highlight posts" do
+		@account = Factory(:account, :id => 1, :active_pack => 'free')
+		@highlighted_jobs = 3
+		@allowed = 3
+		if @highlighted_jobs < @allowed
+			Job.allow_highlight?(1).should be_false
+		end
+	end
+	
+	it "should return the quantity of hightlighted created posts by an announcer" do
+		@job1 = Factory(:job, :account_id => 1, :highlight => true)
+		@job2 = Factory(:job, :account_id => 1, :highlight => true)
+		@job3 = Factory(:job, :account_id => 1, :highlight => false)
+		Job.total_account_highlight(1).should be_equal(2)
+	end
+	
+	it "should display the visits average for published posts" do
+		@job = Factory(:job, :published_at => 1.day.ago, :visits => 100)
+		@job.visits_average('day').should be_equal(50)
+	end
+	
+	it "should display an error message if the post have not been published yet" do
+		@job = Factory(:job, :published_at => nil)
+		@job.visits_average('day').should == "Média não disponível."		
+	end
+	
 end

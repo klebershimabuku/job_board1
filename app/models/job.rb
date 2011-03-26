@@ -127,7 +127,6 @@ class Job < ActiveRecord::Base
   	end
 		if available?
     	self.increment! :visits
-      self.check_max_pagehits
   	end
   	class << self
   		remove_method :record_timestamps
@@ -185,7 +184,7 @@ class Job < ActiveRecord::Base
   end
   
   def self.total_account_highlight(account_id)
-  	where(:account_id => account_id).count
+  	where(:account_id => account_id, :highlight => true).count
   end
   
   def self.allow_highlight?(account)

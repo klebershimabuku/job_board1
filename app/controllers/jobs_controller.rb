@@ -64,6 +64,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @job.increase_pagehit
+    @job.check_max_pagehits
     if current_user && current_user.admin? 
     elsif current_user && current_user.announcer?
       if @job.expired? 
@@ -169,6 +170,6 @@ class JobsController < ApplicationController
   end  
   
   def expired;   end
-    
+  
 end
 

@@ -15,7 +15,20 @@ describe User do
   it "should create a new instance given valid attributes" do
     User.create!(@attr)
   end
+  
+  it "should change the user type from normal user type to announcer type" do
+  	@user = User.create!(@attr)
+  	@user.announcer.should be_false
+  	@user.change_level
+  	@user.announcer.should be_true
+ 	end
 
+	it "should change the user type from announcer to normal" do
+		@user = User.create!(@attr)
+		@user.announcer = true
+		@user.change_level
+		@user.announcer.should_not be_true
+	end
   describe "password validations" do
 
     it "should require a password" do
