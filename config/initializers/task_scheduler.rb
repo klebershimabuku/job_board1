@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'rufus/scheduler'
 
+
 scheduler = Rufus::Scheduler.start_new
 
 #scheduler.every '1m' do
@@ -15,4 +16,8 @@ scheduler.cron '0 0 * * * Asia/Tokyo' do
     else
       puts "No job to lock. Still waiting.."
     end
+end
+
+scheduler.cron '0 0 1 * * * Asia/Tokyo' do
+	system("rake sitemap:refresh:no_ping")
 end

@@ -18,6 +18,7 @@ gem 'acts_as_commentable'
 gem 'RedCloth'
 gem 'kaminari'
 gem 'meta_search'
+gem 'sitemap_generator'
 
 
 group :development do
