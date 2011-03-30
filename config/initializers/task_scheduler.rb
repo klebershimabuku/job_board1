@@ -19,5 +19,5 @@ scheduler.cron '0 0 * * * Asia/Tokyo' do
 end
 
 scheduler.cron '0 0 1 * * * Asia/Tokyo' do
-	system("rake RAILS_ENV=production sitemap:refresh:no_ping")
+	system("rake RAILS_ENV=production sitemap:refresh")
 end
