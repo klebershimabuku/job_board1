@@ -139,7 +139,7 @@ class Job < ActiveRecord::Base
     logger.debug 'checking pack.. ' + pack
     case pack
     when 'free'
-      max_pagehits = 500
+      max_pagehits = 5000
       if visits > max_pagehits
       	lock
       	expire!
