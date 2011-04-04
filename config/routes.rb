@@ -1,6 +1,8 @@
 JobBoard::Application.routes.draw do
 
   resources :prefectures
+  
+  resources :resumes
 
   match '/oauth/authorize', :controller => 'oauth', :action => 'start', :as => :oauth_authorize
   match '/oauth/callback', :controller => 'oauth', :action => 'callback', :as => :oauth_callback

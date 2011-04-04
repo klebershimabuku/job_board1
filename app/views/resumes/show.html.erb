@@ -1,0 +1,130 @@
+<% title @resume.full_name %>
+
+<div id="resume_page">
+	
+<h1><%= @resume.full_name %>
+	<% if can? :update, Resume %>
+		<small><%= link_to 'Editar', edit_resume_path(@resume) %></small>
+	<% end %>
+</h1>
+<h4><%= "#{@resume.origin}, #{@resume.marital_status.downcase}, "%>
+
+	<% if @resume.children == 0 %>
+		sem filhos,
+	<% else %>
+		<%= pluralize(@resume.children, "filho") %>,
+	<% end %>
+	<%= " #{@resume.age} anos." %>
+</h4>
+
+
+<p>
+	<h5>Informações para contato:</h5>
+
+<p><%= province(@resume.province_id) %>, <%= @resume.city %><br />
+		<%= "#{@resume.address}" %></p>
+		
+<p>
+	Fone: <%= "#{@resume.phone_number}"%>
+</p>
+
+
+<p>
+	<h5>Informações físicas:</h5>
+	<p>Altura: <%= "#{@resume.height}cm" %> - Peso: <%= @resume.weight %>kg.</p>
+	<table>
+		<tr>
+			<th>&nbsp;</th>
+			<th>sim</th>
+			<th>não</th>
+		</tr>
+		<tr>
+			<td>Tatuagem visível</td>
+			<td>
+				<% if @resume.tattoo? %>
+					<%= image_tag('checkbox_on.gif')%>
+					<td><%= image_tag('checkbox_off.gif')%></td>
+				<% else %>
+					<%= image_tag('checkbox_off.gif')%>
+					<td><%= image_tag('checkbox_on.gif')%></td>
+				<% end %>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Piercing</td>
+			<td>
+				<% if @resume.piercing? %>
+					<%= image_tag('checkbox_on.gif')%>
+					<td><%= image_tag('checkbox_off.gif')%></td>
+				<% else %>
+					<%= image_tag('checkbox_off.gif')%>
+					<td><%= image_tag('checkbox_on.gif')%></td>
+				<% end %>
+			</td>
+			
+		</tr>
+	</table>	
+</p>
+
+
+<p>
+	<h5>Qualidades:</h5>
+	<cite><%= simple_format @resume.qualities%></cite>
+</p>
+
+
+<p>
+	<h5>Observações:</h5>
+	<% if @resume.notes.blank? %>
+		<p>nenhuma.</p>
+	<% else %>
+		<p><cite><%= simple_format @resume.notes%></cite></p>
+	<% end %>
+</p>
+
+
+
+
+<h5>Informações complementares:</h5>
+<p>
+	<% if @resume.working? %>
+		Atuamente está empregado,
+	<% else %>
+		Desempregado(a),
+	<% end %>
+	
+	<% if @resume.possible_moving? %>
+		possui condições de se mudar de cidade e/ou província.
+	<% else %>
+		não possui condições de se mudar.
+	<% end %>
+</p>
+
+
+<p>
+	<table>
+		<tr>
+			<th>&nbsp;</th>
+			<th>sim</th>
+			<th>não</th>
+		</tr>
+		<tr>
+			<td>Veículo próprio</td>
+		
+			<td>
+				<% if @resume.vehicle? %>
+					<%= image_tag('checkbox_on.gif')%>
+					<td><%= image_tag('checkbox_off.gif')%></td>
+				<% else %>
+					<%= image_tag('checkbox_off.gif')%>
+					<td><%= image_tag('checkbox_on.gif')%></td>
+				<% end %>
+			</td>
+		</tr>
+		</table>	
+</p>
+
+<p><small>Informações atualizadas em <%= @resume.updated_at.strftime("%d/%m/%Y")%></small>.</p>
+</div>
+

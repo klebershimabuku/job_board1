@@ -42,3 +42,28 @@ Factory.define :account do |account|
   account.valid_end_at      Time.now + 1.year
   account.user_id           "1"
 end
+
+Factory.define :resume do |resume|
+	resume.user_id						"1"
+	resume.state_id						"1"
+	resume.name								"Foo"
+	resume.lastname						"Bar"
+	resume.birthday						"11/09/1980"
+	resume.marital_status			"solteiro(a)"
+	resume.address						"Togakushi-mura 1000 Oasa Toyooka 1"
+	resume.city								"Nagano-shi"
+	resume.phone_number				"090-11112222"
+	resume.working						true
+	resume.children						2
+	resume.possible_moving		true
+	resume.qualities					"responsavel, pontual"
+	resume.notes							"nao sei japones"
+	resume.gender							"masculino"
+	resume.height							170
+	resume.weight							80
+	resume.origin							"brasileiro"
+	resume.piercing						false
+	resume.tattoo							true
+	resume.vehicle						true
+	resume.hits								1
+end

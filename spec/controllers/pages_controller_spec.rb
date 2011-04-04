@@ -1,3 +1,4 @@
+#encoding: UTF-8
 require 'spec_helper'
 
 describe PagesController do
@@ -6,7 +7,7 @@ describe PagesController do
 
   before(:each) do
     #define the @base_title content
-    @base_title = "ShigotoDOKO"
+    @base_title = "A sua referência de empregos no Japão"
   end
 
 
@@ -33,7 +34,7 @@ describe PagesController do
     it "should have the right title" do
       get 'contact'
       response.should have_selector("title",
-                                    :content => @base_title + " | Contato")
+                                    :content => "Contato | ShigotoDOKO")
     end
   end
 
@@ -46,7 +47,7 @@ describe PagesController do
     it "should have the right title" do
       get 'about'
       response.should have_selector("title",
-                                    :content => @base_title + " | Sobre")
+                                    :content => "Sobre | ShigotoDOKO")
     end
   end
 
@@ -59,7 +60,7 @@ describe PagesController do
     it "should have the right title" do
       get 'help'
       response.should have_selector("title",
-                                    :content => @base_title + " | Ajuda")
+                                    :content => "Ajuda | ShigotoDOKO")
     end
   end
 

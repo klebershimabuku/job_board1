@@ -1,7 +1,7 @@
 #encoding: utf-8
 class UsersController < ApplicationController
   load_and_authorize_resource
-  layout "admin"
+#  layout "admin"
   
   def index
     @search = User.search params[:search]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312084225) do
+ActiveRecord::Schema.define(:version => 20110403135859) do
 
   create_table "accounts", :force => true do |t|
     t.string   "active_pack"
@@ -95,8 +95,82 @@ ActiveRecord::Schema.define(:version => 20110312084225) do
     t.datetime "updated_at"
   end
 
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "lastname"
+    t.date     "birthday"
+    t.string   "marital_status"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state_id"
+    t.string   "phone_number"
+    t.string   "ocuppation"
+    t.boolean  "working"
+    t.boolean  "possible_moving"
+    t.integer  "children"
+    t.text     "qualities"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "gender"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.boolean  "avatar_liberado",          :default => false
+    t.integer  "altura"
+    t.integer  "peso"
+    t.string   "nihongo_conversacao"
+    t.boolean  "nihongo_escrita_katakana"
+    t.string   "nihongo_compreensao"
+    t.string   "descendencia"
+    t.boolean  "piercing"
+    t.boolean  "tatuagem"
+    t.boolean  "veiculo_proprio"
+    t.boolean  "nihongo_escrita_hiragana"
+    t.boolean  "nihongo_escrita_kanji"
+    t.boolean  "nihongo_leitura_katakana"
+    t.boolean  "nihongo_leitura_hiragana"
+    t.boolean  "nihongo_leitura_kanji"
+    t.integer  "views"
+  end
+
   create_table "provinces", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "provinces_resumes", :id => false, :force => true do |t|
+    t.integer "province_id"
+    t.integer "resume_id"
+  end
+
+  create_table "resumes", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "lastname"
+    t.date     "birthday"
+    t.string   "marital_status"
+    t.string   "address"
+    t.string   "city"
+    t.integer  "province_id"
+    t.string   "phone_number"
+    t.boolean  "working"
+    t.boolean  "possible_moving"
+    t.integer  "children"
+    t.text     "qualities"
+    t.text     "notes"
+    t.string   "gender"
+    t.integer  "height"
+    t.integer  "weight"
+    t.string   "origin"
+    t.boolean  "piercing"
+    t.boolean  "tattoo"
+    t.boolean  "vehicle"
+    t.string   "japanese_level"
+    t.integer  "hits"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

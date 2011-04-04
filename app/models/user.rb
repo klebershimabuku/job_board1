@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :announcer, :email, :sign_in_count
 
   has_many :users
+  
+  has_one :resume
+  
   paginates_per 100
   
   

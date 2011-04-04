@@ -1071,3 +1071,33 @@ ul.province-list {
 	background-color: #336699;
 	color: #FFF;
 }
+
+/*
+ *  RESUMES PAGE
+ * 
+ */
+#main_resumes_page table {
+	border: 1px solid #ccc;
+	-moz-border-radius: 8px;
+}
+#main_resumes_page table tr td {
+	background-color:#F2F2F2;
+	color: #333; 
+}
+
+/*
+ *  SHOW RESUME PAGE
+ * 
+ */
+#resume_page {
+	margin-right: 50px;
+	margin-left: 50px;
+	padding: 30px 80px 30px 80px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+#resume_page p { margin-top: -5px; }
+#resume_page table { width: 40%; }
+#resume_page table tr td { background-color: #FFF; }
+#resume_page h4 { margin-bottom: 30px; color: #666; }
+#resume_page h5 { border-bottom: 1px solid #333; }

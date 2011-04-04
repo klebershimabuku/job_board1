@@ -1,0 +1,202 @@
+<hr size="1">
+<%= form_for(@resume) do |f| %>
+  <% if @resume.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resume.errors.count, "error") %> impossibilitaram este anúncio de ser salvo:</h2>
+
+      <ul>
+      <% @resume.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  	<table>
+  		<tr>
+  			<td>
+		      <label for="name" class="bold">Nome <span class="required-field" title="Campo obrigatório">*</span></label>
+		    </td>
+		    <td>
+		      <%= text_field 'resume', 'name', :class => 'txt' %>
+  			</td>  			
+  		</tr>
+  		<tr>
+  			<td>
+		      <label for="lastname" class="bold">Sobrenome <span class="required-field" title="Campo obrigatório">*</span></label>
+		    </td>
+		    <td>
+		      <%= text_field 'resume', 'lastname', :class => 'txt' %>
+  			</td>  			
+  		</tr>
+  		<tr>
+  			<td>
+  				<label for="birthday" class="bold">Data de Nascimento <span class="required-field" title="Campo obrigatório">*</span></label>
+		    </td>
+		    <td>
+  				<%= date_select('resume','birthday',  :start_year => 1920, :end_year => 1995, :class => 'txt' , :order => [:day, :month, :year], :use_month_names => ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'] ) %>
+ 				</td>
+ 			</tr>
+ 			<tr>
+  			<td>
+  				<label for="marital_status" class="bold">Estado Civil <span class="required-field" title="Campo obrigatório">*</span></label>
+		    </td>
+		    <td>
+  				<%= select("resume", "marital_status", { "Solteiro(a)" => 'Solteiro(a)', "Casado(a)" => "Casado(a)", "Divorciado(a)" => "Divorciado(a)", "Viúvo(a)" => "Viúvo(a)"}, :class => 'txt', :prompt => 'Selecione..' , :selected => @marital_status ) %></td>
+  		</tr>
+  		<tr>
+	      <td>
+		      <label for="children" class="bold">Sexo <span class="required-field" title="Campo obrigatório">*</span></label>
+		    </td>
+		    <td>
+		      <%= select("resume", "gender", { "Masculino" => 'masculino', "Feminino" => 'feminino' }, :prompt => 'Selecione..', :selected => @gender, :class => 'txt' ) %>
+	      </td>
+	    </tr>
+	    <tr>
+		    <td>
+		      <label for="state_id" class="bold">Província <span class="required-field" title="Campo obrigatório">*</span></label>
+		    </td>
+		    <td>
+		      <%= select("resume", "province_id", Province.find(:all).collect {|p| [ p.name, p.id ] }, { :prompt => 'Selecione..', :class => 'txt' }) %>
+		    </td>
+	    </tr>
+	    <tr>
+	    	<td>
+		      <label for="city" class="bold">Cidade <span class="required-field" title="Campo obrigatório">*</span></label>
+		    </td>
+		    <td>
+		      <%= text_field 'resume', 'city', :class => 'txt' %>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td>
+		      <label for="address" class="bold">Endereço <span class="required-field" title="Campo obrigatório">*</span></label>
+		    </td>
+		    <td>
+		      <%= text_field 'resume', 'address', :class => 'txt'  %>
+		    </td>
+	    </tr>
+	    <tr>
+	    	<td>
+		      <label for="phone_number" class="bold">Telefone para contato <span class="required-field" title="Campo obrigatório">*</span></label>
+		    </td>
+		    <td>
+		      <%= text_field 'resume', 'phone_number', :class => 'txt' %>
+	      </td>
+	    </tr>
+	    <tr>
+		    <td>
+		      <label for="weight" class="bold">Peso <span class="required-field" title="Campo obrigatório">*</span></label><br />
+		    </td>
+		    <td>
+		      <%= text_field 'resume', 'weight', :size => 3, :class => 'txt' %> kg <small class="required-field" title="Campo obrigatório">(utilizar apenas números)</small>
+		    </td>
+		  </tr>
+		  <tr>
+		  	<td>
+		      <label for="height" class="bold">Altura <span class="required-field" title="Campo obrigatório">*</span></label><br />
+		    </td>
+		    <td>
+		      <%= text_field 'resume', 'height', :size => 4, :class => 'txt' %> cm <small class="required-field" title="Campo obrigatório">(utilizar apenas números)</small>
+		    </td>
+	    </tr>
+
+	    <tr>
+	    	<td>
+		      <label for="working" class="bold">Empregado atualmente? <span class="required-field" title="Campo obrigatório">*</span></label><br />
+		    </td>
+		    <td>
+	  	    <%= select("resume", "working", { "Sim" => true, "Não" => false }, :prompt => 'Selecione..', :selected => @working, :class => 'txt' ) %>
+  	    </td>
+    	</tr>
+	    <tr>
+		    <td>
+		      <label for="possible_moving" class="bold">Tem possibilidade de mudar? <span class="required-field" title="Campo obrigatório">*</span></label><br />
+		    </td>
+		    <td>
+		      <%= select("resume", "possible_moving", { "Sim" => true, "Não" => false }, :prompt => 'Selecione..', :selected => @possible_moving, :class => 'txt' ) %>
+		    </td>
+	    </tr>
+
+	    <tr>
+	    	<td>
+		      <label for="children" class="bold">Filhos? <span class="required-field" title="Campo obrigatório">*</span></label><br />
+		    </td>
+		    <td>
+		      <%= select("resume", "children", { "0" => 0, "1" => 1, "2" => 2, "3" => 3, "4" => 4 , "5" => 5 }, :prompt => 'Selecione..', :selected => @children, :class => 'txt' ) %>
+	      </td>
+	    </tr>
+	    <tr>
+		    <td>
+		      <label for="origin" class="bold">Descendência <span class="required-field" title="Campo obrigatório">*</span></label><br />
+		    </td>
+		    <td>
+		      <%= select("resume", "origin", { "Issei" => "Issei", "Nissei" => "Nissei", "Sansei" => "Sansei", "Yonsei" => "Yonsei", "Nao-descendente" => "Não descendente" }, :prompt => 'Selecione..', :selected => @descendencia, :class => 'txt' ) %>
+		    </td>
+	    </tr>
+		
+			<tr>
+		    <td>
+		      <label for="qualities" class="bold">Descreva suas qualidades profissionais <span class="required-field" title="Campo obrigatório">*</span></label><br />
+		    </td>
+		    <td>
+		      <%= text_area 'resume', 'qualities' , :cols => 60, :rows => 10, :class => 'txt' %>
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <td>
+		      <label for="notes" class="bold">Experiências Profissionais</label><br />
+		    </td>
+		    <td>
+		      <%= text_area 'resume', 'notes' , :cols => 60, :rows => 10, :class => 'txt' %>
+		   	</td>
+	    </tr>
+	    
+	    <tr>
+		    <td>
+		      <label class="bold" for="piercing">Usa piercing?</label><br />
+		    </td>
+		    <td>
+		      <%= select("resume", "piercing", { "Sim" => true, "Não" => false }, :prompt => 'Selecione..', :selected => @piercing, :class => 'txt' ) %>
+				</td>
+			</tr>
+		
+			<tr>
+				<td>
+		      <label class="bold" for="tatuagem">Possui tatuagem visível?</label><br />
+		    </td>
+		    <td>
+		      <%= select("resume", "tattoo", { "Sim" => true, "Não" => false }, :prompt => 'Selecione..', :selected => @tattoo, :class => 'txt' ) %>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+		      <label class="bold" for="veiculo_proprio">Possui veículo próprio?</label><br />
+		    </td>
+		    <td>
+		      <%= select("resume", "vehicle", { "Sim" => true, "Não" => false }, :prompt => 'Selecione..', :selected => @vehicle, :class => 'txt' ) %>
+		    </td>
+	    </tr>
+	    
+	    <tr>
+	    	<td>
+	    		<label for="japanese_level" class="bold">Conhecimento do idioma japonês</label>
+	    	</td>
+	    	<td>
+		      <%= text_field 'resume', 'japanese_level', :size => 4, :class => 'txt' %> % <small class="required-field" title="Campo obrigatório">(utilizar apenas números)</small>
+	    	</td>
+	    </tr>
+  		
+  	</table>
+  </div>
+
+  <%= hidden_field_tag 'resume[user_id]', current_user.id %>
+
+  <div class="actions">
+      <%= f.submit "Enviar", :class => 'button' %>
+  </div>
+
+<% end %>

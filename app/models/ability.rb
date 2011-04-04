@@ -13,16 +13,21 @@ class Ability
       can [:update, :revision], Job do |job|
         job.try(:user) == user 
       end
-      
+			can :read, Resume
       cannot [:manage, :approve], Comment
     else
-      can :read, [Job]
+      can [:read,:feed,:batatafeeds], Job
+	    can [:read, :info], [Agency]
+
       cannot [:manage, :approve], Comment
+      cannot [:read], Resume
+
+      can [:update, :destroy], Resume do |resume|
+      	resume.try(:user) == user
+      end
+
     end
     
-    # all users (guests, announcers, etc.)
-    can [:read, :info], [Agency]
-    can [:feed, :batatafeeds], [Job]
   end
     
 end
