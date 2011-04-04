@@ -41,4 +41,14 @@ class Resume < ActiveRecord::Base
     end
   end
   
+  def increment_counter
+  	class << self
+  		def record_timestamps; false; end
+  	end
+  	self.increment! :hits
+  	class << self
+  		remove_method :record_timestamps
+  	end
+  end
+  
 end

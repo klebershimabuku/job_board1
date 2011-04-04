@@ -9,8 +9,7 @@ class ResumesController < ApplicationController
 	
 	def show
 		@resume = Resume.find(params[:id])
-		@hits = @resume.hits.blank? ? 0 : @resume.hits
-		@resume.update_attribute(:hits, @hits+1)
+		@resume.increment_counter
 	end
 	
   def new
