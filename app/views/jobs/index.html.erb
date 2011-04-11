@@ -16,21 +16,19 @@ google_ad_height = 90;
 <div id="main_jobs">
 
     <div class="positions">
-      <%= render 'positions_table' , :collection => @jobs %>
+      <%= render 'positions_table' , :collection => @jobs %>      
     </div>
 
 
     <div id="jobs_sidebar">
         <div>
+
         	<div id='post_a_new_job_button'>
-        		<%
-        		new_job_link_campaign = current_user ? new_job_path : how_to_start_ad_path
-        		
-        		%>
-        		
+        		<% new_job_link_campaign = current_user ? new_job_path : how_to_start_ad_path %>
         		<p><%= link_to 'ENVIAR UM ANÚNCIO DE EMPREGO »', new_job_link_campaign, :class => 'round5', :id => 'link' %></p>
         		<p id='free_campaign'>Grátis por 30 dias! (tempo limitado)</p>
         	</div>
+
             <div id="ad_sample" style="width: 300px; height: 250px;">
               <script type="text/javascript"><!--
 							google_ad_client = "ca-pub-8162200517166382";
@@ -49,6 +47,22 @@ google_ad_height = 90;
         <div id="facebook">
           <script src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script><fb:like-box href="http://www.facebook.com/shigotodoko" width="300" height="285" show_faces="true" stream="false" header="true" connections="10"></fb:like-box>
         </div>
+			    <div class="jobs_feeds">
+			    	<h1>Feeds</h1>
+			    	<h2>Assine os feeds e receba novos anúncios do<br /> ShigotoDOKO por e-mail.</h2>
+			      <div class='form center'>
+		          <form action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=Shigotodoko', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+		            <input type="text" name="email" value="Subscreve por email..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+		            <input type="hidden" value="Shigotodoko" name="uri"/>
+		            <input type="hidden" name="loc" value="pt_BR"/>
+		            <input type="submit" value="Assinar" class='button'>
+		          </form>
+			      </div>
+			      <% if current_user && current_user.admin? %>
+			      <hr>
+			      <p class='center'><a href="http://feeds.feedburner.com/Shigotodoko"><img src="http://feeds.feedburner.com/~fc/Shigotodoko?bg=EDF4F5&amp;fg=000000&amp;anim=1" height="26" width="88" style="border:0" alt="" /></a><small> pessoas já assinaram.</small></p>
+			      <% end %>
+			  	</div>
     </div>
 
 </div>
