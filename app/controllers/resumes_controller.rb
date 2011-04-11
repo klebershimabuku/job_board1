@@ -1,8 +1,17 @@
+#encoding: utf-8
 class ResumesController < ApplicationController
 
   load_and_authorize_resource
 	
 	def index
+		@resume = Resume.find_by_user_id(current_user)
+		if @resume
+			render :action => :show
+		end
+	end
+	
+	def list
+		@resumes = Resume.find(:all)
 		@search = Resume.search params[:search]
 		@resumes = @search.order("created_at DESC").page params[:page]
 	end
@@ -14,10 +23,12 @@ class ResumesController < ApplicationController
 	
   def new
   	@resume = Resume.new
+  	@provinces = Province.find(:all)
   end
   
   def create
-  	@resume = Resume.new(params[:resume])
+  	@provinces = Province.find(:all)
+  	@resume = Resume.create(params[:resume])
   	
     @marital_status = @resume.marital_status
     @birthday = @resume.birthday
@@ -32,7 +43,7 @@ class ResumesController < ApplicationController
     @descendencia = @resume.origin
 
   	if @resume.save
-  		redirect_to(resume_path(@resume), :notice => "Curriculum criado com sucesso.")
+  		redirect_to(resume_path(@resume), :notice => "Curriculo criado com sucesso.")
   	else
   		render :action => "new"
   	end
@@ -40,6 +51,7 @@ class ResumesController < ApplicationController
   
   def edit
   	@resume = Resume.find(params[:id])
+  	@provinces = Province.find(:all)
     @marital_status = @resume.marital_status
     @birthday = @resume.birthday
     @selected_state = @resume.province_id
@@ -56,14 +68,15 @@ class ResumesController < ApplicationController
   def update
   	@resume = Resume.find(params[:id])
   	if @resume.update_attributes(params[:resume])
-  		redirect_to(resume_path(@resume), :notice => "Curriculum salvo.")
+  		redirect_to(resume_path(@resume), :notice => "Curriculo salvo.")
   	else
   		render :action => "edit"
   	end
   end
   
   def destroy
-  	
+  	@resume.destroy
+  	redirect_to(resumes_path, :notice => "Currículo apagado com sucesso.")
   end
   
 end

@@ -4,7 +4,7 @@
 	
 <h1><%= @resume.full_name %>
 	<% if can? :update, Resume %>
-		<small><%= link_to 'Editar', edit_resume_path(@resume) %></small>
+		<small><%= link_to image_tag('edit.gif', :alt =>  "Editar currículo"), edit_resume_path(@resume) %></small>
 	<% end %>
 </h1>
 <h4><%= "#{@resume.origin}, #{@resume.marital_status.downcase}, "%>
@@ -75,7 +75,7 @@
 
 
 <p>
-	<h5>Observações:</h5>
+	<h5>Experiências Profissionais:</h5>
 	<% if @resume.notes.blank? %>
 		<p>nenhuma.</p>
 	<% else %>
@@ -126,5 +126,6 @@
 </p>
 
 <p><small>Informações atualizadas em <%= @resume.updated_at.strftime("%d/%m/%Y")%></small>.</p>
-</div>
+<p class='right'><%= link_to 'Apagar currículo', resume_path(@resume), :method => :delete, :confirm => "Tem certeza que deseja excluir o seu currículo?"%>
 
+</div>

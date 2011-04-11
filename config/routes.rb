@@ -2,7 +2,11 @@ JobBoard::Application.routes.draw do
 
   resources :prefectures
   
-  resources :resumes
+  resources :resumes, :path => 'curriculos' do
+  	collection do
+  		get :list
+  	end
+  end
 
   match '/oauth/authorize', :controller => 'oauth', :action => 'start', :as => :oauth_authorize
   match '/oauth/callback', :controller => 'oauth', :action => 'callback', :as => :oauth_callback

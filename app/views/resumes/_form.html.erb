@@ -1,8 +1,8 @@
-<hr size="1">
+<hr>
 <%= form_for(@resume) do |f| %>
   <% if @resume.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@resume.errors.count, "error") %> impossibilitaram este anúncio de ser salvo:</h2>
+      <h2><%= pluralize(@resume.errors.count, "erro") %> impossibilitaram este currículo de ser salvo:</h2>
 
       <ul>
       <% @resume.errors.full_messages.each do |msg| %>
@@ -58,7 +58,7 @@
 		      <label for="state_id" class="bold">Província <span class="required-field" title="Campo obrigatório">*</span></label>
 		    </td>
 		    <td>
-		      <%= select("resume", "province_id", Province.find(:all).collect {|p| [ p.name, p.id ] }, { :prompt => 'Selecione..', :class => 'txt' }) %>
+		      <%= select("resume", "province_id", @provinces.collect {|p| [ p.name, p.id ] }, { :prompt => 'Selecione..', :class => 'txt' }) %>
 		    </td>
 	    </tr>
 	    <tr>
@@ -196,7 +196,14 @@
   <%= hidden_field_tag 'resume[user_id]', current_user.id %>
 
   <div class="actions">
-      <%= f.submit "Enviar", :class => 'button' %>
+  		<% if @resume.new_record? %>
+      	<%= f.submit "Enviar", :class => 'button' %>
+      <% else %>
+	  		<%= link_to 'cancelar', resume_path(@resume) %> ou
+      	<%= f.submit "Salvar modificações", :class => 'button' %>
+      <% end %>
+                  
+
   </div>
 
 <% end %>

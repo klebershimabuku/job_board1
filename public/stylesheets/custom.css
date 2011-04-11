@@ -1101,3 +1101,51 @@ ul.province-list {
 #resume_page table tr td { background-color: #FFF; }
 #resume_page h4 { margin-bottom: 30px; color: #666; }
 #resume_page h5 { border-bottom: 1px solid #333; }
+
+/* 
+ * FORM ERRORS
+ * 
+ */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display:inline;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/*
+ * FORMS
+ * 
+ */
+input, textarea, select {
+  border-top: 1px solid #333;
+ 	padding: 5px;
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+  border-radius:         5px;
+} 
+ 

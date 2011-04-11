@@ -1,31 +1,14 @@
-<% title "Currículums"%>
+<% title 'Currículos' %>
 
-<div id="main_resumes_page">
-	<h1>Indice de Currículums</h1>
-	
-  <%= form_for @search do |f| %>
-    <%= f.label :name_contains, "Nome" %>
-    <%= f.text_field :name_contains %><br /><%= f.submit "Procurar", :class => "btn center" %>
-  <% end %>
-  
-  
-	<p><%= paginate @resumes %></p>
-	<table id="resumes">
-		<tr>
-			<th><%= sort_link @search, :user_id, "#" %></th>
-			<th><%= sort_link @search, :name, "Nome" %></th>
-			<th><%= sort_link @search, :created_at, "Data de criação" %></th>
-			<th><%= sort_link @search, :updated_at, "Data de atualização" %></th>
-		</tr>
-	<% @resumes.each do |resume| %>
-		<tr>
-			<td><%= resume.user_id %></td>
-			<td><%= link_to resume.full_name, resume_path(resume) %></td>
-			<td><%= resume.created_at.strftime("%b, %m %Y") rescue "n/a"  %></td>
-			<td><%= resume.updated_at.strftime("%b, %m %Y") rescue "n/a"  %></td>
-		</tr>
-	<% end %>
-	</table>
-	<p><%= paginate @resumes %></p>
+<h1>ShigotoDOKO Currículos</h1>
+<h3>Sistema de currículos online feito exclusivamente para a comunidade latino-americana</h3>
 
-</div>
+<h5>Centenas de pessoas já criaram seus currículos conosco.</h5>
+<p>E em poucos minutos você poderá ter o seu currículo publicado e disponível 24 horas por dia à todas as empresas contratantes.</p>
+
+<% if user_signed_in? %>
+	<p><%= link_to 'Crie seu currículo agora', new_resume_path %></p>
+<% else %>
+	<p><%= link_to 'Registre-se aqui', new_user_registration_path %></p>
+<% end %>
+

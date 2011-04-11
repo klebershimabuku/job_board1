@@ -4,7 +4,7 @@
       <% if current_user.nil? %>
       <li><%= link_to('Entrar', new_user_session_path) %>&nbsp;<%= t(:or) %>&nbsp;<%= link_to 'Cadastre-se', new_user_registration_path %></li>
           <% else %>
-      <li>Logado como&nbsp;<b><%= current_user.email %></b> <%= link_to "Sair", destroy_user_session_path %></li>
+      <li>Logado como&nbsp;<b><%= link_to current_user.email, resumes_path %></b> .. <%= link_to "Sair", destroy_user_session_path %></li>
       <% end %>
     </ul>
   </div>

@@ -18,11 +18,12 @@ class Ability
     else
       can [:read,:feed,:batatafeeds], Job
 	    can [:read, :info], [Agency]
+	    can [:read, :new, :create], Resume
 
       cannot [:manage, :approve], Comment
-      cannot [:read], Resume
+			cannot [:read, :list], Resume
 
-      can [:update, :destroy], Resume do |resume|
+      can [:read, :update, :destroy], Resume do |resume|
       	resume.try(:user) == user
       end
 

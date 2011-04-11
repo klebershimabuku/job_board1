@@ -1,6 +1,6 @@
 class Province < ActiveRecord::Base
 	has_and_belongs_to_many :companies
-	has_and_belongs_to_many :resumes
+	has_one :resume
 	has_many :agencys
 	has_many :prefectures
 	paginates_per 100
