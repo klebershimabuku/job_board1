@@ -126,6 +126,8 @@
 </p>
 
 <p><small>Informações atualizadas em <%= @resume.updated_at.strftime("%d/%m/%Y")%></small>.</p>
+<% if can? :destroy, Resume %>
 <p class='right'><%= link_to 'Apagar currículo', resume_path(@resume), :method => :delete, :confirm => "Tem certeza que deseja excluir o seu currículo?"%>
+<% end %>
 
 </div>

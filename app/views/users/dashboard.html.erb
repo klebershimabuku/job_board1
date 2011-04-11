@@ -4,6 +4,9 @@
 
 <h1>Dashboard</h1>
 <hr>
+	<% if can? :list, Resume %>
+	<p><%= link_to 'Banco de Currículos', list_resumes_path, :class => 'button' %></p>
+	<% end %>
 	<table class='dashboard'>
 		<tr>
 			<th>Plano ativo</th>

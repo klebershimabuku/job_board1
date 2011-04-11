@@ -13,7 +13,7 @@ class Ability
       can [:update, :revision], Job do |job|
         job.try(:user) == user 
       end
-			can :read, Resume
+			can [:read, :list], Resume
       cannot [:manage, :approve], Comment
     else
       can [:read,:feed,:batatafeeds], Job
