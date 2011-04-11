@@ -6,7 +6,7 @@ scheduler = Rufus::Scheduler.start_new
 
 #scheduler.every '1m' do
 scheduler.cron '0 0 * * * Asia/Tokyo' do
-  job_ids = Job.where("created_at < ? AND locked = ?", 30.days.ago, false)
+  job_ids = Job.where("created_at < ? AND locked = ?", 60.days.ago, false)
     if job_ids.size > 0
       job_ids.each do |job|
         puts "Locking: #{job.title}.."
