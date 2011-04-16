@@ -383,6 +383,7 @@ background-image: -moz-linear-gradient(
     rgb(20,143,16) 29%,
     rgb(83,171,65) 73%
 );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#53AB41', endColorstr='#148F10'); /* for IE */	
 	cursor: pointer;
 	color: #FFF;
 	margin:0 auto;
@@ -813,6 +814,7 @@ table.dashboard tr th {
 	    rgb(20,143,16) 29%,
 	    rgb(83,171,65) 73%
 	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#53AB41', endColorstr='#148F10'); /* for IE */	
 	cursor: pointer;
 	color: #FFF;
 	margin:0 auto;
