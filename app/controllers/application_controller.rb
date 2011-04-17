@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :reminder
   before_filter :load_pendings
+  
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "Acesso Negado."

@@ -35,16 +35,8 @@
   <body>
 
   
-			<% unless flash[:notice].blank? %>
-			<div id="flash">
-			<%= flash[:notice]%>
-			</div>   
-			<% end %>
-
-			<% unless flash[:error].blank? %>
-			<div id="flash">
-			<%= flash[:error]%>
-			</div>
+			<% unless flash.blank? %>
+			<div id="flash"><%= flash_message %></div>
 			<% end %>
     
     <div id="container" class="layout-shadow">
