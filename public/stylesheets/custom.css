@@ -841,7 +841,7 @@ table.dashboard tr th {
  */
 #resumes-presents { margin-top: 40px; }
 #resumes-presents h1 { 	background: url(/images/icon_resume.gif) no-repeat 200px center;  }
-#resumes-presents table { width: 45%; text-align: center; margin: 0 auto; margin-bottom: 20px; }
+#resumes-presents table { width: 80%; text-align: center; margin: 0 auto; margin-bottom: 20px; }
 #resumes-presents .best_reason { font-size: 25px; padding: 30px; }
 #resumes-presents .number { font-size: 40px; font-style: italic; }
 #resumes-presents .box { background-color: #E5ECF9; padding: 5px; width: 90%; margin: 0 auto; text-shadow: 3px 3px 3px 3px; #333;}
