@@ -840,7 +840,7 @@ table.dashboard tr th {
  * 
  */
 #resumes-presents { margin-top: 40px; }
-#resumes-presents h1 { 	background: url(/images/icon_resume.gif) no-repeat 300px center;  }
+#resumes-presents h1 { 	background: url(/images/icon_resume.gif) no-repeat 200px center;  }
 #resumes-presents table { width: 45%; text-align: center; margin: 0 auto; margin-bottom: 20px; }
 #resumes-presents .best_reason { font-size: 25px; padding: 30px; }
 #resumes-presents .number { font-size: 40px; font-style: italic; }
@@ -1187,3 +1187,8 @@ input, textarea, select {
   border-radius:         5px;
 } 
 
+/*
+ * HOME SKY SCRAPPER
+ * 
+ */
+.home_sky_scrapper { margin-top: 50px; }
