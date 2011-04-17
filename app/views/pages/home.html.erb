@@ -8,37 +8,65 @@
   <div class="triangle-l"></div>
   <div class="triangle-r"></div>
 </div>
-<div id='dashboard-presents'>
-	<h1>Gerenciar nunca foi tão fácil..</h1>
-	<p>Com o novo Dashboard você poderá criar rapidamente novas campanhas e gerenciá-las a partir de um único local.</p>
-	<p>Aproveite para conhecer tudo que o maior site de empregos no Japão tem para oferecer e não fique para trás!</p><br />
-	<div id='dashboard-presents-body'>
-		<div class='left-column' style='width:52%;'>
-			<p><%= image_tag('new_dashboard.png')%></p><br />
-			<p>Centenas de empresas já trabalham em parceria conosco.</p>
-			<p>E você? Vai ficar de fora dessa?</p>
-		</div>
-		<div class='right-column'>
-			<h3>Veja algumas vantagens:</h3>
+
+<div id="presentation">
+	<div id="resumes-presents" class="center">
+		<h1>Currículos online</h1>
+		<div class='box round'>
+			<h2>Ter um currículo é essencial para quem busca novas oportunidades de trabalho.</h2>
+			<h3>São centenas de currículos disponíveis à todas as empresas parceiras cadastradas!</h3>
+		</div>		
+		<br />
+		<h3>Confira abaixo as 5 maiores vantagens em começar agora:</h3>
+		<div class='reasons'>
 			<table>
-				<tr><td>Controle total sobre seus anúncios.</td><td><%= image_tag('tick24x24.png')%></td></tr>
-				<tr><td>Rapidez na publicação.</td><td><%= image_tag('tick24x24.png')%></td></tr>
-				<tr><td>Divulgação simultânea nas maiores redes sociais.</td><td><%= image_tag('tick24x24.png')%></td></tr>
-				<tr><td>Publicação e divulgação via feeds.</td><td><%= image_tag('tick24x24.png')%></td></tr>
-				<tr><td>Apenas empresas sérias e pré-selecionadas.</td><td><%= image_tag('tick24x24.png')%></td></tr>
-				<tr><td>Acesso total à centenas de currículums cadastrados.</td><td><%= image_tag('tick24x24.png')%></td></tr>
-				<tr><td>Baixíssimo custo.</td><td><%= image_tag('tick24x24.png')%></td></tr>
+				<tr>
+					<td class='number'>1</td>
+					<td><strong>Rápido e prático</strong><br /> em menos de 3 minutos seu currículo está pronto.</td>				
+				</tr>
+				<tr>
+					<td class='number'>2</td>
+					<td><strong>Acessibilidade</strong><br />a qualquer hora do dia ou da noite ele estará disponível.</td>
+				</tr>
+				<tr>
+					<td class='number'>3</td>
+					<td><strong>Flexibilidade</strong><br /> de qualquer PC ou celular com internet, você pode acessar e modificar seus dados.</td>
+				</tr>
+				<tr>
+					<td class='number'>4</td>
+					<td><strong>Segurança</strong><br /> apenas empresas parceiras poderão ter acesso aos currículos.</
+				</tr>
+				<tr>
+					<td class='number'>5</td>
+					<td><strong>Visibilidade</strong><br />seu currículo publicado no mais popular site de empregos do Japão.</td>
+				</tr>
+				</table>
+					<p class='best_reason'>Ainda não se convenceu? <br />então aqui vai o sexto motivo e não menos importante :)</p>
+				<table>
+				<tr>
+					<td class='number'>6</td>
+					<td><strong>Custo</strong><br /> são 5 os principais motivos e o 6º vem de brinde pois é totalmente de graça!</td>
+				</tr>
 			</table>
-			<div id="dashboard_presents_button"><p class='center'><%= link_to 'Comece agora!' , new_user_registration_path, :class => 'round', :id => 'link' %></p></div>
+		<div>
+		<div class="resume_presents_button">
+			<p class='center'>
+				<% if user_signed_in? %>
+					<%= link_to 'Criar meu currículo' , new_resume_path, :class => 'round', :id => 'link' %>
+				<% else %>
+					<%= link_to 'Cadastre-se grátis e crie já o seu!' , new_user_registration_path, :class => 'round', :id => 'link' %>
+				<% end %>
+			</p>
 		</div>
-	<div class='clear'></div>
 	</div>
-    <div id="business_done" style="margin-top: 100px;">
-    </div>
-    <div id="partners">
-        <h1>Parceiro:</h1>
-        <ul>
-          <li><%= link_to image_tag('logo-batatajp.gif'), 'http://batata.jp' , :target => '_blank' %></li>
-        </ul>
-    </div>
+</div>
+
+<div id="business_done" style="margin-top: 100px;">
+</div>
+
+<div id="partners">
+    <h2>Parceiro:</h2>
+    <ul>
+      <li><%= link_to image_tag('logo-batatajp.gif'), 'http://batata.jp' , :target => '_blank' %></li>
+    </ul>
 </div>

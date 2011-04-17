@@ -142,12 +142,12 @@ a:visited {
  * Google Search Bar
  * 
  */
- #google_search_bar {
+ .google_search_bar {
  	background-color: #F2F2F2;
  	text-align: center;
  	border-bottom: 1px dotted #ccc;
  }
- #google_search_bar #cse-search-box #q-for-google-text {
+ .google_search_bar .cse-search-box .q-for-google-text {
  	padding: 5px;
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
@@ -268,7 +268,7 @@ footer nav#footer ul li {
     text-align: center;
 }
 #partners h1 {
-    font-size: 20px;
+    font-size: 50px;
 }
 #partners ul {
     list-style: none;
@@ -686,6 +686,7 @@ input[type=text], input[type=password], input.text, input.title, textarea, selec
  * HOW TO START AD
  * 
 *****/
+#how_to_start_ad { margin-top: 40px; }
 #how_to_start_ad h1 { font-size: 32px; }
 #how_to_start_ad h2 { font-size: 24px; background-color: #369; color: #fff; padding: 5px; text-shadow: 1px 1px 1px #000; }
 #how_to_start_ad h3 { font-size: 32px; background-color: green; color: #fff; padding: 5px;}
@@ -779,21 +780,29 @@ table.dashboard tr th {
 	color:#8A1F11;
 }
 
+/*
+ * PRESENTATION
+ */
+#presentation h1 { font-size: 30px; }
+#presentation h2 { font-size: 20px; }
+#presentation h3 { font-size: 18px; }
+#presentation p {	font-size: 15px; }
+
 /* 
  *  DASHBOARD PRESENTS
  * 
  */
 #dashboard-presents {
 	margin-top: 50px;
-	background:url('/images/feature_bg.jpg') no-repeat -200px 395px;
+	background:url('/images/feature_bg.jpg') no-repeat -200px 440px;
 	position: relative;
 	z-index: 999;
 }
-#dashboard-presents p {
-	font-size: 18px;
-}
 #dashboard-presents h1 {
-	text-align: center;
+	background-color: #369;
+	padding: 10px;
+	color: #FFF;
+	display: inline-table;
 }
 #dashboard-presents-body {
 	margin-top: 30px;
@@ -801,7 +810,7 @@ table.dashboard tr th {
 #dashboard-presents ul li {
 	list-style: none;
 }
-#dashboard_presents_button a#link {
+.resume_presents_button a#link {
 	background-image: -webkit-gradient(
 	    linear,
 	    left bottom,
@@ -823,8 +832,19 @@ table.dashboard tr th {
 	font-weight: bolder;
 	border:1px solid #336600;
 	font-size: 20px;
+	width: 40%;
 }
 
+/*
+ * RESUMES PRESENTS
+ * 
+ */
+#resumes-presents { margin-top: 40px; }
+#resumes-presents h1 { 	background: url(/images/icon_resume.gif) no-repeat 300px center;  }
+#resumes-presents table { width: 45%; text-align: center; margin: 0 auto; margin-bottom: 20px; }
+#resumes-presents .best_reason { font-size: 25px; padding: 30px; }
+#resumes-presents .number { font-size: 40px; font-style: italic; }
+#resumes-presents .box { background-color: #E5ECF9; padding: 5px; width: 90%; margin: 0 auto; text-shadow: 3px 3px 3px 3px; #333;}
 /*
  * PROVINCES PAGE
  * 
@@ -1166,3 +1186,4 @@ input, textarea, select {
   -webkit-border-radius: 5px;
   border-radius:         5px;
 } 
+
