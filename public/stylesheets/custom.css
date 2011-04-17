@@ -470,18 +470,23 @@ a.button {
 
 .blue		{background-color: #CCCCCC; color: #141414;}
 .blue:hover	{background-color: #003366; color: #ffffff;}
+a.blue { text-decoration: none; background-color: #003366; color: #FFF;}
+a.blue:hover { background-color: #00628B; }
 
 .darkblue { background-color: #CCC; color: #FFF; 	padding:10px 20px 10px 20px; }
 .darkblue:hover { background-color: #036; color: #FFF; }
 
+a.green { color: #FFF; }
+a.green:hover { background-color: #669900;}
 .green		{background-color: #336600; color: #F2F2F2;}
 .green:hover{background-color: #2C6700; color: #ffffff;text-decoration:none;}
 
 .red		{background-color: #CCCCCC; color: #141414;}
 .red:hover	{background-color: #ff004e; color: #ffffff;}
 
-.yellow    {background-color: #ffff66; color: #000;}
-.yellow:hover  {background-color: #ffcc00; color: #fff;}
+.yellow    {background-color: #FFCC00; color: #000;}
+.yellow:hover  {background-color: #ffD800; color: #fff;}
+a.yellow { color: #FFF; text-decoration: none; }
 
 #ad_sample {
     background-color: #eee;

@@ -1,5 +1,9 @@
 <% title 'Admin Dashboard' %>
 <div id="main">
 	<h3>Bem vindo ao Admin Dashboard</h3>
-	<h5>Selecione o item desejado no menu acima.</h5>
+	<h5>Selecione a área desejada.</h5>
+	
+	<%= link_to image_tag('icon_comments.png') + 'Comentarios', comments_manager_path, :class => 'btn green' %>
+	<%= link_to image_tag('icon_users.png') + 'Usuarios', users_path, :class => 'btn blue'%>
+	<%= link_to image_tag('icon_resume.gif', :size => '64x64') + 'Curriculos', list_resumes_path, :class => 'btn yellow' %>
 </div>

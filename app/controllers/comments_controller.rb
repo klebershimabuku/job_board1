@@ -13,8 +13,7 @@ class CommentsController < ApplicationController
     else
     	flash[:error] = "Ops! não foi possível enviar seu comentário. Verifique se todos os campos foram preenchidos corretamente."     	
     end
-    respond_with @comment
-    #redirect_to company_path(params[:company_id])
+    respond_with(@comment)
   end
 
   def destroy
@@ -23,8 +22,9 @@ class CommentsController < ApplicationController
     @comment.destroy
     @total = Comment.find_all_by_commentable_id(@comment.commentable_id).count
     flash[:notice] = "Comentário removido com sucesso."
-    redirect_to comments_manage_path
-    
+    respond_with(@comment) do |format|
+			format.html { redirect_to(comments_manager_path, :notice => "Comentario removido com sucesso.") }
+    end
   end
 
   def index
@@ -35,8 +35,7 @@ class CommentsController < ApplicationController
 	def show
 	end
 	
-	def manage
-		render :layout => "admin"
+	def manager
 		@comments = Comment.where(:approved => false).all	
 	end
 	
@@ -44,7 +43,7 @@ class CommentsController < ApplicationController
 		@comment = Comment.find(params[:id])
 		@comment.approve!
 		flash[:notice] = "Comentário aprovado com sucesso."
-		redirect_to comments_manage_path
+		redirect_to comments_manager_path
 	end
 	
 end

@@ -24,7 +24,7 @@ JobBoard::Application.routes.draw do
   match 'help/how-to-start-ad', :to => 'pages#how_to_start_ad', :as => 'how_to_start_ad'
   match '/business-request', :to => 'pages#business_request', :as => 'business_request'
   match '/dashboard', :to => 'users#dashboard', :as => 'dashboard'
-	match '/dashboard/comments/manage', :to => 'comments#manage', :as => 'comments_manage'
+	match '/dashboard/comments/manager', :to => 'comments#manager', :as => 'comments_manager'
 	
   match '/jobs/revision', :to => 'jobs#revision'
   match '/jobs/locked', :to => 'jobs#locked'
