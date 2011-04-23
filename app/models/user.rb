@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  default_scope :order => 'id desc'
   # Include default devise modules. Others available are:
   # :token_authenticatable,  :lockable and :timeoutable
   devise :database_authenticatable, :registerable, :confirmable,

@@ -14,27 +14,31 @@
   </table>
   
   
-	<p><%= paginate @resumes %></p>
+	<p>Páginas: <%= paginate @resumes %></p>
 	<table id="resumes">
 		<tr>
-			<th><%= sort_link @search, :user_id, "#" %></th>
+			<th><%= sort_link @search, :user_id, "" %></th>
 			<th><%= sort_link @search, :name, "Nome" %></th>
 			<th><%= sort_link @search, :created_at, "Data de criação" %></th>
 			<th><%= sort_link @search, :updated_at, "Data de atualização" %></th>
 			<th><%= sort_link @search, :gender, "Sexo" %></th>
 			<th><%= sort_link @search, :province_id, "Província" %></th>
 		</tr>
+
+	<div class='.autopagerize_page_element'>
 	<% @resumes.each do |resume| %>
 		<tr>
 			<td><%= resume.user_id %></td>
 			<td><%= link_to resume.full_name, resume_path(resume) %></td>
-			<td><%= resume.created_at.strftime("%b, %m %Y") rescue "n/a"  %></td>
-			<td><%= resume.updated_at.strftime("%b, %m %Y") rescue "n/a"  %></td>
+			<td><%= resume.created_at.strftime("%b, %d %Y") rescue "n/a"  %></td>
+			<td><%= resume.updated_at.strftime("%b, %d %Y") rescue "n/a"  %></td>
 			<td><%= iconify_gender(resume.gender) %></td>
 			<td><%= resume.province.name %></td>
 		</tr>
 	<% end %>
+	</div>
+
 	</table>
-	<p><%= paginate @resumes %></p>
+	<p>Páginas: <%= paginate @resumes %></p>
 
 </div>

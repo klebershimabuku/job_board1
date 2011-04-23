@@ -5,10 +5,11 @@
 
   <%= form_for @search do |f| %>
     <%= f.label :email_contains, "E-mail" %>
-    <%= f.text_field :email_contains %><br /><%= f.submit "Procurar", :class => "btn center" %>
+    <%= f.text_field :email_contains %><%= f.check_box :announcer_is_true %><%= f.label :announcer, "Filtrar anunciantes"%><br /><%= f.submit "Procurar", :class => "btn center" %>
   <% end %>
   
 	<p><%= paginate @users, :outer_window => 10 %></p></div>
+
 <table>
 
   <tr>

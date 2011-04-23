@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 #  layout "admin"
   
   def index
-    @search = User.search params[:search]
+    @search = User.search(params[:search])
     @users = @search.page params[:page]   
   end
   

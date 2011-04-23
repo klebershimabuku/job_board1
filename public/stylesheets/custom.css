@@ -1123,6 +1123,7 @@ ul.province-list {
 	border: 1px solid #ccc;
 	-moz-border-radius: 8px;
 }
+#main_resumes_page table tr th { background-color: #CCC; }
 #main_resumes_page table tr td {
 	background-color:#F2F2F2;
 	color: #333; 
