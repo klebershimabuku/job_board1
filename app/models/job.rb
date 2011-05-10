@@ -191,10 +191,15 @@ class Job < ActiveRecord::Base
   	account_type = Account.find(account).active_pack
   	logger.debug "#{account_type}"
   	allowed = APP_CONFIG['accounts']["#{account_type}"]['highlight_jobs']
-  	if total_account_highlight(account) > allowed
-  		false
+  	logger.debug allowed
+  	if allowed > total_account_highlight(account)
+      logger.debug "total #{allowed} < #{total_account_highlight(account)}"
+      logger.debug "true"
+      true
   	else
-  		true
+      logger.debug "total #{allowed} < #{total_account_highlight(account)}"
+      logger.debug "false"
+      false
   	end
   end
 
