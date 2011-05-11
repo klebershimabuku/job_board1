@@ -36,7 +36,7 @@
 
 <div id='show_job'>
   <div class='left-column' style='width: 60%;'>
-      <%= content_tag(:div, my_simple_format(@job.content), :class => 'show_jobs_job_content' ) %>
+      <%= content_tag(:div, simple_format(auto_link(@job.content)), :class => 'show_jobs_job_content' ) %>
   </div>
 
   <aside class='right-column company_info'>
@@ -46,7 +46,7 @@
     </div>
     <div class='how_to_apply round'>
       <p class='title'>Como se candidatar</p>
-      <p class='body'><%= simple_format @job.how_to_apply %></p>
+      <p class='body'><%= simple_format auto_link(@job.how_to_apply) %></p>
     </div>
 
   </aside>

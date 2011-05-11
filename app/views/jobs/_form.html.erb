@@ -29,7 +29,7 @@
 
     <div class="left-column">
         <div class="field">
-            <%= f.input :content , :label => "Descrição" , :as => 'text', :input_html => { :cols => 50, :rows => 20 }, :hint => "Forneça o maior número possível de informações referentes ao anúncio." %>
+            <%= f.input :content , :label => "Descrição" , :as => 'text', :input_html => { :cols => 50, :rows => 20 }, :hint => "(Tipo de serviço, requisitos, benefícios, salário em ¥, etc.)" %>
 <% if @highlight %>	        	
 <%= f.input :highlight, :label => "Destacar anúncio", :as => 'radio', :hint => "Faça deste anúncio um destaque." %>
 <% end %>
