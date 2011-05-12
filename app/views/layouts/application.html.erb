@@ -4,71 +4,53 @@
 	  <title><%= yield(:title) || "A sua referência de empregos no Japão" %>&nbsp;| ShigotoDOKO</title>
 	  <meta name="description" content="<%= yield(:description) || "Vagas de Empregos no Japao, Empreiteiras, Currículums, Artigos e mais.. " %>"/>
 	  <meta name="keywords" content="<%= yield(:keywords) || "empregos no japao, empreiteiras, curriculum, desemprego" %>"/>
-    <%= csrf_meta_tag %>
-    <meta charset="utf-8" />
-    <%= render 'layouts/stylesheets' %>
-    <%= render 'layouts/javascripts' %>
-    <%= auto_discovery_link_tag(:atom, "/feed.atom") %>
-		<script type='text/javascript'>
-		$(document).ready(function() {
-		   $('#flash').delay(500).fadeIn('slow', function() {
-		      $(this).delay(4000).fadeOut();
-		   });
-		});
-		</script>  
-		<script type="text/javascript">
-		
+      <%= csrf_meta_tag %>
+      <meta charset="utf-8" />
+      <%= render 'layouts/stylesheets' %>
+      <%= render 'layouts/javascripts' %>
+      <%= auto_discovery_link_tag(:atom, "/feed.atom") %>
+	<script type='text/javascript'>
+	$(document).ready(function() {
+	   $('#flash').delay(500).fadeIn('slow', function() {
+	      $(this).delay(4000).fadeOut();
+	   });
+	});
+	</script>  
+		<script type="text/javascript">		
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-4430385-2']);
 		  _gaq.push(['_trackPageview']);
-		
+		  _gaq.push(['_trackPageLoadTime']);
 		  (function() {
 		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		
+		  })();		
 		</script>
 	</head>
-
-
-  <body>
-
-  
-			<% unless flash.blank? %>
-			<div id="flash"><%= flash_message %></div>
-			<% end %>
-    
-    <div id="container" class="layout-shadow">
-      <% # logo & sign-up & sign-in links %>
-      <%= render 'layouts/header' %>
-      
-      <% # notifications for admin only %>
-      <%= render 'layouts/reminder' %>
-
-      
-      <% # site navbar %>
-      <%= render 'layouts/navigation' %>
-      
-      <% # user shortcuts %>
-      <%= render 'layouts/shortcuts' %>
-      
-      <%= yield(:flash_messages) %>
-
-
-      <section>
-        <%= yield %>
-      </section>
-      <% @adsense = false %>
-      <%= render 'layouts/google_search_bar', :locals => { :adsense => @adsense } %>
-      <%= render 'layouts/footer' %>
-      
-    </div>
-
-  </body>
+	<body>
+		<% unless flash.blank? %>
+		<div id="flash"><%= flash_message %></div>
+		<% end %>
+	    <div id="container" class="layout-shadow">
+	    	<% # logo & sign-up & sign-in links %>
+	      	<%= render 'layouts/header' %>
+	        <% # notifications for admin only %>
+	      	<%= render 'layouts/reminder' %>
+		    <% # site navbar %>
+	    	<%= render 'layouts/navigation' %>
+	      	<% # user shortcuts %>
+	      	<%= render 'layouts/shortcuts' %>
+		    <%= yield(:flash_messages) %>
+  			<section>
+		    	<%= yield %>
+		    </section>
+      		<% @adsense = false %>
+      		<%= render 'layouts/google_search_bar', :locals => { :adsense => @adsense } %>
+      		<%= render 'layouts/footer' %>
+    	</div>
+	</body>
 </html>
-
 <% if Rails.env.development? %>
 <% content_tag(:div, debug(params), :class => 'debug')  %>
 <% end %>
-
