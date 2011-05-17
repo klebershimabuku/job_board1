@@ -9,24 +9,17 @@
       <%= render 'layouts/stylesheets' %>
       <%= render 'layouts/javascripts' %>
       <%= auto_discovery_link_tag(:atom, "/feed.atom") %>
-	<script type='text/javascript'>
-	$(document).ready(function() {
-	   $('#flash').delay(500).fadeIn('slow', function() {
-	      $(this).delay(4000).fadeOut();
-	   });
-	});
-	</script>  
-		<script type="text/javascript">		
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-4430385-2']);
-		  _gaq.push(['_trackPageview']);
-		  _gaq.push(['_trackPageLoadTime']);
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();		
-		</script>
+	<script type="text/javascript">		
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-4430385-2']);
+	  _gaq.push(['_trackPageview']);
+	  _gaq.push(['_trackPageLoadTime']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();		
+	</script>
 	</head>
 	<body>
 		<% unless flash.blank? %>

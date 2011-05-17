@@ -14,13 +14,13 @@ class Ability
         job.try(:user) == user 
       end
 			can [:read, :list], Resume
-      cannot [:manage, :approve], Comment
+      cannot [:manage, :approve, :list], Comment
     else
       can [:read,:feed,:batatafeeds], Job
 	    can [:read, :info], [Agency]
 	    can [:read, :new, :create], Resume
 
-      cannot [:manage, :approve], Comment
+      cannot [:manage, :approve, :list], Comment
 			cannot [:read, :list], Resume
 
       can [:read, :update, :destroy], Resume do |resume|

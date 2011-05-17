@@ -1,0 +1,29 @@
+<% title "Ver comentários"%>
+
+<div id='admin-list-comments'>
+
+<h1>Busca avançada</h1>
+  <%= form_for @search, :url => list_comments_path do |f| %>
+	<%= f.label :title_contais, "Autor" %><br />
+	<%= f.text_field :title_contains %><br />
+    <%= f.label :comment_contains, "Conteúdo do comentário" %>
+	<br />
+    <%= f.text_area :comment_contains, :size => '80x5' %><br /><%= f.submit "Procurar", :class => "btn center" %>
+  <% end %><br />
+
+
+<%= paginate @comments %>
+<hr />
+<% @comments.each do |comment| %>
+<ul>
+	<li><strong><%= comment.title %></strong> disse:</li>
+	<li><%= comment.comment %><br /><span class='date'><%= comment.created_at.strftime('%d/%m/%Y às %H:%M:%S')%></span>	na empreiteira de id <%= comment.commentable_id %>		<% if can? :destroy, Comment %>
+				<%= link_to image_tag('delete.png') + 'Remover comentário', comment_path(comment), :confirm => "Are you sure?" , :method => :delete, :class => 'button' %>
+			<% end %>
+</li>
+</ul>
+<% end %>
+<hr />
+<%= paginate @comments %>
+</div>
+

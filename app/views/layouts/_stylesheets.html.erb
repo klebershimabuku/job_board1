@@ -5,3 +5,4 @@
 <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
 <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+<%= stylesheet_link_tag 'admin', :media => 'screen' if current_user && current_user.admin %>

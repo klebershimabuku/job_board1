@@ -45,6 +45,9 @@ JobBoard::Application.routes.draw do
 
 	resources :comments, :path => 'comentarios' do
 		get :approve, :on => :member
+		collection do
+		  get :list
+		end
 	end
 	
 	

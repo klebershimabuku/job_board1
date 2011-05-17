@@ -1,88 +1,10 @@
-body {
-	background-color: #CCC;
-	width: 1024px;
-	margin:0 auto;	
-}
-header {
-	background-color: #DFEFF0;
-	padding: 3px;
-}
-.site_link {
-	float: left;
-}
-#admin_dashboard h1 {
-	margin-top: 0px;
-	background-color: #F2F2F2;
-	padding: 10px;
-}
-#nav {
-	margin-top: -20px;
-	background-color: #003366;
-}
-#nav ul {
+#admin-list-comments ul {
 	list-style: none;
 }
-#nav ul li {
-	display: inline-block;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	width: 100px;
-}
-#nav ul li:first-child {
-	padding-left: 0px;
-}
-#nav ul li a {
-	color: #FFF;
-	text-decoration: none;
-	font-size: 15px;
-}
-#nav ul li a:hover {
-	background-color: #006699;
-	color: #FFF;
+#admin-list-comments ul li:last-child {
+	background-color: #eee;
 	padding: 5px;
 }
-#main, #listing_users_page, #user_profile, #edit_user_page, #comments_page {
-	margin-top: -20px;
-	background-color: #FFF;
-	padding: 10px;
-}
-.btn {
-	background-color: #003366;
-	border: 1px solid #006699;
-	color: #FFF;
-	padding: 5px;
-	display: block;
-}
-a.btn {
-	text-decoration: none;
-}
-a.btn:hover {
-	background-color: #006699;
-	border: 1px solid #003366;
-	color: #FFF;
-}
-#flash {
-	background-color:#006600;
-	color: #FFF;
-	margin:0 auto;
-	padding: 2px;
-}
-.userbar { float: right; }
-.center {
-	text-align: center;
-	margin:0 auto;
-}
-.clear { clear: both; }
-.blue {
-	background-color: #003366;
-}
-.yellow {
-	background-color: #FFBD69;
-	border: #FFCC00 1px solid;
-	color: #333; 
-}
-a.yellow:hover {
-	background-color: #FFD324;
-	border: #FFFF00;
-	color: #000;
+#admin-list-comments ul li span.date {
+	font-size: x-small;
 }

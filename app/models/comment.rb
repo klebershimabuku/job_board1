@@ -6,6 +6,8 @@ class Comment < ActiveRecord::Base
 
   default_scope :order => 'created_at ASC'
   
+  scope :list , :order => 'created_at DESC'
+  
   scope :pending_authorization, where(:approved => false)
 
   # NOTE: install the acts_as_votable plugin if you

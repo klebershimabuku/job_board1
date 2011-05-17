@@ -1,6 +1,7 @@
 # encoding: utf-8
 class CommentsController < ApplicationController
 	
+  load_and_authorize_resource
 
 	respond_to :html, :js
   
@@ -45,5 +46,11 @@ class CommentsController < ApplicationController
 		flash[:notice] = "Comentário aprovado com sucesso."
 		redirect_to comments_manager_path
 	end
+	
+	def list
+	  @search = Comment.search params[:search]
+	  @comments = @search.page params[:page]
+	end
+
 	
 end
