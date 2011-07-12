@@ -1,4 +1,5 @@
 config/*.yml
+public/.htaccess
 config/initializers/setup_mail.rb
 config/deploy.rb
 Capfile
