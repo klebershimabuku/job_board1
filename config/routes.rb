@@ -37,7 +37,8 @@ JobBoard::Application.routes.draw do
     get :expired, :on => :member
   end
 
-  devise_for :users, :path_names=> { :sign_up => 'register', :sign_in => 'login'}
+  devise_for :users, :controllers => { :registrations => "registrations" }, :path => "users", :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+  
   resources :users do
     get :change_level, :on => :member
     get :dashboard, :on => :member

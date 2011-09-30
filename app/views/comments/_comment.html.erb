@@ -1,7 +1,7 @@
 <%= div_for comment do %>
 
 		<ul class='comment round <%= cycle('color-even','color-odd') %>'>
-			<li><cite><strong><%= author_for(comment.title)%></strong> disse <span class='when'>há <%= time_ago_in_words comment.created_at %></span></cite>
+			<li><%= author_for(comment.title)%>
 			<% if can? :destroy, Comment %>
 				<%= link_to image_tag('delete.png') + 'Remover comentário', company_comment_path(comment.commentable_id,comment), :confirm => "Are you sure?" , :method => :delete, :remote => true, :class => 'button' %>
 			<% end %>
@@ -11,7 +11,8 @@
 				<% unless comment.approved %>
 					<br /><span class='waiting_approval'><%= image_tag('icon-alert.png') %> comentário aguardando moderação</span>
 				<% end %>				
-			</li>			
+			</li>
+			<li>- <%= comment.created_at.strftime('%d/%m/%Y') %></li>
 		</ul>
 
 <% end %>

@@ -106,4 +106,35 @@ module ApplicationHelper
       messages
   end
 
+
+  def div_special(item)
+   # check if the currently month is odd or even
+   n = Time.now.strftime('%m').to_i
+   even = (n%2 == 0) ? true : false
+   if even
+   	@highlight_class = 'highlight_even'
+   else
+   	@highlight_class = 'highlight_odd'
+   end
+
+   	if item.highlight 
+  		@highlight_class += ' highlight_ad'
+  	else
+  		@highlight_class = ''
+  	end 
+    raw "<div class='#{@highlight_class}'>"
+  end
+  
+
+  # usage: 
+  #   link_to_next_page(@items)
+  #   link_to_next_page(@items, :remote => true)  # Ajax
+  def link_to_next_page(scope, name, options = {}, &block)
+    param_name = options.delete(:param_name) || Kaminari.config.param_name
+    link_to_unless scope.last_page?, name, {param_name => (scope.current_page + 1)}, options.merge(:rel => 'next') do
+      block.call if block
+    end
+  end
+  
+  
 end

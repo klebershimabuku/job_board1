@@ -6,7 +6,9 @@
 				<h3><%= link_to @company.homepage, @company.homepage, :target => '_blank' %></h3>
 			<% end %>
 		      <div><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="shigotodoko" data-related="klebershimabuku">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+          <div class="g-plusone" data-size="medium" count="true" callback="fire_multitrack" href="http://www.shigotodoko.com/empresas/<%= url_for(@company) %>"></div>
 		      <script src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script><fb:like href="" show_faces="true" width="450" action="recommend" font="arial"></fb:like>
+          
 		      </div>
 		</div>
 		

@@ -1,0 +1,44 @@
+<% 
+  @count += 1 if @count 
+  @show_in = [15,30,45]    
+%>
+
+<% if @show_in.include?(@count) %>
+  <tr><td><hr /></td></tr>
+  <tr>
+    <td>
+      <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-8162200517166382";
+      /* Job List, intercalado */
+      google_ad_slot = "9124662827";
+      google_ad_width = 468;
+      google_ad_height = 60;
+      //-->
+      </script>
+      <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+    </td>
+  </tr>
+<% end %>
+
+
+<tr><td><hr /></td></tr>    
+      <tr>
+      
+      <td>
+        <div class="title"><%= link_to job.title, job %> - <span class="company_name"><%= job.company_name %></span></div>
+        <div class="location_date">
+          <div class="location"><%= job.location %></div>
+          <div class="date">Publicado há <%= (current_user && current_user.admin?) ? time_ago_in_words(job.created_at) + " - " + job.created_at.strftime('%d/%m/%Y') : time_ago_in_words(t(job.published_at))  %></div>
+        </div>
+
+          <div id="fb-root"></div>
+          <div class="social_sharing">
+            <div class="twitter"><a href="http://twitter.com/share?url=http://www.shigotodoko.com<%=url_for(job) %>&amp;text=<%= job.title %> - (<%= job.location %>)&amp;via=shigotodoko" class="twitter-share-button">Tweet</a></div>
+            <div class="g-plusone" data-size="medium" count="true" callback="fire_multitrack" href="http://www.shigotodoko.com<%= url_for(job) %>"></div>
+            <div class="fb-like" data-href="http://www.shigotodoko.com<%= url_for(job) %>" data-layout="button_count" data-width="200" data-show-faces="false" data-font="trebuchet ms"></div>
+          </div>
+          
+      </td>
+    </tr>    

@@ -1,0 +1,20 @@
+<% @specials.each do |special_job| %>
+  
+  <%= div_special(special_job) %>
+  
+    <div class="special_title"><%= link_to special_job.title, special_job %> - <span class="special_company_name"><%= special_job.company_name %></span></div>
+    <div class="location_date">
+      <div class="location"><%= special_job.location %></div>
+    </div>
+
+      <div id="fb-root"></div>
+      <div class="social_sharing">
+        <div class="twitter"><a href="http://twitter.com/share?url=http://www.shigotodoko.com<%=url_for(special_job) %>&amp;text=<%= special_job.title %>&amp;via=shigotodoko" class="twitter-share-button">Tweet</a></div>
+        <div class="g-plusone" data-size="medium" count="true" callback="fire_multitrack" href="http://www.shigotodoko.com<%= url_for(special_job) %>"></div>
+        <div class="fb-like" data-href="http://www.shigotodoko.com<%= url_for(special_job) %>" data-layout="button_count" data-width="200" data-show-faces="false" data-font="trebuchet ms"></div>
+        <div class="sponsored"><a href="business-request#anuncios_patrocinados">Anúncio patrocinado</a></div>
+      </div>
+
+
+  <% end %>
+  </div>

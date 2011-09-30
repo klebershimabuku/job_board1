@@ -122,6 +122,7 @@ a:visited {
   background-color: #369;
   color: #fff;
   padding: 5px;
+  padding-bottom: 8px;
   -moz-border-radius-topright:    5px;
   -webkit-border-top-right-radius: 5px;
   border-top-right-radius:         5px;
@@ -291,29 +292,54 @@ footer nav#footer ul li {
 div.positions table {
   margin-top: -22px;
   margin-left: -5px;
-  border-bottom: 1px solid #ccc;
+  padding-top: 20px;
+	width: 100%;
 }
+  div.positions table tr {
+	height: 40px;
+  }
+  div.positions div.special_title a {
+    font-weight: normal;
+    font-size: 23px;
+		color: #FFF;
+  }
   div.positions table tr td div.title a {
     font-weight: normal;
-    font-size: 16px;
+    font-size: 18px;
     color: #369;
   }
   div.positions table tr td div.title a:hover {
     text-decoration: underline;
   }
-  div.positions table tr td div.company_name {
+  div.positions tr td span.company_name {
     font-size: 13px;
     color: #666;
   }
-  
-  div.positions table tr td.location_date {
-    text-align: right;
+  div.positions tr td span.special_company_name {
+    font-size: 13px;
+    color: #FFF;
+  }
+  div.positions tr td div.location_date {
+    text-align: left;
     font-size: 13px;
   }
   div.positions table tr td.location_date .date {
     color: #999;
   }
  
+	div.social_sharing .g-plusone, .fb-like, .twitter {
+		margin-top: 8px;
+		font-size: 1px;
+		display: inline-block;
+		height: 21px;
+	}
+	div.social_sharing a {
+		color: #FFF;
+	}
+	div.positions table tr td p a { 
+		float: right;
+		font-size: small;
+		}
 /*
  * JOBS FEEDS
  */ 
@@ -346,27 +372,42 @@ div.positions table {
    *  HIGHLIGHT AD JOBS
    * 
    */
-   div.positions table tr.highlight_even {
-   	background-color: #C13100;
+	div.positions div.highlight_ad {
+		margin-top: -20px;
+		padding: 5px;
     -moz-box-shadow: 0 0 3px #CCC;
     -webkit-box-shadow: 0 0 3px #CCC;
     box-shadow: 0 0 3px #CCC;
-    color: #FFF;   	
+	  border-radius:5px;
+	  -moz-border-radius:5px;
+	  -webkit-border-radius:5px;
+		color: #FFF;
+	}
+	div.positions div.highlight_ad div.sponsored {
+		font-size: small;
+		float: right;
+		padding-top: 10px;
+	}
+   div.positions div.highlight_even {
+   	background-color: #C13100;
    }
-   div.positions table tr.highlight_even td div.title a { color: #FFF; }
-   div.positions table tr.highlight_even td div.company_name { color: #CCC; }
+   div.positions div.highlight_even div.special_title a { color: #FFF; }
+   div.positions div.highlight_even div.company_name { color: #CCC; }
    
-   div.positions table tr.highlight_odd {
+   div.positions div.highlight_odd {
    	background-color: #369;
-    -moz-box-shadow: 0 0 3px #CCC;
-    -webkit-box-shadow: 0 0 3px #CCC;
-    box-shadow: 0 0 3px #CCC;   	
    }
-   div.positions table tr.highlight_odd td div.title a { color: #FFF; }
-   div.positions table tr.highlight_odd td div.company_name { color: #CCC; }
-   div.positions table tr.highlight_odd td.location_date div.location { color: #CCC; }
+   div.positions div.highlight_odd div.special_title a { color: #FFF; }
+   div.positions div.highlight_odd div.company_name { color: #CCC; }
+   div.positions div.highlight_odd div.location_date div.location { color: #CCC; }
   
 
+ul.locked_job_item {
+	list-style: none;
+}
+	ul.locked_jobs li {
+		margin-top: 10px;
+	}
 #main_jobs #jobs_sidebar {
     float: right;
 }
@@ -521,10 +562,21 @@ a.yellow { color: #FFF; text-decoration: none; }
     font-weight: bold;
     font-size: 32px;
     color: #006699;
+		margin-top:0;
 }
+ul.show_jobs_social_network {
+	padding: 3px;
+	list-style: none;
+	font-size: 1px;
+}
+  ul.show_jobs_social_network li {
+		display: inline-block;
+	}
+	.fb_reset {
+		display: inline;
+	}
 .show_jobs_location_and_title header {
-	padding-top: -200px;
-	border-bottom: 1px solid #CCC;
+	padding-top: 0px;
 	margin-bottom: 30px;
 }
 .show_jobs_job_content {
@@ -654,14 +706,12 @@ background-color: #333;
 
 div #sign_in_links { float: right; margin-right: 30px;}
 div #sign_in, div #sign_up {
-  width: 550px;
-  text-align: center;
-  background-color: #f6f6f6;
+  width: 650px;
+	margin:0 auto;
   padding: 5px;
-  float: left;
   -moz-box-shadow: 1px 0px 1px 1px #666;
-  -webkit-box-shadow: 0 0 8px #666;
-  box-shadow: 0 0 8px #666; 
+  -webkit-box-shadow: 0 0 1px #666;
+  box-shadow: 0 0 1px #666; 
 }
 div #sign_in table tr td.header, div #sign_up table tr td.header {
   background-color: #ddd;
@@ -715,6 +765,10 @@ input[type=text], input[type=password], input.text, input.title, textarea, selec
 #business_upgrade .header h2 { font-size: 18px; color: #fff; text-shadow: 1px #000; }
 #business_upgrade h3 { font-size: 24px; border-bottom: 1px solid #ccc;}
 #business_upgrade p { font-size: 18px; }
+#business_upgrade ul {
+	padding-left: 0px;
+	font-style: bold;
+}
 .color_red { color: red; }
 .bold { font-weight: bold; }
 .center { margin:0 auto; text-align: center; }
@@ -902,8 +956,6 @@ table.dashboard tr th {
 #show_company #details {
 	margin-top: 20px;
 	padding: 10px;
-	background-color: #F2F2F2;
-	border:1px dotted #333;
 }
 #show_company #header h1 {
 	color: #369;
@@ -920,6 +972,13 @@ table.dashboard tr th {
 	font-size: 13px;
 }
 #show_company p.last_update_date { font-size: 12px; margin-bottom: 0px; }
+
+#show_company p.last_update_warning {
+	background-color: #FFFFD4;
+	color: #333;
+	padding: 3px;
+	font-size: 12px;
+}
 
 #show_company aside#ad_160x90_txt {
 	background-color: #fff;
@@ -997,6 +1056,10 @@ ul.province-list {
 	list-style: none;
 	padding: 10px;
 }
+#show_company ul li:first-child {
+	font-size: 17px;
+	font-weight: bold;
+}
 #show_company ul li.comment {
 	font-size: 16px;
 }
@@ -1012,7 +1075,7 @@ ul.province-list {
 }
 
 .color-even {
-	background-color: #CCCCC1;
+	background-color: #EFEFEF;
 }
 .color-odd {
 	background-color: #EFEFE3;

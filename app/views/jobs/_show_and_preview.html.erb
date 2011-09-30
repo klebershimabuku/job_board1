@@ -26,20 +26,49 @@
   		<div class="location"><%= @job.location %></div>
 	  	<div class="title round-top"><%= @job.title %></div>
 
+      <% if @job.published? %>
+        <ul class="show_jobs_social_network">
+            <li>
+              <div id="fb-root"></div>
+              <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/pt_BR/all.js#appId=146967732064296&xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+
+              <div class="fb-like" data-href="http://www.shigotodoko.com<%= url_for(@job) %>" data-send="false" data-layout="button_count" data-width="105" data-show-faces="true"></div>
+            </li>
+            <li>
+              <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="shigotodoko" data-url="http://www.shigotodoko.com<%= url_for(@job) %>" data-lang="en">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+            </li>
+            <li>
+              <div class="g-plusone" data-size="medium" count="true" callback="fire_multitrack" href="http://www.shigotodoko.com<%= url_for(@job) %>"></div>
+            </li>
+        </ul>
+      <% end %>
   </header>
+
+
 
 
 </div>
 
+
 <div class='clear'></div>
 
 
+
+
+
 <div id='show_job'>
-  <div class='left-column' style='width: 60%;'>
+  <div class='left-column' style='width: 60%;'>  
       <%= content_tag(:div, simple_format(auto_link(@job.content)), :class => 'show_jobs_job_content' ) %>
   </div>
 
   <aside class='right-column company_info'>
+    
     <div class='company_name_and_website round'>
       <p class='company_name'><%= @job.company_name %></p>
       <p class='company_website'><%= link_to @job.company_website, @job.company_website, :target => 'blank' unless @job.company_website.nil? %></p>
@@ -53,13 +82,5 @@
 	<div class="clear"></div>
 	
 </div>
-
-  <div class="social_network">
-    <div class='facebook'>
-      <p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="shigotodoko" data-related="klebershimabuku">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-      <fb:like show_faces="true" width="450" action="recommend" font="arial"></fb:like><script src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script></p>
-    </div>
-  </div>
-
 
 

@@ -2,25 +2,35 @@ require 'spec_helper'
 
 describe AgenciesController do
 
+  render_views
+  
   def mock_agency(stubs={})
     (@mock_agency ||= mock_model(Agency).as_null_object).tap do |agency|
       agency.stub(stubs) unless stubs.empty?
     end
   end
+  
+  def mock_province(stubs={})
+    (@mock_province ||= mock_model(Province).as_null_object).tap do |province|
+      province.stub(stubs) unless stubs.empty?
+    end
+  end
 
   describe "GET index" do
-    it "assigns all agencies as @agencies" do
-      Agency.stub(:all) { [mock_agency] }
+    it "assigns all provinces as @provinces" do
+      Province.stub(:all) { [mock_province] }
       get :index
-      assigns(:agencies).should eq([mock_agency])
+      assigns(:provinces).should eq([mock_province])
     end
   end
 
   describe "GET show" do
     it "assigns the requested agency as @agency" do
-      Agency.stub(:find).with("37") { mock_agency }
-      get :show, :id => "37"
-      assigns(:agency).should be(mock_agency)
+      Province.stub(:find).with("8") { mock_province }
+      Agency.stub(:find_all_by_province_id).with("8") { mock_agency }
+      get :show, :id => "8"
+      assigns(:agencies).should be(mock_agency)
+      assigns(:province).should be(mock_province)
     end
   end
 

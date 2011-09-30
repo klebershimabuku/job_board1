@@ -14,7 +14,9 @@ class CommentsController < ApplicationController
     else
     	flash[:error] = "Ops! não foi possível enviar seu comentário. Verifique se todos os campos foram preenchidos corretamente."     	
     end
-    respond_with(@comment)
+    respond_with(@comment) do |format|
+      format.js
+    end
   end
 
   def destroy
@@ -31,6 +33,7 @@ class CommentsController < ApplicationController
   def index
   	@commentable = Company.find(params[:company_id])
   	@comments = @commentable.comments.recent.where(:approved => true).all
+  	respond_with(@comments)
   end
 
 	def show

@@ -31,66 +31,10 @@
 	<div class='clear'></div>
 
 
-	<p class='last_update_date'>Atualizado pela última vez há <%= time_ago_in_words(@company.updated_at) %></p>
-	<p><cite>* Talvez as informações acima estejam desatualizadas. Se você souber de algum dado atualizado, por favor entre em contato conosco que teremos satisfação em atualizá-los para você. (<%= link_to 'Contato', contact_path %>)</cite></p>
+	<p class="last_update_warning">Talvez as informações acima não estejam atualizadas. <br />Se você souber de algum dado atualizado, por favor entre em contato conosco que teremos satisfação em atualizá-los para você. - <%= link_to 'Contato', contact_path %></p>
+	<p>Os comentários foram temporariamente removidos.</p>
 	<hr />
-	<aside id='ad_160x90_txt' class='right-column'>
-		
-		<script type="text/javascript"><!--
-		google_ad_client = "ca-pub-8162200517166382";
-		/* barra links, show company, top */
-		google_ad_slot = "0350362019";
-		google_ad_width = 160;
-		google_ad_height = 90;
-		//-->
-		</script>
 
-		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-
-	</aside>	
-	
-	
-	<div id="comments_count"><%= pluralize(@comments.count, "Comentário") %></div>
-	
-	<div id="comments">
-		<%= render :partial => @comments, :locals => { :list => true } %>
-	</div>
-	
-	<div id="comment-notice"></div>
-
-	
-	<div id='comments_form' name='comments_form' class='round-top'>
-		<h3>Comentário</h3>
-		<p class='obs'><%= image_tag('icon-alert.png') %> Todos os comentários são moderados.</p>
-		
-		<%= simple_form_for [@company, Comment.new], :remote => true do |f| %>
-	
-			<%
-			# check for annonymous comment
-			if current_user
-				user_id = current_user.id
-			else
-				user_id = 0
-			end 
-			%>
-	    <%= f.hidden_field :user_id, :value => user_id %>
-	    <%= f.hidden_field :commentable_id, :value => @company.id %>
-	    <%= f.hidden_field :commentable_type, :value => @company.class %>
-		
-			<table>
-				<tr>
-					<td>Nome / Nickname *<br /><%= f.input :title, :label => false, :required => true, :input_html => { :size => 40, :maxlength => 40 } %></td>
-				</tr>
-				<tr>
-					<td>Comentário *<br /><%= f.input :comment, :label => false, :required => true, :input_html => { :size => '100x8'} %></td>
-				</tr>
-				<tr>
-					<td class='center'><%= f.submit "Salvar comentário"%></td>
-				</tr>
-			</table>
-	      
-		<% end %>
-	</div>
 	
 	<p><%= link_to '← Voltar para empreiteiras', companies_path %></p>
 </div>

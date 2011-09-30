@@ -1,10 +1,13 @@
 # coding: utf-8
 class JobsController < ApplicationController
+  respond_to :html, :js
 
   load_and_authorize_resource
   
   def index
-    @jobs = Job.recents_available.page params[:page]
+    @specials = Job.specials
+    @jobs = Job.recents_available.page(params[:page])
+    respond_with(@jobs)
   end
 
   def revision
@@ -12,7 +15,7 @@ class JobsController < ApplicationController
   end
   
   def locked
-    @jobs = Job.all_locked.page params[:page]
+    @jobs = Job.all_locked.page(params[:page]).per(10)
   end
 
   def publish

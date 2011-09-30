@@ -6,10 +6,29 @@
     <div class="positions">
       <% if @jobs.blank? %>
           <tr><td>Congratulations! You've no posts to approve for now!</td></tr>
-          <% end %>
-          <%= render 'positions_table' , :collection => @jobs %>
-    </div>
+      <% else %>
 
+      <%= paginate @jobs %>
+      <br />
+      
+        <div class="locked_jobs">
+        <% @jobs.each do |job| %>
+            <ul class="locked_job_item">
+            <li><%= link_to(job.title, job_path(job) )%></li>
+            <li><%= job.location %></li>
+            <li>Created: <%= time_ago_in_words(job.created_at) %> - <%= job.created_at.strftime('%d/%m/%Y às %H:%M:%S') %></li>
+            <li>Published: <%= job.published_at %></li>
+            <li>Modified: <%= time_ago_in_words(job.updated_at) %></li>
+            <li><%= job.company_name %></li>
+            </ul>
+        <% end %>
+        </div>
+        
+        <%= paginate @jobs %>
+        
+      <% end %>
+
+    </div>
 
 
 </div>

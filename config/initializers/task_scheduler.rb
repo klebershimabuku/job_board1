@@ -17,7 +17,3 @@ scheduler.cron '0 0 * * * Asia/Tokyo' do
       puts "No job to lock. Still waiting.."
     end
 end
-
-scheduler.cron '0 0 1 * * * Asia/Tokyo' do
-	system("rake RAILS_ENV=production sitemap:refresh")
-end

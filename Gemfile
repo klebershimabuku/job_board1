@@ -17,8 +17,7 @@ gem 'acts_as_commentable'
 gem 'RedCloth'
 gem 'kaminari'
 gem 'meta_search'
-gem 'sitemap_generator'
-
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 group :development do
   gem 'rspec-rails', '2.3.0'

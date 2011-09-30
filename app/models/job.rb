@@ -34,6 +34,8 @@ class Job < ActiveRecord::Base
 
   belongs_to :user
 
+  scope :specials, where(:available => true, :locked => false, :highlight => true )
+  
   scope :recents_available, where(:available => true, :locked => false).order("created_at DESC")
   scope :user_pending, lambda { |user|
     where("jobs.available = 0 AND jobs.expired = 0 AND jobs.user_id = ?", user.id)
@@ -45,6 +47,7 @@ class Job < ActiveRecord::Base
    
   attr_accessible :title, :content, :location, :company_name, :company_website, :how_to_apply, :available, :locked, :user_id, :account_id, :published_at, :campaign_start_at, :campaign_end_at, :expired, :expired_at, :highlight
  
+  
  	def to_param
     "#{id}-#{title.downcase.parameterize}"
 	end
@@ -96,7 +99,7 @@ class Job < ActiveRecord::Base
     if pack == 'free'
 			update_attributes(:campaign_start_at => Time.now, :campaign_end_at => Time.now + 30.days)
 		elsif pack == 'special' || pack == 'admin'
-			update_attributes(:campaign_start_at => Time.now, :campaign_end_at => Time.now + 45.days)
+			update_attributes(:campaign_start_at => Time.now, :campaign_end_at => Time.now + 65.days)
 		end    
   	class << self
   		remove_method :record_timestamps
@@ -212,5 +215,9 @@ class Job < ActiveRecord::Base
 			(visits / days_passed.to_f).to_i
 		end
 	end
+	
+	def published?
+	  self.available?
+  end
 	
 end

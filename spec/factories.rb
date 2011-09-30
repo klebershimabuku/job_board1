@@ -67,3 +67,8 @@ Factory.define :resume do |resume|
 	resume.vehicle						true
 	resume.hits								1
 end
+
+Factory.define :province do |province|
+  province.id               "8"
+  province.name             "Shizuoka-ken"
+end

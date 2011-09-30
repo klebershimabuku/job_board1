@@ -22,6 +22,15 @@ class UsersController < ApplicationController
   	end
   end
   
+  def create
+    @user = User.new(params[:user])
+    if params[:user][:trap] == "3" and @user.save
+      redirect_to root_path, :notice => "Cadastrado efetuado com sucesso"
+    else
+      render "new"
+    end
+  end
+  
   def destroy
   	@user = User.find(params[:id])
   	@user.destroy
