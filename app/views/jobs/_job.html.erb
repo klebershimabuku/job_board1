@@ -36,7 +36,7 @@
           <div id="fb-root"></div>
           <div class="social_sharing">
             <div class="twitter"><a href="http://twitter.com/share?url=http://www.shigotodoko.com<%=url_for(job) %>&amp;text=<%= job.title %> - (<%= job.location %>)&amp;via=shigotodoko" class="twitter-share-button">Tweet</a></div>
-            <div class="g-plusone" data-size="medium" count="true" callback="fire_multitrack" href="http://www.shigotodoko.com<%= url_for(job) %>"></div>
+            <div class="g-plusone" data-size="medium" count="true" callback="fire_multitrack" data-href="http://www.shigotodoko.com<%= url_for(job) %>"></div>
             <div class="fb-like" data-href="http://www.shigotodoko.com<%= url_for(job) %>" data-layout="button_count" data-width="200" data-show-faces="false" data-font="trebuchet ms"></div>
           </div>
           
