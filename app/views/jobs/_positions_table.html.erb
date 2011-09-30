@@ -1,0 +1,51 @@
+<% show_link = true %>
+
+<% @jobs.each do |job| %>
+
+<%
+
+ # check if the currently month is odd or even
+ n = Time.now.strftime('%m').to_i
+ even = (n%2 == 0) ? true : false
+ if even
+ 	@highlight_class = 'highlight_even'
+ else
+ 	@highlight_class = 'highlight_odd'
+ end
+
+ 	if job.highlight 
+		@highlight_class += ' highlight_ad'
+	else
+		@highlight_class = ''
+	end 
+%>
+
+<table class="post">
+    <tr class='<%= @highlight_class %>'>
+      <% if current_user && current_user.announcer? %>
+        <% if job.locked? %>
+        <td>
+          <%= image_tag('locked.png') %>
+          <% show_link = false %>
+        </td>
+        <% end %>
+      <% end %>
+      <td>
+        <div class="title">
+          <% if show_link || current_user && current_user.admin? %>
+            <%= link_to job.title, job %>
+          <% else %>
+            <%= job.title %>
+          <% end %>
+        </div>
+        <div class="company_name"><%= job.company_name %></div>
+      </td>
+      <td class="location_date">
+        <div class="location"><%= job.location %></div>
+        <div class="date"><%= (current_user && current_user.admin?) ? time_ago_in_words(job.created_at) + " - " + job.created_at.strftime('%d/%m/%Y') : time_ago_in_words(t(job.created_at))  %></div>
+      </td>
+    </tr>
+</table>
+<% end %>
+
+<%= paginate @jobs, :prev_label => "← Anterior", :next_label => "Próximo →" %>
