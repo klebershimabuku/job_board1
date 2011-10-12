@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td><%= @active_pack.active_pack.capitalize %></td>
-			<td><%= @active_pack.valid_start_at.strftime('%b %M %Y') %> até <%= @active_pack.valid_end_at.strftime('%b %M %Y') %></td>
+			<td><%= @active_pack.valid_start_at.strftime('%b %d %Y') %> até <%= @active_pack.valid_end_at.strftime('%b %d %Y') %></td>
 			<td><%= @announcer_total_jobs.published.count %></td>
 			<td><%= @announcer_total_jobs.revision.count %></td>
 			<td><%= @announcer_total_jobs.expired.count %></td>

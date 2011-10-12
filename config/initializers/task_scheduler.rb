@@ -16,4 +16,17 @@ scheduler.cron '0 0 * * * Asia/Tokyo' do
     else
       puts "No job to lock. Still waiting.."
     end
+    
+  sponsored_jobs = Job.where("published_at < ? AND locked = ?", 45.days.ago, false)
+  if sponsored_jobs.size > 0 
+    sponsored_jobs.each do |job|
+      puts "Locking: #{job.title} due 45 limit expiration."
+      UserMailer.job_system_locked_notification(job).deliver
+      job.update_attribute("locked", true)
+    end
+  else
+    puts "No sponsored jobs to lock at this time."
+  end
+  
+  
 end

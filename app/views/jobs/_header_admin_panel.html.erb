@@ -7,6 +7,9 @@
       Atualizado há <%= time_ago_in_words( @job.updated_at ) %><br />
       Visitas: <%= @job.visits %>
     </p>
+    <% if @job.highlight? %>
+      <p class='highlight'>Anúncio patrocinado.</p>
+    <% end %>
   </div>
   <div style="float: right">
     <%= render 'lock_links' %>

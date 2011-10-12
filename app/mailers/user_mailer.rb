@@ -27,4 +27,10 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	mail(:subject => "Business Upgrade requested", :to => @user['user_email'])
   end
+  
+  def job_system_locked_notification(job)
+    @job = job
+    mail(:subject => "Sponsored Job locked.")
+  end
+  
 end

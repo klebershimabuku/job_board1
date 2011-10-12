@@ -108,6 +108,7 @@ class JobsController < ApplicationController
 
   def edit
  		@account = Job.find(params[:id]).account_id
+ 		@highlight = Account.find_by_user_id(current_user)
   end
 
   def create

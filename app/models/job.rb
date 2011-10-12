@@ -36,7 +36,7 @@ class Job < ActiveRecord::Base
 
   scope :specials, where(:available => true, :locked => false, :highlight => true )
   
-  scope :recents_available, where(:available => true, :locked => false).order("created_at DESC")
+  scope :recents_available, where(:available => true, :locked => false).order("published_at DESC")
   scope :user_pending, lambda { |user|
     where("jobs.available = 0 AND jobs.expired = 0 AND jobs.user_id = ?", user.id)
   }
@@ -99,7 +99,7 @@ class Job < ActiveRecord::Base
     if pack == 'free'
 			update_attributes(:campaign_start_at => Time.now, :campaign_end_at => Time.now + 30.days)
 		elsif pack == 'special' || pack == 'admin'
-			update_attributes(:campaign_start_at => Time.now, :campaign_end_at => Time.now + 65.days)
+			update_attributes(:campaign_start_at => Time.now, :campaign_end_at => Time.now + 45.days)
 		end    
   	class << self
   		remove_method :record_timestamps
