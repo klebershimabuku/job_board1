@@ -36,7 +36,7 @@ class Job < ActiveRecord::Base
 
   scope :specials, where(:available => true, :locked => false, :highlight => true )
   
-  scope :recents_available, where(:available => true, :locked => false).order("published_at DESC")
+  scope :recents_available, where(:available => true, :locked => false).order("created_at DESC")
   scope :user_pending, lambda { |user|
     where("jobs.available = 0 AND jobs.expired = 0 AND jobs.user_id = ?", user.id)
   }
