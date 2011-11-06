@@ -6,7 +6,7 @@ scheduler = Rufus::Scheduler.start_new
 
 #scheduler.every '1m' do
 scheduler.cron '0 0 * * * Asia/Tokyo' do
-  job_ids = Job.where("created_at < ? AND locked = ?", 60.days.ago, false)
+  job_ids = Job.where("created_at < ? AND locked = ? AND highlight = ?", 60.days.ago, false, nil)
     if job_ids.size > 0
       job_ids.each do |job|
         puts "Locking: #{job.title}.."
@@ -17,7 +17,7 @@ scheduler.cron '0 0 * * * Asia/Tokyo' do
       puts "No job to lock. Still waiting.."
     end
     
-  sponsored_jobs = Job.where("published_at < ? AND locked = ?", 45.days.ago, false)
+  sponsored_jobs = Job.where("published_at < ? AND locked = ? AND highlight = ?", 45.days.ago, false, true)
   if sponsored_jobs.size > 0 
     sponsored_jobs.each do |job|
       puts "Locking: #{job.title} due 45 limit expiration."
