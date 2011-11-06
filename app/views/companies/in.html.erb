@@ -25,12 +25,13 @@
 		<div class='clear'></div>
 	</div>
 			
+	<p><b><%= @companies.size %></b> empresas cadastradas nesta província.</p>
 
 	<hr />
 
 	
 	<% if @companies.blank? %>
-		<h5>Desculpe, não temos registro de nenhuma empreiteira nesta província.</h5>
+		<h2>Desculpe, não temos registro de nenhuma empresa nesta província.</h2>
 	<% end %>
 	
 	
@@ -59,9 +60,44 @@
 		<% end %>
 		<% i += 1%>
 	<% end %>
+	
+	<% if wrap == 25 && @companies.size < 76 or wrap == 15 && @companies.size < 60 %>
+	  
+	  </ul>
+	  <script type="text/javascript"><!--
+    google_ad_client = "ca-pub-8162200517166382";
+    /* relacao Empresas Arranha Ceu e Full List Jobs 160x600 */
+    google_ad_slot = "6837150524";
+    google_ad_width = 160;
+    google_ad_height = 600;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  <% elsif wrap == 3 && @companies.size < 10 %>
+  </ul>
+  <script type="text/javascript"><!--
+  google_ad_client = "ca-pub-8162200517166382";
+  /* Empresas */
+  google_ad_slot = "0997790053";
+  google_ad_width = 300;
+  google_ad_height = 250;
+  //-->
+  </script>
+  <script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+    
+	<% end %>
+	
+	
 	</ul>
 	
 	<div class='clear'></div>
 	
 	<%= paginate @companies %>
+	
+	<p>Gostaria de ver a sua empresa listada aqui? Entre em <%= link_to 'contato', contact_path %> conosco.</p>
+	
 </div>
