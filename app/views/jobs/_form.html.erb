@@ -32,6 +32,8 @@
             <%= f.input :content , :label => "Descrição" , :as => 'text', :input_html => { :cols => 50, :rows => 20 }, :hint => "(Tipo de serviço, requisitos, benefícios, salário em ¥, etc.)" %>
 <% if @highlight %>	        	
 <%= f.input :highlight, :label => "Destacar anúncio", :as => 'radio', :hint => "Faça deste anúncio um destaque." %>
+<% else %>
+<%= f.hidden_field :highlight, :value => '0' %>
 <% end %>
         </div>
         

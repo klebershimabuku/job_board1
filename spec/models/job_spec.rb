@@ -14,6 +14,8 @@ describe Job do
   
   it { should validate_presence_of(:how_to_apply) }
   
+  it { should validate_presence_of(:highlight) }
+  
   it { should ensure_length_of(:title).is_at_most(50) }
 
   it { should ensure_length_of(:content).is_at_most(2000) }

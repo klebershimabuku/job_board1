@@ -6,10 +6,11 @@ scheduler = Rufus::Scheduler.start_new
 
 #scheduler.every '1m' do
 scheduler.cron '0 0 * * * Asia/Tokyo' do
-  job_ids = Job.where("created_at < ? AND locked = ? AND highlight = ?", 60.days.ago, false, nil)
+  job_ids = Job.where("created_at < ? AND locked = ? AND highlight = ?", 60.days.ago, false, false)
     if job_ids.size > 0
       job_ids.each do |job|
         puts "Locking: #{job.title}.."
+        UserMailer.job_system_locked_notification(job).deliver
         job.update_attribute("locked", true)
       end     
       puts "#{job_ids.size} jobs have been locked."
