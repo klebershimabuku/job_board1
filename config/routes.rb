@@ -66,5 +66,5 @@ JobBoard::Application.routes.draw do
 	match 'agencias-hello-work/info', :to => 'agencies#info', :as => 'info_agencies'	
 	resources :agencies, :path => 'agencias-hello-work'
 	
-  root :to => "pages#home"
+  root :to => "pages#holiday"
 end

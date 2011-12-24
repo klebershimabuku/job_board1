@@ -1,3 +1,10 @@
+#holiday { padding: 50px; }
+#holiday h1 { padding: 20px; font-size: 40px;}
+#holiday p { font-size: 22px; }
+.bolinha_natal { margin:0p; text-align: right; }
+.natal { font-color: red; }
+.ano_novo { font-color: blue; }
+
 #container {
   width: 960px;
   margin:0 auto;
