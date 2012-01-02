@@ -147,6 +147,31 @@ a:visited {
 }
 
 /*
+* Google+ Follow button
+*/
+#googleplus_follow_button {
+	padding: 5px;
+	background-color: white;
+	-moz-box-shadow: 0 0 5px #CCC;
+	-webkit-box-shadow: 0 0 5px #CCC;
+	box-shadow: 0 0 5px #CCC;	
+	text-align: center;
+}
+
+/*
+* Twitter Follow button
+*/
+#twitter_follow_button {
+	padding: 5px;
+	background-color: white;
+	-moz-box-shadow: 0 0 5px #CCC;
+	-webkit-box-shadow: 0 0 5px #CCC;
+	box-shadow: 0 0 5px #CCC;	
+	text-align: center;
+}
+
+
+/*
  * Google Search Bar
  * 
  */
@@ -571,14 +596,18 @@ a.yellow { color: #FFF; text-decoration: none; }
     color: #006699;
 		margin-top:0;
 }
-ul.show_jobs_social_network {
-	padding: 3px;
-	list-style: none;
-	font-size: 1px;
+.show_jobs_social_network {
+	margin-top: 10px;
+	padding: 10px;
+	font-size: 12px;
+	background-color: white;
+  -moz-box-shadow: 0 0 5px #CCC;
+  -webkit-box-shadow: 0 0 5px #CCC;
+  box-shadow: 0 0 5px #CCC;
+
 }
-  ul.show_jobs_social_network li {
-		display: inline-block;
-	}
+  .show_jobs_social_network ul { list-style: none; }
+  .show_jobs_social_network ul li { padding: 10px; }
 	.fb_reset {
 		display: inline;
 	}

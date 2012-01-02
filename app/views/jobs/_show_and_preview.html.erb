@@ -26,28 +26,6 @@
   		<div class="location"><%= @job.location %></div>
 	  	<div class="title round-top"><%= @job.title %></div>
 
-      <% if @job.published? %>
-        <ul class="show_jobs_social_network">
-            <li>
-              <div id="fb-root"></div>
-              <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/pt_BR/all.js#appId=146967732064296&xfbml=1";
-                fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));</script>
-
-              <div class="fb-like" data-href="http://www.shigotodoko.com<%= url_for(@job) %>" data-send="false" data-layout="button_count" data-width="105" data-show-faces="true"></div>
-            </li>
-            <li>
-              <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="shigotodoko" data-url="http://www.shigotodoko.com<%= url_for(@job) %>" data-lang="en">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-            </li>
-            <li>
-              <div class="g-plusone" data-size="medium" count="true" callback="fire_multitrack" href="http://www.shigotodoko.com<%= url_for(@job) %>"></div>
-            </li>
-        </ul>
-      <% end %>
   </header>
 
 
@@ -77,6 +55,32 @@
       <p class='title'>Como se candidatar</p>
       <p class='body'><%= simple_format auto_link(@job.how_to_apply) %></p>
     </div>
+
+    <% if @job.published? %>
+      <div class="show_jobs_social_network round">
+      <h3>Compartilhe esta vaga com seus amigos e familiares:</h3>
+      <ul>
+          <li>
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) {return;}
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/pt_BR/all.js#appId=146967732064296&xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <div class="fb-like" data-href="http://www.shigotodoko.com<%= url_for(@job) %>" data-send="false" data-layout="button_count" data-width="105" data-show-faces="true"></div> - no Facebook
+          </li>
+          <li>
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="shigotodoko" data-url="http://www.shigotodoko.com<%= url_for(@job) %>" data-lang="en">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> - no Twitter
+          </li>
+          <li>
+            <div class="g-plusone" data-size="medium" count="true" callback="fire_multitrack" href="http://www.shigotodoko.com<%= url_for(@job) %>"></div> - no Google+
+          </li>
+      </ul>
+    <% end %>
+
 
   </aside>
 	<div class="clear"></div>
