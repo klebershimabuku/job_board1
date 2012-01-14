@@ -72,6 +72,11 @@
         <p class='company_name'><%= @job.company_name %></p>
         <p class='company_website'><%= link_to @job.company_website, @job.company_website, :target => 'blank' unless @job.company_website.nil? %></p>
       </div>
+
+      <div class='how_to_apply round'>
+        <p class='title'>Como se candidatar</p>
+        <p class='body'><%= simple_format auto_link(@job.how_to_apply) %></p>
+      </div>
     
     <% else %>
     
