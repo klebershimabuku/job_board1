@@ -646,6 +646,7 @@ background-color: #333;
 }
     .company_info p.company_name {
         font-weight: bold;
+				font-size: 18px;
         margin-right: 3px;
         margin-left: 3px;
         border-bottom: 1px solid #ccc;
