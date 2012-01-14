@@ -40,7 +40,7 @@ section {
     background-color: #fff;
     margin-bottom: -22px;
 }
-#reminder { width: 960px; }
+#reminder { width: 980px; }
 #reminder p {
     margin-left: 20px;
     padding-top: -20px;
@@ -253,7 +253,7 @@ footer nav#footer ul li {
 }
 
 .welcome_message {
-    width: 950px;
+    width: 970px;
     text-align: center;
     background-color: #369;
     padding: 20px;
@@ -280,7 +280,7 @@ footer nav#footer ul li {
  border-width:15px;
  height:0px;
  width:0px;
- left: 955px;
+ left: 975px;
  top: -32px;
  position: relative;
  z-index: -1;
@@ -562,8 +562,10 @@ a.green:hover { background-color: #669900;}
 a.yellow { color: #FFF; text-decoration: none; }
 
 #ad_sample {
-    background-color: #eee;
-    border: 1px solid #ddd;
+    background-color: #EEE;
+		margin: 0 auto;
+    width: 310px; 
+		height: 260px;
 }
 #ad_sample h1 {
     vertical-align: middle;
@@ -587,16 +589,24 @@ a.yellow { color: #FFF; text-decoration: none; }
 #show_job {
 	margin-bottom: 50px;
 }
+	#show_job .left-column { width: 50%; }
+	#show_job .right-column { width: 40%; }
+
 .show_jobs_location_and_title header div.location {
-  font-size: 20px;
+  font-size: 17px;
 }
 .show_jobs_location_and_title header div.title {
     font-weight: bold;
-    font-size: 32px;
+    font-size: 24px;
     color: #006699;
 		margin-top:0;
 }
-.show_jobs_social_network {
+
+.show_jobs_job_content {
+    font-size: 15px;
+}
+
+.show_jobs_side_ad {
 	margin-top: 10px;
 	padding: 10px;
 	font-size: 12px;
@@ -606,19 +616,9 @@ a.yellow { color: #FFF; text-decoration: none; }
   box-shadow: 0 0 5px #CCC;
 
 }
-  .show_jobs_social_network ul { list-style: none; }
-  .show_jobs_social_network ul li { padding: 10px; }
-	.fb_reset {
-		display: inline;
-	}
 .show_jobs_location_and_title header {
 	padding-top: 0px;
-	margin-bottom: 30px;
-}
-.show_jobs_job_content {
-    font-size: 16px;
-    width: 100%;
-    margin-top: -20px;
+	margin-bottom: 10px;
 }
 h1.preview {
 	background-color: #CCC;
@@ -631,14 +631,14 @@ h1.preview {
 background-color: #333;
 }
 .company_info {
+		color: #777782;
     width: 35%;
     margin-right: 5px;
     margin-left: 5px;
-    margin-top: -15px;
 } 
 .company_info .company_name_and_website {
     background-color: #FFFEEF;
-    border: 1px solid #CCC;
+    border: 3px solid #EDEEE1;
     padding: 5px;
     -moz-box-shadow: 0 0 5px #CCC;
     -webkit-box-shadow: 0 0 5px #CCC;
@@ -661,13 +661,18 @@ background-color: #333;
 .company_info .how_to_apply {
     margin-top: 10px;
     background-color: #FFFEEF;
-    border: 1px solid #CCC;
+    border: 3px solid #EDEEE1;
     padding: 5px 0px 0px 5px;
     -moz-box-shadow: 0 0 5px #CCC;
     -webkit-box-shadow: 0 0 5px #CCC;
     box-shadow: 0 0 5px #CCC;
 }
+		.company_info .how_to_apply h1 {
+			font-size: 18px;
+			font-weight: bold;
+		}
     .company_info .how_to_apply p.title {
+				font-size: 14px;
         font-weight: bold;
         border-bottom: 1px solid #ccc;
     }
