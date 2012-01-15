@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def logo
-    link_to image_tag("logo.png", :alt => "ShigotoDOKO", :class => "round"), root_path
+    link_to image_tag("logo.png", :title => "ShigotoDOKO", :class => "round"), root_path
   end
 
   def timeago(time, options = {})

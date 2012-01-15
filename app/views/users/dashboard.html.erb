@@ -1,9 +1,16 @@
 <% title 'Dashboard' %>
 
-<% if current_user.announcer? %>
+
+<% if current_user.announcer? || current_user.admin? %>
 
 <h1>Dashboard</h1>
 <hr>
+
+<% if current_user.admin? %>
+  <%= render 'layouts/reminder' %>
+<% end %>
+
+
 	<% if can? :list, Resume %>
 	<p><%= link_to 'Banco de Currículos', list_resumes_path, :class => 'button' %></p>
 	<% end %>

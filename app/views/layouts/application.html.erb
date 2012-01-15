@@ -30,24 +30,16 @@
 	    <div id="container" class="layout-shadow">
 	    	<% # logo & sign-up & sign-in links %>
 	      	<%= render 'layouts/header' %>
-	        <% # notifications for admin only %>
-	      	<%= render 'layouts/reminder' %>
 		    <% # site navbar %>
 	    	<%= render 'layouts/navigation' %>
-	      	<% # user shortcuts %>
-	      	<%= render 'layouts/shortcuts' %>
 		    <%= yield(:flash_messages) %>
   			<section>
 		    	<%= yield %>
 		    </section>
-      		<% @adsense = false %>
+      		<% @adsense = true %>
       		<%= render 'layouts/google_search_bar', :locals => { :adsense => @adsense } %>
       		<%= render 'layouts/footer' %>
     	</div>
-	<!-- Google +1 -->
-	<script type="text/javascript" src="http://apis.google.com/js/plusone.js">
-	  {lang: 'pt-BR'}
-	</script>
 	</body>
 </html>
 <% if Rails.env.development? %>

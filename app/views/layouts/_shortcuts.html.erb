@@ -1,11 +1,5 @@
 
 <% if current_user && current_user.announcer || current_user && current_user.admin %>
 <div id='shortcuts' class='round'>
-<% if can? :new, Job %>
-  <p><%= link_to image_tag('new_job40x40.png', :size => '15x15'), new_job_path, :title => 'Criar novo anúncio' %><span>Novo</span></p>
-<%end%>
-<% if can? :dashboard, User %>
-  <p><%= link_to image_tag('dashboard32x32.png', :size => '15x15'), dashboard_path, :title => 'Dashboard' %><span>Dashboard</p>
-<% end %>
 </div> 
 <% end %>

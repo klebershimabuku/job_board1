@@ -1,5 +1,3 @@
-
-<% if current_user && current_user.admin? %>
 <div id="reminder">
     <% if @pending.size == 0 %>
         <p>Nenhum anúncio para revisão.
@@ -13,5 +11,3 @@
       <br /><%= link_to(pluralize(@locked.count, "anúncio"),jobs_locked_path) %> bloqueado(s).</p>
     <% end %>
 </div>
-<% end %>
-

@@ -1,6 +1,7 @@
 <% 
   @count += 1 if @count 
   @show_in = [15]    
+  @show_text_links = [6]
 %>
 
 <% if @show_in.include?(@count) %>
@@ -22,6 +23,27 @@
   </tr>
 <% end %>
 
+<% if @show_text_links.include?(@count) %>
+  <tr><td></td></tr>
+  <tr>
+    <td>
+	   <script type='text/javascript'><!--
+	    google_ad_client = 'pub-8162200517166382';
+	    /* barra de links, abaixo do menu ao topo */
+	    google_ad_slot = '3757776481';
+	    google_ad_width = 468;
+	    google_ad_height = 15;
+	    //-->
+	    </script>
+
+	    <div class='ad_full_main_text_links_468_15'>
+	      <script type='text/javascript' src='http://pagead2.googlesyndication.com/pagead/show_ads.js'></script>      			
+	    </div>
+
+      </td>
+    </tr>
+<% end %>
+
 
 <tr><td><hr /></td></tr>    
       <tr>
@@ -30,7 +52,7 @@
         <div class="title"><%= link_to job.title, job %> - <span class="company_name"><%= job.company_name %></span></div>
         <div class="location_date">
           <div class="location"><%= job.location %></div>
-          <div class="date">Publicado há <%= (current_user && current_user.admin?) ? time_ago_in_words(job.created_at) + " - " + job.created_at.strftime('%d/%m/%Y') : time_ago_in_words(t(job.published_at))  %></div>
+          <div class="date">Postado há <%= (current_user && current_user.admin?) ? time_ago_in_words(job.created_at_at) + " - " + job.created_at.strftime('%d/%m/%Y') : time_ago_in_words(t(job.created_at))  %></div>
         </div>
 
           <div id="fb-root"></div>

@@ -38,12 +38,9 @@ section {
 #reminder {
     margin: 0 auto;
     background-color: #fff;
-    margin-bottom: -22px;
 }
-#reminder { width: 980px; }
 #reminder p {
     margin-left: 20px;
-    padding-top: -20px;
     font-size: 14px; 
     color: #000;
     text-shadow: 1px 1px 1px white;
@@ -64,7 +61,7 @@ section h1 {
   float: right;
   position: absolute;
   left: 735px;
-  top: 40px;
+  top: 100px;
 }
 #shortcuts img {
   position: relative;
@@ -99,14 +96,42 @@ a:visited {
   color: #069;
 }
 
+/* Logo and Google Search */
+
+.google_search {
+	background-color: #FFF;
+	margin-right: 20px;
+	top: 40px;
+	left: 600px;
+	position: absolute;
+	clear: both;
+}
+
 /* Navigation */
 
 #access_link  {
-  float: right;
-  clear: both;
+  text-align: right;
+  background-color: #FFF;
+}
+#access_link #logo h2 {
+	font-size: 16px;
+	margin-left: 20px;
+	text-align: left;
 }
 #access_link ul {
   list-style: none;
+}
+#access_link ul li { display: inline-block; color: darkgray; font-size: 14px; }
+#access_link ul li a { font-weight: bold; }
+#access_link ul li.shortcuts a {
+	background-color: #336699; 
+	color: #FFF;
+	padding: 7px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+#access_link ul li.shortcuts a:hover {
+	text-decoration: none;
 }
 
 
@@ -175,11 +200,6 @@ a:visited {
  * Google Search Bar
  * 
  */
- .google_search_bar {
- 	background-color: #F2F2F2;
- 	text-align: center;
- 	border-bottom: 1px dotted #ccc;
- }
  .google_search_bar .cse-search-box .q-for-google-text {
  	padding: 5px;
   -moz-border-radius:    5px;
@@ -350,6 +370,7 @@ div.positions table {
   div.positions tr td span.special_company_name {
     font-size: 13px;
     color: #FFF;
+	 	text-shadow: 1px 1px 1px #000;
   }
   div.positions tr td div.location_date {
     text-align: left;
@@ -372,6 +393,10 @@ div.positions table {
 		float: right;
 		font-size: small;
 		}
+		
+	.recommend_on_googleplus {
+		font-size: 12px;
+	}
 /*
  * JOBS FEEDS
  */ 
@@ -380,17 +405,17 @@ div.positions table {
 	color: #333;
 	padding: 0px;
 	margin-top: 20px;
-	border: 1px solid #50718f;
+	border: 1px solid #cc0000;
 }
 .jobs_feeds h1 {
-	background-color: #50718f;
+	background-color: #D64937;
 	color: #FFF;
 	padding: 5px;
 	font-size: medium;
 }
-.jobs_feeds h2 {
+.jobs_feeds p {
 	color: #333;
-	padding: 5px;
+	padding: 10px;
 	font-size: small;
 	position: relative;
 }
@@ -398,6 +423,13 @@ div.positions table {
 	margin-bottom: 10px;
 }
 
+
+.ad_full_main_text_links_468_15 {
+	background-color: #FFF;
+	padding-top: 10px;
+	padding-left: 20px;
+	text-align: left;
+}
   
   /*
    * 
@@ -443,6 +475,7 @@ ul.locked_job_item {
 #main_jobs #jobs_sidebar {
     float: right;
 }
+#jobs_sidebar h1 { font-size: 17px; }
 #main_jobs #jobs_sidebar #post_a_new_job_button a#link {
 background-image: -webkit-gradient(
     linear,
@@ -460,7 +493,7 @@ background-image: -moz-linear-gradient(
 	cursor: pointer;
 	color: #FFF;
 	margin:0 auto;
-	padding: 15px;
+	padding: 10px;
 	display: block;
 	font-weight: bolder;
 	border:1px solid #53ab41;
@@ -469,10 +502,10 @@ background-image: -moz-linear-gradient(
 	text-decoration: none;
 }
 #main_jobs #jobs_sidebar #post_a_new_job_button p#free_campaign {
-	font-size: 16px;
+	font-size: 15px;
 	color: #333;
 	text-align: center;
-	margin-top: -10px;
+	margin-top: 10px;
 	font-family: "Times New Roman", Times, serif;
 	font-style: italic;
 	font-weight: bolder;
@@ -561,18 +594,6 @@ a.green:hover { background-color: #669900;}
 .yellow:hover  {background-color: #ffD800; color: #fff;}
 a.yellow { color: #FFF; text-decoration: none; }
 
-#ad_sample {
-    background-color: #EEE;
-		margin: 0 auto;
-    width: 310px; 
-		height: 260px;
-}
-#ad_sample h1 {
-    vertical-align: middle;
-    text-align: center;
-    font-size: 25px;
-    color: #333;
-}
 
 .two_columns { 
   background-color: #333;

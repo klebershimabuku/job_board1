@@ -25,4 +25,17 @@ function googleTranslateElementInit() {
 </div>
 <div class="navbar_fullbar"></div>
 <% @adsense = true%>
-<%= render 'layouts/google_search_bar', :locals => { :adsense => @adsense }%>
+<% if @adsense %>
+   <script type='text/javascript'><!--
+    google_ad_client = 'pub-8162200517166382';
+    /* barra de links, abaixo buscador topo */
+    google_ad_slot = '3757776481';
+    google_ad_width = 468;
+    google_ad_height = 15;
+    //-->
+    </script>
+
+    <div class='ad_full_main_text_links_468_15'>
+      <script type='text/javascript' src='http://pagead2.googlesyndication.com/pagead/show_ads.js'></script>
+    </div>
+<% end %>

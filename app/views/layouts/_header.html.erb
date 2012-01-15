@@ -1,12 +1,65 @@
 <header class='round-top'>
   <div id="access_link">
-    <ul>
+
+  <div id="logo" class='left'>
+    <%= logo %><br />
+    <h2>A sua referência de empregos no Japão<h2>
+    </div>
+    <ul class='right'>
       <% if current_user.nil? %>
-      <li><%= link_to('Entrar', new_user_session_path) %>&nbsp;<%= t(:or) %>&nbsp;<%= link_to 'Cadastre-se', new_user_registration_path %></li>
+      <li><%= link_to('Entrar', new_user_session_path) %>&nbsp;<%= t(:or) %>&nbsp;<%= link_to 'Cadastre-se', new_user_registration_path %>&nbsp;&nbsp;<%= link_to 'Blog', 'http://blog.shigotodoko.com/' %>&nbsp;&nbsp;<%= link_to 'Sobre', about_url %>&nbsp;&nbsp;<%= link_to 'Como anunciar', how_to_start_ad_path %></li>
           <% else %>
-      <li>Logado como&nbsp;<b><%= link_to current_user.email, resumes_path %></b> .. <%= link_to "Sair", destroy_user_session_path %></li>
+      <li>Logado como&nbsp;<b><%= link_to current_user.email, resumes_path %></b></li>
+      
+      <% if can? :new, Job %>
+        <li class='shortcuts round'><%= link_to 'Novo', new_job_path, :title => 'Criar novo anúncio' %></li>
+      <%end%>
+      <% if can? :dashboard, User %>
+        <li class='shortcuts round'><%= link_to 'Dashboard', dashboard_path, :title => 'Dashboard' %></li>
+      <% end %>
+      
+      <li class='shortcuts round'><%= link_to "Sair", destroy_user_session_path %></li>
+      
       <% end %>
     </ul>
   </div>
-  <%= logo %>
+
+  <div class="google_search">
+  
+    <!-- Google Search Bar -->
+    <div class="google_search_bar right">
+    <form action="http://www.shigotodoko.com/search" id="cse-search-box">
+      <div>
+        <input type="hidden" name="cx" value="partner-pub-8162200517166382:d997ka6gtbw" />
+        <input type="hidden" name="cof" value="FORID:10" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input type="text" name="q" size="50" />
+        <input type="submit" name="sa" value="Pesquisar" class='btn_custom_search' />
+      </div>
+    </form>
+    <script type="text/javascript" src="http://www.google.com.br/cse/brand?form=cse-search-box&lang=pt"></script>
+
+    	<% if @adsense %>
+    	   <script type='text/javascript'><!--
+    	    google_ad_client = 'pub-8162200517166382';
+    	    /* barra de links, abaixo do menu ao topo */
+    	    google_ad_slot = '3757776481';
+    	    google_ad_width = 468;
+    	    google_ad_height = 15;
+    	    //-->
+    	    </script>
+
+    	    <div class='ad_full_main_text_links_468_15'>
+    	      <script type='text/javascript' src='http://pagead2.googlesyndication.com/pagead/show_ads.js'></script>      			
+    	    </div>
+    	<% end %>
+
+      </div>
+
+  </div>
+  <div class='clear'></div>  
+
 </header>
+
+
+
