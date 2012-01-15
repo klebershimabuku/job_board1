@@ -24,6 +24,20 @@
 	</script>
 	</head>
 	<body>
+	
+	  <!-- facebook comments plugin -->
+	  
+	  <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=143661522361941";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+	  <!-- end of facebook comments plugin code -->
+	  
 		<% unless flash.blank? %>
 		<div id="flash"><%= flash_message %></div>
 		<% end %>

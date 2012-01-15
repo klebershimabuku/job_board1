@@ -1,5 +1,7 @@
 # coding: utf-8
 class JobsController < ApplicationController
+  include BlogFeeds
+  
   respond_to :html, :js
 
   load_and_authorize_resource
@@ -7,6 +9,8 @@ class JobsController < ApplicationController
   def index
     @specials = Job.specials
     @jobs = Job.recents_available.page(params[:page])
+    @feeds = load_feeds.entries
+    
     respond_with(@jobs)
   end
 

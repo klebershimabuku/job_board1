@@ -72,11 +72,24 @@
 				//-->
 				</script>
 				<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-				
+      	
 		    
 			</div>
 
-	<div class='clear'></div>		
+	<div class='clear'></div>
+	
+	
+	
+  <div class='blog_recent_posts'>
+	 <h1>Posts recentes</h1>
+	 <h3><%= link_to 'Visite nosso Blog', 'http://blog.shigotodoko.com/', :target => '_blank' %></h3>
+	 <ul>
+	 <% @feeds.each do |post| %>
+	   <li><%= link_to post.title, post.url, :target => '_blank' %> Postado por <cite><%= post.author %></cite> em <%= post.published.strftime('%d/%m/%Y') %></li>
+	 <% end %>
+	 </ul>
+	
+  </div>
 	
 </div>
 

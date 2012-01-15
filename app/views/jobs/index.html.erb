@@ -22,6 +22,24 @@
 
     <div id="jobs_sidebar">
     
+    <p class='twitter-follow-button'>
+    <a href="https://twitter.com/shigotodoko" class="twitter-follow-button" data-show-count="false" data-lang="pt" data-size="small">Siga @shigotodoko</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+
+    
+    <div class='blog_recent_posts_for_jobs_page'>
+  	 <h1>Posts aleatórios</h1>
+	   <ul>
+  	 <% @feeds.shuffle!.first(5).each do |post| %>
+  	   <li><%= link_to truncate(post.title, :length => 30), post.url %></li>
+  	   <li><%= truncate(post.summary, :length => 75) %> (<%= post.published.strftime('%d/%m/%Y') %>)</li>
+  	 <% end %>
+     </ul>
+  	 <p class='center'><%= link_to 'Visite nosso Blog', 'http://blog.shigotodoko.com', :target => '_blank', :class => 'button' %></p>
+    </div>
+    
+    
       <!-- Adsense -->
       <div class="center">
         <script type="text/javascript"><!--
@@ -37,7 +55,16 @@
       <!-- Adsense -->
       
       <hr>
+
+      <br />
       
+      <div>
+      	<div id='post_a_new_job_button'>
+      		<% new_job_link_campaign = current_user ? new_job_path : how_to_start_ad_path %>
+      		<p><%= link_to 'Criar anúncio de emprego (Grátis) »', new_job_link_campaign, :class => 'round5', :id => 'link' %></p>
+      		<p id='free_campaign'>Grátis por 30 dias! (tempo limitado)</p>
+      	</div>
+      </div>
 
         <div id="facebook">
           <script src="http://connect.facebook.net/pt_BR/all.js#xfbml=1"></script><fb:like-box href="http://www.facebook.com/shigotodoko" width="300" height="360" show_faces="true" stream="false" header="true" connections="10"></fb:like-box>
@@ -60,23 +87,7 @@
   	      <p class='center'><a href="http://feeds.feedburner.com/Shigotodoko"><img src="http://feeds.feedburner.com/~fc/Shigotodoko?bg=EDF4F5&amp;fg=000000&amp;anim=1" height="26" width="88" style="border:0" alt="" /></a><small> pessoas já assinaram.</small></p>
   	      <% end %>
   	  	</div>
-
-        <br />
-        
-        <div>
-        	<div id='post_a_new_job_button'>
-        		<% new_job_link_campaign = current_user ? new_job_path : how_to_start_ad_path %>
-        		<p><%= link_to 'Criar anúncio de emprego (Grátis) »', new_job_link_campaign, :class => 'round5', :id => 'link' %></p>
-        		<p id='free_campaign'>Grátis por 30 dias! (tempo limitado)</p>
-        	</div>
-        </div>
-
-
-
-      
-      
-    </div>
-
+  	  	
 </div>
 
 <div class="clear"></div>

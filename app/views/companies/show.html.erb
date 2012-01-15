@@ -31,10 +31,11 @@
 	<div class='clear'></div>
 
 
-	<p class="last_update_warning">Talvez as informações acima não estejam atualizadas. <br />Se você souber de algum dado atualizado, por favor entre em contato conosco que teremos satisfação em atualizá-los para você. - <%= link_to 'Contato', contact_path %></p>
-	<p>Os comentários foram temporariamente removidos.</p>
+	<p class="last_update_warning">Talvez os dados acima não estejam atualizadas. <br />Se você souber de algum dado atualizado, por favor entre em contato conosco que teremos satisfação em atualizá-los para você. - <%= link_to 'Contato', contact_path %></p>
 	<hr />
 
+  <div class="fb-comments" data-href="<%= request.url %>" data-num-posts="10" data-width="950"></div>
+	<hr />
 	
 	<p><%= link_to '← Voltar para empreiteiras', companies_path %></p>
 </div>

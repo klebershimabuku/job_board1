@@ -1,6 +1,9 @@
 # coding: utf-8
 class PagesController < ApplicationController
+  include BlogFeeds
+  
   def home
+    @feeds = load_feeds.entries.first(5)
   end
 
   def contact
