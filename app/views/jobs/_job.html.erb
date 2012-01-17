@@ -52,7 +52,7 @@
         <div class="title"><%= link_to job.title, job %> - <span class="company_name"><%= job.company_name %></span></div>
         <div class="location_date">
           <div class="location"><%= job.location %></div>
-          <div class="date">Postado há <%= (current_user && current_user.admin?) ? time_ago_in_words(job.created_at_at) + " - " + job.created_at.strftime('%d/%m/%Y') : time_ago_in_words(t(job.created_at))  %></div>
+          <div class="date">Postado há <%= (current_user && current_user.admin?) ? time_ago_in_words(job.created_at) + " - " + job.created_at.strftime('%d/%m/%Y') : time_ago_in_words(t(job.created_at))  %></div>
         </div>
 
           <div id="fb-root"></div>
