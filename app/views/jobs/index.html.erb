@@ -31,7 +31,7 @@
     <div class='blog_recent_posts_for_jobs_page'>
   	 <h1>Posts aleatórios</h1>
 	   <ul>
-  	 <% @feeds.shuffle!.first(5).each do |post| %>
+  	 <% @feeds.first(5).each do |post| %>
   	   <li><%= link_to truncate(post.title, :length => 30), post.url %></li>
   	   <li><%= truncate(post.summary, :length => 75) %> (<%= post.published.strftime('%d/%m/%Y') %>)</li>
   	 <% end %>

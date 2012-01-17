@@ -9,7 +9,7 @@ class JobsController < ApplicationController
   def index
     @specials = Job.specials
     @jobs = Job.recents_available.page(params[:page])
-    @feeds = load_feeds.entries
+    @feeds = load_feeds.entries.shuffle
     
     respond_with(@jobs)
   end
