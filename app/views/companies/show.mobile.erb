@@ -1,0 +1,7 @@
+<% title @company.name %>
+<% mobile_header @company.name %>
+<% mobile_header_button link_to "Home", home_path, "data-icon" => "home", "class" => "ui-btn-left" %>
+<% mobile_header_button link_to "Voltar", companies_path, "data-icon" => "back", "class" => "ui-btn-right", "data-theme" => "e" %>
+
+<h1><%= @company.name %></h1>
+<p><%= simple_format(@company.details) %></p>

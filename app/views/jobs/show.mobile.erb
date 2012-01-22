@@ -1,0 +1,13 @@
+<% title @job.title %>
+<% mobile_header @job.title %>
+<% mobile_header_button link_to "Home", home_path, "data-icon" => "home", "class" => "ui-btn-left" %>
+<% mobile_header_button link_to "Voltar", jobs_path, "data-icon" => "back", "class" => "ui-btn-right", "data-theme" => "e" %>
+
+
+<h2><%= @job.title %></h2>
+<h5>Publicado em <%= @job.published_at.strftime('%d/%m/%Y') %></h5>
+<p><%= simple_format(@job.content) %></p>
+<div data-role="collapsible" data-collapsed="false" data-theme="b">
+<h3><%= @job.company_name %></h3>
+<p><%= simple_format(@job.how_to_apply) %></p>
+</div>

@@ -1,0 +1,26 @@
+<% title "Agências Hello Work em #{@province.name} "%>
+<% mobile_header "Ag. Hello Work" %>
+
+<% mobile_header_button link_to "Home", home_path, "data-icon" => "home", "class" => "ui-btn-left" %>
+
+<h5><%= "Agências Hello Work #{@province.name} "%></h5>
+
+<ul data-role="listview" data-inset="true">
+<% @agencies.first(10).each do |agency| %>
+    <li>
+        <h3><%= agency.city %></h3>
+        <p><strong><%= agency.reception %></strong></p>
+        <p>Idiomas: <%= display_if_present agency.languages %></p>
+        <p>Endereço: <%= display_if_present(agency.address) %></p>
+        <p>Fone: <%= display_if_present(agency.phone) %></p>      
+  </li>
+<% end %>
+</ul>
+
+
+
+
+
+
+
+

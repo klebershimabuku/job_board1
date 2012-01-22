@@ -3,11 +3,25 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :reminder
   before_filter :load_pendings
+  before_filter :prepare_for_mobile
   
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "Acesso Negado."
     redirect_to root_url
+  end
+  
+  def prepare_for_mobile
+    session[:mobile_param] = params[:mobile] if params[:mobile]
+    request.format = :mobile if mobile_device?
+  end
+
+  def mobile_device?
+    if session[:mobile_param]
+      session[:mobile_param] == "1"
+    else
+      request.user_agent =~ /Mobile|webOS/
+    end
   end
 
   def set_locale
@@ -33,5 +47,7 @@ class ApplicationController < ActionController::Base
       @pending = Job.user_pending(current_user)
     end  	
   end
+    
+  helper_method :mobile_device?
 
 end

@@ -9,6 +9,14 @@
       <li><%= link_to "Ajuda", help_path %></li>
       <li><%= link_to(image_tag('rss10x10.png'),'http://feeds.feedburner.com/Shigotodoko', :target => '_blank', :title => 'Assine nosso Feed!') %>&nbsp;<%= link_to('RSS Feeds','http://feeds.feedburner.com/Shigotodoko', :target => '_blank', :title => 'Assine nosso Feed!') %></li>
 			<li><%= link_to(image_tag('facebook10x10.png'), 'http://www.facebook.com/shigotodoko', :target => '_blank', :title => 'Curta nossa fanpage no Facebook!') %>&nbsp;<%= link_to('Facebook','http://www.facebook.com/shigotodoko', :target => '_blank', :title => 'Curta nossa fanpage no Facebook!') %></li>
+			
+			<li>
+			    <% if mobile_device? %>
+			      <%= link_to "Versão WEB", :mobile => 0 %>
+		      <% else %>
+		        <%= link_to "Versão Mobile", :mobile => 1 %>
+		      <% end %>
+			</li>
     </ul>
   </nav>
 </footer>

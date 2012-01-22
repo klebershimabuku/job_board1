@@ -60,7 +60,7 @@ class AgenciesController < ApplicationController
 
     respond_to do |format|
       if @agency.update_attributes(params[:agency])
-        format.html { redirect_to(@agency, :notice => 'Agency was successfully updated.') }
+        format.html { redirect_to(agencies_path, :notice => 'Agency was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

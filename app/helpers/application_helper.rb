@@ -3,7 +3,15 @@ module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
+  
+  def mobile_header(header)
+    content_for(:mobile_header) { header }
+  end
 
+  def mobile_header_button(button_link)
+    content_for(:mobile_header_button) { button_link }
+  end
+  
   def description(page_description)
     content_for(:description) { page_description }
   end

@@ -1,0 +1,26 @@
+<% title "Empregos" %>
+<% mobile_header "Empregos" %>
+<% mobile_header_button link_to "Home", home_path, "data-icon" => "home", "class" => "ui-btn-left" %>
+
+<ul data-role="listview" data-inset="true" data-theme="b">
+    <% @specials.each do |job| %>
+    <li>
+        <%= link_to job_path(job) do %>
+        <h3><%= job.title %></h3>
+        <p><%= job.location %></p>
+        <p><strong>Anúncio Patrocinado.</strong></p>
+        <% end %>
+    </li>
+    <% end %>
+</ul>
+
+<ul data-role="listview" data-inset="true" data-theme="c">
+<% @jobs.each do |job| %>
+    <li>
+        <%= link_to job_path(job)  do %>
+        <h3><%=  job.title %></h3>
+        <p><%= job.location %></p>
+        <% end %>
+    </li>
+<% end %>
+</ul>

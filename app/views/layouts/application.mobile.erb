@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+	  <title><%= yield(:title) || "A sua referência de empregos no Japão" %>&nbsp;| ShigotoDOKO</title>
+    <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+  <div data-role="page">
+  
+      <div data-role="header" data-theme="b">
+          <h1><%= yield(:mobile_header) %></h1>
+          <%= yield(:mobile_header_button) %>    
+          
+          <div data-role="navbar" data-theme="b">
+              <ul>
+                  <li><%= link_to 'Empregos', jobs_path %></li>
+                  <li><%= link_to 'Empresas', companies_path %></li>
+                  <li><%= link_to 'Hello Work', agencies_path %></li>
+                  <li><%= link_to '+ Info', pages_info_path %></li>
+               </ul>
+          </div>      
+                
+      </div>
+      
+      <div data-role="content">
+          <%= yield %>
+      </div>
+      
+      
+      <div data-role="footer" data-theme="b">
+          <h4>Dúvidas ou Sugestões?</h4>
+          <p align="center">contato@shigotodoko.com</p>
+          <p align="center"><%= link_to "Modo PC", :mobile => 0 %></p>
+      </div>
+      
+  </div>
+  </body>
+</html>

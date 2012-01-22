@@ -1,0 +1,13 @@
+<% title "Agências Hello Work" %>
+<% mobile_header "Hello Work" %>
+
+<% mobile_header_button link_to "Home", home_path, "data-icon" => "home", "class" => "ui-btn-left" %>
+
+
+
+    <ul data-role="listview" data-filter="true" data-filter-placeholder="Procurar província..." data-filter-theme="b">
+    <% @provinces.each do |province| %>
+      <li><%=  link_to province.name, agency_path(province) %></li>
+    <% end %>
+    </ul>
+

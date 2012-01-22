@@ -42,7 +42,11 @@
 		</tr>
 	<% @agencies.each do |agency| %>
 		<tr>
+		  <% if current_user && current_user.admin? %>
+  			<td><%= link_to agency.city, edit_agency_path(agency) %></td>
+		  <% else %>
 			<td><%= agency.city %></td>
+			<% end %>
 			<td><%= agency.reception %></td>
 			<td><%= display_if_present(agency.address) %></td>
 			<td><%= display_if_present(agency.phone) %></td>
