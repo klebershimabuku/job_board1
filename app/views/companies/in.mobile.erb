@@ -29,14 +29,14 @@
               
             <% else %>
          
-             <li data-role="list-divider"><%= first_letter_for_divider.capitalize! %></li>
+             <li data-role="list-divider"><%= first_letter_for_divider.upcase %></li>
              <% @current_letter = first_letter_for_divider %>
                
             <% end %>
         
         <% else %>
         
-            <li data-role="list-divider"><%= first_letter_for_divider.capitalize! %></li>
+            <li data-role="list-divider"><%= first_letter_for_divider.upcase %></li>
             <li><%=  link_to company.name, company_path(company) %></li>
             <% @current_letter = first_letter_for_divider %>
         
