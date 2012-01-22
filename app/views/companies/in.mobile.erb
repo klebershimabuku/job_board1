@@ -16,13 +16,13 @@
       #
       
       
-      first_letter_for_divider = company.name[0].downcase
+      first_letter_for_divider = company.name[0]
       %>
 
        
        <% if defined? @current_letter  %>
          
-            <% if @current_letter.downcase == company.name[0].downcase %>
+            <% if @current_letter == company.name[0] %>
 
               <li><%=  link_to company.name, company_path(company) %></li>
               
