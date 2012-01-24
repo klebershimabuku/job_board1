@@ -8,7 +8,10 @@
 
 <% if current_user.admin? %>
   <%= render 'layouts/reminder' %>
+  <%= render 'admin/dashboard' %>
 <% end %>
+
+<br />
 
 
 	<% if can? :list, Resume %>
@@ -54,8 +57,5 @@
 	<% end %>
 	</table>
 
-<% else %>
-
-	<%= render 'admin/dashboard' %>
 	
 <% end %>
