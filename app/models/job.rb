@@ -212,7 +212,11 @@ class Job < ActiveRecord::Base
 		
 		elsif option == 'day'
 			days_passed = Date.today - published_at.to_date
-			(visits / days_passed.to_f).to_i
+			if days_passed == 0
+			  "Média não disponível."
+		  else
+			   (visits / days_passed.to_f).to_i
+			end
 		end
 	end
 	

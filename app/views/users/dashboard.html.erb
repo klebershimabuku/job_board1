@@ -9,10 +9,10 @@
 <% if current_user.admin? %>
   <%= render 'layouts/reminder' %>
   <%= render 'admin/dashboard' %>
+	
 <% end %>
 
 <br />
-
 
 	<% if can? :list, Resume %>
 	<p><%= link_to 'Banco de Currículos', list_resumes_path, :class => 'button' %></p>
