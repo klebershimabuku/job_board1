@@ -10,11 +10,13 @@
   margin:0 auto;
   position: relative;
   z-index: 90;
+  background-color: #FFF;
 }
 
 body {
-   margin-top: 5px;
-   background-image: url('/images/pattern_037.gif');
+  margin-top: 5px;
+  background-image: url('/images/pattern_037.gif');
+  background-color: #FFF;
 }
 
 header {
@@ -29,10 +31,11 @@ header img {
 }
 
 section {
-  clear: both;
   font-size: 120%;
   padding: 20px;
-  background: #fff;
+}
+section h1 {
+  font-size: 200%;
 }
 
 #reminder {
@@ -47,9 +50,6 @@ section {
 }
 #reminder p a {
   color: blue;
-}
-section h1 {
-  font-size: 200%;
 }
 
 /* Shortcuts */
@@ -101,7 +101,7 @@ a:visited {
 .google_search {
 	background-color: #FFF;
 	margin-right: 20px;
-	top: 40px;
+	top: 60px;
 	left: 600px;
 	position: absolute;
 	clear: both;
@@ -182,7 +182,7 @@ a:visited {
 #navigator {
   padding-top: 10px;
   background-color: #fff;
-  margin-bottom: -18px;
+  margin-bottom: -35px;		
 }
 #navigator nav ul li {
   list-style: none;
@@ -191,6 +191,7 @@ a:visited {
   padding: 2px 2px 0px 2px;
 }
 #navigator nav ul li a {
+	font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
   text-decoration: none;
@@ -315,43 +316,16 @@ footer nav#footer ul li {
   padding: 10px;
 }
 
-.welcome_message {
-    width: 970px;
-    text-align: center;
-    background-color: #369;
-    padding: 20px;
-    height: 80px;
-    margin-top: -18px;
-    position: relative;
-    left: -35px;
+.welcome_message_for_ie {
+	margin-top: -30px;
+  width: 100%;
+  text-align: center;
+  background-color: #369;
 }
-.welcome_message .triangle-l {
- border-color: transparent #036 transparent transparent;
- border-style:solid;
- border-width:15px;
- height:0px;
- width:0px;
- left: -35px;
- top: -3px;
- position: relative;
- z-index: -1;
+.welcome_message_for_ie h1, h3 {
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
 }
-
-.welcome_message .triangle-r {
- border-color: transparent transparent transparent #036;
- border-style:solid;
- border-width:15px;
- height:0px;
- width:0px;
- left: 975px;
- top: -32px;
- position: relative;
- z-index: -1;
-}
-
-
-.welcome_message h1 { color: #fff; text-shadow: 1px 1px 1px #333; }
-.welcome_message h3 { color: #fff; text-shadow: 1px 1px 1px #333; }
 
 .align_to_center { text-align: center; }
 
@@ -413,8 +387,8 @@ div.positions table {
     font-size: 13px;
     color: #666;
   }
-  div.positions tr td span.special_company_name {
-    font-size: 13px;
+  div.positions span.special_company_name {
+    font-size: 15px;
     color: #FFF;
 	 	text-shadow: 1px 1px 1px #000;
   }
@@ -471,7 +445,6 @@ div.positions table {
 
 
 .ad_full_main_text_links_468_15 {
-	background-color: #FFF;
 	padding-top: 10px;
 	padding-left: 20px;
 	text-align: left;
@@ -503,13 +476,14 @@ div.positions table {
    }
    div.positions div.highlight_even div.special_title a { color: #FFF; }
    div.positions div.highlight_even div.company_name { color: #CCC; }
+   div.positions div.highlight_even div.location_date div.location { color: #CCC; }
    
    div.positions div.highlight_odd {
    	background-color: #369;
    }
    div.positions div.highlight_odd div.special_title a { color: #FFF; }
-   div.positions div.highlight_odd div.company_name { color: #CCC; }
-   div.positions div.highlight_odd div.location_date div.location { color: #CCC; }
+   div.positions div.highlight_odd div.company_name { color: #CCC; font-size: 16px; }
+   div.positions div.highlight_odd div.location_date div.location { color: #CCC; font-size: 16px; }
   
 
 ul.locked_job_item {
@@ -656,8 +630,8 @@ a.yellow { color: #FFF; text-decoration: none; }
 }
 	#show_job .left-column { width: 50%; }
 	#show_job .right-column { width: 40%; }
-	#show_job .left-column p.share { font-size: 14px; font-weight: bold; }
 	
+	#show_job .left-column p.share { font-size: 14px; font-weight: bold; }
 
 .show_jobs_location_and_title header div.location {
   font-size: 17px;
@@ -749,6 +723,18 @@ background-color: #333;
         margin-left: 3px;
         font-size: 13px;
     }
+
+#download_chrome_message { 
+	display: none; 
+	background-color: #fbf9ea;
+	font-weight: bold;
+	color: #000;
+	padding: 5px;
+	border-color: #CCC;
+}
+#download_chrome_message a { 
+	color: red;
+}
     
 .social_network .facebook {
   margin-top: 35px;
@@ -978,29 +964,17 @@ table.dashboard tr th {
 #dashboard-presents ul li {
 	list-style: none;
 }
-.resume_presents_button a#link {
-	background-image: -webkit-gradient(
-	    linear,
-	    left bottom,
-	    left top,
-	    color-stop(0.29, rgb(20,143,16)),
-	    color-stop(0.73, rgb(83,171,65))
-	);
-	background-image: -moz-linear-gradient(
-	    center bottom,
-	    rgb(20,143,16) 29%,
-	    rgb(83,171,65) 73%
-	);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#53AB41', endColorstr='#148F10'); /* for IE */	
-	cursor: pointer;
-	color: #FFF;
-	margin:0 auto;
-	padding: 15px;
-	display: block;
-	font-weight: bolder;
-	border:1px solid #336600;
-	font-size: 20px;
-	width: 50%;
+.resume_presents_button_for_ie a#link {
+  background-color: #93c162;
+  cursor: pointer;
+  color: #FFF;
+  margin:0 auto;
+  padding: 15px;
+  display: block;
+  font-weight: bolder;
+  border:1px solid #336600;
+  font-size: 20px;
+  swidth: 50%;
 }
 
 /*

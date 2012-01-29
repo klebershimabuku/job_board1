@@ -2,12 +2,23 @@
 <% description "Encontre empregos no Japão, empreiteiras, agências da hello work, links úteis, documentação necessária para viajar e mais."%>
 <% keywords "shigotodoko, empregos, empreiteiras, hello work, japao, empregos no japao, empreiteiras no japao, empregos no japao em #{Time.now.strftime('%Y')}" %>
 
-<div class="welcome_message">
+<% if browser_is?('ie') %>
+  <div class="welcome_message_for_ie">
+  <h1>Bem vindo ao ShigotoDOKO</h1>
+  <h3>O maior e mais popular sistema de empregos feito para a comunidade latino-americana</h3>
+<% else %>
+  <div class="welcome_message">
   <h1>Bem vindo ao ShigotoDOKO</h1>
   <h3>O maior e mais popular sistema de empregos feito para a comunidade latino-americana</h3>
   <div class="triangle-l"></div>
   <div class="triangle-r"></div>
+<% end %>
+
 </div>
+
+<% if browser_is?('ie') %>
+  <p id="download_chrome_message" class='center'><%= image_tag('icon-alert.png')%> Informamos que este e a grande maioria dos sites é melhor visualizado com o <%= link_to 'Google Chrome', 'https://www.google.com/chrome?brand=CHMI&hl=pt-BR', :target => '_blank' %>.</p>
+<% end %>
 
 <div id="presentation">
 	<div id="resumes-presents" class="center right">
@@ -50,7 +61,12 @@
 		</div>
 		
 
+    <% if browser_is?('ie') %>
+  	<div class="resume_presents_button_for_ie">
+    <% else %>
 		<div class="resume_presents_button">
+		<% end %>
+
 			<p class='center'>
 				<% if user_signed_in? %>
 					<%= link_to 'Criar meu currículo' , new_resume_path, :class => 'round', :id => 'link' %>
@@ -59,6 +75,7 @@
 				<% end %>
 			</p>
 		</div>
+		
 	</div>	
 	
 			<div class='left home_sky_scrapper'>

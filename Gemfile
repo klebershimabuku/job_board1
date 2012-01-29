@@ -19,6 +19,7 @@ gem 'RedCloth'
 gem 'kaminari'
 gem 'meta_search'
 gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'browser_detect'
 
 group :development do
   gem 'rspec-rails', '2.3.0'
