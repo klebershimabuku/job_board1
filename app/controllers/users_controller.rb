@@ -58,6 +58,5 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@account = Account.find_by_user_id(params[:id])
   end
-
-
+  
 end

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :reminder
   before_filter :load_pendings
   before_filter :prepare_for_mobile
+  helper_method :mobile_device?, :browser_is?
   
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -82,7 +83,14 @@ class ApplicationController < ActionController::Base
       @pending = Job.user_pending(current_user)
     end  	
   end
+  
+  def store_location
+    session[:user_return_to] = request.url unless params[:controller] == 'devise/sessions'
+  end
+  
+  def after_sign_up_path_for(resource)
+    stored_location_for(resource) || root_path
+  end
     
-  helper_method :mobile_device?, :browser_is?
 
 end
