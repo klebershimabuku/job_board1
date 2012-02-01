@@ -88,6 +88,37 @@
   	      <% end %>
   	  	</div>
   	  	
+  	  	<br />
+  	  	
+  	  	<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+        <script>
+        new TWTR.Widget({
+          version: 2,
+          type: 'profile',
+          rpp: 10,
+          interval: 30000,
+          width: 250,
+          height: 300,
+          theme: {
+            shell: {
+              background: '#336699',
+              color: '#fafaf7'
+            },
+            tweets: {
+              background: '#ffffff',
+              color: '#050505',
+              links: '#336699'
+            }
+          },
+          features: {
+            scrollbar: true,
+            loop: true,
+            live: false,
+            behavior: 'default'
+          }
+        }).render().setUser('shigotodoko').start();
+        </script>
+  	  	
 </div>
 
 <div class="clear"></div>
