@@ -136,6 +136,10 @@ a:visited {
 
 .twitter-follow-button {
 	text-align: right;
+	width: 300px;
+	background-color: #EEE;
+	padding: 5px;
+	border: 1px solid #CCC;
 }
 
 /* Home - Blog links */
