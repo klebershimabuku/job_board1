@@ -1,7 +1,6 @@
 <% 
   @count += 1 if @count 
   @show_in = [15]    
-  @show_text_links = [6]
 %>
 
 <% if @show_in.include?(@count) %>
@@ -22,28 +21,6 @@
     </td>
   </tr>
 <% end %>
-
-<% if @show_text_links.include?(@count) %>
-  <tr><td></td></tr>
-  <tr>
-    <td>
-	   <script type='text/javascript'><!--
-	    google_ad_client = 'pub-8162200517166382';
-	    /* barra de links, abaixo do menu ao topo */
-	    google_ad_slot = '3757776481';
-	    google_ad_width = 468;
-	    google_ad_height = 15;
-	    //-->
-	    </script>
-
-	    <div class='ad_full_main_text_links_468_15'>
-	      <script type='text/javascript' src='http://pagead2.googlesyndication.com/pagead/show_ads.js'></script>      			
-	    </div>
-
-      </td>
-    </tr>
-<% end %>
-
 
 <tr><td><hr /></td></tr>    
       <tr>
