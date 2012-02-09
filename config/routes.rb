@@ -22,6 +22,7 @@ JobBoard::Application.routes.draw do
   match '/feed', :to => 'jobs#feed', :format => :atom  
  
   match 'help/how-to-start-ad', :to => 'pages#how_to_start_ad', :as => 'how_to_start_ad'
+  match 'help/por-que-anunciar-no-shigotodoko', :to => 'pages#why_to_announce', :as => 'why_to_announce'
   match '/business-request', :to => 'pages#business_request', :as => 'business_request'
   match '/dashboard', :to => 'users#dashboard', :as => 'dashboard'
 	match '/dashboard/comments/manager', :to => 'comments#manager', :as => 'comments_manager'

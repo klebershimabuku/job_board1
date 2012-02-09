@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   
   def home
     @feeds = load_feeds.entries.first(5)
+    @active_companies = Job.active_companies
   end
 
   def contact
@@ -19,7 +20,8 @@ class PagesController < ApplicationController
   	@prefectures = Prefecture.all(:include => :province)
   end
   
-  def how_to_start_ad; end
+  def how_to_start_ad
+  end
   
   def business_request
   	if current_user.nil?
@@ -43,5 +45,9 @@ class PagesController < ApplicationController
 	end
 	
 	def busca; end
+	
+	def why_to_announce
+	  @active_companies = Job.active_companies.map &:company_name
+  end
 	
 end

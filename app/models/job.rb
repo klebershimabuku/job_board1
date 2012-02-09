@@ -223,5 +223,10 @@ class Job < ActiveRecord::Base
 	def published?
 	  self.available?
   end
+  
+  def self.active_companies
+    companies = select(:company_name).where(:available => true, :locked => false).group(:company_name)
+    
+  end
 	
 end
