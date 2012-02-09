@@ -1,5 +1,0 @@
---readme          ./README.md
---markup          markdown
---default-return  ""
---title           "BrowserDetect Documentation"
---template        default 
