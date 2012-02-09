@@ -1,0 +1,5 @@
+*.gemspec
+.svn
+.yardoc/
+.bundle/
+.rvmrc

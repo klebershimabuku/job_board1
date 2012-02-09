@@ -1,0 +1,29 @@
+=== 0.0.5 2011-10-6
+
+* 2 Bugs fixed:
+  * Fixed Rails 3 Railtie support (thanks to eric1234)
+  * Fix detection of Safari
+  
+=== 0.0.4 2010-11-07
+
+* 1 major enhancement:
+  * Initial support for Rails 3 via Railtie
+  
+=== 0.0.3 2010-11-03
+
+* 2 major enhancements:
+  * Moved documentation from RDoc to Yard
+  * Changed Module name to BrowserDetect
+
+=== 0.0.2 2010-11-01
+
+* 4 major enhancements:
+  * fixed webkit detection and added webkit version querying 
+  * merge changes with tmlee
+  * added ios name and changed browser_name to return 'unknown' if nothing matches 
+  * corrected issues with test mocking, added tests for robots 
+
+=== 0.0.1 2010-10-21
+
+* 1 major enhancement:
+  * Added chrome, iphone, ipad to list of browsers and added support for these browsers to the browser_is? method

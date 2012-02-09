@@ -134,6 +134,14 @@ a:visited {
 	text-decoration: none;
 }
 
+/*
+ * HOME SKY SCRAPPER
+ * 
+ */
+.home_sky_scrapper { margin-top: 150px; }
+
+
+
 .twitter-follow-button {
 	text-align: right;
 	width: 300px;
@@ -141,6 +149,20 @@ a:visited {
 	padding: 5px;
 	border: 1px solid #CCC;
 }
+
+/* Home - Active Companies */
+.active_companies { clear: both; padding-top: 30px; margin:0 auto; text-align: center; width: 100%; }
+.active_companies h1 { font-size: 25px; }
+.active_companies h2 { font-size: 20px; }
+.active_companies p { font-size: 17px; }
+.active_companies span.company_name {
+	background-color: #369;
+	color: white;
+	padding: 5px;
+	margin-top: 10px; 
+}
+
+.home_728x90 { padding: 50px 0px 50px 0px; }
 
 /* Home - Blog links */
 .blog_recent_posts {
@@ -849,16 +871,6 @@ input[type=text], input[type=password], input.text, input.title, textarea, selec
   text-shadow: 1px 1px 1px #fff;
 }
 
-/*****
- * 
- * HOW TO START AD
- * 
-*****/
-#how_to_start_ad { margin-top: 40px; }
-#how_to_start_ad h1 { font-size: 32px; }
-#how_to_start_ad h2 { font-size: 24px; background-color: #369; color: #fff; padding: 5px; text-shadow: 1px 1px 1px #000; }
-#how_to_start_ad h3 { font-size: 32px; background-color: green; color: #fff; padding: 5px;}
-#how_to_start_ad p { font-size: 18px; }
 
 /*****
  * 
@@ -960,6 +972,39 @@ table.dashboard tr th {
 #presentation h3 { font-size: 18px; }
 #presentation p {	font-size: 15px; }
 
+
+/*
+* WHY TO ANNOUNCE page
+*
+*/
+#why_to_announce { margin: 50px; }
+#why_to_announce h1 { font-size: 30px; text-align: center; }
+#why_to_announce h2 { font-size: 20px; }
+#why_to_announce p { font-size: 17px; }
+#why_to_announce p.companies { color: #369; font-weight: bold; }
+/*****
+ * 
+ * HOW TO START AD
+ * 
+*****/
+#how_to_start_ad { margin-top: 100px; }
+
+.reason { margin: 10px 0px 150px 0px;}
+.reason span.company_name { 
+	background-color: #369;
+	color: #FFF;
+	padding: 5px;
+	font-size: 15px; 
+}
+
+.reason span.company_name h1 { font-size: 40px; }
+.reason span.company_name h2 { font-size: 50px; }
+#how_to_start_ad h1 { font-size: 32px; }
+#how_to_start_ad h2 { font-size: 24px; background-color: #369; color: #fff; padding: 5px; text-shadow: 1px 1px 1px #000; }
+#how_to_start_ad h3 { font-size: 32px; background-color: green; color: #fff; padding: 5px;}
+#how_to_start_ad p { font-size: 18px; }
+
+
 /* 
  *  DASHBOARD PRESENTS
  * 
@@ -976,6 +1021,7 @@ table.dashboard tr th {
 	color: #FFF;
 	display: inline-table;
 }
+#dashboard-presents h2 { font-size: 20px; background-color: #333; }
 #dashboard-presents-body {
 	margin-top: 30px;
 }
@@ -1012,10 +1058,12 @@ table.dashboard tr th {
  * 
  */
 #resumes-presents { margin-top: 40px; }
-#resumes-presents h1 { 	background: url(/images/icon_resume.gif) no-repeat 200px center;  }
-#resumes-presents table { width: 80%; text-align: center; margin: 0 auto; margin-bottom: 20px; }
+#resumes-presents h4 { background-color: #369; color: #FFF; padding: 5px; }
+#resumes-presents h3 { color: #333; }
 #resumes-presents .best_reason { font-size: 25px; padding: 30px; }
-#resumes-presents .number { font-size: 40px; font-style: italic; }
+#resumes-presents ul { list-style: none;  }
+#resumes-presents ul li h1 { font-size: 20px; font-style:bold; }
+#resumes-presents ul li p { font-size: 17px; }
 #resumes-presents .box { background-color: #E5ECF9; padding: 5px; width: 90%; margin: 0 auto; text-shadow: 3px 3px 3px 3px; #333;}
 /*
  * PROVINCES PAGE
@@ -1369,11 +1417,6 @@ input, textarea, select {
   border-radius:         5px;
 } 
 
-/*
- * HOME SKY SCRAPPER
- * 
- */
-.home_sky_scrapper { margin-top: 50px; }
 
 /*
  * TWITTER FOLLOW BUTTON

@@ -1,0 +1,113 @@
+==Description
+
+Url Shortener is a Ruby library / gem and API wrapper for bit.ly to shorten/expand the urls and retrieve other information about them.
+
+To use the url_shortener gem you need a bit.ly login and Api key.
+
+* If you are registered at bit.ly then you already have it.
+* If you are not registered then you can get it easily by registering at bit.ly as they give an api key to every registered user
+
+==INSTALL
+
+	gem sources -a http://gemcutter.org
+
+	sudo gem install url_shortener
+
+
+==USAGE
+
+===Quick Start
+
+* Start an irb session
+
+	require 'rubygems'
+	
+	require 'url_shortener'
+
+===To Shorten Urls
+
+	authorize = UrlShortener::Authorize.new 'your_bitly_login', 'your_bitly_api_key'
+
+	For example; authorize = UrlShortener::Authorize.new 'bitlyapidemo', 'R_0da49e0a9118ff35f52f629d2d71bf07'
+
+	client = UrlShortener::Client.new authorize
+
+	shorten = client.shorten('http://www.yahoo.com') # => UrlShortener::Response::Shorten object
+
+	shorten.result # => returns a hash of all data returned from bitly
+
+	shorten.urls # => Only returns the short urls
+	
+	look for more convenience methods in the UrlShortener::Response::Shorten class
+  
+
+	OR 
+
+	shorten = client.shorten('http://www.yahoo.com', 'http://www.google.com', 'http://github.com')
+
+	shorten.result
+
+	shorten.urls
+
+===To Expand Urls
+
+	expand = client.expand(:shortUrl => 'http://bit.ly/1RmnUT') # => UrlShortener::Response::Expand object
+	
+	OR
+
+	expand = client.expand(:hash => '1RmnUT')
+	expand.result # => returns a hash of all data returned from bitly
+	expand.url # => returns a long url string
+
+===To get stats
+
+	stats = client.stats(:shortUrl => 'http://bit.ly/1RmnUT')  # => UrlShortener::Response object
+	
+	OR
+
+	stats = client.stats(:hash => '1RmnUT') # => UrlShortener::Response object
+	stats.result # => returns a hash of all data returned from bitly
+	#TODO: ADD convenience methods for stats
+
+===To get url info
+
+	info = client.info(:shortUrl => 'http://bit.ly/1RmnUT') # => UrlShortener::Response object
+	
+	OR
+
+	info = client.info(:hash => '1RmnUT') # => UrlShortener::Response object
+	info.result # => returns a hash of all data returned from bitly
+	#TODO: ADD convenience methods for info api call
+
+==Docs
+
+http://rdoc.info/projects/nas/url_shortener
+
+==Tests
+
+Tests are written using RSpec and Cucumber. Integration tests use bit.ly demo login and api key credentials.
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2009 Nasir Jamal
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

@@ -8,7 +8,7 @@
   <h3>O maior e mais popular sistema de empregos feito para a comunidade latino-americana</h3>
 <% else %>
   <div class="welcome_message">
-  <h1>Bem vindo ao ShigotoDOKO</h1>
+  <h1>Bem vindo ao ShigotoDoko</h1>
   <h3>O maior e mais popular sistema de empregos feito para a comunidade latino-americana</h3>
   <div class="triangle-l"></div>
   <div class="triangle-r"></div>
@@ -20,46 +20,64 @@
   <p id="download_chrome_message" class='center'><%= image_tag('icon-alert.png')%> Informamos que este e a grande maioria dos sites é melhor visualizado com o <%= link_to 'Google Chrome', 'https://www.google.com/chrome?brand=CHMI&hl=pt-BR', :target => '_blank' %>.</p>
 <% end %>
 
+<div class="active_companies">
+  <h1>VOCÊ SABIA QUE..</h1>
+  <h2>Entre mais de 500 Empresas que anunciam empregos no Japào</h2>
+  <p>
+  <% @active_companies.each do |company| %>
+    <span class='company_name'><%= company.company_name %></span>
+  <% end %>
+  </p>
+  <p>são as que possuem maiores chances de obter sucesso? - <%= link_to 'Descubra por quê', why_to_announce_path(:src => 'home') %></p>
+</div>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8162200517166382";
+/* 728x90 - Homepage */
+google_ad_slot = "0358942215";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+
+<div class='center home_728x90'>
+  <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div>
+
 <div id="presentation">
-	<div id="resumes-presents" class="center right">
-		<h1>Currículos online</h1>
-		<div class='box round'>
-			<h2>Essencial para quem busca novas oportunidades de trabalho.</h2>
-		</div>		
-		<br />
-		<h3>Confira abaixo as 5 maiores vantagens em começar agora:</h3>
-		<div class='reasons'>
-			<table>
-				<tr>
-					<td class='number'>1</td>
-					<td><strong>Rápido e prático</strong><br /> em menos de 3 minutos seu currículo está pronto.</td>				
-				</tr>
-				<tr>
-					<td class='number'>2</td>
-					<td><strong>Acessibilidade</strong><br />a qualquer hora do dia ou da noite ele estará disponível.</td>
-				</tr>
-				<tr>
-					<td class='number'>3</td>
-					<td><strong>Flexibilidade</strong><br /> de qualquer PC ou celular com internet, você pode acessar e modificar seus dados.</td>
-				</tr>
-				<tr>
-					<td class='number'>4</td>
-					<td><strong>Segurança</strong><br /> apenas empresas parceiras poderão ter acesso aos currículos.</td>
-				</tr>
-				<tr>
-					<td class='number'>5</td>
-					<td><strong>Visibilidade</strong><br />seu currículo publicado no mais popular site de empregos do Japão.</td>
-				</tr>
-			</table>
-			<p class='best_reason'>Ainda não se convenceu? <br />então aqui vai o sexto motivo e não menos importante :)</p>
-			<table>
-				<tr>
-					<td class='number'>6</td>
-					<td><strong>Custo</strong><br /> são 5 os principais motivos e o 6º vem de brinde pois é totalmente de graça!</td>
-				</tr>
-			</table>
-		</div>
-		
+  <div id="resumes-presents" class='center right'>
+    <h1>ShigotoDoko Currículos</h1>
+    <h4>Essencial para quem busca novas oportunidades de trabalho.</h4>
+    <h3>Confira abaixo as 5 maiores vantagens em começar agora:</h3>
+    <ul>
+      <li>
+        <h1>1. Rápido e prático</h1>
+        <p>em menos de 3 minutos seu currículo está pronto.</p>
+      </li>
+      <li>
+        <h1>2. Acessibilidade</h1>
+        <p>a qualquer hora do dia ou da noite ele estará disponível.</p>
+      </li>
+      <li>
+         <h1>3. Flexibilidade</h1>
+         <p>de qualquer PC ou celular conectado à internet.</p>
+      </li>
+      <li>
+         <h1>4. Segurança</h1>
+         <p>apenas empresas parceiras poderão ter acesso aos currículos.</p>
+      </li>
+      <li>
+         <h1>5. Visibilidade</h1>
+         <p>seu currículo publicado no mais popular site de empregos do Japão.</p>
+      </li>
+    </ul>
+    <p class='best_reason'>Ainda não se convenceu? <br />então aqui vai o sexto motivo e não menos importante :)</p>
+    <ul>
+      <li>
+        <h1>6. Custo</h1>
+        <p>são 5 os principais motivos e o 6º vem de brinde pois é totalmente de graça!</p>
+      </li>
+    </ul>
 
     <% if browser_is?('ie') %>
   	<div class="resume_presents_button_for_ie">
@@ -75,47 +93,38 @@
 				<% end %>
 			</p>
 		</div>
-		
-	</div>	
-	
-			<div class='left home_sky_scrapper'>
 
-				<script type="text/javascript"><!--
-				google_ad_client = "ca-pub-8162200517166382";
-				/* home, arranha céu largo, 17/04/11 */
-				google_ad_slot = "5291946908";
-				google_ad_width = 160;
-				google_ad_height = 600;
-				//-->
-				</script>
-				<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-      	
-		    
-			</div>
-
-	<div class='clear'></div>
-	
-	
-	
-  <div class='blog_recent_posts'>
-	 <h1>Posts recentes</h1>
-	 <h3><%= link_to 'Visite nosso Blog', 'http://blog.shigotodoko.com/', :target => '_blank' %></h3>
-	 <ul>
-	 <% @feeds.each do |post| %>
-	   <li><%= link_to post.title, post.url, :target => '_blank' %> Postado por <cite><%= post.author %></cite> em <%= post.published.strftime('%d/%m/%Y') %></li>
-	 <% end %>
-	 </ul>
-	
   </div>
-	
-</div>
+  <!-- /end resumes -->
+  
+	<div class='left home_sky_scrapper'>
+    <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-8162200517166382";
+      /* home, arranha céu largo, 17/04/11 */
+      google_ad_slot = "5291946908";
+      google_ad_width = 160;
+      google_ad_height = 600;
+      //-->
+    </script>
+    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </div>
+</div>	
 
-<div id="business_done" style="margin-top: 100px;">
+<div class='clear'></div>
+	
+<div class='blog_recent_posts'>
+  <h1>Posts recentes</h1>
+  <h3><%= link_to 'Visite nosso Blog', 'http://blog.shigotodoko.com/', :target => '_blank' %></h3>
+  <ul>
+  <% @feeds.each do |post| %>
+    <li><%= link_to post.title, post.url, :target => '_blank' %> Postado por <cite><%= post.author %></cite> em <%= post.published.strftime('%d/%m/%Y') %></li>
+   <% end %>
+  </ul>
 </div>
 
 <div id="partners">
-    <h2>Parceiro:</h2>
-    <ul>
-      <li><%= link_to image_tag('logo-batatajp.gif'), 'http://batata.jp' , :target => '_blank' %></li>
-    </ul>
+  <h2>Parceiro:</h2>
+  <ul>
+    <li><%= link_to image_tag('logo-batatajp.gif'), 'http://batata.jp' , :target => '_blank' %></li>
+  </ul>
 </div>
