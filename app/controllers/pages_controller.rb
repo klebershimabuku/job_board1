@@ -38,8 +38,7 @@ class PagesController < ApplicationController
 			  redirect_to business_request_path
 			else
 				User.request_business(@user)
-				flash[:notice] = "Solicitação enviada com sucesso!" # notify successful send
-				redirect_to home_path # or wherever you wanna go
+				redirect_to business_request_success_path
 			end
 		end
 	end
