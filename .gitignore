@@ -15,3 +15,4 @@ doc/app
 *~
 .DS_Store
 .idea/workspace.xml
+vendor/bundle
