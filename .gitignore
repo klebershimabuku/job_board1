@@ -1,9 +1,6 @@
 config/*.yml
 public/.htaccess
 config/initializers/setup_mail.rb
-config/environments/production.rb
-config/environments/development.rb
-config/environments/test.rb
 config/deploy.rb
 Capfile
 .bundle
