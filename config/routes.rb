@@ -39,7 +39,9 @@ JobBoard::Application.routes.draw do
     get :expired, :on => :member
   end
 
-  devise_for :users, :controllers => { :registrations => "registrations" } do
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  devise_scope :users do
     get '/login', :to => 'devise/sessions#new'
     get '/register', :to => 'devise/registrations#new'
     get '/logout', :to => 'devise/sessions#destroy'

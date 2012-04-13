@@ -1,34 +1,28 @@
 require 'spec_helper'
+
 describe User do
   
   before(:each) do
-    @attr = { :email => "user@example.com", :password => "EnCrYpTeDP4$$w0rd", :admin => 0, :announcer => 0 }
+    let(:user) { FactoryGirl.create(:user) }
   end
 
   it "should reject duplicate email addresses" do
-    # Put a user with given email address into the database.
-    User.create!(@attr)
-    user_with_duplicate_email = User.new(@attr)
+    user_with_duplicate_email = FactoryGirl.create(:user) 
     user_with_duplicate_email.should_not be_valid
   end
   
-  it "should create a new instance given valid attributes" do
-    User.create!(@attr)
-  end
-  
   it "should change the user type from normal user type to announcer type" do
-  	@user = User.create!(@attr)
-  	@user.announcer.should be_false
-  	@user.change_level
-  	@user.announcer.should be_true
+  	user.announcer.should be_false
+  	user.change_level
+  	user.announcer.should be_true
  	end
 
 	it "should change the user type from announcer to normal" do
-		@user = User.create!(@attr)
-		@user.announcer = true
-		@user.change_level
-		@user.announcer.should_not be_true
+		user.announcer = true
+		user.change_level
+		user.announcer.should_not be_true
 	end
+
   describe "password validations" do
 
     it "should require a password" do

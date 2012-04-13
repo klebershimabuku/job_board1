@@ -8,7 +8,7 @@ class CreateResumes < ActiveRecord::Migration
       t.string :marital_status
       t.string :address
       t.string :city
-      t.integer :state_id
+      t.integer :province_id
       t.string :phone_number
       t.boolean :working
       t.boolean :possible_moving
